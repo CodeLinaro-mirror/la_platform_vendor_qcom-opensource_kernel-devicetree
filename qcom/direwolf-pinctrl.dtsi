@@ -322,6 +322,89 @@
 		};
 	};
 
+	qupv3_se3_4uart_pins: qupv3_se3_4uart_pins {
+		qupv3_se3_default_cts:
+				qupv3_se3_default_cts {
+			mux {
+				pins = "gpio137";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio137";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		qupv3_se3_default_rtsrx:
+			qupv3_se3_default_rtsrx {
+			mux {
+				pins = "gpio138", "gpio136";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio138", "gpio136";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se3_default_tx:
+			qupv3_se3_default_tx {
+			mux {
+				pins = "gpio135";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio135";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+		qupv3_se3_ctsrx: qupv3_se3_ctsrx {
+			mux {
+				pins = "gpio137", "gpio136";
+				function = "qup2";
+			};
+
+			config {
+				pins = "gpio137", "gpio136";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		qupv3_se3_rts: qupv3_se3_rts {
+			mux {
+				pins = "gpio138";
+				function = "qup2";
+			};
+
+			config {
+				pins = "gpio138";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se3_tx: qupv3_se3_tx {
+			mux {
+				pins = "gpio135";
+				function = "qup2";
+			};
+
+			config {
+				pins = "gpio135";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+	};
+
 	qupv3_se4_i2c_pins: qupv3_se4_i2c_pins {
 		qupv3_se4_i2c_active: qupv3_se4_i2c_active {
 			mux {
@@ -738,6 +821,34 @@
 						"gpio24", "gpio25";
 				drive-strength = <6>;
 				bias-disable;
+			};
+		};
+	};
+
+	qupv3_se10_2uart_pins: qupv3_se10_2uart_pins {
+		qupv3_se10_2uart_active: qupv3_se10_2uart_active {
+			mux {
+				pins = "gpio24", "gpio25";
+				function = "qup10";
+			};
+
+			config {
+				pins = "gpio24", "gpio25";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		qupv3_se10_2uart_sleep: qupv3_se10_2uart_sleep {
+			mux {
+				pins = "gpio24", "gpio25";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio24", "gpio25";
+				drive-strength = <2>;
+				bias-pull-down;
 			};
 		};
 	};
