@@ -4,6 +4,7 @@
 	/* PMS405 S1 - VDD_MX/CX supply */
 	rpm-regulator-smpa1 {
 		status = "okay";
+		VDD_CX_LEVEL:
 		pms405_s1_level: regulator-s1-level {
 			compatible = "qcom,rpm-smd-regulator";
 			regulator-name = "pms405_s1_level";
@@ -114,6 +115,7 @@
 
 	rpm-regulator-ldoa3 {
 		status = "okay";
+		VDD_SR_PLL_LEVEL:
 		pms405_l3: regulator-l3 {
 			regulator-min-microvolt = <976000>;
 			regulator-max-microvolt = <1160000>;
