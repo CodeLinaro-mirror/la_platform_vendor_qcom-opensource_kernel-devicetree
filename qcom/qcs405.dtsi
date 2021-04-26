@@ -289,6 +289,27 @@
 		qcom,pipe-attr-ee;
 	};
 
+	spmi_bus: qcom,spmi@200f000 {
+		compatible = "qcom,spmi-pmic-arb";
+		reg = <0x200f000 0x1000>,
+			<0x2400000 0x800000>,
+			<0x2c00000 0x800000>,
+			<0x3800000 0x200000>,
+			<0x200a000 0x2100>;
+		reg-names = "core", "chnls", "obsrvr", "intr", "cnfg";
+		interrupt-names = "periph_irq";
+		interrupts-extended = <&wakegic 62 IRQ_TYPE_LEVEL_HIGH>;
+		qcom,ee = <0>;
+		qcom,channel = <0>;
+		#address-cells = <2>;
+		#size-cells = <0>;
+		interrupt-controller;
+		#interrupt-cells = <4>;
+		cell-index = <0>;
+	};
+
+	thermal_zones: thermal-zones {};
+
 	blsp1_uart2_console: serial@78b1000 {
 		compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 		reg = <0x078b1000 0x200>;
@@ -549,6 +570,8 @@
 #include "qcs405-ion.dtsi"
 #include "qcs405-gdsc.dtsi"
 #include "msm-arm-smmu-qcs405.dtsi"
+#include "pms405.dtsi"
+#include "qcs405-thermal.dtsi"
 
 &gdsc_mdss {
 	status = "ok";
