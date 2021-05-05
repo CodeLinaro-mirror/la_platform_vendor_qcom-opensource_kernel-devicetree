@@ -2872,3 +2872,4 @@
 #include "sm8150-gpu.dtsi"
 #include "sm8150-npu.dtsi"
 #include "sm8150-thermal.dtsi"
+#include "sm8150-coresight.dtsi"
