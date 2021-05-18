@@ -22,6 +22,7 @@ Required properties :
 			"qcom,rpmcc-sdxnightjar", "qcom,rpmcc"
 			"qcom,rpmcc-monaco", "qcom,rpmcc"
 			"qcom,rpmcc-scuba", "qcom,rpmcc"
+			"qcom,rpmcc-bengal", "qcom,rpmcc"
 
 - #clock-cells : shall contain 1
 
