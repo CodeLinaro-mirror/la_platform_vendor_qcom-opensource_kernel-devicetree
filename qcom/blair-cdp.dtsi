@@ -5,3 +5,5 @@
 &ufsphy_mem {
 	compatible = "qcom,ufs-phy-qmp-v4-yupik";
 };
+
+#include "camera/blair-camera-sensor-cdp.dtsi"
