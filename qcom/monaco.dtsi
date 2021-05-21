@@ -43,6 +43,8 @@
 			enable-method = "psci";
 			d-cache-size = <0x8000>;
 			i-cache-size = <0x8000>;
+			capacity-dmips-mhz = <1024>;
+			dynamic-power-coefficient = <100>;
 			next-level-cache = <&L2_0>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -70,6 +72,8 @@
 			enable-method = "psci";
 			d-cache-size = <0x8000>;
 			i-cache-size = <0x8000>;
+			capacity-dmips-mhz = <1024>;
+			dynamic-power-coefficient = <100>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
 			next-level-cache = <&L2_0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -91,6 +95,8 @@
 			enable-method = "psci";
 			d-cache-size = <0x8000>;
 			i-cache-size = <0x8000>;
+			capacity-dmips-mhz = <1024>;
+			dynamic-power-coefficient = <100>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
 			next-level-cache = <&L2_0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -112,6 +118,8 @@
 			enable-method = "psci";
 			d-cache-size = <0x8000>;
 			i-cache-size = <0x8000>;
+			capacity-dmips-mhz = <1024>;
+			dynamic-power-coefficient = <100>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
 			next-level-cache = <&L2_0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
