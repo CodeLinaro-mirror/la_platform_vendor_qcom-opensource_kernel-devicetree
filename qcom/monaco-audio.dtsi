@@ -14,6 +14,8 @@
 		compatible = "qcom,monaco-asoc-snd";
 		qcom,mi2s-audio-intf = <1>;
 		qcom,cc-va-intf-enable = <1>;
+		asoc-codec  = <&cc_codec>;
+		asoc-codec-names = "cc_codec";
 	};
 };
 
