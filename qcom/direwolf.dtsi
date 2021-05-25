@@ -1774,6 +1774,7 @@
 #include "direwolf-usb.dtsi"
 #include "direwolf-smp2p.dtsi"
 #include "direwolf-pcie.dtsi"
+#include "display/direwolf-sde.dtsi"
 
 &gcc_emac0_gdsc {
 	status = "ok";
