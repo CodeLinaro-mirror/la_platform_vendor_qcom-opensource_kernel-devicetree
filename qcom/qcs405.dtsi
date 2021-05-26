@@ -21,6 +21,7 @@
 	aliases {
 		serial0 = &blsp1_uart2_console;
 		sdhc0 = &sdhc_1;
+		sdhc1 = &sdhc_2;
 	};
 
 	chosen {
@@ -758,6 +759,70 @@
 		pinctrl-names = "default", "sleep";
 		pinctrl-0 = <&sdc1_on>;
 		pinctrl-1 = <&sdc1_off>;
+
+		status = "ok";
+
+		qos0 {
+			mask = <0x0f>;
+			vote = <13>;
+		};
+	};
+
+	sdhc_2: sdhci@7844000 {
+		compatible = "qcom,sdhci-msm-v5";
+		reg = <0x7844000 0x1000>;
+		reg-names = "hc_mem";
+
+		interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
+				<GIC_SPI 221 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-names = "hc_irq", "pwr_irq";
+
+		iommus = <&apps_smmu 0xa0 0x0>;
+		qcom,iommu-dma = "bypass";
+
+		clocks = <&gcc GCC_SDCC2_AHB_CLK>,
+			<&gcc GCC_SDCC2_APPS_CLK>;
+		clock-names = "iface", "core";
+
+		qcom,devfreq,freq-table = <50000000 200000000>;
+
+		bus-width = <4>;
+
+		interconnects = <&pc_noc MASTER_SDCC_2 &bimc SLAVE_EBI_CH0>;
+		interconnect-names = "sdhc-ddr";
+
+		qcom,msm-bus,name = "sdhc2";
+		qcom,msm-bus,num-cases = <7>;
+		qcom,msm-bus,num-paths = <1>;
+		qcom,msm-bus,vectors-KBps =
+			/* No vote */
+			<0 0>,
+			/* 400 KB/s*/
+			<1046 3200>,
+			/* 25 MB/s */
+			<65360 200000>,
+			/* 50 MB/s */
+			<130718 400000>,
+			/* 100 MB/s */
+			<261438 800000>,
+			/* 200 MB/s */
+			<261438 800000>,
+			/* Max. bandwidth */
+			<1338562 4096000>;
+		qcom,bus-bw-vectors-bps = <0 4000000 25000000 50000000
+		100750000 200000000 4294967295>;
+
+		/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
+		qcom,dll-hsr-list = <0x000F6400 0x0 0x0 0x0 0x00040874>;
+
+		/* VDD is an external regulator eLDO5 */
+		vdd-io-supply = <&pms405_l11>;
+		qcom,vdd-io-voltage-level = <1800000 2950000>;
+		qcom,vdd-io-current-level = <0 24200>;
+
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&sdc2_on>;
+		pinctrl-1 = <&sdc2_off>;
 
 		status = "ok";
 
