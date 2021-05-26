@@ -344,6 +344,11 @@
 
 	thermal_zones: thermal-zones {};
 
+	cpu-pmu {
+		compatible = "arm,armv8-pmuv3";
+		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
 	blsp1_uart2_console: serial@78b1000 {
 		compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 		reg = <0x078b1000 0x200>;
