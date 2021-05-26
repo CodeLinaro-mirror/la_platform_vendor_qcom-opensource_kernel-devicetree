@@ -29,3 +29,31 @@
 
 	status = "ok";
 };
+
+&ufs2phy_mem {
+	compatible = "qcom,ufs-phy-qmp-v4-lahaina";
+
+	vdda-phy-supply = <&L8G0>;
+	vdda-pll-supply = <&L3G0>;
+	vdda-phy-max-microamp = <85700>;
+	vdda-pll-max-microamp = <18300>;
+
+	status = "ok";
+};
+
+&ufshc2_mem {
+	vdd-hba-supply = <&gcc_ufs_card_gdsc>;
+	vdd-hba-fixed-regulator;
+
+	vcc-supply = <&L10C0>;
+	vcc-voltage-level = <2504000 2504000>;
+	vcc-max-microamp = <800000>;
+
+	vccq-supply = <&L3C0>;
+	vccq-max-microamp = <750000>;
+
+	qcom,vddp-ref-clk-supply = <&L3C0>;
+	qcom,vddp-ref-clk-max-microamp = <100>;
+
+	status = "ok";
+};
