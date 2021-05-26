@@ -28,6 +28,8 @@
 	};
 };
 
+#include "display/quin-vm-display-la.dtsi"
+
 &usb0 {
 	status = "ok";
 };

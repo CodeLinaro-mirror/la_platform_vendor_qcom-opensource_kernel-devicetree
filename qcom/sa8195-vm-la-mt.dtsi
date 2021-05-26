@@ -5,6 +5,8 @@
 	};
 };
 
+#include "display/quin-vm-display-la.dtsi"
+
 / {
 	 rename_blk: rename_blk {
 		compatible = "qcom,blkdev-rename";

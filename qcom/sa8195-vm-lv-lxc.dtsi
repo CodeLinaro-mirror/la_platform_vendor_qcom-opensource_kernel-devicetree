@@ -13,7 +13,7 @@
 	};
 };
 
-#include "display/sdmshrike-vm-lv-display.dtsi"
+#include "display/quin-vm-display-lxc.dtsi"
 
 &usb0 {
 	status = "ok";
