@@ -2093,3 +2093,7 @@ qcom,msm-adsprpc-mem {
 		};
 	};
 };
+
+&msm_gpu {
+	/delete-node/qcom,gpu-mempools;
+};
