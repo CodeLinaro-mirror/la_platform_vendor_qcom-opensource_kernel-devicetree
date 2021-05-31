@@ -48,6 +48,10 @@ status = "ok";
 	status = "ok";
 };
 
+&pil_modem_mem {
+	status = "disabled";
+};
+
 &soc {
 	qcom,lpass@17300000 {
 		status = "ok";
