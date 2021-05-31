@@ -85,15 +85,13 @@
 		pinctrl-1 = <&cnss_wlan_en_sleep>;
 
 		chip_cfg@0 {
-			reg = <0x10000000 0x10000000>,
-			    <0x20000000 0x10000>;
-			reg-names = "smmu_iova_base", "smmu_iova_ipa";
+			reg = <0xb0000000 0x10000>;
+			reg-names = "smmu_iova_ipa";
 
 			supported-ids = <0x003e>;
 			wlan_vregs = "vdd-wlan";
 			qcom,vdd-wlan-config = <0 0 0 10 1>;
 
-			qcom,smmu-s1-enable;
 			qcom,wlan-ramdump-dynamic = <0x200000>;
 		};
 
@@ -314,6 +312,25 @@
 					mhi,brstmode = <2>;
 				};
 			};
+		};
+	};
+};
+
+&pcie_rc0 {
+	#address-cells = <5>;
+	#size-cells = <0>;
+	cnss_pci: cnss_pci {
+		reg = <0 0 0 0 0>;
+		qcom,iommu-group = <&cnss_pci_iommu_group>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		cnss_pci_iommu_group: cnss_pci_iommu_group {
+			qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
+			qcom,iommu-dma = "atomic";
+			qcom,iommu-faults = "stall-disable", "no-CFRE",
+						"non-fatal";
 		};
 	};
 };
