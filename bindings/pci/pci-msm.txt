@@ -407,11 +407,22 @@ interconnects:
 	Usage: optional
 	Value type: <u32 array of bdfs>
 	Definition: Skip enumeration for the list of 32-bit BDFs.
+
 - qcom,config-recovery:
 	Usage: optional
 	Value type : <bool>
 	Definition: Enable to notify the client driver for recovery when
 		config space is not accessible
+
+- qcom,keep-powerdown-phy:
+	Usage: optional
+	Value type: <bool>
+	Definition: If present, power down phy in probe to avoid leakage
+
+- clock-output-names:
+	Usage: optional
+	Value type: <stringlist>
+	Definition: Name of the outgoing clock signal from the PHY PLL.
 
 ==============
 Root port node
