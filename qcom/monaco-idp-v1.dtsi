@@ -9,8 +9,8 @@
 	pinctrl-1 = <&sdc1_off>;
 
 	vdd-supply = <&L25A>;
-	qcom,vdd-voltage-level = <2950000 2950000>;
-	qcom,vdd-current-level = <0 270000>;
+	qcom,vdd-voltage-level = <3080000 3080000>;
+	qcom,vdd-current-level = <0 250000>;
 
 	vdd-io-supply = <&L15A>;
 	qcom,vdd-io-always-on;
