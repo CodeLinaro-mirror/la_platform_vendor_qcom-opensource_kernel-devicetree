@@ -15,12 +15,6 @@
 			qcom,ion-heap-type = "SYSTEM_SECURE";
 		};
 
-		qcom,ion-heap@10 { /* SECURE DISPLAY HEAP */
-			reg = <ION_SECURE_DISPLAY_HEAP_ID>;
-			memory-region = <&secure_display_memory>;
-			qcom,ion-heap-type = "HYP_CMA";
-		};
-
 		qcom,ion-heap@26 { /* USER CONTIG HEAP */
 			reg = <ION_USER_CONTIG_HEAP_ID>;
 			memory-region = <&user_contig_mem>;
