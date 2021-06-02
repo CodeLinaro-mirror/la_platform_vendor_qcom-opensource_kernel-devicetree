@@ -175,6 +175,17 @@
 			compatible = "qcom,msm-bcl-soc";
 			#thermal-sensor-cells = <0>;
 		};
+
+		pm5100_sdam_2: sdam@7100 {
+			compatible = "qcom,spmi-sdam";
+			reg = <0x7100>;
+			#address-cells = <1>;
+
+			restart_reason: restart@48 {
+				reg = <0x48>;
+				bits = <1 7>;
+			};
+		};
 	};
 };
 
