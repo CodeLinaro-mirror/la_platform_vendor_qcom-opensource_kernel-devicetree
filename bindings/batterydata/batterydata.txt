@@ -14,6 +14,11 @@ qcom,battery-data node optional properties:
 			for which a given battery ID resistance is valid. This
 			value is expressed as a percentage of the specified kohm
 			resistance provided by qcom,batt-id-kohm.
+- qcom,battery-beta : The beta value of the NTC resistor in battery package
+			present on battery thermal pin.
+- qcom,battery-therm-kohm : The nominal resistance in Kilo-Ohms unit of the NTC
+			resistor on battery thermal pin at 25 Celsius-degree ambient
+			temperature.
 
 qcom,battery-data can also include any number of children nodes. These children
 nodes will be treated as battery profile data nodes.
