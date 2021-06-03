@@ -33,6 +33,7 @@
 		qcom,usb-bam-support;
 		qcom,hwctrl-set-support;
 		qcom,set-byte-cntr-support;
+		qcom,perflsheot-set-support;
 
 		qcom,blk-size = <1>;
 	};
