@@ -415,7 +415,7 @@
 	};
 
 	cpu_pmu: cpu-pmu {
-		ompatible = "arm,armv8-pmuv3";
+		compatible = "arm,armv8-pmuv3";
 		qcom,irq-is-percpu;
 		interrupts = <GIC_PPI 6 IRQ_TYPE_LEVEL_HIGH>;
 	};
