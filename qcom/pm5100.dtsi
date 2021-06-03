@@ -3,6 +3,7 @@
 #include <dt-bindings/spmi/spmi.h>
 #include <dt-bindings/iio/qcom,spmi-vadc.h>
 #include <dt-bindings/iio/qcom,spmi-adc5-gen3-pm5100.h>
+#include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
 
 &spmi_bus {
 	#address-cells = <2>;
@@ -330,28 +331,22 @@
 &pm5100_gpios {
 	pmx_sde: pmx_sde {
 		sde_dsi_active: sde_dsi_active {
-			mux {
+			pinconf {
 				pins = "gpio1", "gpio2";
-				function = "gpio";
-			};
-
-			config {
-				pins = "gpio1", "gpio2";
-				drive-strength = <8>;
-				bias-disable = <0>;
+				function = "PMIC_GPIO_FUNC_NORMAL";
+				qcom,drive-strength = <PMIC_GPIO_STRENGTH_HIGH>;
+				bias-disable;
+				output-high;
 			};
 		};
 
 		sde_dsi_suspend: sde_dsi_suspend {
-			mux {
+			pinconf {
 				pins = "gpio1", "gpio2";
-				function = "gpio";
-			};
-
-			config {
-				pins = "gpio1", "gpio2";
-				drive-strength = <2>;
+				function = "PMIC_GPIO_FUNC_NORMAL";
+				qcom,drive-strength = <PMIC_GPIO_STRENGTH_LOW>;
 				bias-pull-down;
+				output-low;
 			};
 		};
 	};
