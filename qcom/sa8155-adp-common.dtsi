@@ -137,3 +137,7 @@
 		status = "ok";
 	};
 };
+
+&kgsl_msm_iommu {
+	qcom,secure-size = <0x20000000>; /* 512MB */
+};
