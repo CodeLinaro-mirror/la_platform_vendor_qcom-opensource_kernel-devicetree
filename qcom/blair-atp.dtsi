@@ -382,7 +382,6 @@
 	vdd-supply = <&L18A>;
 	vdda18-supply = <&L2A>;
 	vdda33-supply = <&L3A>;
-	refgen-supply = <&L22A>;
 };
 
 &usb_qmp_dp_phy {
