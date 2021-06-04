@@ -297,36 +297,6 @@
 	};
 };
 
-&thermal_zones {
-	pm5100_tz {
-		polling-delay-passive = <100>;
-		polling-delay = <0>;
-		thermal-governor = "step_wise";
-		thermal-sensors = <&pm5100_tz>;
-		wake-capable-sensor;
-
-		trips {
-			pm5100_trip0: trip0 {
-				temperature = <95000>;
-				hysteresis = <0>;
-				type = "passive";
-			};
-
-			pm5100_trip1: trip1 {
-				temperature = <115000>;
-				hysteresis = <0>;
-				type = "critical";
-			};
-
-			trip2 {
-				temperature = <145000>;
-				hysteresis = <0>;
-				type = "critical";
-			};
-		};
-	};
-};
-
 &pm5100_gpios {
 	pmx_sde: pmx_sde {
 		sde_dsi_active: sde_dsi_active {
