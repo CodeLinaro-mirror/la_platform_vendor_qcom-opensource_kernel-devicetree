@@ -147,6 +147,12 @@
 
 			cc_codec: qcom,cc-codec {
 				compatible = "qcom,cc-codec";
+				qcom,service-id = <3>;
+				qcom,channel-name = "custom_cc_apps";
+				qcom,src-domain-id = <3>;
+				qcom,dst-domain-id = <6>;
+				qcom,src-port = <3>;
+				qcom,dst-port = <0x0F>;
 			};
 		};
 	};
