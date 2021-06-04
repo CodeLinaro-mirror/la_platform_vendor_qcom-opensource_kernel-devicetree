@@ -40,3 +40,5 @@
 			&dsi_nt36672e_fhd_plus_144_video>;
 	};
 };
+
+#include "camera/blair-camera-sensor-cdp.dtsi"

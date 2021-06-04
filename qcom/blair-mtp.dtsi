@@ -7,3 +7,5 @@
 	compatible = "qcom,ufs-phy-qmp-v4-yupik";
 	vdda-phy-max-microamp = <85700>;
 };
+
+#include "camera/blair-camera-sensor-mtp.dtsi"
