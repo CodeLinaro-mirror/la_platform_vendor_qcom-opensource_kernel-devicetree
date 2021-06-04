@@ -861,10 +861,12 @@
 
 	mccc_debug: syscon@447d200 {
 		compatible = "syscon";
+		reg = <0x0447d200 0x100>;
 	};
 
 	apsscc_debug: syscon@f11101c {
 		compatible = "syscon";
+		reg = <0xf11101c 0x4>;
 	};
 
 	debugcc: clock-controller@0 {
