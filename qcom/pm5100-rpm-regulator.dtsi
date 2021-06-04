@@ -595,4 +595,20 @@
 			status = "disabled";
 		};
 	};
+
+	rpm-regulator-chg-boost {
+		compatible = "qcom,rpm-smd-regulator-resource";
+		qcom,resource-name = "bsta";
+		qcom,resource-id = <1>;
+		qcom,regulator-type = <1>;
+		qcom,hpm-min-load = <100000>;
+		status = "disabled";
+
+		regulator-chg-boost {
+			compatible = "qcom,rpm-smd-regulator";
+			regulator-name = "pm5100_chg_boost";
+			qcom,set = <3>;
+			status = "disabled";
+		};
+	};
 };

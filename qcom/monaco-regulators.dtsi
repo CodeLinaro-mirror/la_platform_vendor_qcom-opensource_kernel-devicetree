@@ -523,4 +523,14 @@
 			status = "okay";
 		};
 	};
+
+	rpm-regulator-chg-boost {
+		status = "okay";
+		SPKR_BOOST: pm5100_chg_boost: regulator-chg-boost {
+			regulator-min-microvolt = <4100000>;
+			regulator-max-microvolt = <5600000>;
+			qcom,init-voltage = <4100000>;
+			status = "okay";
+		};
+	};
 };
