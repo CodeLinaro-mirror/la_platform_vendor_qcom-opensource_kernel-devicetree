@@ -54,6 +54,9 @@
 			};
 		};
 
+		tx_macro: tx-macro@0a620000 {
+		};
+
 		rx_macro: rx-macro@0a600000 {
 			swr1: rx_swr_master {
 			};
@@ -195,7 +198,7 @@
 			qcom,swr-clock-stop-mode0 = <1>;
 			besbev_rx_slave: besbev-rx-slave {
 				compatible = "qcom,besbev-slave";
-				reg = <0x0C 0x01170224>;
+				reg = <0x03 0x02170223>;
 			};
 		};
 	};
@@ -238,7 +241,7 @@
 			qcom,swr-mstr-irq-wakeup-capable = <1>;
 			besbev_tx_slave: besbev-tx-slave {
 				compatible = "qcom,besbev-slave";
-				reg = <0x0C 0x01170223>;
+				reg = <0x03 0x02170223>;
 			};
 		};
 	};
@@ -260,7 +263,7 @@
 		qcom,cdc-mic-bias-current = <1180>;
 
 		cdc-vdd-spkr-supply = <&SPKR_BOOST>;
-		qcom,cdc-vdd-spkr-voltage = <4100000 5600000>;
+		qcom,cdc-vdd-spkr-voltage = <5500000 5500000>;
 		qcom,cdc-vdd-spkr-current = <700000>;
 
 		qcom,cdc-micbias1-mv = <1800>;
@@ -278,13 +281,13 @@
 	qcom,va-bolero-codec = <1>;
 	qcom,audio-routing =
 		"TX DMIC0", "Digital Mic0",
-		"Digital Mic0", "MIC BIAS3",
+		"Digital Mic0", "MIC BIAS1",
 		"TX DMIC1", "Digital Mic1",
-		"Digital Mic1", "MIC BIAS3",
+		"Digital Mic1", "MIC BIAS1",
 		"TX DMIC2", "Digital Mic2",
-		"Digital Mic2", "MIC BIAS1",
+		"Digital Mic2", "MIC BIAS2",
 		"TX DMIC3", "Digital Mic3",
-		"Digital Mic3", "MIC BIAS1",
+		"Digital Mic3", "MIC BIAS2",
 		"SPKR_IN", "AUX_OUT",
 		"TX SWR_INPUT", "VA_TX_SWR_CLK",
 		"RX_TX DEC0_INP", "TX DEC0 MUX",
@@ -302,10 +305,10 @@
 		"VA DMIC1", "Digital Mic1",
 		"VA DMIC2", "Digital Mic2",
 		"VA DMIC3", "Digital Mic3",
-		"VA DMIC0", "VA MIC BIAS3",
-		"VA DMIC1", "VA MIC BIAS3",
-		"VA DMIC2", "VA MIC BIAS1",
-		"VA DMIC3", "VA MIC BIAS1";
+		"VA DMIC0", "VA MIC BIAS1",
+		"VA DMIC1", "VA MIC BIAS1",
+		"VA DMIC2", "VA MIC BIAS2",
+		"VA DMIC3", "VA MIC BIAS2";
 
 	qcom,cdc-dmic23-gpios = <&cdc_dmic23_gpios>;
 	qcom,cdc-dmic23-gpios = <&cdc_dmic23_gpios>;

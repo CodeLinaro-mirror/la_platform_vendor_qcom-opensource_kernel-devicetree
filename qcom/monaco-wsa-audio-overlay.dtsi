@@ -54,6 +54,9 @@
 			};
 		};
 
+		tx_macro: tx-macro@0a620000 {
+		};
+
 		rx_macro: rx-macro@0a600000 {
 			swr1: rx_swr_master {
 			};
@@ -264,13 +267,13 @@
 	qcom,va-bolero-codec = <1>;
 	qcom,audio-routing =
 		"TX DMIC0", "Digital Mic0",
-		"Digital Mic0", "MIC BIAS3",
+		"Digital Mic0", "MIC BIAS1",
 		"TX DMIC1", "Digital Mic1",
-		"Digital Mic1", "MIC BIAS3",
+		"Digital Mic1", "MIC BIAS1",
 		"TX DMIC2", "Digital Mic2",
-		"Digital Mic2", "MIC BIAS1",
+		"Digital Mic2", "MIC BIAS2",
 		"TX DMIC3", "Digital Mic3",
-		"Digital Mic3", "MIC BIAS1",
+		"Digital Mic3", "MIC BIAS2",
 		"SpkrLeft IN", "AUX_OUT",
 		"TX SWR_INPUT", "VA_TX_SWR_CLK",
 		"RX_TX DEC0_INP", "TX DEC0 MUX",
@@ -288,10 +291,10 @@
 		"VA DMIC1", "Digital Mic1",
 		"VA DMIC2", "Digital Mic2",
 		"VA DMIC3", "Digital Mic3",
-		"VA DMIC0", "VA MIC BIAS3",
-		"VA DMIC1", "VA MIC BIAS3",
-		"VA DMIC2", "VA MIC BIAS1",
-		"VA DMIC3", "VA MIC BIAS1";
+		"VA DMIC0", "VA MIC BIAS1",
+		"VA DMIC1", "VA MIC BIAS1",
+		"VA DMIC2", "VA MIC BIAS2",
+		"VA DMIC3", "VA MIC BIAS2";
 
 	qcom,cdc-dmic23-gpios = <&cdc_dmic23_gpios>;
 	qcom,cdc-dmic23-gpios = <&cdc_dmic23_gpios>;

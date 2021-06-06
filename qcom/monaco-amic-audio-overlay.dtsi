@@ -25,6 +25,9 @@
 			};
 		};
 
+		tx_macro: tx-macro@0a620000 {
+		};
+
 		rx_macro: rx-macro@0a600000 {
 			swr1: rx_swr_master {
 			};
@@ -107,7 +110,7 @@
 };
 
 &bolero {
-	qcom,num-macros = <3>;
+	qcom,num-macros = <2>;
 	qcom,bolero-version = <6>;
 	bolero-clk-rsc-mngr {
 		compatible = "qcom,bolero-clk-rsc-mngr";
@@ -115,11 +118,9 @@
 					<0x3004 0x3 0x1>, <0x3080 0x2 0x2>;
 	qcom,rx_mclk_mode_muxsel = <0x0a5640d8>;
 	qcom,va_mclk_mode_muxsel = <0x0a7a0000>;
-	clock-names = "tx_core_clk", "tx_npl_clk", "rx_core_clk", "rx_npl_clk",
-		"va_core_clk", "va_npl_clk";
+	clock-names = "tx_core_clk", "tx_npl_clk", "rx_core_clk", "rx_npl_clk";
 	clocks = <&clock_audio_tx_1 0>, <&clock_audio_tx_2 0>,
-		<&clock_audio_rx_1 0>, <&clock_audio_rx_2 0>,
-		<&clock_audio_va_1 0>, <&clock_audio_va_2 0>;
+		<&clock_audio_rx_1 0>, <&clock_audio_rx_2 0>;
 	};
 
 	tx_macro: tx-macro@0a620000 {
@@ -165,7 +166,7 @@
 			qcom,swr-clock-stop-mode0 = <1>;
 			besbev_rx_slave: besbev-rx-slave {
 				compatible = "qcom,besbev-slave";
-				reg = <0x0C 0x01170224>;
+				reg = <0x03 0x02170223>;
 			};
 		};
 	};
@@ -187,7 +188,7 @@
 		qcom,cdc-mic-bias-current = <1180>;
 
 		cdc-vdd-spkr-supply = <&SPKR_BOOST>;
-		qcom,cdc-vdd-spkr-voltage = <4100000 5600000>;
+		qcom,cdc-vdd-spkr-voltage = <5500000 5500000>;
 		qcom,cdc-vdd-spkr-current = <700000>;
 
 		qcom,cdc-micbias1-mv = <1800>;
@@ -209,16 +210,6 @@
 		"Analog Mic1","MIC BIAS1",
 		"AMIC2", "Analog Mic2",
 		"Analog Mic2", "MIC BIAS2",
-		"AMIC3", "Analog Mic3",
-		"Analog Mic3", "MIC BIAS3",
-		"TX DMIC0", "Digital Mic0",
-		"Digital Mic0", "MIC BIAS3",
-		"TX DMIC1", "Digital Mic1",
-		"Digital Mic1", "MIC BIAS3",
-		"TX DMIC2", "Digital Mic2",
-		"Digital Mic2", "MIC BIAS1",
-		"TX DMIC3", "Digital Mic3",
-		"Digital Mic3", "MIC BIAS1",
 		"SPKR_IN", "AUX_OUT",
 		"TX SWR_INPUT", "VA_TX_SWR_CLK",
 		"RX_SWR_TX_PCM_IN0", "RX_MCLK",
@@ -235,15 +226,7 @@
 		"VA SWR_INPUT", "VA_SWR_CLK",
 		"VA_AIF1 CAP", "VA_SWR_CLK",
 		"VA_AIF2 CAP", "VA_SWR_CLK",
-		"VA_AIF3 CAP", "VA_SWR_CLK",
-		"VA DMIC0", "Digital Mic0",
-		"VA DMIC1", "Digital Mic1",
-		"VA DMIC2", "Digital Mic2",
-		"VA DMIC3", "Digital Mic3",
-		"VA DMIC0", "VA MIC BIAS3",
-		"VA DMIC1", "VA MIC BIAS3",
-		"VA DMIC2", "VA MIC BIAS1",
-		"VA DMIC3", "VA MIC BIAS1";
+		"VA_AIF3 CAP", "VA_SWR_CLK";
 
 	nvmem-cells = <&adsp_variant>;
 	nvmem-cell-names = "adsp_variant";
@@ -288,22 +271,6 @@
 		qcom,codec-ext-clk-src = <AUDIO_LPASS_MCLK_7>;
 		qcom,codec-lpass-ext-clk-freq = <19200000>;
 		qcom,codec-lpass-clk-id = <0x30D>;
-		#clock-cells = <1>;
-	};
-
-	clock_audio_va_1: va_core_clk {
-		compatible = "qcom,audio-ref-clk";
-		qcom,codec-ext-clk-src = <AUDIO_LPASS_MCLK>;
-		qcom,codec-lpass-ext-clk-freq = <19200000>;
-		qcom,codec-lpass-clk-id = <0x307>;
-		#clock-cells = <1>;
-	};
-
-	clock_audio_va_2: va_npl_clk {
-		compatible = "qcom,audio-ref-clk";
-		qcom,codec-ext-clk-src = <AUDIO_LPASS_MCLK_8>;
-		qcom,codec-lpass-ext-clk-freq = <19200000>;
-		qcom,codec-lpass-clk-id = <0x308>;
 		#clock-cells = <1>;
 	};
 };
