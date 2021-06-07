@@ -21,6 +21,7 @@ platforms.
 		    "qcom,monaco-apcs-hmss-global"
 		    "qcom,sm8150-spcs-global"
 		    "qcom,sdxnightjar-apcs-gcc"
+		    "qcom,bengal-apcs-hmss-global"
 
 - reg:
 	Usage: required
