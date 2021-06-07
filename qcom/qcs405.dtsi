@@ -25,6 +25,7 @@
 		serial0 = &blsp1_uart2_console;
 		sdhc0 = &sdhc_1;
 		sdhc1 = &sdhc_2;
+		pci-domain0 = &pcie0; /* PCIe0 domain */
 	};
 
 	chosen {
@@ -1034,6 +1035,7 @@
 #include "msm-arm-smmu-qcs405.dtsi"
 #include "pms405.dtsi"
 #include "qcs405-thermal.dtsi"
+#include "qcs405-pcie.dtsi"
 
 &gdsc_mdss {
 	status = "ok";
