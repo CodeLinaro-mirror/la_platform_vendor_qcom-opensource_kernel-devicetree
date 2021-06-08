@@ -138,3 +138,54 @@
 		nvmem-cell-names = "restart_reason";
 	};
 };
+
+&pm5100_charger {
+	status = "okay";
+	#io-channel-cells = <1>;
+	io-channels = <&pm5100_adc PM5100_ADC5_GEN3_USB_SNS_V_16>,
+		      <&pm5100_adc PM5100_ADC5_GEN3_USB_IN_I>,
+		      <&pm5100_adc PM5100_ADC5_GEN3_CHG_TEMP>,
+		      <&pm5100_adc PM5100_ADC5_GEN3_DIE_TEMP>,
+		      <&pm5100_adc PM5100_ADC5_GEN3_VPH_PWR>,
+		      <&pm5100_qbg PSY_IIO_RESISTANCE_ID>,
+		      <&pm5100_qbg PSY_IIO_VOLTAGE_NOW>,
+		      <&pm5100_qbg PSY_IIO_TEMP>,
+		      <&pm5100_qbg PSY_IIO_CAPACITY>,
+		      <&pm5100_qbg PSY_IIO_VOLTAGE_OCV>,
+		      <&pm5100_qbg PSY_IIO_VOLTAGE_AVG>,
+		      <&pm5100_qbg PSY_IIO_DEBUG_BATTERY>,
+		      <&pm5100_qbg PSY_IIO_REAL_CAPACITY>,
+		      <&pm5100_qbg PSY_IIO_CC_SOC>,
+		      <&pm5100_qbg PSY_IIO_CURRENT_NOW>,
+		      <&pm5100_qbg PSY_IIO_VOLTAGE_MAX>,
+		      <&pm5100_qbg PSY_IIO_CHARGE_FULL>,
+		      <&pm5100_qbg PSY_IIO_CHARGE_COUNTER>,
+		      <&pm5100_qbg PSY_IIO_CYCLE_COUNT>,
+		      <&pm5100_qbg PSY_IIO_CHARGE_FULL_DESIGN>,
+		      <&pm5100_qbg PSY_IIO_TIME_TO_FULL_NOW>;
+
+	io-channel-names = "usb_in_voltage",
+			   "usb_in_current",
+			   "chg_temp",
+			   "die_temp",
+			   "vph_voltage",
+			   "resistance_id",
+			   "voltage_now",
+			   "temp",
+			   "capacity",
+			   "voltage_ocv",
+			   "voltage_avg",
+			   "debug_battery",
+			   "real_capacity",
+			   "cc_soc",
+			   "current_now",
+			   "voltage_max",
+			   "charge_full",
+			   "charge_counter",
+			   "cycle_count",
+			   "charge_full_design",
+			   "time_to_full_now";
+
+	qcom,auto-recharge-soc = <98>;
+	qcom,suspend-input-on-debug-batt;
+};
