@@ -186,6 +186,8 @@
 
 		reg = <0x2ca0000 0x10000>;
 
+		qcom,secure-size = <0x20000000>; /* 512MB */
+
 		gfx3d_user: gfx3d_user {
 			compatible = "qcom,smmu-kgsl-cb";
 			label = "gfx3d_user";
