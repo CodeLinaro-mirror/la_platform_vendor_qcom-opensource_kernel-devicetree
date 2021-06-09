@@ -369,6 +369,8 @@
 	chosen { };
 
 	vendor: vendor { };
+
+	firmware: firmware { };
 };
 
 &soc {
@@ -1771,6 +1773,12 @@
 			qcom,glinkpkt-ch-name = "apr_apps2";
 			qcom,glinkpkt-dev-name = "apr_apps2";
 		};
+	};
+};
+
+&firmware {
+	scm {
+		compatible = "qcom,scm";
 	};
 };
 
