@@ -1779,6 +1779,10 @@
 		#iommu-cells = <1>;
 		compatible = "arm,virt-smmu-v3";
 	};
+
+	qtee_shmbridge {
+		compatible = "qcom,tee-shared-memory-bridge";
+	};
 };
 
 &firmware {
