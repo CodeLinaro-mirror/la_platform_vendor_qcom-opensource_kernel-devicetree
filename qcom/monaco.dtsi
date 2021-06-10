@@ -771,6 +771,10 @@
 			qcom,dump-size = <0x2000>;
 			qcom,dump-id = <0x123>;
 		};
+		pmic {
+			qcom,dump-size = <0x200000>;
+			qcom,dump-id = <0xe4>;
+		};
 	};
 
 	pil_scm_pas {
