@@ -1,4 +1,4 @@
-#include "dt-bindings/sound/qcom,gpr.h"
+#include <dt-bindings/sound/qcom,gpr.h>
 
 &soc {
 	qupv3_se4_spi: spi@4a90000 {  /* BLSP4 QUP3*/
