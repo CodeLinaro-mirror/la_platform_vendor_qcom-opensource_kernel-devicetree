@@ -27,8 +27,8 @@
 			cpu0_cdev {
 				trip = <&bcl_lvl0>;
 				cooling-device =
-					<&CPU0 (THERMAL_MAX_LIMIT-5)
-						(THERMAL_MAX_LIMIT-5)>;
+					<&CPU0 (THERMAL_MAX_LIMIT-1)
+						(THERMAL_MAX_LIMIT-1)>;
 			};
 
 			cpu2_cdev {
@@ -54,8 +54,8 @@
 			cpu0_cdev {
 				trip = <&bcl_lvl1>;
 				cooling-device =
-					<&CPU0 (THERMAL_MAX_LIMIT-4)
-						(THERMAL_MAX_LIMIT-4)>;
+					<&CPU0 (THERMAL_MAX_LIMIT-1)
+						(THERMAL_MAX_LIMIT-1)>;
 			};
 
 			cpu1_cdev {
@@ -90,13 +90,13 @@
 		};
 	};
 
-	soc {
+	socd {
 		cooling-maps {
 			soc_cpu0 {
 				trip = <&socd_trip>;
 				cooling-device =
-					<&CPU0 (THERMAL_MAX_LIMIT-4)
-						(THERMAL_MAX_LIMIT-4)>;
+					<&CPU0 (THERMAL_MAX_LIMIT-2)
+						(THERMAL_MAX_LIMIT-2)>;
 			};
 
 			soc_cpu2 {
