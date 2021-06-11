@@ -1,5 +1,7 @@
 #include "monaco-idp-v1-common.dtsi"
 #include "monaco-audio-overlay.dtsi"
+#include <dt-bindings/iio/qcom,spmi-adc5-gen3-pm5100.h>
+
 &sdhc_1 {
 	status = "ok";
 
@@ -37,4 +39,25 @@
 
 &qupv3_se5_4uart {
 	status = "ok";
+};
+
+&soc {
+	monaco_batterydata: qcom,battery-data {
+		qcom,batt-id-range-pct = <15>;
+		#include "qbg-battery-profile-alium-860-89032-0000-3600mAh.dtsi"
+	};
+};
+
+&pm5100_qbg {
+	status = "ok";
+	qcom,battery-data = <&monaco_batterydata>;
+	#io-channel-cells = <1>;
+	io-channels = <&pm5100_adc PM5100_ADC5_GEN3_BATT_THM_100K_PU>,
+		      <&pm5100_adc PM5100_ADC5_GEN3_BAT_ID_100K_PU>;
+	io-channel-names = "batt-temp",
+			   "batt-id";
+	qcom,vbat-cutoff-mv = <3100>;
+	qcom,ibat-cutoff-ma = <150>;
+	qcom,vph-min-mv = <2500>;
+	qcom,iterm-ma = <100>;
 };
