@@ -12,6 +12,16 @@
 		};
 	};
 
+	qcom,slate {
+		compatible = "qcom,pil-slate";
+		qcom,pil-force-shutdown;
+		qcom,firmware-name = "slate-wear";
+		/* GPIO inputs from blackghost */
+		qcom,slate2ap-status-gpio = <&tlmm 98 0>;
+		/* GPIO output to blackghost */
+		qcom,ap2slate-status-gpio = <&tlmm 97 0>;
+	};
+
 	qcom,glink-slatecom-xprt-slate {
 		compatible = "qcom,glink-slatecom-xprt";
 		label = "slate";
