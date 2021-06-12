@@ -1863,3 +1863,7 @@ qcom,msm-adsprpc-mem {
 	parent-supply = <&VDD_CX_LEVEL>;
 	status = "ok";
 };
+
+&usb0 {
+	extcon = <&pm5100_charger>, <&eud>;
+};
