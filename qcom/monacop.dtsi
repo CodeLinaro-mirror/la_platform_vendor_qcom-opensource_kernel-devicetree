@@ -5,3 +5,13 @@
 	compatible = "qcom,monacop";
 	qcom,msm-id = <517 0x10000>;
 };
+
+&soc {
+	qcom,rmnet-ipa {
+		status = "disabled";
+	};
+};
+
+&ipa_hw {
+	status = "disabled";
+};
