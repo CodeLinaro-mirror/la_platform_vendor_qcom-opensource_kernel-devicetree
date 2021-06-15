@@ -1,5 +1,6 @@
 #include "monaco-idp-v1-common.dtsi"
 #include "slate.dtsi"
+#include "monaco-slate-audio-overlay.dtsi"
 &sdhc_1 {
 	status = "ok";
 
