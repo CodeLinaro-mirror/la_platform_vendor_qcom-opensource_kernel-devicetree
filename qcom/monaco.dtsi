@@ -537,6 +537,10 @@
 		compatible = "qcom,tee-shared-memory-bridge";
 	};
 
+	qcom_smcinvoke: smcinvoke@61800000 {
+		compatible = "qcom,smcinvoke";
+	};
+
 	qcom_tzlog: tz-log@c125720 {
 		compatible = "qcom,tz-log";
 		reg = <0xc125720 0x3000>;
