@@ -35,6 +35,7 @@
 		USB3_GDSC-supply = <&gcc_usb20_prim_gdsc>;
 		dpdm-supply = <&usb2_phy0>;
 		qcom,usb-charger;
+		extcon = <&eud>;
 
 		qcom,core-clk-rate = <60000000>;
 		qcom,default-bus-vote = <2>; /* use svs bus voting */
