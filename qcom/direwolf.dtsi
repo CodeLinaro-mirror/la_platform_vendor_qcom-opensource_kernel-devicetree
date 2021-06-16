@@ -1772,6 +1772,11 @@
 			qcom,glinkpkt-dev-name = "apr_apps2";
 		};
 	};
+
+	virt_smmuv3: qcom,virt-smmuv3 {
+		#iommu-cells = <1>;
+		compatible = "arm,virt-smmu-v3";
+	};
 };
 
 #include "direwolf-pinctrl.dtsi"
