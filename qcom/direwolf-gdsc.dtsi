@@ -270,4 +270,80 @@
 		qcom,retain-regs;
 		status = "disabled";
 	};
+
+	/* CAM_CC GDSCs */
+	cam_cc_bps_gdsc: qcom,gdsc@ad07004 {
+		compatible = "qcom,gdsc";
+		reg = <0xad07004 0x4>;
+		regulator-name = "cam_cc_bps_gdsc";
+		qcom,gds-timeout = <500>;
+		qcom,support-hw-trigger;
+		qcom,retain-regs;
+		status = "disabled";
+	};
+
+	cam_cc_ife_0_gdsc: qcom,gdsc@ad0a004 {
+		compatible = "qcom,gdsc";
+		reg = <0xad0a004 0x4>;
+		regulator-name = "cam_cc_ife_0_gdsc";
+		qcom,gds-timeout = <500>;
+		qcom,retain-regs;
+		status = "disabled";
+	};
+
+	cam_cc_ife_1_gdsc: qcom,gdsc@ad0b004 {
+		compatible = "qcom,gdsc";
+		reg = <0xad0b004 0x4>;
+		regulator-name = "cam_cc_ife_1_gdsc";
+		qcom,gds-timeout = <500>;
+		qcom,retain-regs;
+		status = "disabled";
+	};
+
+	cam_cc_ife_2_gdsc: qcom,gdsc@ad0f004 {
+		compatible = "qcom,gdsc";
+		reg = <0xad0f004 0x4>;
+		regulator-name = "cam_cc_ife_2_gdsc";
+		qcom,gds-timeout = <500>;
+		qcom,retain-regs;
+		status = "disabled";
+	};
+
+	cam_cc_ife_3_gdsc: qcom,gdsc@ad0f070 {
+		compatible = "qcom,gdsc";
+		reg = <0xad0f070 0x4>;
+		regulator-name = "cam_cc_ife_3_gdsc";
+		qcom,gds-timeout = <500>;
+		qcom,retain-regs;
+		status = "disabled";
+	};
+
+	cam_cc_ipe_0_gdsc: qcom,gdsc@ad08004 {
+		compatible = "qcom,gdsc";
+		reg = <0xad08004 0x4>;
+		regulator-name = "cam_cc_ipe_0_gdsc";
+		qcom,support-hw-trigger;
+		qcom,gds-timeout = <500>;
+		qcom,retain-regs;
+		status = "disabled";
+	};
+
+	cam_cc_ipe_1_gdsc: qcom,gdsc@ad09004 {
+		compatible = "qcom,gdsc";
+		reg = <0xad09004 0x4>;
+		regulator-name = "cam_cc_ipe_1_gdsc";
+		qcom,support-hw-trigger;
+		qcom,gds-timeout = <500>;
+		qcom,retain-regs;
+		status = "disabled";
+	};
+
+	cam_cc_titan_top_gdsc: qcom,gdsc@ad0c1bc {
+		compatible = "qcom,gdsc";
+		reg = <0xad0c1bc 0x4>;
+		regulator-name = "cam_cc_titan_top_gdsc";
+		qcom,gds-timeout = <500>;
+		qcom,retain-regs;
+		status = "disabled";
+	};
 };
