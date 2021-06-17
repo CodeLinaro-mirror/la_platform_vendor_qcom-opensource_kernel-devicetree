@@ -226,9 +226,9 @@
 			reg = <0x0 0x53615000 0x0 0x2000>;
 		};
 
-		removed_region: removed_region@5f800000 {
+		removed_region: removed_region@60000000 {
 			no-map;
-			reg = <0x0 0x5f800000 0x0 0x2700000>;
+			reg = <0x0 0x60000000 0x0 0x1f00000>;
 		};
 
 		dump_mem: mem_dump_region {
