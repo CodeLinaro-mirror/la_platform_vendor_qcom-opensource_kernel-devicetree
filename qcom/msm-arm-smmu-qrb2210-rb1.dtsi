@@ -188,14 +188,12 @@
 			compatible = "iommu-debug-test";
 			qcom,iommu-dma = "disabled";
 			iommus = <&kgsl_smmu 0x7 0x0>;
-			status = "disabled";
 	};
 
 	apps_iommu_test_device {
 			compatible = "iommu-debug-test";
 			qcom,iommu-dma = "disabled";
 			iommus = <&apps_smmu 0x1E0 0x0>;
-			status = "disabled";
 	};
 
 	apps_iommu_coherent_test_device {
@@ -203,6 +201,5 @@
 			qcom,iommu-dma = "disabled";
 			iommus = <&apps_smmu 0x1E1 0x0>;
 			dma-coherent;
-			status = "disabled";
 	};
 };

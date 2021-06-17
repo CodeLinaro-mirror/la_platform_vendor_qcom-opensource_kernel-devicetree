@@ -492,6 +492,12 @@
 		status="disabled";
 	};
 
+	cpu_pmu: cpu-pmu {
+		compatible = "arm,armv8-pmuv3";
+		qcom,irq-is-percpu;
+		interrupts = <1 6 4>;
+	};
+
 	qcom,chd_silver {
 		compatible = "qcom,core-hang-detect";
 		label = "silver";
@@ -499,8 +505,6 @@
 				      0x0f1a80b0 0x0f1b80b0>;
 		qcom,config-arr = <0x0f1880b8 0x0f1980b8
 				   0x0f1a80b8 0x0f1b80b8>;
-
-		status="disabled";
 	};
 
 	qcom,rmtfs_sharedmem@0 {
@@ -1418,6 +1422,7 @@
 #include "pm2250.dtsi"
 #include "pm2250-rpm-regulator.dtsi"
 #include "qrb2210-rb1-regulator.dtsi"
+#include "qrb2210-rb1-pm.dtsi"
 #include "qrb2210-rb1-pinctrl.dtsi"
 #include "qrb2210-rb1-ion.dtsi"
 #include "msm-arm-smmu-qrb2210-rb1.dtsi"
