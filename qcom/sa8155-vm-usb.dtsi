@@ -106,11 +106,8 @@
 
 		resets = <&gcc GCC_QUSB2PHY_PRIM_BCR>;
 		reset-names = "phy_reset";
-		qcom,param-override-seq = <0x43 0x70
-					   0x01 0xb0>;
+		qcom,param-override-seq = <0x43 0x70>;
 		qcom,rcal-mask = <0x1e00000>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&usb2phy_ac_en1_default>;
 
 		status = "disabled";
 	};
@@ -200,11 +197,8 @@
 
 		resets = <&gcc GCC_QUSB2PHY_SEC_BCR>;
 		reset-names = "phy_reset";
-		qcom,param-override-seq = <0x43 0x70
-					   0x01 0xb0>;
+		qcom,param-override-seq = <0x43 0x70>;
 		qcom,rcal-mask = <0x1e00000>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&usb2phy_ac_en2_default>;
 
 		status = "disabled";
 	};
