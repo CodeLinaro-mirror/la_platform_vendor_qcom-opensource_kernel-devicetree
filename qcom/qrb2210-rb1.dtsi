@@ -674,9 +674,14 @@
 		#size-cells = <1>;
 		read-only;
 		ranges;
-		status="disabled";
+		status = "okay";
 		feat_conf5: feat_conf5@6018 {
 			reg = <0x6018 0x4>;
+		};
+
+		gpu_speed_bin: gpu_speed_bin@6006 {
+			reg = <0x6006 0x2>;
+			bits = <5 8>;
 		};
 
 		adsp_variant: adsp_variant@6011 {
@@ -1429,6 +1434,7 @@
 #include "qrb2210-rb1-qupv3.dtsi"
 #include "qrb2210-rb1-gdsc.dtsi"
 #include "qrb2210-rb1-usb.dtsi"
+#include "qrb2210-rb1-gpu.dtsi"
 #include "qrb2210-rb1-coresight.dtsi"
 
 &qupv3_se1_i2c {
