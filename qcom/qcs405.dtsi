@@ -548,6 +548,7 @@
 #include "qcs405-regulator.dtsi"
 #include "qcs405-ion.dtsi"
 #include "qcs405-gdsc.dtsi"
+#include "msm-arm-smmu-qcs405.dtsi"
 
 &gdsc_mdss {
 	status = "ok";
