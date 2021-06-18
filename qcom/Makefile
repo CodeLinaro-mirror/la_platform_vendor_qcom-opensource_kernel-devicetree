@@ -266,6 +266,7 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 dtbo-$(CONFIG_ARCH_MONACO) +=    \
 	monaco-rumi-overlay.dtbo \
 	monaco-standalone-idp-v1-overlay.dtbo \
+	monaco-standalone-idp-v1.1-overlay.dtbo \
 	monaco-standalone-idp-v2-overlay.dtbo \
 	monaco-standalone-idp-v3-overlay.dtbo \
 	monaco-idp-v1-overlay.dtbo \
@@ -274,6 +275,7 @@ dtbo-$(CONFIG_ARCH_MONACO) +=    \
 
 monaco-rumi-overlay.dtbo-base := monaco.dtb
 monaco-standalone-idp-v1-overlay.dtbo-base := monaco.dtb
+monaco-standalone-idp-v1.1-overlay.dtbo-base := monaco.dtb
 monaco-standalone-idp-v2-overlay.dtbo-base := monaco.dtb
 monaco-standalone-idp-v3-overlay.dtbo-base := monaco.dtb
 monaco-idp-v1-overlay.dtbo-base := monaco.dtb monacop.dtb

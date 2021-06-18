@@ -1,0 +1,5 @@
+#include "monaco-standalone-idp-v1.dtsi"
+
+&pil_modem_mem {
+	reg = <0x0 0x4ab00000 0x0 0x3600000>;
+};
