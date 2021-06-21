@@ -17,6 +17,8 @@
 	};
 };
 
+#include "display/quin-vm-display-lv.dtsi"
+
 &usb0 {
 	status = "ok";
 };

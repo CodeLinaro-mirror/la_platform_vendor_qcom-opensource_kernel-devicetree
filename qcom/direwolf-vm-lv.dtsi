@@ -9,7 +9,7 @@
 	};
 };
 
-#include "display/direwolf-vm-lv-display.dtsi"
+#include "display/quin-vm-display-lxc.dtsi"
 
 &usb0 {
 	status = "okay";
