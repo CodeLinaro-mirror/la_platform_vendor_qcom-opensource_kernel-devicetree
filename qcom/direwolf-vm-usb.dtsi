@@ -161,7 +161,7 @@
 		clocks = <&dummycc RPMH_CXO_CLK>;
 		clock-names = "ref_clk_src";
 
-		resets = <&gcc GCC_QUSB2PHY_SEC_BCR>;
+		resets = <&gcc GCC_USB2_PHY_SEC_BCR>;
 		reset-names = "phy_reset";
 		status = "disabled";
 	};
