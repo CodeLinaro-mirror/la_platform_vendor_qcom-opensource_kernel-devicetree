@@ -34,6 +34,8 @@ Optional properties:
 			the USB data role (USB host or USB device) for a given
 			USB connector, such as Type-C, Type-B(micro).
 			see connector/usb-connector.txt.
+ - max-num-endpoints: Maximum usb endpoints supported at HW level if present. Else
+			32 endpoints will be supported.
 
 This is an attribute to a USB controller such as:
 
