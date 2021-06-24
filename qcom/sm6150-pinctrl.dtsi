@@ -2238,6 +2238,7 @@
 			config {
 				pins = "gpio85";
 				drive-strength = <2>;
+				output-low;
 				bias-pull-down;
 			};
 		};
