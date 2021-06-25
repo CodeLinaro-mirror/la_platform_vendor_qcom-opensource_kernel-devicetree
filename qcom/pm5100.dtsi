@@ -277,6 +277,11 @@
 			};
 		};
 
+		pm5100_sdam_23: sdam@8600 {
+			compatible = "qcom,spmi-sdam";
+			reg = <0x8600>;
+		};
+
 		pm5100_qbg: qpnp,qbg@4f00 {
 			status = "disabled";
 			compatible = "qcom,qbg";
