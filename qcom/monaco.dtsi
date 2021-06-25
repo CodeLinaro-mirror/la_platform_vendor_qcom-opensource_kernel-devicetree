@@ -4,6 +4,7 @@
 #include <dt-bindings/clock/qcom,dispcc-monaco.h>
 #include <dt-bindings/clock/qcom,gcc-monaco.h>
 #include <dt-bindings/clock/qcom,gpucc-monaco.h>
+#include <dt-bindings/soc/qcom,dcc_v2.h>
 #include <dt-bindings/interconnect/qcom,monaco.h>
 #include <dt-bindings/interconnect/qcom,icc.h>
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
@@ -1609,6 +1610,17 @@ qcom,msm-adsprpc-mem {
 		clock-names = "core_clk";
 
 		qcom,coresight-jtagmm-cpu = <&CPU3>;
+	};
+
+	dcc: dcc_v2@16FF000 {
+		compatible = "qcom,dcc-v2";
+		reg = <0x16FF000 0x1000>,
+		      <0x1681000 0x2000>;
+
+		qcom,transaction_timeout = <0>;
+
+		reg-names = "dcc-base", "dcc-ram-base";
+		dcc-ram-offset = <0x1000>;
 	};
 
 	clk_virt: interconnect {
