@@ -21,6 +21,7 @@ Required properties :
 			"qcom,scuba-dispcc"
 			"qcom,direwolf-dispcc0"
 			"qcom,direwolf-dispcc1"
+			"qcom,bengal-dispcc"
 
 - reg : shall contain base register location and length.
 - #clock-cells : from common clock binding, shall contain 1.
