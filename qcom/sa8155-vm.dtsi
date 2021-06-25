@@ -28,49 +28,49 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x1>;
-			capacity-dmips-mhz = <902>;
+			capacity-dmips-mhz = <1024>;
 		};
 
 		CPU2: cpu@2 {
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x2>;
-			capacity-dmips-mhz = <902>;
+			capacity-dmips-mhz = <1024>;
 		};
 
 		CPU3: cpu@3 {
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x3>;
-			capacity-dmips-mhz = <902>;
+			capacity-dmips-mhz = <1024>;
 		};
 
 		CPU4: cpu@4 {
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x4>;
-			capacity-dmips-mhz = <320>;
+			capacity-dmips-mhz = <351>;
 		};
 
 		CPU5: cpu@5 {
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x5>;
-			capacity-dmips-mhz = <320>;
+			capacity-dmips-mhz = <351>;
 		};
 
 		CPU6: cpu@6 {
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x6>;
-			capacity-dmips-mhz = <320>;
+			capacity-dmips-mhz = <351>;
 		};
 
 		CPU7: cpu@7 {
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x7>;
-			capacity-dmips-mhz = <320>;
+			capacity-dmips-mhz = <351>;
 		};
 
 		cpu-map {
@@ -78,23 +78,21 @@
 				core0 {
 					cpu = <&CPU0>;
 				};
-			};
 
-			cluster1 {
-				core0 {
+				core1 {
 					cpu = <&CPU1>;
 				};
 
-				core1 {
+				core2 {
 					cpu = <&CPU2>;
 				};
 
-				core2 {
+				core3 {
 					cpu = <&CPU3>;
 				};
 			};
 
-			cluster2 {
+			cluster1 {
 				core0 {
 					cpu = <&CPU4>;
 				};
