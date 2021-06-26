@@ -1646,7 +1646,8 @@
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
 
-	compute_noc: interconnect@1710000 {
+	compute_noc: interconnect@1724000 {
+		reg = <0x1724000 0x10>;
 		compatible = "qcom,sm8150-compute_noc";
 		#interconnect-cells = <1>;
 		qcom,bcm-voter-names = "hlos";
