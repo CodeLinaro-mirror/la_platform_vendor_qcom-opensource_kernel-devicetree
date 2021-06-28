@@ -9,6 +9,8 @@
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/gpio/gpio.h>
 
+#define MHZ_TO_MBPS(mhz, w) ((mhz * 1000000 * w) / (1024 * 1024))
+#define BW_OPP_ENTRY(mhz, w) opp-mhz {opp-hz = /bits/ 64 <MHZ_TO_MBPS(mhz, w)>;}
 
 / {
 	model = "Qualcomm Technologies, Inc. QCS405";
@@ -454,7 +456,6 @@
 		qcom,proxy-clock-names = "xo";
 
 		qcom,pas-id = <1>;
-		/*qcom,mas-crypto = <&mas_crypto>; */
 		qcom,complete-ramdump;
 		qcom,proxy-timeout-ms = <10000>;
 		qcom,smem-id = <423>;
@@ -941,6 +942,56 @@
 		qos0 {
 			mask = <0x0f>;
 			vote = <13>;
+		};
+	};
+
+	ddr_bw_opp_table: ddr-bw-opp-table {
+		compatible = "operating-points-v2";
+		BW_OPP_ENTRY( 297, 8); /* 2265 MB/s */
+		BW_OPP_ENTRY( 595, 8); /* 4539 MB/s */
+		BW_OPP_ENTRY( 710, 8); /* 5416 MB/s */
+	};
+
+	cpubw: qcom,cpubw {
+		compatible = "qcom,devfreq-icc";
+		governor = "performance";
+		interconnects = <&bimc MASTER_AMPSS_M0
+				&bimc SLAVE_EBI_CH0>;
+		qcom,active-only;
+		operating-points-v2 = <&ddr_bw_opp_table>;
+	};
+
+	cpu_bwmon: qcom,cpu-bwmon {
+		compatible = "qcom,bimc-bwmon2";
+		reg = <0x408000 0x300>, <0x401000 0x200>;
+		reg-names = "base", "global_base";
+		interrupts = <0 183 4>;
+		qcom,mport = <0>;
+		qcom,target-dev = <&cpubw>;
+	};
+
+	cpu0_cpu_ddr_latfloor: qcom,cpu0-cpu-ddr-latfloor {
+		compatible = "qcom,devfreq-icc";
+		governor = "compute";
+		interconnects = <&bimc MASTER_AMPSS_M0
+				&bimc SLAVE_EBI_CH0>;
+		qcom,active-only;
+		operating-points-v2 = <&ddr_bw_opp_table>;
+		status = "ok";
+	};
+
+	cpu0_memlat_cpugrp: qcom,cpu0-cpugrp {
+		compatible = "qcom,arm-memlat-cpugrp";
+		qcom,cpulist = <&CPU0 &CPU1 &CPU2 &CPU3>;
+
+		cpu0_cpu_l3_latmon: qcom,cpu0-cpu-l3-latmon {
+			compatible = "qcom,arm-compute-mon";
+			qcom,cpulist = <&CPU0 &CPU1 &CPU2 &CPU3>;
+			qcom,target-dev = <&cpu0_cpu_ddr_latfloor>;
+			qcom,core-dev-table =
+				< 1094400 MHZ_TO_MBPS( 297, 8) >,
+				< 1248000 MHZ_TO_MBPS( 597, 8) >,
+				< 1401600 MHZ_TO_MBPS( 710, 8) >;
 		};
 	};
 };
