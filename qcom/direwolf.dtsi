@@ -369,6 +369,8 @@
 	chosen { };
 
 	vendor: vendor { };
+
+	firmware: firmware { };
 };
 
 &soc {
@@ -1776,6 +1778,12 @@
 	virt_smmuv3: qcom,virt-smmuv3 {
 		#iommu-cells = <1>;
 		compatible = "arm,virt-smmu-v3";
+	};
+};
+
+&firmware {
+	scm {
+		compatible = "qcom,scm";
 	};
 };
 
