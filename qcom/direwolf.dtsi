@@ -295,39 +295,39 @@
 			reg = <0x0 0x85B00000 0x0 0xA00000>;
 		};
 
-		pil_video_mem: pil_video_region@86500000 {
+		pil_video_mem: pil_video_region@86700000 {
 			no-map;
-			reg = <0x0 0x86500000 0x0 0x500000>;
+			reg = <0x0 0x86700000 0x0 0x500000>;
 		};
 
-		pil_adsp_mem: pil_adsp_region@86A00000 {
+		pil_adsp_mem: pil_adsp_region@86C00000 {
 			no-map;
-			reg = <0x0 0x86A00000 0x0 0x2000000>;
+			reg = <0x0 0x86C00000 0x0 0x2000000>;
 		};
 
-		pil_slpi_mem: pil_slpi_region@88A00000 {
+		pil_slpi_mem: pil_slpi_region@88C00000 {
 			no-map;
-			reg = <0x0 0x88A00000 0x0 0x1500000>;
+			reg = <0x0 0x88C00000 0x0 0x1500000>;
 		};
 
-		pil_cdsp_mem: pil_cdsp_region@89F00000 {
+		pil_cdsp_mem: pil_cdsp_region@8A100000 {
 			no-map;
-			reg = <0x0 0x89F00000 0x0 0x1e00000>;
+			reg = <0x0 0x8A100000 0x0 0x1e00000>;
 		};
 
-		pil_gpu_mem: pil_gpu_region@8BD00000 {
+		pil_gpu_mem: pil_gpu_region@8BF00000 {
 			no-map;
-			reg = <0x0 0x8BD00000 0x0 0x2000>;
+			reg = <0x0 0x8BF00000 0x0 0x2000>;
 		};
 
-		pil_smss_mem: pil_smss_region@8BE00000 {
+		pil_smss_mem: pil_smss_region@8C000000 {
 			no-map;
-			reg = <0x0 0x8BE00000 0x0 0x300000>;
+			reg = <0x0 0x8C000000 0x0 0x300000>;
 		};
 
-		pil_reserved_mem: pil_reserved_region@8C100000 {
+		pil_reserved_mem: pil_reserved_region@8C300000 {
 			no-map;
-			reg = <0x0 0x8C100000 0x0 0x500000>;
+			reg = <0x0 0x8C300000 0x0 0x500000>;
 		};
 
 		pil_cdsp1_mem: pil_cdsp1_region@8C600000 {
