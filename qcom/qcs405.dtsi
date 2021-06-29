@@ -600,6 +600,91 @@
 		qcom,wakeup-enable;
 		status = "okay";
 	};
+
+	mem_dump {
+		compatible = "qcom,mem-dump";
+		memory-region = <&dump_mem>;
+
+		rpm_sw_dump {
+			qcom,dump-size = <0x28000>;
+			qcom,dump-id = <0xea>;
+		};
+
+		pmic_dump {
+			qcom,dump-size = <0x10000>;
+			qcom,dump-id = <0xe4>;
+		};
+
+		misc_data_dump {
+			qcom,dump-size = <0x1000>;
+			qcom,dump-id = <0xe8>;
+		};
+
+		vsense_dump {
+			qcom,dump-size = <0x10000>;
+			qcom,dump-id = <0xe9>;
+		};
+
+		tmc_etf_dump {
+			qcom,dump-size = <0x10000>;
+			qcom,dump-id = <0xf0>;
+		};
+
+		tmc_etr_reg_dump {
+			qcom,dump-size = <0x1000>;
+			qcom,dump-id = <0x100>;
+		};
+
+		tmc_etf_reg_dump {
+			qcom,dump-size = <0x1000>;
+			qcom,dump-id = <0x101>;
+		};
+
+		l2_dump1 {
+			qcom,dump-size = <0x0>;
+			qcom,dump-id = <0xC1>;
+		};
+
+		l1_i_cache100 {
+			qcom,dump-size = <0x8800>;
+			qcom,dump-id = <0x60>;
+		};
+
+		l1_i_cache101 {
+			qcom,dump-size = <0x8800>;
+			qcom,dump-id = <0x61>;
+		};
+
+		l1_i_cache102 {
+			qcom,dump-size = <0x8800>;
+			qcom,dump-id = <0x62>;
+		};
+
+		l1_i_cache103 {
+			qcom,dump-size = <0x8800>;
+			qcom,dump-id = <0x63>;
+		};
+
+		l1_d_cache100 {
+			qcom,dump-size = <0x9000>;
+			qcom,dump-id = <0x80>;
+		};
+
+		l1_d_cache101 {
+			qcom,dump-size = <0x9000>;
+			qcom,dump-id = <0x81>;
+		};
+
+		l1_d_cache102 {
+			qcom,dump-size = <0x9000>;
+			qcom,dump-id = <0x82>;
+		};
+
+		l1_d_cache103 {
+			qcom,dump-size = <0x9000>;
+			qcom,dump-id = <0x83>;
+		};
+	};
 };
 
 #include "qcs405-pinctrl.dtsi"
