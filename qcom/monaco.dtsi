@@ -1116,6 +1116,7 @@
 		interrupt-names = "periph_irq";
 		interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,ee = <0>;
+		qcom,mid = <0>;
 		qcom,channel = <0>;
 		#address-cells = <2>;
 		#size-cells = <0>;
