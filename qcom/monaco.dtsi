@@ -269,6 +269,7 @@
 			reusable;
 			alignment = <0 0x400000>;
 			size = <0 0x5c00000>;
+			status = "disabled";
 		};
 
 		splash_memory: splash_region@5c000000 {
