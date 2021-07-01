@@ -2109,7 +2109,7 @@ qcom,msm-adsprpc-mem {
 				 * PT_MT_FLAG_INV_Y = 0x20
 				 * PT_MT_FLAG_VKEYS = 0x40
 				 */
-				parade,flags = <0>;
+				parade,flags = <0x08>;
 				parade,abs =
 					/* ABS_MT_POSITION_X, CY_ABS_MIN_X, CY_ABS_MAX_X, 0, 0 */
 					<0x35 0 880 0 0
