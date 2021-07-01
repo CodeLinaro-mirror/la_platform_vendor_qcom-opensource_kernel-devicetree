@@ -683,12 +683,12 @@
 			qupv3_se5_default_ctsrtsrx:
 				qupv3_se5_default_ctsrtsrx {
 				mux {
-					pins = "gpio26", "gpio27", "gpio79";
+					pins = "gpio26", "gpio27", "gpio29";
 					function = "gpio";
 				};
 
 				config {
-					pins = "gpio26", "gpio27", "gpio79";
+					pins = "gpio26", "gpio27", "gpio29";
 					drive-strength = <2>;
 					bias-pull-down;
 				};
@@ -709,12 +709,12 @@
 
 			qupv3_se5_ctsrx: qupv3_se5_ctsrx {
 				mux {
-					pins = "gpio26", "gpio79";
+					pins = "gpio26", "gpio29";
 					function = "qup05";
 				};
 
 				config {
-					pins = "gpio26", "gpio79";
+					pins = "gpio26", "gpio29";
 					drive-strength = <2>;
 					bias-disable;
 				};
