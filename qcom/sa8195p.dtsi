@@ -1,3 +1,4 @@
+
 #include "sdmshrike-v2.dtsi"
 #include "sa8195-pmic.dtsi"
 #include "sa8195p-pcie.dtsi"
@@ -201,3 +202,5 @@
 	vdd-supply = <&pm8195_3_l9>;
 	core-supply = <&pm8195_1_l9>;
 };
+
+#include "sdmshrike-coresight.dtsi"

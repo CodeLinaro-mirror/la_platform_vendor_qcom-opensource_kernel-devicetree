@@ -2601,3 +2601,4 @@
 #include "sm6150-ion.dtsi"
 #include "sm6150-thermal.dtsi"
 #include "camera/sm6150-camera.dtsi"
+#include "sm6150-coresight.dtsi"
