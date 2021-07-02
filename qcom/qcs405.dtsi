@@ -21,7 +21,7 @@
 	#address-cells = <2>;
 	#size-cells = <2>;
 
-	aliases {
+	aliases: aliases {
 		serial0 = &blsp1_uart2_console;
 		sdhc0 = &sdhc_1;
 		sdhc1 = &sdhc_2;
