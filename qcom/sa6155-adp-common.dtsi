@@ -112,9 +112,9 @@
 		snps,ptp-ref-clk-rate = <250000000>;
 		snps,ptp-req-clk-rate = <96000000>;
 		interrupts-extended = <&intc 0 660 4>, <&intc 0 700 4>,
-			<&tlmm 121 2>;
+			<&tlmm 121 2>, <&intc 0 668 4>, <&intc 0 669 4>;
 		interrupt-names = "macirq", "eth_lpi",
-			"phy-intr";
+			"phy-intr", "ptp_pps_irq_0", "ptp_pps_irq_1";
 
 		snps,tso;
 		snps,pbl = <32>;
