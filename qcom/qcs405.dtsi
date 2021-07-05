@@ -248,6 +248,12 @@
 		qcom,rtb-size = <0x100000>;
 	};
 
+	qcom,mpm2-sleep-counter@4a3000 {
+		compatible = "qcom,mpm2-sleep-counter";
+		reg = <0x4a3000 0x1000>;
+		clock-frequency = <32768>;
+	};
+
 	pil_scm_pas {
 		compatible = "qcom,pil-tz-scm-pas";
 		interconnects = <&pc_noc MASTER_CRYPTO_CORE0
