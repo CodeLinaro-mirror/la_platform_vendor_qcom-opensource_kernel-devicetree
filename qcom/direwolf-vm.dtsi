@@ -8,6 +8,11 @@
 
 	aliases {
 		hsuart0 = &qupv3_se2_4uart;
+		pci-domain0 = &pcie0; /* PCIe0 domain */
+		pci-domain1 = &pcie1; /* PCIe1 domain */
+		pci-domain2 = &pcie2; /* PCIe2 domain */
+		pci-domain3 = &pcie3; /* PCIe3 domain */
+		pci-domain4 = &pcie4; /* PCIe4 domain */
 	};
 
 	firmware:firmware {
@@ -373,6 +378,7 @@
 #include "pm8540-vm.dtsi"
 #include "direwolf-vm-audio.dtsi"
 #include "direwolf-vm-usb.dtsi"
+#include "direwolf-vm-pcie.dtsi"
 #include "direwolf-cnss.dtsi"
 
 &qupv3_0 {
