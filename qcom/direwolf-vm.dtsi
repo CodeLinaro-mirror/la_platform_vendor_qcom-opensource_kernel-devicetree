@@ -178,6 +178,14 @@
 				<GIC_SPI 890 IRQ_TYPE_LEVEL_HIGH>;
 	};
 
+	qcom_rng: qrng@10d3000 {
+		compatible = "qcom,msm-rng";
+		reg = <0x10d3000 0x1000>;
+		qcom,no-qrng-config;
+		clocks = <&dummycc RPMH_HWKM_CLK>;
+		clock-names = "km_clk_src";
+	};
+
 	qtee_shmbridge {
 		compatible = "qcom,tee-shared-memory-bridge";
 	};
