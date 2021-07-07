@@ -26,6 +26,11 @@
 		compatible = "qcom,glink-slatecom-xprt";
 		label = "slate";
 
+		qcom,glink-slate-events-bridge {
+			qcom,glink-channels = "slate-event";
+			qcom,intents = <0x0181 1>;
+		};
+
 		qcom,glinkpkt-slate-ssc-hal {
 			qcom,glink-channels = "ssc_hal";
 			qcom,intents = <0x2710 2
@@ -169,5 +174,15 @@
 
 	qcom,power-state {
 		compatible = "qcom,power-state";
+	};
+
+	qcom,slate-events-bridge {
+		compatible = "qcom,slate-events-bridge";
+	};
+
+	qcom,slate-events-bridge-rpmsg {
+		compatible = "qcom,slate-events-bridge-rpmsg";
+		qcom,glink-channels = "slate-event";
+		qcom,glinkpkt-edge = "slate";
 	};
 };
