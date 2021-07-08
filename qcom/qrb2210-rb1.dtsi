@@ -35,6 +35,8 @@
 		hsuart0 = &qupv3_se3_4uart;
 		sdhc1 = &sdhc_1; /*SDC1 eMMC slot*/
 		sdhc2 = &sdhc_2; /* SDC2 SD card slot */
+		swr0 = &swr0;
+		swr1 = &swr1;
 	};
 
 	cpus {
@@ -331,6 +333,7 @@
 		reg = <0xf200000 0x10000>,     /* GICD */
 		      <0xf300000 0x100000>;    /* GICR * 8 */
 		interrupts = <1 9 4>;
+		#gpio-cells = <0>;
 	};
 
 	wakegic: wake-gic {
@@ -1318,6 +1321,14 @@
 		qcom,apps-ch-pipes = <0x0>;
 		qcom,ea-pc = <0x360>;
 		status = "ok";
+
+		/* Slimbus Slave DT for WCN3990 */
+		btfmslim_codec: wcn3990 {
+			compatible = "qcom,btfmslim_slave";
+			elemental-addr = [00 01 20 02 17 02];
+			qcom,btfm-slim-ifd = "btfmslim_slave_ifd";
+			qcom,btfm-slim-ifd-elemental-addr = [00 00 20 02 17 02];
+		};
 	};
 
 	icnss: qcom,icnss@C800000 {
@@ -1436,6 +1447,8 @@
 #include "qrb2210-rb1-usb.dtsi"
 #include "qrb2210-rb1-gpu.dtsi"
 #include "qrb2210-rb1-coresight.dtsi"
+#include "qrb2210-rb1-audio.dtsi"
+#include "qrb2210-rb1-audio-overlay.dtsi"
 
 &qupv3_se1_i2c {
 	#address-cells = <1>;
