@@ -222,6 +222,13 @@
 			type = "virtual";
 			offset = <768>;
 		};
+		adsp {
+			subsys-name = "adsp";
+			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+			interrupt-names = "state-irq";
+			type = "virtual";
+			offset = <0>;
+		};
 	};
 
 	VDD_CX_LEVEL:
