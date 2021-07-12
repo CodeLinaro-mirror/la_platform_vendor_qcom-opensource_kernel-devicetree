@@ -613,7 +613,7 @@
 
 		clocks = <&gcc GCC_SDCC2_AHB_CLK>,
 			<&gcc GCC_SDCC2_APPS_CLK>;
-		clock-names = "core", "iface";
+		clock-names = "iface", "core";
 
 		interconnects = <&system_noc MASTER_SDCC_2 &bimc SLAVE_EBI_CH0>,
 			<&bimc MASTER_AMPSS_M0 &config_noc SLAVE_SDCC_2>;
