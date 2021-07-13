@@ -34,8 +34,8 @@
 	aliases {
 		serial0 = &qupv3_se4_2uart;
 		hsuart0 = &qupv3_se3_4uart;
-		sdhc1 = &sdhc_1; /*SDC1 eMMC slot*/
-		sdhc2 = &sdhc_2; /* SDC2 SD card slot */
+		sdhc0 = &sdhc_1; /*SDC1 eMMC slot*/
+		sdhc1 = &sdhc_2; /* SDC2 SD card slot */
 		swr0 = &swr0;
 		swr1 = &swr1;
 	};
@@ -616,7 +616,7 @@
 
 		clocks = <&gcc GCC_SDCC2_AHB_CLK>,
 			<&gcc GCC_SDCC2_APPS_CLK>;
-		clock-names = "core", "iface";
+		clock-names = "iface", "core";
 
 		interconnects = <&system_noc MASTER_SDCC_2 &bimc SLAVE_EBI_CH0>,
 			<&bimc MASTER_AMPSS_M0 &config_noc SLAVE_SDCC_2>;
