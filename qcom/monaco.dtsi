@@ -926,6 +926,7 @@
 		qcom,iommu-faults = "stall-disable", "HUPCF", "non-fatal";
 		qcom,wlan-msa-fixed-region = <&wlan_msa_mem>;
 		qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
+		qcom,iommu-geometry = <0xa0000000 0x10010000>;
 		vdd-cx-mx-supply = <&L8A>;
 		qcom,vdd-cx-mx-config = <640000 640000 10000>;
 		vdd-1.8-xo-supply = <&L14A>;
