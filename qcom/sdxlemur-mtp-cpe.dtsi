@@ -155,7 +155,6 @@
 				qcom,iommu-group = <&eth0_pci_iommu_group>;
 				eth0_pci_iommu_group: eth0_pci_iommu_group {
 					qcom,iommu-dma = "atomic";
-					qcom,iommu-mapping = <0x80000000 0xffffffff>;
 				};
 			};
 
@@ -178,7 +177,6 @@
 				qcom,iommu-group = <&eth1_pci_iommu_group>;
 				eth1_pci_iommu_group: eth1_pci_iommu_group {
 					qcom,iommu-dma = "atomic";
-					qcom,iommu-mapping = <0x80000000 0xffffffff>;
 				};
 			};
 		};
