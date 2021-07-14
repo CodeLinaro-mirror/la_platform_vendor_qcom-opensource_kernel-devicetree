@@ -166,4 +166,8 @@
 			};
 		};
 	};
+
+	qcom,power-state {
+		compatible = "qcom,power-state";
+	};
 };
