@@ -99,6 +99,25 @@
 		interrupts = <GIC_SPI 243 IRQ_TYPE_LEVEL_HIGH>;
 		status = "disabled";
 	};
+
+	ddr_cdev: qcom,ddr-cdev {
+		compatible = "qcom,ddr-cooling-device";
+		#cooling-cells = <2>;
+		qcom,ddr-freq = <0>,
+				<1720000>,
+				<2086000>,
+				<2597000>,
+				<2929000>,
+				<3879000>,
+				<5161000>,
+				<5931000>,
+				<6515000>,
+				<7980000>,
+				<8136000>,
+				<10437000>,
+				<12191000>;
+		interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
+	};
 };
 
 &qmi_tmd {
@@ -822,6 +841,27 @@
 			modem_pa_cdev {
 				trip = <&video_trip>;
 				cooling-device = <&modem_pa 3 3>;
+			};
+		};
+	};
+
+	pop-mem-step {
+		polling-delay-passive = <0>;
+		polling-delay = <0>;
+		thermal-sensors = <&tsens1 6>;
+		thermal-governor = "step_wise";
+		trips {
+			pop_trip: pop-trip {
+				temperature = <90000>;
+				hysteresis = <5000>;
+				type = "passive";
+			};
+		};
+
+		cooling-maps {
+			pop_cdev {
+				trip = <&pop_trip>;
+				cooling-device = <&ddr_cdev 9 9>;
 			};
 		};
 	};
