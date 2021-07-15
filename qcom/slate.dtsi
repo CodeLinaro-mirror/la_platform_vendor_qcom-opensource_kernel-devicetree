@@ -15,7 +15,7 @@
 	qcom,slate {
 		compatible = "qcom,pil-slate";
 		qcom,pil-force-shutdown;
-		qcom,firmware-name = "slate-wear";
+		qcom,firmware-name = "slatefw";
 		/* GPIO inputs from blackghost */
 		qcom,slate2ap-status-gpio = <&tlmm 98 0>;
 		/* GPIO output to blackghost */
