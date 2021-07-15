@@ -18,3 +18,7 @@
 	qcom,vdd-io-voltage-level = <1800000 1800000>;
 	qcom,vdd-io-current-level = <0 250000>;
 };
+
+&pm5100_charger {
+	qcom,batteryless-platform;
+};
