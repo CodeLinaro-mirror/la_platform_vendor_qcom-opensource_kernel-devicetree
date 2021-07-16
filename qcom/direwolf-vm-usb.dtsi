@@ -337,3 +337,50 @@
 		status = "disabled";
 	};
 };
+
+&pm8540_2_gpios {
+	usb20_vbus_boost {
+		usb20_vbus_boost_default: usb20_vbus_boost_default {
+			pins = "gpio9";
+			function = "normal";
+			output-high;
+			power-source = <0>;
+		};
+	};
+};
+
+&pm8540_3_gpios {
+	usb21_vbus_boost {
+		usb21_vbus_boost_default: usb21_vbus_boost_default {
+			pins = "gpio5";
+			function = "normal";
+			output-high;
+			power-source = <0>;
+		};
+	};
+};
+
+&pm8540_4_gpios {
+	usb223_vbus_boost {
+		usb22_vbus_boost_default: usb22_vbus_boost_default {
+			pins = "gpio5";
+			function = "normal";
+			output-high;
+			power-source = <0>;
+		};
+
+		usb23_vbus_boost_default: usb23_vbus_boost_default {
+			pins = "gpio9";
+			function = "normal";
+			output-high;
+			power-source = <0>;
+		};
+	};
+};
+
+&usb2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb20_vbus_boost_default &usb21_vbus_boost_default
+				&usb22_vbus_boost_default &usb23_vbus_boost_default>;
+};
+
