@@ -335,7 +335,7 @@
 		redistributor-stride = <0x0 0x20000>;
 		reg = <0xf200000 0x10000>,     /* GICD */
 		      <0xf300000 0x100000>;    /* GICR * 8 */
-		interrupts = <1 9 4>;
+		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
 		#gpio-cells = <0>;
 	};
 
@@ -367,15 +367,15 @@
 
 	timer {
 		compatible = "arm,armv8-timer";
-		interrupts = <1 1 0xf08>,
-			     <1 2 0xf08>,
-			     <1 3 0xf08>,
-			     <1 0 0xf08>;
+		interrupts = <GIC_PPI 1 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+			     <GIC_PPI 2 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+			     <GIC_PPI 3 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+			     <GIC_PPI 0 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
 		clock-frequency = <19200000>;
 	};
 
 
-	timer@f120000 {
+	memtimer: timer@f120000 {
 		#address-cells = <1>;
 		#size-cells = <1>;
 		ranges;
@@ -385,50 +385,50 @@
 
 		frame@f121000 {
 			frame-number = <0>;
-			interrupts = <0 8 0x4>,
-				     <0 7 0x4>;
+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
+				     <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
 			reg = <0xf121000 0x1000>,
 			      <0xf122000 0x1000>;
 		};
 
 		frame@f123000 {
 			frame-number = <1>;
-			interrupts = <0 9 0x4>;
+			interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
 			reg = <0xf123000 0x1000>;
 			status = "disabled";
 		};
 
 		frame@f124000 {
 			frame-number = <2>;
-			interrupts = <0 10 0x4>;
+			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
 			reg = <0xf124000 0x1000>;
 			status = "disabled";
 		};
 
 		frame@f125000 {
 			frame-number = <3>;
-			interrupts = <0 11 0x4>;
+			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
 			reg = <0xf125000 0x1000>;
 			status = "disabled";
 		};
 
 		frame@f126000 {
 			frame-number = <4>;
-			interrupts = <0 12 0x4>;
+			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
 			reg = <0xf126000 0x1000>;
 			status = "disabled";
 		};
 
 		frame@f127000 {
 			frame-number = <5>;
-			interrupts = <0 13 0x4>;
+			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
 			reg = <0xf127000 0x1000>;
 			status = "disabled";
 		};
 
 		frame@f128000 {
 			frame-number = <6>;
-			interrupts = <0 14 0x4>;
+			interrupts = <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH>;
 			reg = <0xf128000 0x1000>;
 			status = "disabled";
 		};
@@ -477,31 +477,32 @@
 		};
 	};
 
+	dload_mode {
+		compatible = "qcom,dload-mode";
+	};
+
 	restart@440b000 {
 		compatible = "qcom,pshold";
 		reg = <0x440b000 0x4>,
 		      <0x03d3000 0x4>;
 		reg-names = "pshold-base", "tcsr-boot-misc-detect";
-		status="disabled";
 	};
 
 	qcom,mpm2-sleep-counter@4403000 {
 		compatible = "qcom,mpm2-sleep-counter";
 		reg = <0x4403000 0x1000>;
 		clock-frequency = <32768>;
-		status="disabled";
 	};
 
 	qcom,msm-rtb {
 		compatible = "qcom,msm-rtb";
 		qcom,rtb-size = <0x100000>;
-		status="disabled";
 	};
 
 	cpu_pmu: cpu-pmu {
 		compatible = "arm,armv8-pmuv3";
 		qcom,irq-is-percpu;
-		interrupts = <1 6 4>;
+		interrupts = <GIC_PPI 6 IRQ_TYPE_LEVEL_HIGH>;
 	};
 
 	qcom,chd_silver {
@@ -732,7 +733,6 @@
 			<0x1bee000 0x2000>;
 		reg-names = "dcc-base", "dcc-ram-base";
 		dcc-ram-offset = <0x2000>;
-		status = "disabled";
 	};
 
 	rpm_bus: qcom,rpm-smd {
@@ -1194,28 +1194,6 @@
 				qcom,intents = <0x800  5
 						0x2000 3
 						0x4400 2>;
-			};
-
-			audio_gpr: qcom,gpr {
-				compatible = "qcom,gpr";
-				qcom,glink-channels = "adsp_apps";
-				qcom,intents = <0x200 20>;
-				reg = <GPR_DOMAIN_ADSP>;
-				spf_core {
-					compatible = "qcom,spf_core";
-					reg = <GPR_SVC_ADSP_CORE>;
-				};
-
-				audio-pkt {
-					compatible = "qcom,audio-pkt";
-					qcom,audiopkt-ch-name = "apr_audio_svc";
-					reg = <GPR_SVC_MAX>;
-				};
-
-				audio_prm: q6prm {
-					compatible = "qcom,audio_prm";
-					reg = <GPR_SVC_ASM>;
-				};
 			};
 
 			qcom,adsp_glink_ssr {
