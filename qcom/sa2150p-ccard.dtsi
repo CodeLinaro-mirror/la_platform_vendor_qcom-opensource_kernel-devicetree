@@ -47,3 +47,7 @@
 		qcom,pre-scaling = <1 1>;
 	};
 };
+
+&sdhc_2 {
+	cd-gpios = <&tlmm 21 GPIO_ACTIVE_LOW>;
+};
