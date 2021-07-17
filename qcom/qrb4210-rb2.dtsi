@@ -2594,6 +2594,7 @@
 #include "qrb4210-rb2-gdsc.dtsi"
 #include "qrb4210-rb2-usb.dtsi"
 #include "qrb4210-rb2-ion.dtsi"
+#include "qrb4210-rb2-gpu.dtsi"
 #include "qrb4210-rb2-coresight.dtsi"
 #include "pmi632.dtsi"
 #include "pm6125.dtsi"
