@@ -38,6 +38,7 @@
 		sdhc1 = &sdhc_2;
 		spi10 = &qupv3_se10_spi;
 		hsuart0 = &qupv3_se7_4uart;
+		hsuart1 = &qupv3_se4_2uart;
 	};
 
 	cpus {

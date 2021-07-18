@@ -38,6 +38,14 @@
 	status = "ok";
 	};
 
+	ss5_pwr_ctrl0 {
+		compatible = "qcom,gnss_sirf";
+		pinctrl-0 = <&ss5_pwr_ctrl_rst_on>;
+		ssVreset-gpio = <&tlmm 87 1>;
+		ssVonoff-gpio = <&tlmm 20 1>;
+		ssVboot-gpio = <&tlmm 21 1>;
+	};
+
 	mtl_rx_setup: rx-queues-config {
 		snps,rx-queues-to-use = <4>;
 		snps,rx-sched-sp;
@@ -174,4 +182,8 @@
 			qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
 		};
 	};
+};
+
+&qupv3_se4_2uart {
+	status = "ok";
 };
