@@ -26,6 +26,7 @@
 		sdhc0 = &sdhc_1;
 		sdhc1 = &sdhc_2;
 		pci-domain0 = &pcie0; /* PCIe0 domain */
+		qpic_nand1 = &qnand_1;
 	};
 
 	chosen {
@@ -956,6 +957,33 @@
 			mask = <0x0f>;
 			vote = <13>;
 		};
+	};
+
+	qnand_1: nand@4c0000 {
+		compatible = "qcom,msm-nand";
+		reg = <0x004c0000 0x1000>,
+		      <0x004c4000 0x1a000>;
+		reg-names = "nand_phys", "bam_phys";
+		qcom,reg-adjustment-offset = <0x4000>;
+
+		interrupts = <0 49 0>;
+		interrupt-names = "bam_irq";
+
+		interconnects = <&pc_noc MASTER_QPIC &bimc SLAVE_EBI_CH0>;
+		interconnect-names = "nand-ddr";
+		qcom,msm-bus,name = "qpic_nand";
+		qcom,msm-bus,num-cases = <2>;
+		qcom,msm-bus,num-paths = <1>;
+
+		qcom,msm-bus,vectors-KBps =
+			<0 0>,
+			/* Voting for max b/w on PNOC bus for now */
+			<400000 400000>;
+
+		clock-names = "core_clk";
+		clocks = <&rpmcc RPM_SMD_QPIC_CLK>;
+
+		status = "disabled";
 	};
 
 	msm_cpufreq: qcom,msm-cpufreq {
