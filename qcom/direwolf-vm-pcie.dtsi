@@ -210,6 +210,8 @@
 				0x0200 0x00 0x0
 				0x0244 0x03 0x0>;
 
+		status = "disabled";
+
 		pcie0_rp: pcie0_rp {
 			reg = <0 0 0 0 0>;
 		};
@@ -426,6 +428,8 @@
 				0x0200 0x00 0x0
 				0x0244 0x03 0x0>;
 
+		status = "disabled";
+
 		pcie1_rp: pcie1_rp {
 			reg = <0 0 0 0 0>;
 		};
@@ -640,6 +644,8 @@
 				0x0694 0x00 0x0
 				0x0200 0x00 0x0
 				0x0244 0x03 0x0>;
+
+		status = "disabled";
 
 		pcie2_rp: pcie2_rp {
 			reg = <0 0 0 0 0>;
@@ -857,6 +863,8 @@
 				0x0200 0x00 0x0
 				0x0244 0x03 0x0>;
 
+		status = "disabled";
+
 		pcie3_rp: pcie3_rp {
 			reg = <0 0 0 0 0>;
 		};
@@ -1055,6 +1063,8 @@
 				0x0200 0x00 0x0
 				0x0244 0x03 0x0>;
 
+		status = "disabled";
+
 		pcie4_rp: pcie4_rp {
 			reg = <0 0 0 0 0>;
 		};
@@ -1067,6 +1077,7 @@
 		interrupt-parent = <&intc>;
 		interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,snps;
+		status = "disabled";
 	};
 
 	pcie2b_msi_snps: qcom,pcie2b_msi@a0000000 {
@@ -1076,6 +1087,7 @@
 		interrupt-parent = <&intc>;
 		interrupts = <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,snps;
+		status = "disabled";
 	};
 
 	pcie3a_msi_snps: qcom,pcie3a_msi@a0000000 {
@@ -1085,6 +1097,7 @@
 		interrupt-parent = <&intc>;
 		interrupts = <GIC_SPI 312 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,snps;
+		status = "disabled";
 	};
 
 	pcie3b_msi_snps: qcom,pcie3b_msi@a0000000 {
@@ -1094,6 +1107,7 @@
 		interrupt-parent = <&intc>;
 		interrupts = <GIC_SPI 145 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,snps;
+		status = "disabled";
 	};
 
 	pcie4_msi_snps: qcom,pcie4_msi@a0000000 {
@@ -1103,5 +1117,6 @@
 		interrupt-parent = <&intc>;
 		interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,snps;
+		status = "disabled";
 	};
 };
