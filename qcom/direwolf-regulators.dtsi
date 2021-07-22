@@ -199,6 +199,36 @@
 		};
 	};
 
+	rpmh-regulator-nsplvl {
+		compatible = "qcom,rpmh-arc-regulator";
+		qcom,resource-name = "nsp.lvl";
+		VDD_NSP_LEVEL:
+		S3G0_LEVEL:
+		pm8540_g0_s3_level: regulator-pm8540_g0-s3-level {
+			regulator-name = "pm8540_g0_s3_level";
+			qcom,set = <RPMH_REGULATOR_SET_ALL>;
+			regulator-min-microvolt =
+				<RPMH_REGULATOR_LEVEL_RETENTION>;
+			regulator-max-microvolt =
+				<RPMH_REGULATOR_LEVEL_MAX>;
+			qcom,init-voltage-level =
+				<RPMH_REGULATOR_LEVEL_RETENTION>;
+		};
+
+		VDD_NSP_LEVEL_AO:
+		S3G0_LEVEL_AO:
+		pm8540_g0_s3_level_ao: regulator-pm8540_g0-s3-level-ao {
+			regulator-name = "pm8540_g0_s3_level_ao";
+			qcom,set = <RPMH_REGULATOR_SET_ACTIVE>;
+			regulator-min-microvolt =
+				<RPMH_REGULATOR_LEVEL_RETENTION>;
+			regulator-max-microvolt =
+				<RPMH_REGULATOR_LEVEL_MAX>;
+			qcom,init-voltage-level =
+				<RPMH_REGULATOR_LEVEL_RETENTION>;
+		};
+	};
+
 	rpmh-regulator-smpa03 {
 		compatible = "qcom,rpmh-vrm-regulator";
 		qcom,resource-name = "smpa3";
@@ -627,19 +657,6 @@
 			qcom,init-voltage = <1620000>;
 			qcom,init-mode =
 				<RPMH_REGULATOR_MODE_LPM>;
-		};
-	};
-
-	rpmh-regulator-smpg03 {
-		compatible = "qcom,rpmh-vrm-regulator";
-		qcom,resource-name = "smpg3";
-		S3G0: VDD_NSP:
-		pm8540_g0_s3: regulator-pm8540_g0-s3 {
-			regulator-name = "pm8540_g0_s3";
-			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <352000>;
-			regulator-max-microvolt = <968000>;
-			qcom,init-voltage = <352000>;
 		};
 	};
 
