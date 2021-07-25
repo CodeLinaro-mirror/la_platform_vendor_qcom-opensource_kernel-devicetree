@@ -1,3 +1,5 @@
+#include "direwolf-cnss.dtsi"
+
 &soc {
 
 };
