@@ -272,8 +272,8 @@
 			<&gcc GCC_QUPV3_WRAP_0_M_AHB_CLK>,
 			<&gcc GCC_QUPV3_WRAP_0_S_AHB_CLK>;
 		pinctrl-names = "default", "sleep";
-		pinctrl-0 = <&qupv3_se4_spi_active>;
-		pinctrl-1 = <&qupv3_se4_spi_sleep>;
+		pinctrl-0 = <&qupv3_se4_spi_active>, <&qupv3_se4_spi_cs0_active>;
+		pinctrl-1 = <&qupv3_se4_spi_sleep>, <&qupv3_se4_spi_cs0_sleep>;
 		dmas = <&gpi_dma0 0 4 1 64 0>,
 			<&gpi_dma0 1 4 1 64 0>;
 		dma-names = "tx", "rx";
