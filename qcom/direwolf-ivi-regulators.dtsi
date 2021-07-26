@@ -5,10 +5,6 @@
 		compatible = "qcom,rpmh-vrm-regulator";
 		qcom,resource-name = "ldoa15";
 		qcom,regulator-type = "pmic5-ldo";
-		qcom,supported-modes =
-			<RPMH_REGULATOR_MODE_LPM
-			RPMH_REGULATOR_MODE_HPM>;
-		qcom,mode-threshold-currents = <0 1>;
 		L15A0:
 		pm8540_a0_l15: regulator-pm8540_a0-l15 {
 			regulator-name = "pm8540_a0_l15";
@@ -16,8 +12,6 @@
 			regulator-min-microvolt = <1504000>;
 			regulator-max-microvolt = <2000000>;
 			qcom,init-voltage = <1504000>;
-			qcom,init-mode =
-				<RPMH_REGULATOR_MODE_LPM>;
 		};
 	};
 
@@ -58,10 +52,6 @@
 		compatible = "qcom,rpmh-vrm-regulator";
 		qcom,resource-name = "ldog6";
 		qcom,regulator-type = "pmic5-ldo";
-		qcom,supported-modes =
-			<RPMH_REGULATOR_MODE_LPM
-			RPMH_REGULATOR_MODE_HPM>;
-		qcom,mode-threshold-currents = <0 1>;
 		L6G0:
 		pm8540_g0_l6: regulator-pm8540_g0-l6 {
 			regulator-name = "pm8540_g0_l6";
@@ -69,8 +59,6 @@
 			regulator-min-microvolt = <312000>;
 			regulator-max-microvolt = <1304000>;
 			qcom,init-voltage = <312000>;
-			qcom,init-mode =
-				<RPMH_REGULATOR_MODE_LPM>;
 		};
 	};
 
