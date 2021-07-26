@@ -279,6 +279,12 @@
 		#clock-cells = <0>;
 	};
 
+	rpmh_cxo_clk: rpmh_cxo_clk {
+		compatible = "qcom,dummycc";
+		clock-output-names = "bi_tcxo";
+		#clock-cells = <0>;
+	};
+
 	emac_ctrl_fe: emac_ctrl_drv@0x1d000000 {
 		compatible = "virtio,mmio";
 		reg =<0x1d000000 0x1000>;
