@@ -2,6 +2,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/soc/qcom,ipcc.h>
 #include <dt-bindings/clock/qcom,aop-qmp.h>
+#include <dt-bindings/clock/qcom,dispcc-direwolf.h>
 #include <dt-bindings/clock/qcom,gcc-direwolf.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
@@ -587,7 +588,7 @@
 
 		sleep_clk: sleep-clk {
 			compatible = "fixed-clock";
-			clock-frequency = <32764>;
+			clock-frequency = <32000>;
 			clock-output-names = "sleep_clk";
 			#clock-cells = <0>;
 		};
@@ -892,6 +893,30 @@
 		#reset-cells = <1>;
 	};
 
+	dispcc0: clock-controller@af00000 {
+		compatible = "qcom,direwolf-dispcc0", "syscon";
+		reg = <0xaf00000 0x20000>;
+		reg-name = "cc_base";
+		vdd_mm-supply = <&VDD_MM_LEVEL>;
+		clocks = <&rpmhcc RPMH_CXO_CLK>, <&rpmhcc RPMH_CXO_CLK_A>,
+			 <&sleep_clk>, <&gcc GCC_DISP_AHB_CLK>;
+		clock-names = "bi_tcxo", "bi_tcxo_ao", "sleep_clk", "iface";
+		#clock-cells = <1>;
+		#reset-cells = <1>;
+	};
+
+	dispcc1: clock-controller@22100000 {
+		compatible = "qcom,direwolf-dispcc1", "syscon";
+		reg = <0x22100000 0x20000>;
+		reg-name = "cc_base";
+		vdd_mm-supply = <&VDD_MM_LEVEL>;
+		clocks = <&rpmhcc RPMH_CXO_CLK>, <&rpmhcc RPMH_CXO_CLK_A>,
+			 <&sleep_clk>, <&gcc GCC_DISP1_AHB_CLK>;
+		clock-names = "bi_tcxo", "bi_tcxo_ao", "sleep_clk", "iface";
+		#clock-cells = <1>;
+		#reset-cells = <1>;
+	};
+
 	apsscc: syscon@182a0000 {
 		compatible = "syscon";
 		reg = <0x182a0000 0x1c>;
@@ -906,6 +931,8 @@
 		compatible = "qcom,direwolf-debugcc";
 		qcom,apsscc = <&apsscc>;
 		qcom,gcc = <&gcc>;
+		qcom,dispcc0 = <&dispcc0>;
+		qcom,dispcc1 = <&dispcc1>;
 		qcom,mccc = <&mccc>;
 		clock-names = "xo_clk_src";
 		clocks = <&rpmhcc RPMH_CXO_CLK>;
@@ -2089,6 +2116,42 @@
 };
 
 &hlos1_vote_turing_mmu_tbu3_gdsc {
+	status = "ok";
+};
+
+&disp0_cc_mdss_core_gdsc {
+	clock-names = "ahb_clk";
+	clocks = <&gcc GCC_DISP_AHB_CLK>;
+	parent-supply = <&VDD_MM_LEVEL>;
+	proxy-supply = <&disp0_cc_mdss_core_gdsc>;
+	qcom,proxy-consumer-enable;
+	status = "ok";
+};
+
+&disp0_cc_mdss_core_int2_gdsc {
+	clock-names = "ahb_clk";
+	clocks = <&gcc GCC_DISP_AHB_CLK>;
+	parent-supply = <&VDD_MM_LEVEL>;
+	proxy-supply = <&disp0_cc_mdss_core_int2_gdsc>;
+	qcom,proxy-consumer-enable;
+	status = "ok";
+};
+
+&disp1_cc_mdss_core_gdsc {
+	clock-names = "ahb_clk";
+	clocks = <&gcc GCC_DISP1_AHB_CLK>;
+	parent-supply = <&VDD_MM_LEVEL>;
+	proxy-supply = <&disp1_cc_mdss_core_gdsc>;
+	qcom,proxy-consumer-enable;
+	status = "ok";
+};
+
+&disp1_cc_mdss_core_int2_gdsc {
+	clock-names = "ahb_clk";
+	clocks = <&gcc GCC_DISP1_AHB_CLK>;
+	parent-supply = <&VDD_MM_LEVEL>;
+	proxy-supply = <&disp1_cc_mdss_core_int2_gdsc>;
+	qcom,proxy-consumer-enable;
 	status = "ok";
 };
 
