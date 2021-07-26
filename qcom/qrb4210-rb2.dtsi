@@ -39,6 +39,8 @@
 		hsuart0 = &qupv3_se3_4uart;
 		sdhc1 = &sdhc_1; /* SDC1 eMMC slot */
 		sdhc2 = &sdhc_2; /* SDC2 SD Card slot */
+		swr0 = &swr0;
+		swr1 = &swr1;
 	};
 
 	cpus {
@@ -2657,6 +2659,8 @@
 #include "qrb4210-rb2-pm.dtsi"
 #include "qrb4210-rb2-pinctrl.dtsi"
 #include "qrb4210-rb2-qupv3.dtsi"
+#include "qrb4210-rb2-audio.dtsi"
+#include "qrb4210-rb2-audio-overlay.dtsi"
 
 &qupv3_se1_i2c {
 	status = "ok";
