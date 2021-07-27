@@ -1,5 +1,42 @@
 #include "qcs405.dtsi"
 
+&tlmm {
+	pinctrl-0 = <&status_gpio>;
+	pinctrl-names = "default";
+	status_gpio: status_gpio {
+		ap2mdm_status {
+			pins = "gpio80";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-up;
+			output-high;
+		};
+	};
+
+	sdx_ext_ipc_gpio_default: sdx_ext_ipc_gpio_default {
+		mux {
+			pins = "gpio14", "gpio79";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio14", "gpio79";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+};
+
+&soc {
+	sdx_ext_ipc: qcom,sdx_ext_ipc {
+		compatible = "qcom,sdx-ext-ipc";
+		qcom,wakeup-gpio-in = <&tlmm 14 0x00>;
+		qcom,wakeup-gpio-out = <&tlmm 79 0x00>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sdx_ext_ipc_gpio_default>;
+	};
+};
+
 &rpm_bus {
 	rpm-regulator-ldoa1 {
 		status = "disabled";
