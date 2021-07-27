@@ -2247,12 +2247,9 @@
 		qcom,ahb-freq = <240000000>;
 
 		qcom,pas-id = <9>;
-		qcom,msm-bus,name = "pil-venus";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
-		qcom,msm-bus,vectors-KBps =
-			<63 512 0 0>,
-			<63 512 0 304000>;
+		interconnect-names = "pil-venus";
+		interconnects = <&mmnrt_virt MASTER_VIDEO_P0
+					&bimc SLAVE_EBI_CH0>;
 		qcom,proxy-timeout-ms = <100>;
 		qcom,firmware-name = "venus";
 		memory-region = <&pil_video_mem>;
@@ -2598,6 +2595,7 @@
 #include "qrb4210-rb2-gdsc.dtsi"
 #include "qrb4210-rb2-usb.dtsi"
 #include "qrb4210-rb2-ion.dtsi"
+#include "qrb4210-rb2-vidc.dtsi"
 #include "qrb4210-rb2-gpu.dtsi"
 #include "qrb4210-rb2-coresight.dtsi"
 #include "pmi632.dtsi"
