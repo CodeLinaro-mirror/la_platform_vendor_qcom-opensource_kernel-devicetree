@@ -5,6 +5,7 @@
 #include <dt-bindings/clock/qcom,camcc-direwolf.h>
 #include <dt-bindings/clock/qcom,dispcc-direwolf.h>
 #include <dt-bindings/clock/qcom,gcc-direwolf.h>
+#include <dt-bindings/clock/qcom,videocc-direwolf.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
 #include <dt-bindings/interconnect/qcom,epss-l3.h>
@@ -933,6 +934,21 @@
 		#reset-cells = <1>;
 	};
 
+	videocc: qcom,videocc@abf0000 {
+		compatible = "qcom,direwolf-videocc", "syscon";
+		reg = <0xabf0000 0x10000>;
+		reg-name = "cc_base";
+		vdd_mm-supply = <&VDD_MM_LEVEL>;
+		vdd_mx-supply = <&VDD_MXA_LEVEL>;
+		clocks = <&rpmhcc RPMH_CXO_CLK>, <&sleep_clk>,
+			<&gcc GCC_VIDEO_AHB_CLK>;
+		clock-names = "bi_tcxo",
+			      "sleep_clk",
+			      "iface";
+		#clock-cells = <1>;
+		#reset-cells = <1>;
+	};
+
 	apsscc: syscon@182a0000 {
 		compatible = "syscon";
 		reg = <0x182a0000 0x1c>;
@@ -951,6 +967,7 @@
 		qcom,dispcc0 = <&dispcc0>;
 		qcom,dispcc1 = <&dispcc1>;
 		qcom,mccc = <&mccc>;
+		qcom,videocc = <&videocc>;
 		clock-names = "xo_clk_src";
 		clocks = <&rpmhcc RPMH_CXO_CLK>;
 		#clock-cells = <1>;
@@ -2224,6 +2241,37 @@
 &cam_cc_titan_top_gdsc {
 	clocks = <&gcc GCC_CAMERA_AHB_CLK>;
 	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&video_cc_mvs0_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	qcom,support-hw-trigger;
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&video_cc_mvs0c_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&video_cc_mvs1_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	qcom,support-hw-trigger;
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&video_cc_mvs1c_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_CX_LEVEL>;
 	parent-supply = <&VDD_MM_LEVEL>;
 	status = "ok";
 };
