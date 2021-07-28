@@ -22,6 +22,10 @@
 		qcom,ap2slate-status-gpio = <&tlmm 97 0>;
 	};
 
+	qcom,slate-daemon {
+		compatible = "qcom,slate-daemon";
+	};
+
 	qcom,glink-slatecom-xprt-slate {
 		compatible = "qcom,glink-slatecom-xprt";
 		label = "slate";
