@@ -205,6 +205,7 @@
 			   "charge_full_design",
 			   "time_to_full_now";
 
+	dpdm-supply = <&usb2_phy0>;
 	qcom,auto-recharge-soc = <98>;
 	qcom,suspend-input-on-debug-batt;
 };
