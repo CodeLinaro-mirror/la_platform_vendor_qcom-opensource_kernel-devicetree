@@ -23,3 +23,19 @@
 &usb2_phy0 {
 	status = "okay";
 };
+
+&pcie0 {
+	status = "okay";
+};
+
+&pcie2a_msi_snps {
+	status = "okay";
+};
+
+&pcie4 {
+	status = "okay";
+};
+
+&pcie4_msi_snps {
+	status = "okay";
+};
