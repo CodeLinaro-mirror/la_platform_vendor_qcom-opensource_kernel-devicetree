@@ -945,6 +945,17 @@
 		};
 	};
 
+	msm_cpufreq: qcom,msm-cpufreq {
+		compatible = "qcom,msm-cpufreq";
+		clock-names = "cpu0_clk";
+		clocks = <&apsscc APCS_MUX_CLK>;
+
+		qcom,cpufreq-table =
+			 < 1094400 >,
+			 < 1248000 >,
+			 < 1401600 >;
+	};
+
 	ddr_bw_opp_table: ddr-bw-opp-table {
 		compatible = "operating-points-v2";
 		BW_OPP_ENTRY( 297, 8); /* 2265 MB/s */
