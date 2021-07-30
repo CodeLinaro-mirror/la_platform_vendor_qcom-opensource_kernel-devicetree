@@ -1297,9 +1297,9 @@
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
 
-	nspa_noc: interconnect@10c0000 {
+	nspa_noc: interconnect@1b0c0000 {
 		compatible = "qcom,direwolf-nspa_noc";
-		reg = <0x10C0000 0x10000>;
+		reg = <0x1B0C0000 0x10000>;
 		#interconnect-cells = <1>;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
@@ -1327,6 +1327,14 @@
 		#interconnect-cells = <1>;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
+		clocks = <&gcc GCC_AGGRE_UFS_PHY_AXI_CLK>,
+			<&gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
+			<&gcc GCC_AGGRE_USB3_SEC_AXI_CLK>,
+			<&gcc GCC_AGGRE_USB3_MP_AXI_CLK>,
+			<&gcc GCC_AGGRE_USB4_AXI_CLK>,
+			<&gcc GCC_AGGRE_USB4_1_AXI_CLK>,
+			<&gcc GCC_AGGRE_USB_NOC_SOUTH_AXI_CLK>,
+			<&rpmhcc RPMH_IPA_CLK>;
 	};
 
 	aggre2_noc: interconnect@1700000 {
@@ -1335,6 +1343,13 @@
 		#interconnect-cells = <1>;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
+		clocks = <&gcc GCC_AGGRE_NOC_PCIE0_TUNNEL_AXI_CLK>,
+			<&gcc GCC_AGGRE_NOC_PCIE1_TUNNEL_AXI_CLK>,
+			<&gcc GCC_AGGRE_NOC_PCIE_4_AXI_CLK>,
+			<&gcc GCC_AGGRE_NOC_PCIE_SOUTH_SF_AXI_CLK>,
+			<&gcc GCC_AGGRE_UFS_CARD_AXI_CLK>,
+			<&gcc GCC_DDRSS_GPU_AXI_CLK>,
+			<&gcc GCC_DDRSS_PCIE_SF_TBU_CLK>;
 	};
 
 	mmss_noc: interconnect@1740000 {
