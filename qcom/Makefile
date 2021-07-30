@@ -305,7 +305,9 @@ dtb-$(CONFIG_ARCH_MONACO) += monaco-rumi.dtb \
 	monaco-idp-v3.1.dtb
 endif
 
-dtb-$(CONFIG_ARCH_SCUBA) += qrb2210-rb1.dtb
+dtb-$(CONFIG_ARCH_SCUBA) += qrb2210-rb1.dtb \
+				sa410m.dtb
+
 dtb-$(CONFIG_ARCH_BENGAL) += qrb4210-rb2.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
