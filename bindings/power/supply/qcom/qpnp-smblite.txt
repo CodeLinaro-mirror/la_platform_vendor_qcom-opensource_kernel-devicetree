@@ -203,6 +203,12 @@ Charger specific properties:
  Definition: Boolean flag to control charger concurrency mode. Its supported
 		only on PM5100, By default this feature is disabled.
 
+- qcom,remote-fg
+ Usage:      optional
+ Value type: bool
+ Definition: Boolean flag to determine if FG is running on different processor.
+		Its supported only on PM5100, By default this feature is disabled.
+
 =================================================
 Second Level Nodes - SMBLITE Charger Peripherals
 =================================================
