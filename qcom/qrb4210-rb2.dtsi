@@ -26,6 +26,7 @@
 	#address-cells = <2>;
 	#size-cells = <2>;
 	memory { device_type = "memory"; reg = <0 0 0 0>; };
+	reserved_memory: reserved-memory { };
 
 	mem-offline {
 		compatible = "qcom,mem-offline";
@@ -42,6 +43,7 @@
 		swr0 = &swr0;
 		swr1 = &swr1;
 	};
+	firmware: firmware {};
 
 	cpus {
 		#address-cells = <2>;
@@ -261,7 +263,14 @@
 		method = "smc";
 	};
 
-	firmware: firmware {
+	chosen {
+		bootargs = "rcupdate.rcu_expedited=1 rcu_nocbs=0-7";
+	};
+
+	soc: soc { };
+};
+
+&firmware {
 		android {
 			compatible = "android,firmware";
 			vbmeta {
@@ -281,9 +290,9 @@
 				};
 			};
 		};
-	};
+};
 
-	reserved_memory: reserved-memory {
+&reserved_memory {
 		#address-cells = <2>;
 		#size-cells = <2>;
 		ranges;
@@ -437,13 +446,6 @@
 			size = <0x0 0x2000000>;
 			linux,cma-default;
 		};
-	};
-
-	chosen {
-		bootargs = "rcupdate.rcu_expedited=1 rcu_nocbs=0-7 kpti=off";
-	};
-
-	soc: soc { };
 };
 
 &soc {
