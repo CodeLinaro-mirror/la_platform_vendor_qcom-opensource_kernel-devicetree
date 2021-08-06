@@ -347,6 +347,11 @@
 	qcom,core-preset = <0x77777777>;
 };
 
+&pcie_ep {
+	vreg-1p8-supply = <&pm8150_2_l8>;
+	vreg-0p9-supply = <&pm8150_2_l18>;
+};
+
 &gpucc {
 	compatible = "qcom,sa8155-gpucc", "syscon";
 };
