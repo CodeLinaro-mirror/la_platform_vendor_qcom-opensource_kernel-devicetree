@@ -68,25 +68,12 @@
 				cooling-device = <&msm_gpu THERMAL_MAX_LIMIT
 							THERMAL_MAX_LIMIT>;
 			};
-
-			modem_cdev {
-				trip = <&bcl_lvl1>;
-				cooling-device = <&modem_pa 2 2>;
-			};
-
-			modem1_cdev {
-				trip = <&bcl_lvl1>;
-				cooling-device = <&modem_tj 1 1>;
-			};
 		};
 	};
 
 	pm5100-bcl-lvl2 {
 		cooling-maps {
-			modem_cdev {
-				trip = <&bcl_lvl2>;
-				cooling-device = <&modem_tj 3 3>;
-			};
+			/* Need to update once we get fine tuned data */
 		};
 	};
 
