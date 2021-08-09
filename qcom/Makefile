@@ -271,7 +271,10 @@ dtbo-$(CONFIG_ARCH_MONACO) +=    \
 	monaco-standalone-idp-v3-overlay.dtbo \
 	monaco-idp-v1-overlay.dtbo \
 	monaco-idp-v2-overlay.dtbo \
-	monaco-idp-v3-overlay.dtbo
+	monaco-idp-v3-overlay.dtbo \
+	monaco-idp-v1.1-overlay.dtbo \
+	monaco-idp-v2.1-overlay.dtbo \
+	monaco-idp-v3.1-overlay.dtbo
 
 monaco-rumi-overlay.dtbo-base := monaco.dtb
 monaco-standalone-idp-v1-overlay.dtbo-base := monaco.dtb
@@ -281,6 +284,9 @@ monaco-standalone-idp-v3-overlay.dtbo-base := monaco.dtb
 monaco-idp-v1-overlay.dtbo-base := monaco.dtb monacop.dtb
 monaco-idp-v2-overlay.dtbo-base := monaco.dtb
 monaco-idp-v3-overlay.dtbo-base := monaco.dtb
+monaco-idp-v1.1-overlay.dtbo-base := monaco.dtb monacop.dtb
+monaco-idp-v2.1-overlay.dtbo-base := monaco.dtb
+monaco-idp-v3.1-overlay.dtbo-base := monaco.dtb
 
 else
 dtb-$(CONFIG_ARCH_MONACO) += monaco-rumi.dtb \
@@ -290,7 +296,10 @@ dtb-$(CONFIG_ARCH_MONACO) += monaco-rumi.dtb \
 	monaco-idp-v1.dtb \
 	monaco-idp-v2.dtb \
 	monaco-idp-v3.dtb \
-	monacop-idp-v1.dtb
+	monacop-idp-v1.dtb \
+	monaco-idp-v1.1.dtb \
+	monaco-idp-v2.1.dtb \
+	monaco-idp-v3.1.dtb
 endif
 
 dtb-$(CONFIG_ARCH_SCUBA) += qrb2210-rb1.dtb
