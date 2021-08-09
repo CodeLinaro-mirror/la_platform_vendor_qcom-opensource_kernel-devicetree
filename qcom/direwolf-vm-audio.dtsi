@@ -212,12 +212,13 @@
 		qcom,msm-cpudai-tdm-group-port-id = <36897 36899 36901
 							36903 36911>;
 		qcom,msm-cpudai-tdm-clk-rate = <12288000>;
-		qcom,msm-cpudai-tdm-clk-internal = <1>;
+		qcom,msm-cpudai-tdm-clk-internal = <0>;
 		qcom,msm-cpudai-tdm-sync-mode = <1>;
-		qcom,msm-cpudai-tdm-sync-src = <1>;
+		qcom,msm-cpudai-tdm-sync-src = <0>;
 		qcom,msm-cpudai-tdm-data-out = <0>;
 		qcom,msm-cpudai-tdm-invert-sync = <0>;
 		qcom,msm-cpudai-tdm-data-delay = <0>;
+		qcom,msm-cpudai-tdm-clk-attribute = /bits/ 16 <1>;
 		dai_tert_tdm_tx_0: qcom,msm-dai-q6-tdm-tert-tx-0 {
 			compatible = "qcom,msm-dai-q6-tdm";
 			qcom,msm-cpudai-tdm-dev-id = <36897>;
