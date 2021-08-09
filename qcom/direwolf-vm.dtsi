@@ -217,7 +217,7 @@
 	pdc: interrupt-controller@b220000 {
 		compatible = "qcom,direwolf-pdc";
 		reg = <0xb220000 0x30000>;
-		qcom,pdc-ranges = <14 494 2>, <138 623 1>;
+		qcom,pdc-ranges = <12 492 6>, <126 611 8>, <136 621 1>, <138 623 1>;
 		#interrupt-cells = <2>;
 		interrupt-parent = <&intc>;
 		interrupt-controller;
@@ -296,6 +296,10 @@
 
 	gcc_usb30_sec_gdsc: gcc_usb30_sec_gdsc {
 		regulator-name = "gcc_usb30_sec_gdsc";
+	};
+
+	gcc_usb30_mp_gdsc: gcc_usb30_mp_gdsc {
+		regulator-name = "gcc_usb30_mp_gdsc";
 	};
 
 	gcc_pcie_2a_gdsc: gcc_pcie_2a_gdsc {
@@ -378,6 +382,12 @@
 
 	L15A0: pm8540_a0_l15: regulator-pm8540_a0-l15 {
 		regulator-name = "ldoa15";
+	};
+
+	L7G0: pm8540_g0_l7: regulator-pm8540_g0-l7 {
+		regulator-name = "ldog7";
+		regulator-min-microvolt = <1620000>;
+		regulator-max-microvolt = <1980000>;
 	};
 };
 
