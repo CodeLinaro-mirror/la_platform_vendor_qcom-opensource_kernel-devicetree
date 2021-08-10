@@ -1451,6 +1451,20 @@ qcom,msm-adsprpc-mem {
 			qcom,glinkpkt-enable-ch-close;
 		};
 
+		qcom,glinkpkt-slate-display-ctrl {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "display-ctrl";
+			qcom,glinkpkt-dev-name = "glink_pkt_slate_display_ctrl";
+			qcom,glinkpkt-enable-ch-close;
+		};
+
+		qcom,glinkpkt-slate-display-data {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "display-data";
+			qcom,glinkpkt-dev-name = "glink_pkt_slate_display_data";
+			qcom,glinkpkt-enable-ch-close;
+		};
+
 		qcom,glinkpkt-slate-ssc-usta {
 			qcom,glinkpkt-edge = "slate";
 			qcom,glinkpkt-ch-name = "ssc_usta";

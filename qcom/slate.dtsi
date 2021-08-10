@@ -65,6 +65,16 @@
 					0x3E8  2>;
 		};
 
+		qcom,glink-slate-display-ctrl {
+			qcom,glink-channels = "display-ctrl";
+			qcom,intents = <0x38 1>;
+		};
+
+		qcom,glink-slate-display-data  {
+			qcom,glink-channels = "display-data";
+			qcom,intents = <0x10 1>;
+		};
+
 		qcom,glinkpkt-slate-ssc-test-0 {
 			qcom,glink-channels = "ssc_test_0";
 			qcom,intents = <0x2710 2
