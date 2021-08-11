@@ -11,6 +11,30 @@
 	status = "ok";
 };
 
+&qupv3_se3_i2c {
+	status = "ok";
+	asm330@6a {
+		compatible = "st,asm330lhh";
+		reg = <0x6a>;
+		vio-supply = <&pm6155_1_l7>;
+		vio-min-voltage = <1800000>;
+		vio-max-voltage = <1900000>;
+		vdd-supply = <&pm6155_1_s4>;
+		vdd-min-voltage = <1800000>;
+		vdd-max-voltage = <1900000>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <22 4>;
+		st,drdy-int-pin= <1>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sensor_int1_default>;
+		sensor_int1_default: sensor_int1_default {
+			pins = "gpio22";
+			drive-strength = <16>;
+			bias-pull-up;
+		};
+	};
+};
+
 &ufshc_mem {
 	vdd-hba-supply = <&ufs_phy_gdsc>;
 	vdd-hba-fixed-regulator;
