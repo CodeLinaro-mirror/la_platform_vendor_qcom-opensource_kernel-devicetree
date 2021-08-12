@@ -482,6 +482,36 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
+			qcom,speed-bin = <91>;
+
+			qcom,initial-pwrlevel = <0>;
+			qcom,ca-target-pwrlevel = <0>;
+
+			/* SVS */
+			qcom,gpu-pwrlevel@0 {
+				reg = <0>;
+				qcom,gpu-freq = <435000000>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_SVS>;
+				qcom,bus-freq = <7>;
+				qcom,bus-min = <5>;
+				qcom,bus-max = <8>;
+			};
+
+			/* XO */
+			qcom,gpu-pwrlevel@1 {
+				reg = <1>;
+				qcom,gpu-freq = <0>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_RETENTION>;
+				qcom,bus-freq = <0>;
+				qcom,bus-min = <0>;
+				qcom,bus-max = <0>;
+			};
+		};
+
+		qcom,gpu-pwrlevels-6 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
 			qcom,speed-bin = <73>;
 
 			qcom,initial-pwrlevel = <0>;
