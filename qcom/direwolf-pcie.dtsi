@@ -110,7 +110,7 @@
 		qcom,aux-clk-freq = <20>; /* 19.2 MHz */
 		qcom,l1-2-th-scale = <2>;
 		qcom,l1-2-th-value = <70>;
-		qcom,slv-addr-space-size = <0x4000000>;
+		qcom,slv-addr-space-size = <0x2000000>;
 		qcom,ep-latency = <10>;
 		qcom,core-preset = <0x77777777>;
 
@@ -330,7 +330,7 @@
 		qcom,aux-clk-freq = <20>; /* 19.2 MHz */
 		qcom,l1-2-th-scale = <2>;
 		qcom,l1-2-th-value = <70>;
-		qcom,slv-addr-space-size = <0x4000000>;
+		qcom,slv-addr-space-size = <0x2000000>;
 		qcom,ep-latency = <10>;
 		qcom,core-preset = <0x77777777>;
 
@@ -550,7 +550,7 @@
 		qcom,aux-clk-freq = <20>; /* 19.2 MHz */
 		qcom,l1-2-th-scale = <2>;
 		qcom,l1-2-th-value = <70>;
-		qcom,slv-addr-space-size = <0x4000000>;
+		qcom,slv-addr-space-size = <0x2000000>;
 		qcom,ep-latency = <10>;
 		qcom,core-preset = <0x77777777>;
 
@@ -768,7 +768,7 @@
 		qcom,aux-clk-freq = <20>; /* 19.2 MHz */
 		qcom,l1-2-th-scale = <2>;
 		qcom,l1-2-th-value = <70>;
-		qcom,slv-addr-space-size = <0x4000000>;
+		qcom,slv-addr-space-size = <0x2000000>;
 		qcom,ep-latency = <10>;
 		qcom,core-preset = <0x77777777>;
 
@@ -994,7 +994,7 @@
 		qcom,aux-clk-freq = <20>; /* 19.2 MHz */
 		qcom,l1-2-th-scale = <2>;
 		qcom,l1-2-th-value = <70>;
-		qcom,slv-addr-space-size = <0x4000000>;
+		qcom,slv-addr-space-size = <0x2000000>;
 		qcom,ep-latency = <10>;
 
 		qcom,pcie-phy-ver = <10102>;
