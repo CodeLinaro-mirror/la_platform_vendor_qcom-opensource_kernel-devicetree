@@ -136,3 +136,58 @@
 	/delete-property/ qcom,no-l0s-supported;
 	/delete-property/ qcom,no-l1-supported;
 };
+
+&pms405_gpios {
+	usb3_vbus_boost {
+		usb3_vbus_boost_default: usb3_vbus_boost_default {
+			pins = "gpio3";
+			function = "normal";
+			output-low;
+			power-source = <1>;
+		};
+	};
+
+	usb3_vbus_det {
+		usb3_vbus_det_default: usb3_vbus_det_default {
+			pins = "gpio12";
+			function = "normal";
+			input-enable;
+			bias-pull-down;
+			power-source = <1>;
+		};
+	};
+};
+
+&soc {
+	usb2_extcon: usb2_extcon {
+		compatible = "linux,extcon-usb-gpio";
+		id-gpio = <&tlmm 53 GPIO_ACTIVE_HIGH>;
+		vbus-gpio = <&tlmm 116 GPIO_ACTIVE_HIGH>;
+		vbus-out-gpio = <&tlmm 108 GPIO_ACTIVE_HIGH>;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&usb2_vbus_det_default
+				&usb2_id_det_default
+				&usb2_vbus_boost_default>;
+	};
+
+	usb3_extcon: usb3_extcon {
+		compatible = "linux,extcon-usb-gpio";
+		id-gpio = <&tlmm 113 GPIO_ACTIVE_HIGH>;
+		vbus-gpio = <&pms405_gpios 12 GPIO_ACTIVE_HIGH>;
+		vbus-out-gpio = <&pms405_gpios 3 GPIO_ACTIVE_HIGH>;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&usb3_vbus_det_default
+				&usb3_id_det_default
+				&usb3_vbus_boost_default>;
+	};
+};
+
+&usb2s {
+	extcon = <&usb2_extcon>;
+};
+
+&usb3 {
+	extcon = <&usb3_extcon>;
+};
