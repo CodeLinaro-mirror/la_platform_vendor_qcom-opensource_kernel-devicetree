@@ -1255,3 +1255,11 @@
 	};
 };
 
+&soc {
+	snd_8295_ar: sound-adp-star {
+		compatible = "qcom,gvm-auto-spf-asoc-snd-adp-star";
+		qcom,model = "gvmauto8295-adp-star-snd-card";
+		asoc-codec = <&stub_codec>;
+		asoc-codec-names = "msm-stub-codec.1";
+	};
+};
