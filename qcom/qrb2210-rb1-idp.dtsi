@@ -85,7 +85,3 @@
 &usb0 {
 	extcon = <&qusb_phy0>, <&eud>;
 };
-
-&mdss_mdp {
-	 #cooling-cells = <2>;
-};
