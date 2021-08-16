@@ -1661,6 +1661,3 @@
 &qupv3_se3_4uart {
 	status = "ok";
 };
-
-#include "display/qrb2210-rb1-sde.dtsi"
-#include "display/qrb2210-rb1-sde-display.dtsi"
