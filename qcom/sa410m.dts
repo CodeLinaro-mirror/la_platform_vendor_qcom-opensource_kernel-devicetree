@@ -1,5 +1,6 @@
 /dts-v1/;
 
+#include "sa410m.dtsi"
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
 / {
