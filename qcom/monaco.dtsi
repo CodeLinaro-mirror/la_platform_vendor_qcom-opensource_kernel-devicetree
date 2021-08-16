@@ -1831,7 +1831,7 @@ qcom,msm-adsprpc-mem {
 			100750000 200000000 400000000 4294967295>;
 
 		/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
-		qcom,dll-hsr-list = <0x000F642E 0x0 0x01 0x2c010800 0x80040868>;
+		qcom,dll-hsr-list = <0x000F642C 0x0 0x01 0x2c010800 0x80040868>;
 
 		qcom,devfreq,freq-table = <50000000 200000000>;
 		qcom,scaling-lower-bus-speed-mode = "DDR52";
