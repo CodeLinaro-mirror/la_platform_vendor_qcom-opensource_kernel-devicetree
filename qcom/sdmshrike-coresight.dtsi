@@ -1,3 +1,4 @@
+
 &soc {
 	replicator_qdss: replicator@6046000 {
 		compatible = "arm,coresight-dynamic-replicator",
@@ -34,7 +35,6 @@
 		in-ports {
 			port {
 				replicator0_in_tmc_etf: endpoint {
-					slave-mode;
 					remote-endpoint=
 						<&tmc_etf_out_replicator0>;
 				};
@@ -66,7 +66,6 @@
 		in-ports {
 			port {
 				replicator1_in_replicator0_out: endpoint {
-					slave-mode;
 					remote-endpoint=
 					<&replicator0_out_replicator1_in>;
 				};
@@ -76,7 +75,7 @@
 
 	tmc_etr: tmc@6048000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b961>;
+		arm,primecell-periphid = <0x000bb961>;
 
 		reg = <0x6048000 0x1000>,
 		      <0x6064000 0x15000>;
@@ -106,7 +105,6 @@
 		in-ports {
 			port {
 				tmc_etr_in_replicator0: endpoint {
-					slave-mode;
 					remote-endpoint = <&replicator0_out_tmc_etr>;
 				};
 			};
@@ -115,7 +113,7 @@
 
 	tmc_etf: tmc@6047000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b961>;
+		arm,primecell-periphid = <0x000bb961>;
 
 		reg = <0x6047000 0x1000>;
 		reg-names = "tmc-base";
@@ -142,7 +140,6 @@
 			port {
 				reg = <0>;
 				tmc_etf_in_funnel_merg: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_merg_out_tmc_etf>;
 				};
@@ -152,7 +149,7 @@
 
 	funnel_merg: funnel@6045000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6045000 0x1000>;
 		reg-names = "funnel-base";
@@ -179,7 +176,6 @@
 			port@0 {
 				reg = <0>;
 				funnel_merg_in_funnel_in0: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_in0_out_funnel_merg>;
 				};
@@ -188,7 +184,6 @@
 			port@1 {
 				reg = <1>;
 				funnel_merg_in_funnel_in1: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_in1_out_funnel_merg>;
 				};
@@ -225,7 +220,7 @@
 
 	funnel_in0: funnel@6041000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6041000 0x1000>;
 		reg-names = "funnel-base";
@@ -251,7 +246,6 @@
 			port@6 {
 				reg = <6>;
 				funnel_in0_in_funnel_qatb: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_qatb_out_funnel_in0>;
 				};
@@ -260,7 +254,6 @@
 			port@7 {
 				reg = <7>;
 				funnel_in0_in_stm: endpoint {
-					slave-mode;
 					remote-endpoint = <&stm_out_funnel_in0>;
 				};
 			};
@@ -269,7 +262,7 @@
 
 	funnel_in1: funnel@0x6042000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6042000 0x1000>;
 		reg-names = "funnel-base";
@@ -296,7 +289,6 @@
 			port@0 {
 				reg = <0>;
 				funnel_in1_in_modem_etm0: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&modem_etm0_out_funnel_in1>;
 				};
@@ -305,7 +297,6 @@
 			port@1 {
 				reg = <1>;
 				funnel_in1_in_replicator_swao: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&replicator_swao_out_funnel_in1>;
 				};
@@ -314,7 +305,6 @@
 			port@4 {
 				reg = <4>;
 				funnel_in1_in_funnel_apss_merg: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&funnel_apss_merg_out_funnel_in1>;
 				};
@@ -323,7 +313,6 @@
 			port@6 {
 				reg = <6>;
 				funnel_in1_in_tpda_modem: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&tpda_modem_in_tpdm_modem>;
 				};
@@ -373,7 +362,6 @@
 			port@1 {
 				reg = <0>;
 				replicator_swao_in_tmc_etf_swao: endpoint {
-					slave-mode;
 					remote-endpoint =
 					  <&tmc_etf_swao_out_replicator_swao>;
 				};
@@ -390,7 +378,6 @@
 		in-ports {
 			port {
 				dummy_eud_in_replicator_swao: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&replicator_swao_out_eud>;
 				};
@@ -424,7 +411,6 @@
 			port {
 				reg = <0>;
 				tmc_etf_swao_in_funnel_swao: endpoint {
-					slave-mode;
 					remote-endpoint=
 					  <&funnel_swao_out_tmc_etf_swao>;
 				};
@@ -434,7 +420,7 @@
 
 	funnel_swao:funnel@6b08000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6b08000 0x1000>;
 		reg-names = "funnel-base";
@@ -462,7 +448,6 @@
 			port@0 {
 				reg = <5>;
 				funnel_swao_in_ssc_etm0: endpoint {
-					slave-mode;
 					remote-endpoint=
 						<&ssc_etm0_out_funnel_swao>;
 				};
@@ -471,7 +456,6 @@
 			port@1 {
 				reg = <6>;
 				funnel_swao_in_replicator1_out: endpoint {
-					slave-mode;
 					remote-endpoint=
 						<&replicator1_out_funnel_swao>;
 				};
@@ -480,7 +464,6 @@
 			port@2 {
 				reg = <7>;
 				funnel_swao_in_tpda_swao: endpoint {
-					slave-mode;
 					remote-endpoint=
 						<&tpda_swao_out_funnel_swao>;
 				};
@@ -522,7 +505,6 @@
 			port@0 {
 				reg = <0>;
 				tpda_swao_in_tpdm_swao0: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_swao0_out_tpda_swao>;
 				};
@@ -531,7 +513,6 @@
 			port@1 {
 				reg = <1>;
 				tpda_swao_in_tpdm_swao1: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_swao1_out_tpda_swao>;
 				};
@@ -623,7 +604,6 @@
 		in-ports {
 			port {
 				tpda_modem_in_tpdm_modem: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_modem_out_tpda_modem>;
 				};
@@ -667,7 +647,7 @@
 
 	funnel_dl_mm: funnel@6c0b000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6c0b000 0x1000>;
 		reg-names = "funnel-base";
@@ -693,7 +673,6 @@
 			port {
 				reg = <0>;
 				funnel_dl_mm_in_tpdm_qm: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&tpdm_qm_out_funnel_dl_mm>;
 				};
@@ -723,10 +702,10 @@
 
 	funnel_dl_mm1: funnel_1@6c0b000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
-		reg = <0x6867000 0x10>,
-			<0x6c0b000 0x1000>;
+		reg = <0x6c0c000 0x1000>,
+				<0x6c0b000 0x1000>;
 		reg-names = "funnel-base-dummy", "funnel-base-real";
 
 		coresight-name = "coresight-funnel-dl-mm1";
@@ -753,7 +732,6 @@
 			port {
 				reg = <1>;
 				funnel_dl_mm1_in_tpdm_mm: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&tpdm_mm_out_funnel_dl_mm1>;
 				};
@@ -763,7 +741,7 @@
 
 	tpdm_mm: tpdm@6c08000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b968>;
+		arm,primecell-periphid = <0x000bb968>;
 		reg = <0x6c08000 0x1000>;
 		reg-names = "tpdm-base";
 
@@ -785,7 +763,7 @@
 
 	funnel_turing: funnel@6861000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6861000 0x1000>;
 		reg-names = "funnel-base";
@@ -812,7 +790,6 @@
 			port {
 				reg = <0>;
 				funnel_turing_in_tpdm_turing: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&tpdm_turing_out_funnel_turing>;
 				};
@@ -843,12 +820,12 @@
 		};
 	};
 
-	funnel_turing_1: funnel_1@6861000 {
+	funnel_turing_1: funnel_1@6862000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
-		reg = <0x6867010 0x10>,
-			<0x6861000 0x1000>;
+		reg = <0x6862000 0x10>,
+				<0x6861000 0x1000>;
 		reg-names = "funnel-base-dummy", "funnel-base-real";
 
 		coresight-name = "coresight-funnel-turing-1";
@@ -875,7 +852,6 @@
 			port {
 				reg = <1>;
 				funnel_turing_1_in_turing_etm0: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&turing_etm0_out_funnel_turing_1>;
 				};
@@ -901,7 +877,7 @@
 
 	funnel_apss_merg: funnel@7810000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x7810000 0x1000>;
 		reg-names = "funnel-base";
@@ -913,7 +889,6 @@
 
 		out-ports {
 			port {
-				reg = <0>;
 				funnel_apss_merg_out_funnel_in1: endpoint {
 					remote-endpoint =
 					    <&funnel_in1_in_funnel_apss_merg>;
@@ -928,7 +903,6 @@
 			port@0 {
 				reg = <0>;
 				funnel_apss_merg_in_funnel_apss: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&funnel_apss_out_funnel_apss_merg>;
 				};
@@ -937,7 +911,6 @@
 			port@1 {
 				reg = <2>;
 				funnel_apss_merg_in_tpda_olc: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&tpda_olc_out_funnel_apss_merg>;
 				};
@@ -946,7 +919,6 @@
 			port@2 {
 				reg = <3>;
 				funnel_apss_merg_in_tpda_llm_silver: endpoint {
-					slave-mode;
 					remote-endpoint =
 					<&tpda_llm_silver_out_funnel_apss_merg>;
 				};
@@ -955,7 +927,6 @@
 			port@3 {
 				reg = <4>;
 				funnel_apss_merg_in_tpda_llm_gold: endpoint {
-					slave-mode;
 					remote-endpoint =
 					  <&tpda_llm_gold_out_funnel_apss_merg>;
 				};
@@ -964,7 +935,6 @@
 			port@4 {
 				reg = <5>;
 				funnel_apss_merg_in_tpda_apss: endpoint {
-					slave-mode;
 					remote-endpoint =
 					  <&tpda_apss_out_funnel_apss_merg>;
 				};
@@ -1000,7 +970,6 @@
 			port {
 				reg = <0>;
 				tpda_olc_in_tpdm_olc: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_olc_out_tpda_olc>;
 				};
@@ -1056,7 +1025,6 @@
 			port {
 				reg = <0>;
 				tpda_apss_in_tpdm_apss: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_apss_out_tpda_apss>;
 				};
@@ -1115,7 +1083,6 @@
 			port {
 				reg = <0>;
 				tpda_llm_silver_in_tpdm_llm_silver: endpoint {
-					slave-mode;
 					remote-endpoint =
 					<&tpdm_llm_silver_out_tpda_llm_silver>;
 				};
@@ -1175,7 +1142,6 @@
 			port {
 				reg = <0>;
 				tpda_llm_gold_in_tpdm_llm_gold: endpoint {
-					slave-mode;
 					remote-endpoint =
 					  <&tpdm_llm_gold_out_tpda_llm_gold>;
 				};
@@ -1206,7 +1172,7 @@
 
 	funnel_apss: funnel@7800000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x7800000 0x1000>;
 		reg-names = "funnel-base";
@@ -1231,7 +1197,6 @@
 			port@0 {
 				reg = <0>;
 				funnel_apss_in_etm0: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm0_out_funnel_apss>;
 				};
@@ -1240,7 +1205,6 @@
 			port@1 {
 				reg = <1>;
 				funnel_apss_in_etm1: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm1_out_funnel_apss>;
 				};
@@ -1249,7 +1213,6 @@
 			port@2 {
 				reg = <2>;
 				funnel_apss_in_etm2: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm2_out_funnel_apss>;
 				};
@@ -1258,7 +1221,6 @@
 			port@3 {
 				reg = <3>;
 				funnel_apss_in_etm3: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm3_out_funnel_apss>;
 				};
@@ -1267,7 +1229,6 @@
 			port@4 {
 				reg = <4>;
 				funnel_apss_in_etm4: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm4_out_funnel_apss>;
 				};
@@ -1276,7 +1237,6 @@
 			port@5 {
 				reg = <5>;
 				funnel_apss_in_etm5: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm5_out_funnel_apss>;
 				};
@@ -1285,7 +1245,6 @@
 			port@6 {
 				reg = <6>;
 				funnel_apss_in_etm6: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm6_out_funnel_apss>;
 				};
@@ -1294,7 +1253,6 @@
 			port@7 {
 				reg = <7>;
 				funnel_apss_in_etm7: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&etm7_out_funnel_apss>;
 				};
@@ -1877,6 +1835,7 @@
 		reg-names = "cti-base";
 
 		coresight-name = "coresight-cti-titan";
+		status = "disabled";
 
 		clocks = <&aopcc QDSS_CLK>;
 		clock-names = "apb_pclk";
@@ -1889,6 +1848,7 @@
 		reg-names = "cti-base";
 
 		coresight-name = "coresight-cti-venus-arm9";
+		status = "disabled";
 
 		clocks = <&aopcc QDSS_CLK>;
 		clock-names = "apb_pclk";
@@ -2062,7 +2022,7 @@
 
 	funnel_qatb: funnel@6005000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6005000 0x1000>;
 		reg-names = "funnel-base";
@@ -2090,16 +2050,14 @@
 			port@0 {
 				reg = <0>;
 				funnel_qatb_in_tpda: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpda_out_funnel_qatb>;
 				};
 			};
 
 			port@1 {
-				reg = <5>;
+				reg = <7>;
 				funnel_qatb_in_funnel_turing_1: endpoint {
-					slave-mode;
 					remote-endpoint =
 					<&funnel_turing_1_out_funnel_qatb>;
 				};
@@ -2108,7 +2066,6 @@
 			port@2 {
 				reg = <6>;
 				funnel_qatb_in_funnel_lpass_1: endpoint {
-					slave-mode;
 					remote-endpoint =
 					<&funnel_lpass_1_out_funnel_qatb>;
 				};
@@ -2159,7 +2116,6 @@
 			port@1 {
 				reg = <0>;
 				tpda_in_funnel_dl_mm: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_dl_mm_out_tpda>;
 				};
@@ -2168,7 +2124,6 @@
 			port@2 {
 				reg = <1>;
 				tpda_in_funnel_dl_mm1: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_dl_mm1_out_tpda>;
 				};
@@ -2177,7 +2132,6 @@
 			port@3 {
 				reg = <2>;
 				tpda_in_tpdm_center: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_center_out_tpda>;
 				};
@@ -2187,7 +2141,6 @@
 			port@5 {
 				reg = <5>;
 				tpda_in_funnel_ddr_0: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_ddr_0_out_tpda>;
 				};
@@ -2196,7 +2149,6 @@
 			port@6 {
 				reg = <8>;
 				tpda_in_funnel_dl_south: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_dl_south_out_tpda>;
 				};
@@ -2205,7 +2157,6 @@
 			port@7 {
 				reg = <9>;
 				tpda_in_funnel_lpass: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_lpass_out_tpda>;
 				};
@@ -2214,7 +2165,6 @@
 			port@8 {
 				reg = <10>;
 				tpda_in_funnel_turing: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&funnel_turing_out_tpda>;
 				};
@@ -2224,7 +2174,6 @@
 			port@9 {
 				reg = <11>;
 				tpda_in_tpdm_vsense: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_vsense_out_tpda>;
 				};
@@ -2233,7 +2182,6 @@
 			port@10 {
 				reg = <13>;
 				tpda_in_tpdm_prng: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_prng_out_tpda>;
 				};
@@ -2242,7 +2190,6 @@
 			port@11 {
 				reg = <16>;
 				tpda_in_tpdm_pimem: endpoint {
-					slave-mode;
 					remote-endpoint =
 						<&tpdm_pimem_out_tpda>;
 				};
@@ -2252,7 +2199,7 @@
 
 	funnel_lpass: funnel@6846000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6846000 0x1000>;
 		reg-names = "funnel-base";
@@ -2275,7 +2222,6 @@
 		in-ports {
 			port {
 				funnel_lpass_in_tpdm_lpass: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&tpdm_lpass_out_funnel_lpass>;
 				};
@@ -2307,10 +2253,10 @@
 
 	funnel_lpass_1: funnel_1@6846000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
-		reg = <0x6867020 0x10>,
-			<0x6846000 0x1000>;
+		reg = <0x6847000 0x1000>,
+				<0x6846000 0x1000>;
 		reg-names = "funnel-base-dummy", "funnel-base-real";
 
 		coresight-name = "coresight-funnel-lpass-1";
@@ -2333,7 +2279,6 @@
 		in-ports {
 			port {
 				funnel_lpass_1_in_audio_etm0: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&audio_etm0_out_funnel_lpass_1>;
 				};
@@ -2359,7 +2304,7 @@
 
 	funnel_dl_south: funnel@69c2000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 		reg = <0x69c2000 0x1000>;
 		reg-names = "funnel-base";
 
@@ -2385,7 +2330,6 @@
 			port@0 {
 				reg = <1>;
 				funnel_dl_south_in_tpdm_dl_south: endpoint {
-					slave-mode;
 					remote-endpoint =
 					<&tpdm_dl_south_out_funnel_dl_south>;
 				};
@@ -2394,7 +2338,6 @@
 			port@1 {
 				reg = <3>;
 				funnel_dl_south_in_funnel_wcss: endpoint {
-					slave-mode;
 					remote-endpoint =
 					<&funnel_wcss_out_funnel_dl_south>;
 				};
@@ -2425,7 +2368,7 @@
 
 	funnel_wcss: funnel@6ac2000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6ac2000 0x1000>;
 		reg-names = "funnel-base";
@@ -2447,7 +2390,6 @@
 		in-ports {
 			port {
 				funnel_wcss_in_tpdm_wcss: endpoint {
-					slave-mode;
 					remote-endpoint =
 					<&tpdm_wcss_out_funnel_wcss>;
 				};
@@ -2472,7 +2414,7 @@
 
 	funnel_ddr_0: funnel@6a05000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6a05000 0x1000>;
 		reg-names = "funnel-base";
@@ -2494,7 +2436,6 @@
 		in-ports {
 			port {
 				funnel_ddr_0_in_tpdm_ddr: endpoint {
-					slave-mode;
 					remote-endpoint =
 					    <&tpdm_ddr_out_funnel_ddr_0>;
 				};
@@ -2509,6 +2450,7 @@
 		reg-names = "tpdm-base";
 
 		coresight-name = "coresight-tpdm-ddr";
+		status = "disabled";
 
 		clocks = <&aopcc QDSS_CLK>;
 		clock-names = "apb_pclk";
@@ -2573,10 +2515,10 @@
 		reg-names = "tpdm-base";
 
 		coresight-name = "coresight-tpdm-vsense";
+		status = "disabled";
 
 		clocks = <&aopcc QDSS_CLK>;
 		clock-names = "apb_pclk";
-
 		out-ports {
 			port {
 				tpdm_vsense_out_tpda: endpoint {
@@ -2607,7 +2549,7 @@
 
 	stm: stm@6002000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b962>;
+		arm,primecell-periphid = <0x000bb962>;
 
 		reg = <0x6002000 0x1000>,
 		      <0x16280000 0x180000>,
