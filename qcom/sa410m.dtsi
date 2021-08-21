@@ -692,5 +692,6 @@
 	};
 };
 
+#include "sa410m-pinctrl.dtsi"
 #include "scuba-ion.dtsi"
 #include "msm-arm-smmu-scuba.dtsi"
