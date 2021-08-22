@@ -443,3 +443,13 @@
 	qcom,iommu-dma = "bypass";
 };
 
+&qupv3_2 {
+	/delete-property/ qcom,msm-bus,num-paths;
+	/delete-property/ qcom,msm-bus,vectors-bus-ids;
+	qcom,iommu-dma = "bypass";
+};
+
+&slpi_tlmm {
+	status = "ok";
+};
+
