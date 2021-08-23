@@ -90,6 +90,10 @@
 		qcom,pre-scaling = <1 1>;
 		qcom,adc-tm-type = <1>;
 	};
+
+	pm5100_bat_id {
+		qcom,hw-settle-time = <16000>;
+	};
 };
 
 &thermal_zones {
