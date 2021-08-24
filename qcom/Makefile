@@ -493,7 +493,9 @@ dtb-$(CONFIG_QTI_QUIN_GVM) += sa8155-vm-la.dtb \
 	sa6155p-vm-la.dtb \
 	sa6155p-vm-lv.dtb \
 	direwolf-vm-lv.dtb \
-	direwolf-vm-la.dtb
+	direwolf-vm-la.dtb \
+	direwolf-vm-la-mt.dtb \
+	direwolf-vm-lv-mt.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_DIREWOLF) += direwolf-ivi-rumi-overlay.dtbo \
