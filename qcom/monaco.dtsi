@@ -1571,6 +1571,48 @@ qcom,msm-adsprpc-mem {
 			qcom,glinkpkt-dev-name = "glinkpkt_slate_ssc_test_14";
 			qcom,glinkpkt-enable-ch-close;
 		};
+
+		qcom,glinkpkt-slate-apps-diag-cntl {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "DIAG_SLATE_APPS_CNTL";
+			qcom,glinkpkt-dev-name = "slate_apps_cntl";
+			qcom,glinkpkt-fragmented-read;
+		};
+
+		qcom,glinkpkt-slate-apps-diag-cmd {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "DIAG_SLATE_APPS_CMD";
+			qcom,glinkpkt-dev-name = "slate_apps_cmd";
+			qcom,glinkpkt-fragmented-read;
+		};
+
+		qcom,glinkpkt-slate-apps-diag-data {
+			qcom,glinkpkt-edge = "lpass";
+			qcom,glinkpkt-ch-name = "DIAG_SLATE_APPS_DATA";
+			qcom,glinkpkt-dev-name = "slate_apps_data";
+			qcom,glinkpkt-fragmented-read;
+		};
+
+		qcom,glinkpkt-slate-adsp-diag-cntl {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "DIAG_SLATE_ADSP_CNTL";
+			qcom,glinkpkt-dev-name = "slate_adsp_cntl";
+			qcom,glinkpkt-fragmented-read;
+		};
+
+		qcom,glinkpkt-slate-adsp-diag-cmd {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "DIAG_SLATE_ADSP_CMD";
+			qcom,glinkpkt-dev-name = "slate_adsp_cmd";
+			qcom,glinkpkt-fragmented-read;
+		};
+
+		qcom,glinkpkt-slate-adsp-diag-data {
+			qcom,glinkpkt-edge = "lpass";
+			qcom,glinkpkt-ch-name = "DIAG_SLATE_ADSP_DATA";
+			qcom,glinkpkt-dev-name = "slate_adsp_data";
+			qcom,glinkpkt-fragmented-read;
+		};
 	};
 
 	qcom,smp2p-modem {
