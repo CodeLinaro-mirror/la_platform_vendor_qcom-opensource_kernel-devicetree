@@ -2429,12 +2429,12 @@
 };
 
 #include "direwolf-pinctrl.dtsi"
+#include "direwolf-qupv3.dtsi"
 #include "direwolf-regulators.dtsi"
 #include "direwolf-pm.dtsi"
 #include "direwolf-gdsc.dtsi"
 #include "direwolf-ion.dtsi"
 #include "msm-arm-smmu-direwolf.dtsi"
-#include "direwolf-qupv3.dtsi"
 #include "direwolf-usb.dtsi"
 #include "direwolf-smp2p.dtsi"
 #include "direwolf-pcie.dtsi"
