@@ -192,6 +192,12 @@
 			default-state = "off";
 		};
 	};
+
+	fan0: pwm-fan {
+		compatible = "pwm-fan";
+		pwms = <&pm6125_pwm 0 100000>;
+		cooling-levels = <0 32 64 128 170 230 255>;
+	};
 };
 
 &sdhc_1 {
