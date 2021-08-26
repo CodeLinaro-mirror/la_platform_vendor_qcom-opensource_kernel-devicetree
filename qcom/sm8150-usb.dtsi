@@ -167,7 +167,7 @@
 
 		dwc3@a800000 {
 			compatible = "snps,dwc3";
-			reg = <0x0a800000 0xcd00>;
+			reg = <0x0a800000 0xd941>;
 			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
 			usb-phy = <&usb2_phy1>, <&usb_qmp_phy>;
 			linux,sysdev_is_parent;
@@ -179,8 +179,9 @@
 			snps,dis-u1-entry-quirk;
 			snps,dis-u2-entry-quirk;
 			snps,dis_u3_susphy_quirk;
+			snps,force-gen1;
 			tx-fifo-resize;
-			maximum-speed = "super-speed-plus";
+			maximum-speed = "super-speed";
 			dr_mode = "otg";
 		};
 	};
