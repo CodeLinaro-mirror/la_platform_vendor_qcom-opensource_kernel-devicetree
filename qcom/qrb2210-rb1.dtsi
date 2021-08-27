@@ -13,7 +13,7 @@
 / {
 	model = "Qualcomm Technologies, Inc. Qrb2210 RB1";
 	compatible = "qcom,scuba-idp", "qcom,scuba", "qcom,idp";
-	qcom,msm-id = <473 0x0>;
+	qcom,msm-id = <473 0x0>, <474 0x10000>, <524 0x10000>, <441 0x10000>;
 	qcom,board-id = <34 0>;
 
 	#address-cells = <2>;
