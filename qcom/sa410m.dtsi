@@ -700,5 +700,7 @@
 };
 
 #include "sa410m-pinctrl.dtsi"
+#include "pm2250-rpm-regulator.dtsi"
+#include "scuba-regulator.dtsi"
 #include "scuba-ion.dtsi"
 #include "msm-arm-smmu-scuba.dtsi"
