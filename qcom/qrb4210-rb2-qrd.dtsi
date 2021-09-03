@@ -147,14 +147,13 @@
 	qcom,vdd-io-voltage-level = <1800000 2960000>;
 	qcom,vdd-io-current-level = <0 22000>;
 
-	vdd-io-bias-supply = <&L7A>;
-	qcom,vdd-io-bias-voltage-level = <1256000 1256000>;
-	qcom,vdd-io-bias-current-level = <0 6000>;
-
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&sdc2_on>;
+	pinctrl-1 = <&sdc2_off>;
 
 	cd-gpios = <&tlmm 88 GPIO_ACTIVE_LOW>;
 
-	status = "disabled";
+	status = "ok";
 };
 
 &tlmm {
