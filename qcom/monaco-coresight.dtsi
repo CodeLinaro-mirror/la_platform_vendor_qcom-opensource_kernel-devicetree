@@ -36,6 +36,7 @@
 		qcom,perflsheot-set-support;
 
 		qcom,blk-size = <1>;
+		qcom,flushperiod = <8>;
 	};
 
 	swao_csr: csr@8a03000 {
