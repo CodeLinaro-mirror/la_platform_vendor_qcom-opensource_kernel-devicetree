@@ -119,6 +119,28 @@
 			gpio-key,wakeup;
 		};
 	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		gpio52 {
+			label = "user4-led_green";
+			gpios = <&tlmm 52 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+
+		gpio47 {
+			label = "wifi-led_yellow";
+			gpios = <&tlmm 47 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+
+		gpio45 {
+			label = "bt-led_blue";
+			gpios = <&tlmm 45 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+	};
 };
 
 &sdhc_1 {
