@@ -5,6 +5,7 @@
 #include <dt-bindings/clock/qcom,camcc-direwolf.h>
 #include <dt-bindings/clock/qcom,dispcc-direwolf.h>
 #include <dt-bindings/clock/qcom,gcc-direwolf.h>
+#include <dt-bindings/clock/qcom,gpucc-direwolf.h>
 #include <dt-bindings/clock/qcom,videocc-direwolf.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
@@ -956,6 +957,24 @@
 		#reset-cells = <1>;
 	};
 
+	gpucc: clock-controller@3d90000 {
+		compatible = "qcom,direwolf-gpucc", "syscon";
+		reg = <0x3d90000 0x9000>;
+		reg-name = "cc_base";
+		vdd_cx-supply = <&VDD_CX_LEVEL>;
+		vdd_mx-supply = <&VDD_MXA_LEVEL>;
+		clocks = <&rpmhcc RPMH_CXO_CLK>,
+			 <&gcc GCC_GPU_GPLL0_CLK_SRC>,
+			 <&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>,
+			 <&gcc GCC_GPU_CFG_AHB_CLK>;
+		clock-names = "bi_tcxo",
+			      "gcc_gpu_gpll0_clk_src",
+			      "gcc_gpu_gpll0_div_clk_src",
+			      "iface";
+		#clock-cells = <1>;
+		#reset-cells = <1>;
+	};
+
 	apsscc: syscon@182a0000 {
 		compatible = "syscon";
 		reg = <0x182a0000 0x1c>;
@@ -971,6 +990,7 @@
 		qcom,apsscc = <&apsscc>;
 		qcom,camcc = <&camcc>;
 		qcom,gcc = <&gcc>;
+		qcom,gpucc = <&gpucc>;
 		qcom,dispcc0 = <&dispcc0>;
 		qcom,dispcc1 = <&dispcc1>;
 		qcom,mccc = <&mccc>;
@@ -2656,6 +2676,23 @@
 	clock-names = "ahb_clk";
 	parent-supply = <&VDD_CX_LEVEL>;
 	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&gpu_cc_cx_gdsc {
+	clocks = <&gcc GCC_GPU_CFG_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_CX_LEVEL>;
+	qcom,retain-regs;
+	status = "ok";
+};
+
+&gpu_cc_gx_gdsc {
+	clocks = <&gcc GCC_GPU_CFG_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_GFX_LEVEL>;
+	qcom,retain-regs;
+	qcom,skip-disable-before-sw-enable;
 	status = "ok";
 };
 
