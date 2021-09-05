@@ -268,6 +268,7 @@ dtbo-$(CONFIG_ARCH_MONACO) +=    \
 	monaco-standalone-idp-v1-overlay.dtbo \
 	monaco-standalone-idp-v2-overlay.dtbo \
 	monaco-standalone-idp-v3-overlay.dtbo \
+	monacop-standalone-idp-v1-overlay.dtbo \
 	monaco-idp-v1-overlay.dtbo \
 	monaco-idp-v2-overlay.dtbo \
 	monaco-idp-v3-overlay.dtbo \
@@ -279,6 +280,7 @@ monaco-rumi-overlay.dtbo-base := monaco.dtb
 monaco-standalone-idp-v1-overlay.dtbo-base := monaco-1gb.dtb monacop-1gb.dtb
 monaco-standalone-idp-v2-overlay.dtbo-base := monaco-1gb.dtb monacop-1gb.dtb
 monaco-standalone-idp-v3-overlay.dtbo-base := monaco-1gb.dtb monacop-1gb.dtb
+monacop-standalone-idp-v1-overlay.dtbo-base := monaco-1gb.dtb
 monaco-idp-v1-overlay.dtbo-base := monaco.dtb monacop.dtb
 monaco-idp-v2-overlay.dtbo-base := monaco.dtb monacop.dtb
 monaco-idp-v3-overlay.dtbo-base := monaco.dtb monacop.dtb
