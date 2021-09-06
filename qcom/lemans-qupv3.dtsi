@@ -1,0 +1,29 @@
+&soc {
+	/* QUPv3_1 wrapper instance */
+	qupv3_1: qcom,qupv3_1_geni_se@ac0000 {
+		compatible = "qcom,qupv3-geni-se";
+		reg = <0xac0000 0x2000>;
+		qcom,msm-bus,num-paths = <2>;
+		qcom,msm-bus,vectors-bus-ids =
+			<MASTER_QUP_CORE_1 SLAVE_QUP_CORE_1>,
+			<MASTER_QUP_1 SLAVE_EBI1>;
+		status = "ok";
+	};
+
+	/* Debug UART Instance */
+	qupv3_se10_2uart: qcom,qup_uart@a88000 {
+		compatible = "qcom,msm-geni-console";
+		reg = <0xa88000 0x4000>;
+		reg-names = "se_phys";
+		interrupts = <GIC_SPI 355 IRQ_TYPE_LEVEL_HIGH>;
+		clock-names = "se-clk", "m-ahb", "s-ahb";
+		clocks = <&gcc GCC_QUPV3_WRAP1_S2_CLK>,
+			<&gcc GCC_QUPV3_WRAP_1_M_AHB_CLK>,
+			<&gcc GCC_QUPV3_WRAP_1_S_AHB_CLK>;
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&qupv3_se10_2uart_active>;
+		pinctrl-1 = <&qupv3_se10_2uart_sleep>;
+		qcom,wrapper-core = <&qupv3_1>;
+		status = "disabled";
+	};
+};
