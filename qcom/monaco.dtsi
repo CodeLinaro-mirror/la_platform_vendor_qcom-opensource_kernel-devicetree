@@ -1613,6 +1613,12 @@ qcom,msm-adsprpc-mem {
 			qcom,glinkpkt-dev-name = "slate_adsp_data";
 			qcom,glinkpkt-fragmented-read;
 		};
+
+		qcom,glinkpkt-haptics-offload-ctrl {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "slate-haptics-offload";
+			qcom,glinkpkt-dev-name = "glinkpkt_slate_haptics_offload";
+		};
 	};
 
 	qcom,smp2p-modem {
