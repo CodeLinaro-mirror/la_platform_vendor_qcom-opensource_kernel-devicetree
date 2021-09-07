@@ -30,6 +30,9 @@
 	qcom,vddp-ref-clk-supply = <&L6C0>;
 	qcom,vddp-ref-clk-max-microamp = <100>;
 
+	/* Disable Write Booster Feature */
+	qcom,disable-wb-support;
+
 	status = "ok";
 };
 
@@ -57,6 +60,9 @@
 
 	qcom,vddp-ref-clk-supply = <&L3C0>;
 	qcom,vddp-ref-clk-max-microamp = <100>;
+
+	/* Disable Write Booster Feature */
+	qcom,disable-wb-support;
 
 	status = "ok";
 };
