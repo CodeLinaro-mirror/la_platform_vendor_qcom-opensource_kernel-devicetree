@@ -171,4 +171,6 @@
 	dpdm-supply = <&usb2_phy0>;
 	qcom,auto-recharge-soc = <98>;
 	qcom,suspend-input-on-debug-batt;
+	qcom,chg-term-src = <1>;
+	qcom,chg-term-current-ma = <(-20)>;
 };
