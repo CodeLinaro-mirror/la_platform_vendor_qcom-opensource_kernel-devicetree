@@ -36,17 +36,8 @@
 	status = "ok";
 };
 
-&soc {
-	monaco_batterydata: qcom,battery-data {
-		qcom,batt-id-range-pct = <15>;
-		#include "qbg-battery-profile-alium-860-89032-0000-3600mAh.dtsi"
-		#include "qbg-battery-profile-qrd-zwd-520mAh.dtsi"
-	};
-};
-
 &pm5100_charger {
 	qcom,remote-fg;
-	qcom,battery-data = <&monaco_batterydata>;
 	#io-channel-cells = <1>;
 	io-channels = <&pm5100_adc PM5100_ADC5_GEN3_USB_SNS_V_16>,
 		      <&pm5100_adc PM5100_ADC5_GEN3_USB_IN_I>,
