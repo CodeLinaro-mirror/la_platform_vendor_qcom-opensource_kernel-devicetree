@@ -1,7 +1,7 @@
 /dts-v1/;
 
 #include "direwolf-vm.dtsi"
-#include "direwolf-vm-la.dtsi"
+#include "direwolf-vm-la-mt.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Direwolf Multi LA Virtual Machine";
