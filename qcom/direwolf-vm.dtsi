@@ -3,7 +3,7 @@
 
 / {
 	model = "Qualcomm Technologies, Inc. Direwolf Virtual Machine";
-	qcom,msm-name = "Direwolf V1";
+	qcom,msm-name = "SA_DIREWOLF_IVI";
 	qcom,msm-id = <460 0x10000>;
 
 	aliases {
