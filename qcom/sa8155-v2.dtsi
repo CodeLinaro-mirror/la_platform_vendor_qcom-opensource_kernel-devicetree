@@ -321,6 +321,35 @@
 				qcom,bus-min = <5>;
 				qcom,bus-max = <9>;
 			};
+
+			/* Vote for SVS_L1 voltage for 345MHz instead of SVS */
+			qcom,gpu-pwrlevel@5 {
+				reg = <5>;
+				qcom,gpu-freq = <345000000>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
+				qcom,bus-freq = <3>;
+				qcom,bus-min = <3>;
+				qcom,bus-max = <8>;
+			};
+
+			/* Vote for SVS_L1 voltage for 257MHz instead of LOW_SVS */
+			qcom,gpu-pwrlevel@6 {
+				reg = <6>;
+				qcom,gpu-freq = <257000000>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
+				qcom,bus-freq = <2>;
+				qcom,bus-min = <1>;
+				qcom,bus-max = <8>;
+			};
+
+			qcom,gpu-pwrlevel@7 {
+				reg = <7>;
+				qcom,gpu-freq = <0>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_RETENTION>;
+				qcom,bus-freq = <0>;
+				qcom,bus-min = <0>;
+				qcom,bus-max = <0>;
+			};
 		};
 
 		qcom,gpu-pwrlevels-1 {
@@ -328,7 +357,7 @@
 			#size-cells = <0>;
 
 			qcom,speed-bin = <1>;
-			qcom,initial-pwrlevel = <1>;
+			qcom,initial-pwrlevel = <2>;
 
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
@@ -346,6 +375,35 @@
 				qcom,bus-freq = <6>;
 				qcom,bus-min = <5>;
 				qcom,bus-max = <9>;
+			};
+
+			/* Vote for SVS_L1 voltage for 345MHz instead of SVS */
+			qcom,gpu-pwrlevel@2 {
+				reg = <2>;
+				qcom,gpu-freq = <345000000>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
+				qcom,bus-freq = <3>;
+				qcom,bus-min = <3>;
+				qcom,bus-max = <8>;
+			};
+
+			/* Vote for SVS_L1 voltage for 257MHz instead of LOW_SVS */
+			qcom,gpu-pwrlevel@3 {
+				reg = <3>;
+				qcom,gpu-freq = <257000000>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
+				qcom,bus-freq = <2>;
+				qcom,bus-min = <1>;
+				qcom,bus-max = <8>;
+			};
+
+			qcom,gpu-pwrlevel@4 {
+				reg = <4>;
+				qcom,gpu-freq = <0>;
+				qcom,level = <RPMH_REGULATOR_LEVEL_RETENTION>;
+				qcom,bus-freq = <0>;
+				qcom,bus-min = <0>;
+				qcom,bus-max = <0>;
 			};
 		};
 	};
