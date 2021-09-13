@@ -197,6 +197,12 @@ Charger specific properties:
   Definition: Specifies the step size of each step of FCC stepper algorithm.
 		If left unspecified, the default value is 100mA.
 
+- qcom,fc-step-start-ua
+  Usage:     optional
+  Value type: <u32>
+  Definition: Specifies the initial current of FCC stepper algorithm.
+		If left unspecified, the default value is 500mA.
+
 - qcom,concurrency-mode-enable
  Usage:      optional
  Value type: bool
