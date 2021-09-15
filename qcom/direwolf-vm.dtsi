@@ -190,10 +190,6 @@
 		clock-names = "km_clk_src";
 	};
 
-	cpu_pmu: cpu-pmu {
-		compatible = "arm,armv8-pmuv3";
-	};
-
 	qtee_shmbridge {
 		compatible = "qcom,tee-shared-memory-bridge";
 		/*Boolean property to disable shmbridge*/
@@ -510,4 +506,8 @@
 &qupv3_2 {
 	/delete-property/ qcom,msm-bus,num-paths;
 	/delete-property/ qcom,msm-bus,vectors-bus-ids;
+};
+
+&cpu_pmu {
+	interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
 };
