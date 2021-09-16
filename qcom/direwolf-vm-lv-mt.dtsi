@@ -9,18 +9,13 @@
 	};
 };
 
-&linux_cma {
-	size = <0x0 0x3c00000>;
-};
-
 #include "display/quin-vm-display-lxc.dtsi"
-#include "direwolf-vm-lv-cnss.dtsi"
 
-&usb0 {
+&usb1 {
 	status = "okay";
 };
 
-&usb2_phy0 {
+&usb2_phy1 {
 	status = "okay";
 };
 
@@ -31,32 +26,3 @@
 &pcie2a_msi_snps {
 	status = "okay";
 };
-
-&pcie4 {
-	status = "okay";
-};
-
-&pcie4_msi_snps {
-	status = "okay";
-};
-
-&usb2 {
-	status = "okay";
-};
-
-&usb2_phy2 {
-	status = "okay";
-};
-
-&usb2_phy3 {
-	status = "okay";
-};
-
-&usb2_phy4 {
-	status = "okay";
-};
-
-&usb2_phy5 {
-	status = "okay";
-};
-
