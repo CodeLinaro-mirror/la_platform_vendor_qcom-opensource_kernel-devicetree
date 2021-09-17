@@ -287,6 +287,13 @@
 		clock-output-names = "pcie_4_pipe_clk";
 		#clock-cells = <0>;
 	};
+
+	emac_ctrl_fe: emac_ctrl_drv@0x1d000000 {
+		compatible = "virtio,mmio";
+		reg =<0x1d000000 0x1000>;
+		interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
 };
 
 &regulator {
