@@ -1390,6 +1390,7 @@
 		#interconnect-cells = <1>;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
+		clocks = <&gcc GCC_NPU_CFG_AHB_CLK>;
 	};
 
 	qmp_aop: qcom,qmp-aop@c300000 {
