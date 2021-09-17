@@ -43,6 +43,7 @@
 		pci-domain2 = &pcie2; /* PCIe2 domain */
 		pci-domain3 = &pcie3; /* PCIe3 domain */
 		pci-domain4 = &pcie4; /* PCIe4 domain */
+		spi22 = &qupv3_se22_spi;
 	};
 
 	cpus {
@@ -2459,6 +2460,7 @@
 #include "direwolf-smp2p.dtsi"
 #include "direwolf-pcie.dtsi"
 #include "display/direwolf-sde.dtsi"
+#include "direwolf-audio.dtsi"
 
 &gcc_emac0_gdsc {
 	status = "ok";
