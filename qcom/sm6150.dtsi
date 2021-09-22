@@ -2103,6 +2103,11 @@
 		 };
 	};
 
+	qcom,hlos_sleep_state {
+		compatible = "qcom,smp2p-hlos_sleep_state";
+		qcom,smem-states = <&hlos_sleep_state_out 0>;
+	};
+
 	qcom,smp2p-adsp {
 		compatible = "qcom,smp2p";
 		qcom,smem = <443>, <429>;
@@ -2141,6 +2146,11 @@
 			qcom,entry-name = "rdbg";
 			interrupt-controller;
 			#interrupt-cells = <2>;
+		};
+
+		hlos_sleep_state_out: hlos_sleep_state-out {
+			qcom,entry-name = "hlos_sleep_state";
+			#qcom,smem-state-cells = <1>;
 		};
 	};
 
