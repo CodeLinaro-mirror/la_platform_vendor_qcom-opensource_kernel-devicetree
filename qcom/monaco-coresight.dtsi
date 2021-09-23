@@ -255,6 +255,8 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
+
+		qcom,cmb-msr-skip;
 		out-ports {
 			port {
 				tpdm_dcc_out_tpda12: endpoint {
@@ -275,6 +277,8 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
+
+		qcom,cmb-msr-skip;
 		out-ports {
 			port {
 				tpdm_prng_out_tpda14: endpoint {
@@ -335,6 +339,8 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
+
+		qcom,cmb-msr-skip;
 		out-ports {
 			port {
 				tpdm_pimem_out_tpda21: endpoint {
@@ -355,6 +361,8 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
+
+		qcom,cmb-msr-skip;
 		out-ports {
 			port {
 				tpdm_mapss_out_tpda_mapss: endpoint {
@@ -422,6 +430,7 @@
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
 
+		qcom,cmb-msr-skip;
 		out-ports {
 			port {
 				tpdm_spdm_out_tpda18: endpoint {
@@ -579,6 +588,8 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
+
+		qcom,cmb-msr-skip;
 		out-ports {
 			port {
 				tpdm_actpm_out_tpda_actpm: endpoint {
@@ -600,6 +611,7 @@
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
 
+		qcom,cmb-msr-cnt = <12>;
 		out-ports {
 			port {
 				tpdm_llm_silver_out_tpda_llm_silver: endpoint {
