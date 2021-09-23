@@ -772,14 +772,10 @@
 		interrupt-names = "hc_irq", "pwr_irq";
 
 		qcom,bus-width = <4>;
-		qcom,large-address-bus;
 
-		qcom,clk-rates = <400000 20000000 25000000
-				50000000 100000000 202000000>;
-		qcom,bus-speed-mode = "SDR12", "SDR25", "SDR50", "DDR50",
-				      "SDR104";
-
-		qcom,devfreq,freq-table = <50000000 202000000>;
+		interconnects = <&system_noc MASTER_SDCC_2 &bimc SLAVE_EBI_CH0>,
+			<&bimc MASTER_AMPSS_M0 &config_noc SLAVE_SDCC_2>;
+		interconnect-names = "sdhc-ddr","cpu-sdhc";
 
 		qcom,msm-bus,name = "sdhc2";
 		qcom,msm-bus,num-cases = <8>;
@@ -811,21 +807,27 @@
 		qcom,bus-bw-vectors-bps = <0 400000 20000000 25000000 50000000
 			100750000 200000000 4294967295>;
 
-		/* PM QoS */
-		qcom,pm-qos-irq-type = "affine_irq";
-		qcom,pm-qos-irq-latency = <26 26>;
-		qcom,pm-qos-cpu-groups = <0x0f 0xf0>;
-		qcom,pm-qos-legacy-latency-us = <26 26>, <26 26>;
+		qcom,devfreq,freq-table = <50000000 202000000>;
 
+		no-mmc;
+		no-sdio;
+		max-frequency = <202000000>;
+		iommus = <&apps_smmu 0xA0 0x0>;
+		qcom,iommu-dma = "bypass";
 
 		clocks = <&gcc GCC_SDCC2_AHB_CLK>,
 			<&gcc GCC_SDCC2_APPS_CLK>;
-		clock-names = "iface_clk", "core_clk";
+		clock-names = "iface", "core";
 
 		/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
 		qcom,dll-hsr-list = <0x0007642c 0x0 0x0 0x00010800 0x80040868>;
-
 		status = "disabled";
+
+		qos0 {
+			mask = <0x0f>;
+			vote = <43>;
+		};
+
 	};
 
 	bluetooth: bt_wcn3990 {
