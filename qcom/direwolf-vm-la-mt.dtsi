@@ -6,6 +6,7 @@
 };
 
 #include "display/quin-vm-display-la.dtsi"
+#include "direwolf-cnss.dtsi"
 
 / {
 	rename_blk: rename_blk {
@@ -19,3 +20,38 @@
 	};
 };
 
+&usb0 {
+	status = "okay";
+};
+
+&usb2_phy0 {
+	status = "okay";
+};
+
+&usb2 {
+	status = "okay";
+};
+
+&usb2_phy2 {
+	status = "okay";
+};
+
+&usb2_phy3 {
+	status = "okay";
+};
+
+&usb2_phy4 {
+	status = "okay";
+};
+
+&usb2_phy5 {
+	status = "okay";
+};
+
+&pcie4 {
+	status = "okay";
+};
+
+&pcie4_msi_snps {
+	status = "okay";
+};
