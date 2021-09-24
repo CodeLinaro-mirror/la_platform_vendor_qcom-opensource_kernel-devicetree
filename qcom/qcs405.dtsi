@@ -163,6 +163,10 @@
 		#interrupt-cells = <2>;
 	};
 
+	system_pm_rpm {
+		compatible = "qcom,system-pm-rpm";
+	};
+
 	arch_timer: timer {
 		compatible = "arm,armv8-timer";
 		interrupts = <GIC_PPI 2 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,

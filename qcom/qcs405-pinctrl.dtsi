@@ -11,6 +11,7 @@
 		gpio-ranges = <&tlmm 0 0 120>;
 		gpio-controller;
 		#gpio-cells = <2>;
+		wakeup-parent = <&wakegic>;
 
 		blsp1_uart2_default: blsp1-uart2-default {
 			rx {
