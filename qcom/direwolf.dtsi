@@ -2461,6 +2461,8 @@
 #include "direwolf-pcie.dtsi"
 #include "display/direwolf-sde.dtsi"
 #include "direwolf-audio.dtsi"
+#include "camera/direwolf-camera.dtsi"
+#include "camera/direwolf-camera-sensor.dtsi"
 
 &gcc_emac0_gdsc {
 	status = "ok";
