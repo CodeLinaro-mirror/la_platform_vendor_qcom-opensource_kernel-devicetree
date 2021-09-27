@@ -527,6 +527,10 @@ dtb-$(CONFIG_ARCH_DIREWOLF) += direwolf-ivi-rumi.dtb \
 	direwolf-adas-adp-star.dtb
 endif
 
+dtb-$(CONFIG_ARCH_LEMANS) += lemans-rumi.dtb \
+	lemans-adp-air.dtb \
+	lemans-adp-star.dtb
+
 always		:= $(dtb-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
