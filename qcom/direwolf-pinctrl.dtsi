@@ -2524,4 +2524,227 @@
 		};
 	};
 
+	cci0_active: cci0_active {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio113","gpio114";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio113","gpio114";
+			bias-pull-up; /* PULL UP*/
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cci0_suspend: cci0_suspend {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio113","gpio114";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio113","gpio114";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cci1_active: cci1_active {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio115","gpio116";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio115","gpio116";
+			bias-pull-up; /* PULL UP*/
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cci1_suspend: cci1_suspend {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio115","gpio116";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio115","gpio116";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cci2_active: cci2_active {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio10","gpio11";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio10","gpio11";
+			bias-pull-up; /* PULL UP*/
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cci2_suspend: cci2_suspend {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio10","gpio11";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio10","gpio11";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cci3_active: cci3_active {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio12","gpio13";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio12","gpio13";
+			bias-pull-up; /* PULL UP*/
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cci3_suspend: cci3_suspend {
+		mux {
+			/* CLK, DATA */
+			pins = "gpio12","gpio13";
+			function = "cci_i2c";
+		};
+
+		config {
+			pins = "gpio12","gpio13";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor0_active: cam_sensor0_active {
+		/* intr gpio for bridge chip 0 */
+		mux {
+			pins = "gpio162";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio162";
+			bias-pull-up; /* PULL UP */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor0_suspend: cam_sensor0_suspend {
+		/* intr gpio for bridge chip 0 */
+		mux {
+			pins = "gpio162";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio162";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor1_active: cam_sensor1_active {
+		/* intr gpio for bridge chip 1 */
+		mux {
+			pins = "gpio163";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio163";
+			bias-pull-up; /* PULL UP*/
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor1_suspend: cam_sensor1_suspend {
+		/* intr gpio for bridge chip 1 */
+		mux {
+			pins = "gpio163";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio163";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor2_active: cam_sensor2_active {
+		/* intr gpio for bridge chip 2 */
+		mux {
+			pins = "gpio16";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio16";
+			bias-pull-up; /* PULL UP */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor2_suspend: cam_sensor2_suspend {
+		/* intr gpio for bridge chip 2 */
+		mux {
+			pins = "gpio16";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio16";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor3_active: cam_sensor3_active {
+		/* intr gpio for bridge chip 3 */
+		mux {
+			pins = "gpio17";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio17";
+			bias-pull-up; /* PULL UP */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
+
+	cam_sensor3_suspend: cam_sensor3_suspend {
+		/* intr gpio for bridge chip 3 */
+		mux {
+			pins = "gpio17";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio17";
+			bias-pull-down; /* PULL DOWN */
+			drive-strength = <2>; /* 2 MA */
+		};
+	};
 };
