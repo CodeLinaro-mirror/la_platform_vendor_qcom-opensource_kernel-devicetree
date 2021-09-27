@@ -623,3 +623,5 @@
 	reg = <0xabf8074 0x4>;
 	status = "ok";
 };
+
+#include "lemans-stub-regulator.dtsi"
