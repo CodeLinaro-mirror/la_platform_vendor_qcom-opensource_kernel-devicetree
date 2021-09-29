@@ -1578,9 +1578,6 @@
 		status = "disabled";
 	};
 
-	thermal_zones: thermal-zones {
-	};
-
 	ufshc_mem: ufshc@1d84000 {
 		compatible = "qcom,ufshc";
 		reg = <0x1d84000 0x3000>,

@@ -153,10 +153,6 @@
 
 	q6-hvx-step {
 		trips {
-			q6-hvx-config {
-				temperature = <105000>;
-			};
-
 			q6-hvx-trip1 {
 				temperature = <105000>;
 			};
