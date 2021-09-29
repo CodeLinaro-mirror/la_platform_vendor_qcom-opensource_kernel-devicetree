@@ -1188,6 +1188,7 @@
 #include "qcs405-thermal.dtsi"
 #include "qcs405-pcie.dtsi"
 #include "qcs405-usb.dtsi"
+#include "qcs405-blsp.dtsi"
 
 &gdsc_mdss {
 	status = "ok";
