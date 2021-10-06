@@ -24,7 +24,9 @@
 		granule = <512>;
 	};
 
-	aliases {};
+	aliases {
+		serial0 = &qupv3_se4_2uart;
+	};
 
 	firmware: firmware {};
 
@@ -1112,6 +1114,11 @@
 #include "scuba-ion.dtsi"
 #include "msm-arm-smmu-scuba.dtsi"
 #include "sa410m-gdsc.dtsi"
+#include "sa410m-qupv3.dtsi"
+
+&qupv3_se4_2uart {
+	status = "ok";
+};
 
 &gcc_camss_top_gdsc {
 	status = "ok";
