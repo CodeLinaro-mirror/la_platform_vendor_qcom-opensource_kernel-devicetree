@@ -6,6 +6,7 @@
 #include <dt-bindings/clock/qcom,rpmcc.h>
 #include <dt-bindings/interconnect/qcom,icc.h>
 #include <dt-bindings/interconnect/qcom,scuba.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 
 / {
 	#address-cells = <2>;
@@ -483,8 +484,8 @@
 		qcom,secure-eud-en;
 		qcom,eud-tcsr-check-enable;
 		qcom,eud-clock-vote-req;
-		//clocks = <&gcc GCC_AHB2PHY_USB_CLK>;
-		//clock-names = "eud_ahb2phy_clk";
+		clocks = <&gcc GCC_AHB2PHY_USB_CLK>;
+		clock-names = "eud_ahb2phy_clk";
 		status = "disabled";
 	};
 
@@ -771,14 +772,14 @@
 		compatible = "qcom,pil-tz-generic";
 		reg = <0xab00000 0x00100>;
 
-		//clocks = <&rpmcc RPM_SMD_XO_CLK_SRC>;
-		//clock-names = "xo";
-		//qcom,proxy-clock-names = "xo";
+		clocks = <&rpmcc RPM_SMD_XO_CLK_SRC>;
+		clock-names = "xo";
+		qcom,proxy-clock-names = "xo";
 
-		//vdd_lpi_cx-supply = <&VDD_LPI_CX_LEVEL>;
-		//qcom,vdd_lpi_cx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 0>;
-		//vdd_lpi_mx-supply = <&VDD_LPI_MX_LEVEL>;
-		//qcom,vdd_lpi_mx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 0>;
+		vdd_lpi_cx-supply = <&VDD_LPI_CX_LEVEL>;
+		qcom,vdd_lpi_cx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 0>;
+		vdd_lpi_mx-supply = <&VDD_LPI_MX_LEVEL>;
+		qcom,vdd_lpi_mx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 0>;
 		qcom,proxy-reg-names = "vdd_lpi_cx", "vdd_lpi_mx";
 
 		qcom,firmware-name = "adsp";
@@ -793,11 +794,11 @@
 		qcom,minidump-as-elf32;
 
 		/* Inputs from lpass */
-		//interrupts-extended = <&intc 0 282 IRQ_TYPE_LEVEL_HIGH>,
-		//	<&adsp_smp2p_in 0 0>,
-		//	<&adsp_smp2p_in 2 0>,
-		//	<&adsp_smp2p_in 1 0>,
-		//	<&adsp_smp2p_in 3 0>;
+		interrupts-extended = <&intc 0 282 IRQ_TYPE_LEVEL_HIGH>,
+			<&adsp_smp2p_in 0 0>,
+			<&adsp_smp2p_in 2 0>,
+			<&adsp_smp2p_in 1 0>,
+			<&adsp_smp2p_in 3 0>;
 
 		interrupt-names = "qcom,wdog",
 			"qcom,err-fatal",
@@ -806,7 +807,7 @@
 			"qcom,stop-ack";
 
 		/* Outputs to lpass */
-		//qcom,smem-states = <&adsp_smp2p_out 0>;
+		qcom,smem-states = <&adsp_smp2p_out 0>;
 		qcom,smem-state-names = "qcom,force-stop";
 		status = "ok";
 	};
@@ -815,12 +816,12 @@
 		compatible = "qcom,pil-tz-generic";
 		reg = <0x6080000 0x100>;
 
-		//clocks =  <&rpmcc RPM_SMD_XO_CLK_SRC>;
-		//clock-names = "xo";
-		//qcom,proxy-clock-names = "xo";
+		clocks =  <&rpmcc RPM_SMD_XO_CLK_SRC>;
+		clock-names = "xo";
+		qcom,proxy-clock-names = "xo";
 
-		//vdd_cx-supply = <&VDD_CX_LEVEL>;
-		//qcom,vdd_cx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
+		vdd_cx-supply = <&VDD_CX_LEVEL>;
+		qcom,vdd_cx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
 		qcom,proxy-reg-names = "vdd_cx";
 
 		qcom,firmware-name = "modem";
@@ -836,12 +837,12 @@
 		qcom,sequential-fw-load;
 
 		/* Inputs from mss */
-		//interrupts-extended = <&intc 0 307 1>,
-		//	<&modem_smp2p_in 0 0>,
-		//	<&modem_smp2p_in 2 0>,
-		//	<&modem_smp2p_in 1 0>,
-		//	<&modem_smp2p_in 3 0>,
-		//	<&modem_smp2p_in 7 0>;
+		interrupts-extended = <&intc 0 307 1>,
+			<&modem_smp2p_in 0 0>,
+			<&modem_smp2p_in 2 0>,
+			<&modem_smp2p_in 1 0>,
+			<&modem_smp2p_in 3 0>,
+			<&modem_smp2p_in 7 0>;
 
 		interrupt-names = "qcom,wdog",
 			"qcom,err-fatal",
@@ -851,7 +852,7 @@
 			"qcom,shutdown-ack";
 
 		/* Outputs to mss */
-		//qcom,smem-states = <&modem_smp2p_out 0>;
+		qcom,smem-states = <&modem_smp2p_out 0>;
 		qcom,smem-state-names = "qcom,force-stop";
 		status = "ok";
 	};
@@ -873,7 +874,7 @@
 
 	smem: qcom,smem {
 		compatible = "qcom,smem";
-		//memory-region = <&smem_mem>;
+		memory-region = <&smem_region>;
 		hwlocks = <&tcsr_mutex 3>;
 	};
 
