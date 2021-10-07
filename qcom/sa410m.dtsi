@@ -1188,6 +1188,7 @@
 #include "msm-arm-smmu-scuba.dtsi"
 #include "sa410m-gdsc.dtsi"
 #include "sa410m-qupv3.dtsi"
+#include "sa410m-usb.dtsi"
 
 &qupv3_se4_2uart {
 	status = "ok";
