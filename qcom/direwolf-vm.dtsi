@@ -14,17 +14,6 @@
 		pci-domain3 = &pcie3; /* PCIe3 domain */
 		pci-domain4 = &pcie4; /* PCIe4 domain */
 	};
-
-	firmware:firmware {
-		android {
-			/delete-property/ boot_devices;
-			fstab {
-				vendor {
-					fsmgr_flags = "wait";
-				};
-			};
-		};
-	};
 };
 
 &soc {
