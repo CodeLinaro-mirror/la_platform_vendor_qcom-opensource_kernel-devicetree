@@ -1688,22 +1688,41 @@ qcom,msm-adsprpc-mem {
 			#interrupt-cells = <2>;
 		};
 
-		sleepstate_smp2p_out: sleepstate-out {
+		sleepstate_smp2p_out_sensor: sleepstate-out-sensor {
 			qcom,entry-name = "sleepstate";
 			#qcom,smem-state-cells = <1>;
 		};
 
-		sleepstate_smp2p_in: qcom,sleepstate-in {
+		sleepstate_smp2p_in_sensor: qcom,sleepstate-in-sensor {
 			qcom,entry-name = "sleepstate_see";
+			interrupt-controller;
+			#interrupt-cells = <2>;
+		};
+
+		sleepstate_smp2p_out_ult: sleepstate-out-ult {
+			qcom,entry-name = "sleepstate_ult";
+			#qcom,smem-state-cells = <1>;
+		};
+
+		sleepstate_smp2p_in_ult: qcom,sleepstate-in-ult {
+			qcom,entry-name = "sleepstate_ult_in";
 			interrupt-controller;
 			#interrupt-cells = <2>;
 		};
 	};
 
-	qcom,smp2p_sleepstate {
+	qcom,smp2p_sleepstate_sensor {
 		compatible = "qcom,smp2p-sleepstate";
-		qcom,smem-states = <&sleepstate_smp2p_out 0>;
-		interrupt-parent = <&sleepstate_smp2p_in>;
+		qcom,smem-states = <&sleepstate_smp2p_out_sensor 0>;
+		interrupt-parent = <&sleepstate_smp2p_in_sensor>;
+		interrupts = <0 0>;
+		interrupt-names = "smp2p-sleepstate-in";
+	};
+
+	qcom,smp2p_sleepstate_ult {
+		compatible = "qcom,smp2p-sleepstate";
+		qcom,smem-states = <&sleepstate_smp2p_out_ult 0>;
+		interrupt-parent = <&sleepstate_smp2p_in_ult>;
 		interrupts = <0 0>;
 		interrupt-names = "smp2p-sleepstate-in";
 	};
