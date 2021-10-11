@@ -74,9 +74,9 @@
 			   "force_recharge",
 			   "sys_soc";
 	qcom,vbat-cutoff-mv = <3100>;
-	qcom,ibat-cutoff-ma = <150>;
+	qcom,ibat-cutoff-ma = <10>;
 	qcom,vph-min-mv = <2500>;
-	qcom,iterm-ma = <100>;
+	qcom,iterm-ma = <20>;
 };
 
 &pm5100_charger {
