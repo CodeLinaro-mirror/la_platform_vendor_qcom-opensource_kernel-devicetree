@@ -481,6 +481,7 @@
 #include "direwolf-vm-usb.dtsi"
 #include "direwolf-vm-pcie.dtsi"
 #include "direwolf-cnss.dtsi"
+#include "direwolf-vm-ufs.dtsi"
 
 &qupv3_0 {
 	/delete-property/ qcom,msm-bus,num-paths;
