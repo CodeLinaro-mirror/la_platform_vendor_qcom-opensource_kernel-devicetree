@@ -56,3 +56,13 @@
 &tsens3 {
 		status = "disabled";
 };
+
+&gcc {
+	clocks = <&bi_tcxo>, <&pcie_0_pipe_clk>, <&pcie_1_pipe_clk>,
+		 <&pcie_phy_aux_clk>, <&rxc0_ref_clk>, <&rxc1_ref_clk>,
+		 <&sleep_clk>, <&ufs_card_rx_symbol_0_clk>, <&ufs_card_rx_symbol_1_clk>,
+		 <&ufs_card_tx_symbol_0_clk>, <&ufs_phy_rx_symbol_0_clk>,
+		 <&ufs_phy_rx_symbol_1_clk>, <&ufs_phy_tx_symbol_0_clk>,
+		 <&usb3_phy_wrapper_gcc_usb30_prim_pipe_clk>,
+		 <&usb3_phy_wrapper_gcc_usb30_sec_pipe_clk>;
+};
