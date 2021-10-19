@@ -1389,3 +1389,8 @@
 &gpu_gx_gdsc {
 	status = "ok";
 };
+
+#include "msm-arm-smmu-scuba.dtsi"
+
+/delete-node/ &kgsl_iommu_test_device;
+/delete-node/ &kgsl_smmu;
