@@ -2198,6 +2198,7 @@
 
 		clocks = <&aopcc QDSS_CLK>;
 		clock-names = "apb_pclk";
+		status = "disabled";
 	};
 
 	cti_cpu2: cti@7220000 {
