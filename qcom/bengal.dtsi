@@ -1606,7 +1606,7 @@
 
 		sleep_clk: sleep_clk {
 			compatible = "fixed-clock";
-			clock-frequency = <32764>;
+			clock-frequency = <32000>;
 			clock-output-names = "sleep_clk";
 			#clock-cells = <0>;
 		};
@@ -1644,9 +1644,13 @@
 		compatible = "qcom,bengal-dispcc", "syscon";
 		reg = <0x05f00000 0x20000>;
 		reg-names = "cc_base";
-		clock-names = "cfg_ahb_clk";
-		clocks = <&gcc GCC_DISP_AHB_CLK>;
 		vdd_cx-supply = <&VDD_CX_LEVEL>;
+		clocks = <&rpmcc RPM_SMD_XO_CLK_SRC>,
+			 <&rpmcc RPM_SMD_XO_A_CLK_SRC>,
+			 <&gcc GCC_DISP_GPLL0_DIV_CLK_SRC>,
+			 <&sleep_clk>;
+		clock-names = "bi_tcxo", "bi_tcxo_ao",
+				"gcc_disp_gpll0_div_clk_src", "sleep_clk";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -1657,7 +1661,8 @@
 		reg-names = "cc_base";
 		vdd_cx-supply = <&VDD_CX_LEVEL>;
 		vdd_mx-supply = <&VDD_MX_LEVEL>;
-		/*qcom,gpu_cc_gx_gfx3d_clk_src-opp-handle = <&msm_gpu>;*/
+		clocks = <&rpmcc RPM_SMD_XO_CLK_SRC>, <&gcc GPLL0>;
+		clock-names = "bi_tcxo", "gpll0_out_main";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -1676,6 +1681,7 @@
 		compatible = "qcom,bengal-debugcc";
 		qcom,gcc = <&gcc>;
 		qcom,dispcc = <&dispcc>;
+		qcom,gpucc = <&gpucc>;
 		qcom,mccc = <&mccc_debug>;
 		qcom,cpucc = <&cpucc_debug>;
 		clock-names = "xo_clk_src";
