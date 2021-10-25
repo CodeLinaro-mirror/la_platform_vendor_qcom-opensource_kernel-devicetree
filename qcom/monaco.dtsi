@@ -852,13 +852,15 @@
 				<&adsp_smp2p_in 0 0>,
 				<&adsp_smp2p_in 2 0>,
 				<&adsp_smp2p_in 1 0>,
-				<&adsp_smp2p_in 3 0>;
+				<&adsp_smp2p_in 3 0>,
+				<&adsp_smp2p_in 9 0>;
 
 		interrupt-names = "qcom,wdog",
 				"qcom,err-fatal",
 				"qcom,proxy-unvote",
 				"qcom,err-ready",
-				"qcom,stop-ack";
+				"qcom,stop-ack",
+				"qcom,dsentry-ack";
 
 		/* Outputs to lpass */
 		qcom,smem-states = <&adsp_smp2p_out 0>;
@@ -895,14 +897,16 @@
 			<&modem_smp2p_in 2 0>,
 			<&modem_smp2p_in 1 0>,
 			<&modem_smp2p_in 3 0>,
-			<&modem_smp2p_in 7 0>;
+			<&modem_smp2p_in 7 0>,
+			<&modem_smp2p_in 9 0>;
 
 		interrupt-names = "qcom,wdog",
 			"qcom,err-fatal",
 			"qcom,proxy-unvote",
 			"qcom,err-ready",
 			"qcom,stop-ack",
-			"qcom,shutdown-ack";
+			"qcom,shutdown-ack",
+			"qcom,dsentry-ack";
 
 		/* Outputs to mss */
 		qcom,smem-states = <&modem_smp2p_out 0>;
