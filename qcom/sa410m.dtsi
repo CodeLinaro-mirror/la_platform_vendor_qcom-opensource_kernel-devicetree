@@ -28,6 +28,8 @@
 	aliases {
 		serial0 = &qupv3_se4_2uart;
 		sdhc0 = &sdhc_1; /*SDC1 eMMC slot*/
+		swr0 = &swr0;
+		swr1 = &swr1;
 	};
 
 	firmware: firmware {};
@@ -1448,6 +1450,8 @@
 #include "sa410m-gdsc.dtsi"
 #include "sa410m-qupv3.dtsi"
 #include "sa410m-usb.dtsi"
+#include "sa410m-audio.dtsi"
+#include "sa410m-audio-overlay.dtsi"
 
 &qupv3_se4_2uart {
 	status = "ok";
