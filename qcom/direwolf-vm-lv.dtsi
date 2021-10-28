@@ -14,7 +14,8 @@
 };
 
 #include "display/quin-vm-display-lxc.dtsi"
-#include "direwolf-vm-lv-cnss.dtsi"
+#include "direwolf-cnss.dtsi"
+#include "direwolf-cnss-dual.dtsi"
 
 &usb0 {
 	status = "okay";
@@ -76,3 +77,10 @@
 	status = "okay";
 };
 
+&cnss_pcie0 {
+	status = "disabled";
+};
+
+&cnss_pcie2 {
+	status = "disabled";
+};
