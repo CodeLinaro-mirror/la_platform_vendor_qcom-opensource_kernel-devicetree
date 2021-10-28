@@ -2060,6 +2060,32 @@
 		};
 	};
 
+	qcom,venus@aab0000 {
+		compatible = "qcom,pil-tz-generic";
+		reg = <0xaab0000 0x2000>;
+
+		vdd-supply = <&video_cc_mvs0c_gdsc>;
+		qcom,proxy-reg-names = "vdd";
+		qcom,complete-ramdump;
+
+		clocks = <&videocc VIDEO_CC_XO_CLK>,
+			<&videocc VIDEO_CC_MVS0C_CLK>,
+			<&videocc VIDEO_CC_AHB_CLK>;
+		clock-names = "xo", "core", "ahb";
+		qcom,proxy-clock-names = "xo",  "core", "ahb";
+
+		qcom,core-freq = <200000000>;
+		qcom,ahb-freq = <200000000>;
+
+		qcom,pas-id = <9>;
+		interconnect-names = "pil-venus";
+		interconnects = <&mmss_noc MASTER_VIDEO_P0
+				&mc_virt SLAVE_EBI1>;
+		qcom,proxy-timeout-ms = <100>;
+		qcom,firmware-name = "venus";
+		memory-region = <&pil_video_mem>;
+	};
+
 	virt_smmuv3: qcom,virt-smmuv3 {
 		#iommu-cells = <1>;
 		compatible = "arm,virt-smmu-v3";
@@ -2463,6 +2489,7 @@
 #include "direwolf-audio.dtsi"
 #include "camera/direwolf-camera.dtsi"
 #include "camera/direwolf-camera-sensor.dtsi"
+#include "direwolf-vidc.dtsi"
 
 &gcc_emac0_gdsc {
 	status = "ok";
@@ -2652,36 +2679,6 @@
 	status = "ok";
 };
 
-&video_cc_mvs0_gdsc {
-	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
-	clock-names = "ahb_clk";
-	qcom,support-hw-trigger;
-	parent-supply = <&VDD_MM_LEVEL>;
-	status = "ok";
-};
-
-&video_cc_mvs0c_gdsc {
-	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
-	clock-names = "ahb_clk";
-	parent-supply = <&VDD_MM_LEVEL>;
-	status = "ok";
-};
-
-&video_cc_mvs1_gdsc {
-	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
-	clock-names = "ahb_clk";
-	qcom,support-hw-trigger;
-	parent-supply = <&VDD_MM_LEVEL>;
-	status = "ok";
-};
-
-&video_cc_mvs1c_gdsc {
-	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
-	clock-names = "ahb_clk";
-	parent-supply = <&VDD_CX_LEVEL>;
-	parent-supply = <&VDD_MM_LEVEL>;
-	status = "ok";
-};
 
 &gpu_cc_cx_gdsc {
 	clocks = <&gcc GCC_GPU_CFG_AHB_CLK>;
