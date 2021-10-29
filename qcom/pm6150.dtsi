@@ -4,6 +4,7 @@
 #include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/spmi/spmi.h>
 #include <dt-bindings/iio/qcom,spmi-vadc.h>
+#include <dt-bindings/iio/qti_power_supply_iio.h>
 
 &spmi_bus {
 	#address-cells = <2>;
@@ -89,12 +90,6 @@
 				qcom,pre-scaling = <1 3>;
 			};
 
-			vcoin {
-				reg = <ADC5_VCOIN>;
-				label = "vcoin";
-				qcom,pre-scaling = <1 3>;
-			};
-
 			usb_in_i_uv {
 				reg = <ADC5_USB_IN_I>;
 				label = "usb_in_i_uv";
@@ -163,18 +158,6 @@
 				reg = <ADC5_MID_CHG_DIV6>;
 				label = "chg_mid";
 				qcom,pre-scaling = <1 6>;
-			};
-
-			v_i_int_ext {
-				reg = <ADC5_INT_EXT_ISENSE_VBAT_VDATA>;
-				label = "v_i_int_vbat_vdata";
-				qcom,pre-scaling = <1 1>;
-			};
-
-			v_i_parallel {
-				reg = <ADC5_PARALLEL_ISENSE_VBAT_VDATA>;
-				label = "v_i_parallel_vbat_vdata";
-				qcom,pre-scaling = <1 1>;
 			};
 
 		};
@@ -394,8 +377,10 @@
 
 		pm6150_qg: qpnp,qg {
 			compatible = "qcom,pm6150-qg";
+			depends-on-supply = <&pm6150_vadc>;
 			#address-cells = <1>;
 			#size-cells = <0>;
+			#io-channel-cells = <1>;
 
 			qcom,vbatt-cutoff-mv = <3200>;
 			qcom,vbatt-low-mv = <3300>;
@@ -406,9 +391,17 @@
 
 			qcom,pmic-revid = <&pm6150_revid>;
 			io-channels = <&pm6150_vadc ADC5_BAT_THERM_100K_PU>,
-				      <&pm6150_vadc ADC5_BAT_ID_100K_PU>;
+				      <&pm6150_vadc ADC5_BAT_ID_100K_PU>,
+				      <&pm6150_charger PSY_IIO_INPUT_CURRENT_LIMITED>,
+				      <&pm6150_charger PSY_IIO_RECHARGE_SOC>,
+				      <&pm6150_charger PSY_IIO_FORCE_RECHARGE>,
+				      <&pm6150_charger PSY_IIO_CHARGE_DONE>;
 			io-channel-names = "batt-therm",
-					   "batt-id";
+					   "batt-id",
+					   "input_current_limited",
+					   "recharge_soc",
+					   "force_recharge",
+					   "charge_done";
 
 			qcom,qgauge@4800 {
 				status = "okay";
@@ -486,7 +479,7 @@
 
 	qcom,pm6150@1 {
 		compatible ="qcom,spmi-pmic";
-		reg = <0x1 SPMI_USID>;
+		reg = <1 SPMI_USID>;
 		#address-cells = <1>;
 		#size-cells = <0>;
 
@@ -513,11 +506,13 @@
 				hysteresis = <0>;
 				type = "passive";
 			};
+
 			pm6150_trip1: trip1 {
 				temperature = <115000>;
 				hysteresis = <0>;
 				type = "passive";
 			};
+
 			trip2 {
 				temperature = <145000>;
 				hysteresis = <0>;

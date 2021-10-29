@@ -7,6 +7,7 @@
 #include <dt-bindings/clock/qcom,camcc-sm6150.h>
 #include <dt-bindings/clock/qcom,dispcc-sm6150.h>
 #include <dt-bindings/clock/qcom,gpucc-sm6150.h>
+#include <dt-bindings/iio/qti_power_supply_iio.h>
 
 / {
 	model = "Qualcomm Technologies, Inc. QCS610 IOT";
@@ -84,40 +85,117 @@
 };
 
 &pm6150_qg {
-	qcom,battery-data = <&mtp_batterydata>;
 	qcom,qg-iterm-ma = <100>;
 	qcom,hold-soc-while-full;
 	qcom,linearize-soc;
 	qcom,cl-feedback-on;
 };
 
+&pm6150_pdphy {
+	#io-channel-cells = <1>;
+	io-channels = <&pm6150_charger PSY_IIO_PD_ACTIVE>,
+		      <&pm6150_charger PSY_IIO_TYPEC_CC_ORIENTATION>,
+		      <&pm6150_charger PSY_IIO_CONNECTOR_TYPE>,
+		      <&pm6150_charger PSY_IIO_TYPEC_POWER_ROLE>,
+		      <&pm6150_charger PSY_IIO_PD_USB_SUSPEND_SUPPORTED>,
+		      <&pm6150_charger PSY_IIO_TYPEC_SRC_RP>,
+		      <&pm6150_charger PSY_IIO_PD_IN_HARD_RESET>,
+		      <&pm6150_charger PSY_IIO_PD_CURRENT_MAX>,
+		      <&pm6150_charger PSY_IIO_PR_SWAP>,
+		      <&pm6150_charger PSY_IIO_PD_VOLTAGE_MIN>,
+		      <&pm6150_charger PSY_IIO_PD_VOLTAGE_MAX>,
+		      <&pm6150_charger PSY_IIO_USB_REAL_TYPE>,
+		      <&pm6150_charger PSY_IIO_TYPEC_MODE>,
+		      <&pm6150_charger PSY_IIO_PE_START>;
+	io-channel-names = "pd_active",
+			   "typec_cc_orientation",
+			   "connector_type",
+			   "typec_power_role",
+			   "pd_usb_suspend_supported",
+			   "typec_src_rp",
+			   "pd_in_hard_reset",
+			   "pr_current_max",
+			   "pr_swap",
+			   "pd_voltage_min",
+			   "pd_voltage_max",
+			   "real_type",
+			   "typec_mode",
+			   "pe_start";
+};
+
 &pm6150_charger {
+	depends-on-supply = <&pm6150_vadc>;
+	#io-channel-cells = <1>;
 	io-channels = <&pm6150_vadc ADC5_USB_IN_V_16>,
 		      <&pm6150_vadc ADC5_USB_IN_I>,
 		      <&pm6150_vadc ADC5_CHG_TEMP>,
 		      <&pm6150_vadc ADC5_DIE_TEMP>,
 		      <&pm6150_vadc ADC5_AMUX_THM4_100K_PU>,
 		      <&pm6150_vadc ADC5_SBUx>,
-		      <&pm6150_vadc ADC5_VPH_PWR>;
+		      <&pm6150_vadc ADC5_VPH_PWR>,
+		      <&pm6150_qg PSY_IIO_RESISTANCE_ID>,
+		      <&pm6150_qg PSY_IIO_VOLTAGE_NOW>,
+		      <&pm6150_qg PSY_IIO_TEMP>,
+		      <&pm6150_qg PSY_IIO_CAPACITY>,
+		      <&pm6150_qg PSY_IIO_VOLTAGE_OCV>,
+		      <&pm6150_qg PSY_IIO_VOLTAGE_AVG>,
+		      <&pm6150_qg PSY_IIO_DEBUG_BATTERY>,
+		      <&pm6150_qg PSY_IIO_REAL_CAPACITY>,
+		      <&pm6150_qg PSY_IIO_CC_SOC>,
+		      <&pm6150_qg PSY_IIO_CURRENT_NOW>,
+		      <&pm6150_qg PSY_IIO_VOLTAGE_MAX>,
+		      <&pm6150_qg PSY_IIO_CHARGE_COUNTER>,
+		      <&pm6150_qg PSY_IIO_CYCLE_COUNT>,
+		      <&pm6150_qg PSY_IIO_TIME_TO_FULL_NOW>;
 	io-channel-names = "usb_in_voltage",
 			   "usb_in_current",
 			   "chg_temp",
 			   "die_temp",
 			   "conn_temp",
 			   "sbux_res",
-			   "vph_voltage";
-	qcom,battery-data = <&mtp_batterydata>;
+			   "vph_voltage",
+			   "resistance_id",
+			   "voltage_now",
+			   "temp",
+			   "capacity",
+			   "voltage_ocv",
+			   "voltage_avg",
+			   "debug_battery",
+			   "real_capacity",
+			   "cc_soc",
+			   "current_now",
+			   "voltage_max",
+			   "charge_counter",
+			   "cycle_count",
+			   "time_to_full_now";
+	qcom,batteryless-platform;
 	qcom,auto-recharge-soc = <98>;
 	qcom,step-charging-enable;
 	qcom,sw-jeita-enable;
 	qcom,fcc-stepping-enable;
 	qcom,suspend-input-on-debug-batt;
-	qcom,sec-charger-config = <3>;
+	qcom,sec-charger-config = <0>;
 	qcom,thermal-mitigation = <4200000 3500000 3000000
 			2500000 2000000 1500000 1000000 500000>;
 	dpdm-supply = <&qusb_phy0>;
 	qcom,charger-temp-max = <800>;
 	qcom,smb-temp-max = <800>;
+};
+
+&usb0 {
+	qcom,interconnect-values-nom = /* NOMINAL Votes */
+						<1000000 2500000>,
+						<0 2400>,
+						<0 40000>;
+	qcom,interconnect-values-svs = /* SVS Votes */
+						<240000 700000>,
+						<0 2400>,
+						<0 40000>;
+	extcon = <&pm6150_pdphy>, <&pm6150_charger>, <&eud>;
+
+	#io-channel-cells = <1>;
+	io-channels= <&pm6150_charger PSY_IIO_USB_REAL_TYPE>;
+	io-channel-names = "chg_type";
 };
 
 &qupv3_se0_2uart {
@@ -129,39 +207,39 @@
 };
 
 &pil_camera_mem {
-	reg = <0 0x8f800000 0 0x500000>;
+	reg = <0x0 0x8f800000 0x0 0x500000>;
 };
 
 &pil_modem_mem {
-	reg = <0 0x8fd00000 0 0x3100000>;
+	reg = <0x0 0x8fd00000 0x0 0x3100000>;
 };
 
 &pil_video_mem {
-	reg = <0 0x92e00000 0 0x500000>;
+	reg = <0x0 0x92e00000 0x0 0x500000>;
 };
 
 &wlan_msa_mem {
-	reg = <0 0x93300000 0 0x200000>;
+	reg = <0x0 0x93300000 0x0 0x200000>;
 };
 
 &pil_cdsp_mem {
-	reg = <0 0x93500000 0 0x1e00000>;
+	reg = <0x0 0x93500000 0x0 0x1e00000>;
 };
 
 &pil_adsp_mem {
-	reg = <0 0x95300000 0 0x1e00000>;
+	reg = <0x0 0x95300000 0x0 0x1e00000>;
 };
 
 &pil_ipa_fw_mem {
-	reg = <0 0x97100000 0 0x10000>;
+	reg = <0x0 0x97100000 0x0 0x10000>;
 };
 
 &pil_ipa_gsi_mem {
-	reg = <0 0x97110000 0 0x5000>;
+	reg = <0x0 0x97110000 0x0 0x5000>;
 };
 
 &pil_gpu_mem {
-	reg = <0 0x97115000 0 0x2000>;
+	reg = <0x0 0x97115000 0x0 0x2000>;
 };
 
 &msm_gpu {
@@ -202,12 +280,6 @@
 	cd-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
 
 	status = "ok";
-};
-
-&usb0 {
-	dwc3@a600000 {
-		snps,usb3-u1u2-disable;
-	};
 };
 
 &L16A {
