@@ -6,5 +6,5 @@
 / {
 	model = "Qualcomm Technologies, Inc. QRB4210 RB2";
 	compatible = "qcom,bengal", "qcom,qrd";
-	qcom,board-id = <0x1000B 0>;
+	qcom,board-id = <0x1000B 0>, <0x22 0>;
 };
