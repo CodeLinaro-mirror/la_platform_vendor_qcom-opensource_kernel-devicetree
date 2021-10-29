@@ -167,9 +167,14 @@
 		#size-cells = <2>;
 		ranges;
 
-		deepsleep_region: deepsleep_region@45700000 {
+		oda_region: oda_region@45700000 {
 			no-map;
-			reg = <0x0 0x45700000 0x0 0x400000>;
+			reg = <0x0 0x45700000 0x0 0x300000>;
+		};
+
+		deepsleep_region: deepsleep_region@45A00000 {
+			no-map;
+			reg = <0x0 0x45A00000 0x0 0x100000>;
 		};
 
 		hyp_region: hyp_region@45B00000 {
