@@ -32,6 +32,10 @@
 	};
 };
 
+&icnss {
+	qcom,is_slate_rfa = <1>;
+};
+
 &qupv3_se5_4uart {
 	status = "ok";
 };
