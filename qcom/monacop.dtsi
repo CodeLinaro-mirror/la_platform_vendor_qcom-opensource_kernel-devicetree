@@ -16,10 +16,6 @@
 	status = "disabled";
 };
 
-&pil_modem_mem {
-	reg = <0x0 0x4ab00000 0x0 0x3600000>;
-};
-
 &pil_video_mem {
 	reg = <0x0 0x4E100000 0x0 0x500000>;
 };
