@@ -2,12 +2,12 @@
 
 / {
 	reserved-memory {
-		/delete-node/deepsleep_region@45700000;
+		/delete-node/oda_region@45700000;
 	};
 };
 
 &removed_region {
-	reg = <0x0 0x61000000 0x0 0x0B00000>;
+	reg = <0x0 0x60e00000 0x0 0x01100000>;
 };
 
 &xbl_aop_mem {
