@@ -661,6 +661,7 @@
 		reg-names = "funnel-base";
 
 		coresight-name = "coresight-funnel-gfx";
+		status = "disabled";
 
 		clocks = <&aopcc QDSS_CLK>;
 		clock-names = "apb_pclk";
