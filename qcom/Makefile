@@ -327,8 +327,13 @@ dtb-$(CONFIG_ARCH_MONACO) += monaco-rumi.dtb \
 	monacop-wdp-v1.1.dtb
 endif
 
-dtb-$(CONFIG_ARCH_SCUBA) += qrb2210-rb1.dtb \
+ifneq ($(CONFIG_ARCH_SA410M),y)
+	dtb-$(CONFIG_ARCH_SCUBA) += \
+				qrb2210-rb1.dtb
+else
+	dtb-$(CONFIG_ARCH_SA410M) += \
 				sa410m.dtb
+endif
 
 dtb-$(CONFIG_ARCH_BENGAL) += qrb4210-rb2.dtb
 
