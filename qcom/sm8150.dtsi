@@ -3111,6 +3111,31 @@
 				"l3-scu-errirq",
 				"l3-scu-faultirq";
 	};
+
+	keepalive_opp_table: keepalive-opp-table {
+		compatible = "operating-points-v2";
+		opp-1 {
+			opp-hz = /bits/ 64 < 1 >;
+		};
+	};
+
+	cdsp_keepalive: qcom,cdsp_keepalive {
+		compatible = "qcom,devfreq-icc";
+		governor = "powersave";
+		interconnects = <&compute_noc MASTER_NPU &compute_noc SLAVE_CDSP_MEM_NOC>;
+		qcom,active-only;
+		status = "ok";
+		operating-points-v2 = <&keepalive_opp_table>;
+	};
+
+	snoc_cnoc_keepalive: qcom,snoc_cnoc_keepalive {
+		compatible = "qcom,devfreq-icc";
+		governor = "powersave";
+		interconnects = <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_IMEM_CFG>;
+		qcom,active-only;
+		status = "ok";
+		operating-points-v2 = <&keepalive_opp_table>;
+	};
 };
 
 &firmware {
