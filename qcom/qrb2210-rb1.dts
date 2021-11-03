@@ -7,5 +7,5 @@
 / {
 	model = "Qualcomm Technologies, Inc. QRB2210 RB1";
 	compatible = "qcom,scuba-iot";
-	qcom,board-id = <0 0>;
+	qcom,board-id = <34 0>, <22 0>;
 };
