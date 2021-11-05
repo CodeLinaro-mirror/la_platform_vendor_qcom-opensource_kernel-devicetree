@@ -11,16 +11,16 @@
 #include <dt-bindings/clock/qcom,rpmcc.h>
 
 / {
-	model = "Qualcomm Technologies, Inc. Qrb2210 RB1";
-	compatible = "qcom,scuba-idp", "qcom,scuba", "qcom,idp";
-	qcom,msm-id = <473 0x0>, <474 0x10000>, <524 0x10000>, <441 0x10000>;
-	qcom,board-id = <34 0>;
+	model = "Qualcomm Technologies, Inc. SCUBA";
+	compatible = "qcom,scuba";
+	qcom,msm-id = <473 0x10000>;
 
 	#address-cells = <2>;
 	#size-cells = <2>;
 	interrupt-parent = <&intc>;
 
 	memory { device_type = "memory"; reg = <0 0 0 0>; };
+
 	reserved_memory: reserved-memory { };
 
 	mem-offline {
@@ -1444,19 +1444,19 @@
 
 #include "pm2250.dtsi"
 #include "pm2250-rpm-regulator.dtsi"
-#include "qrb2210-rb1-regulator.dtsi"
-#include "qrb2210-rb1-pm.dtsi"
-#include "qrb2210-rb1-pinctrl.dtsi"
-#include "qrb2210-rb1-ion.dtsi"
-#include "msm-arm-smmu-qrb2210-rb1.dtsi"
-#include "qrb2210-rb1-qupv3.dtsi"
-#include "qrb2210-rb1-gdsc.dtsi"
-#include "qrb2210-rb1-usb.dtsi"
-#include "qrb2210-rb1-gpu.dtsi"
-#include "qrb2210-rb1-vidc.dtsi"
-#include "qrb2210-rb1-coresight.dtsi"
-#include "qrb2210-rb1-audio.dtsi"
-#include "qrb2210-rb1-audio-overlay.dtsi"
+#include "scuba-regulator.dtsi"
+#include "scuba-pm.dtsi"
+#include "scuba-pinctrl.dtsi"
+#include "scuba-ion.dtsi"
+#include "msm-arm-smmu-scuba.dtsi"
+#include "scuba-qupv3.dtsi"
+#include "scuba-gdsc.dtsi"
+#include "scuba-usb.dtsi"
+#include "scuba-gpu.dtsi"
+#include "scuba-vidc.dtsi"
+#include "scuba-coresight.dtsi"
+#include "scuba-audio.dtsi"
+#include "scuba-audio-overlay.dtsi"
 
 &qupv3_se1_i2c {
 	#address-cells = <1>;
@@ -1661,6 +1661,3 @@
 &qupv3_se3_4uart {
 	status = "ok";
 };
-
-#include "camera/qrb2210-rb1-camera.dtsi"
-#include "camera/qrb2210-rb1-camera-sensor-idp.dtsi"
