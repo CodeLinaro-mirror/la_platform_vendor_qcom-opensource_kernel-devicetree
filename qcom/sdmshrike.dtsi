@@ -1488,7 +1488,7 @@
 		clocks = <&gcc GCC_VIDEO_AHB_CLK>,
 			<&rpmhcc RPMH_CXO_CLK>;
 		clock-names =
-			"cfg_ahb_clk",
+			"iface",
 			"bi_tcxo";
 		#clock-cells = <1>;
 		#reset-cells = <1>;

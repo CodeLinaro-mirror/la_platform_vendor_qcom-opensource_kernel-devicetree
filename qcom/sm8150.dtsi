@@ -1124,7 +1124,7 @@
 		reg-names = "cc_base";
 		vdd_mm-supply = <&VDD_MMCX_LEVEL>;
 		clocks = <&gcc GCC_VIDEO_AHB_CLK>, <&rpmhcc RPMH_CXO_CLK>;
-		clock-names = "cfg_ahb_clk", "bi_tcxo";
+		clock-names = "iface", "bi_tcxo";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -1136,7 +1136,7 @@
 		vdd_mx-supply = <&VDD_MX_LEVEL>;
 		vdd_mm-supply = <&VDD_MMCX_LEVEL>;
 		clocks = <&gcc GCC_CAMERA_AHB_CLK>, <&rpmhcc RPMH_CXO_CLK>;
-		clock-names = "cfg_ahb_clk", "bi_tcxo";
+		clock-names = "iface", "bi_tcxo";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -1147,7 +1147,7 @@
 		reg-names = "cc_base";
 		vdd_mm-supply = <&VDD_MMCX_LEVEL>;
 		clocks = <&gcc GCC_DISP_AHB_CLK>, <&rpmhcc RPMH_CXO_CLK>;
-		clock-names = "cfg_ahb_clk", "bi_tcxo";
+		clock-names = "iface", "bi_tcxo";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -1181,10 +1181,12 @@
 		clocks =
 			<&rpmhcc RPMH_CXO_CLK>,
 			<&gcc GCC_GPU_GPLL0_CLK_SRC>,
-			<&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>;
+			<&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>,
+			<&gcc GCC_GPU_CFG_AHB_CLK>;
 		clock-names = "bi_tcxo",
 			"gcc_gpu_gpll0_clk_src",
-			"gcc_gpu_gpll0_div_clk_src";
+			"gcc_gpu_gpll0_div_clk_src",
+			"iface";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
