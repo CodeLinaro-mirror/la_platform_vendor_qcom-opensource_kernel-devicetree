@@ -20,12 +20,13 @@
 / {
 	model = "Qualcomm Technologies, Inc. BENGAL";
 	compatible = "qcom,bengal";
-	qcom,msm-id = <417 0x10000>, <444 0x10000>, <470 0x10000>, <523 0x10000>;
+	qcom,msm-id =  <523 0x10000>;
 	interrupt-parent = <&intc>;
 
 	#address-cells = <2>;
 	#size-cells = <2>;
 	memory { device_type = "memory"; reg = <0 0 0 0>; };
+
 	reserved_memory: reserved-memory { };
 
 	mem-offline {
@@ -43,6 +44,7 @@
 		swr0 = &swr0;
 		swr1 = &swr1;
 	};
+
 	firmware: firmware {};
 
 	cpus {
@@ -2598,12 +2600,12 @@
 	};
 };
 
-#include "qrb4210-rb2-gdsc.dtsi"
-#include "qrb4210-rb2-usb.dtsi"
-#include "qrb4210-rb2-ion.dtsi"
-#include "qrb4210-rb2-vidc.dtsi"
-#include "qrb4210-rb2-gpu.dtsi"
-#include "qrb4210-rb2-coresight.dtsi"
+#include "bengal-gdsc.dtsi"
+#include "bengal-usb.dtsi"
+#include "bengal-ion.dtsi"
+#include "bengal-vidc.dtsi"
+#include "bengal-gpu.dtsi"
+#include "bengal-coresight.dtsi"
 #include "pmi632.dtsi"
 #include "pm6125.dtsi"
 
@@ -2659,14 +2661,14 @@
 	status = "ok";
 };
 
-#include "msm-arm-smmu-qrb4210-rb2.dtsi"
+#include "msm-arm-smmu-bengal.dtsi"
 #include "pm6125-rpm-regulator.dtsi"
-#include "qrb4210-rb2-regulator.dtsi"
-#include "qrb4210-rb2-pm.dtsi"
-#include "qrb4210-rb2-pinctrl.dtsi"
-#include "qrb4210-rb2-qupv3.dtsi"
-#include "qrb4210-rb2-audio.dtsi"
-#include "qrb4210-rb2-audio-overlay.dtsi"
+#include "bengal-regulator.dtsi"
+#include "bengal-pm.dtsi"
+#include "bengal-pinctrl.dtsi"
+#include "bengal-qupv3.dtsi"
+#include "bengal-audio.dtsi"
+#include "bengal-audio-overlay.dtsi"
 
 &qupv3_se1_i2c {
 	status = "ok";
@@ -2892,5 +2894,5 @@
 	};
 };
 
-#include "qrb4210-rb2-thermal.dtsi"
+#include "bengal-thermal.dtsi"
 #include "msm-rdbg.dtsi"
