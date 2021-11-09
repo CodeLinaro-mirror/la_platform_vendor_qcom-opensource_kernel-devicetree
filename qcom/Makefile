@@ -524,7 +524,8 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 		direwolf-ivi-adp-star-overlay.dtbo \
 		direwolf-ivi-adp-star-overlay-v2.dtbo \
 		direwolf-adas-rumi-overlay.dtbo \
-		direwolf-adas-adp-star-overlay.dtbo
+		direwolf-adas-adp-star-overlay.dtbo \
+		direwolf-adas-adp-ride-overlay.dtbo
 
 direwolf-ivi-rumi-overlay.dtbo-base := direwolf-ivi.dtb
 direwolf-ivi-adp-air-overlay.dtbo-base := direwolf-ivi.dtb
@@ -532,13 +533,15 @@ direwolf-ivi-adp-star-overlay.dtbo-base := direwolf-ivi.dtb
 direwolf-ivi-adp-star-overlay-v2.dtbo-base := direwolf-ivi-v2.dtb
 direwolf-adas-rumi-overlay.dtbo-base := direwolf-adas.dtb
 direwolf-adas-adp-star-overlay.dtbo-base := direwolf-adas.dtb
+direwolf-adas-adp-ride-overlay.dtbo-base := direwolf-adas.dtb
 else
 dtb-$(CONFIG_ARCH_DIREWOLF) += direwolf-ivi-rumi.dtb \
 	direwolf-ivi-adp-air.dtb \
 	direwolf-ivi-adp-star.dtb \
 	direwolf-ivi-adp-star-v2.dtb \
 	direwolf-adas-rumi.dtb \
-	direwolf-adas-adp-star.dtb
+	direwolf-adas-adp-star.dtb \
+	direwolf-adas-adp-ride.dtb
 endif
 
 dtb-$(CONFIG_ARCH_LEMANS) += lemans-rumi.dtb \
