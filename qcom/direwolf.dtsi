@@ -855,13 +855,6 @@
 		mbox-names = "qdss_clk";
 	};
 
-
-	ddr_bwprofiler {
-		compatible = "qcom,ddr_bwprofiler";
-		clocks = <&aopcc QDSS_CLK>;
-		clock-names = "qdss_clk";
-	};
-
 	gcc: clock-controller@100000 {
 		compatible = "qcom,direwolf-gcc", "syscon";
 		reg = <0x100000 0x1f0000>;
