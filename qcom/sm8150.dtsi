@@ -134,6 +134,7 @@
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
 			L2_3: l2-cache {
 			      compatible = "arm,arch-cache";
+				cache-size = <0x20000>;
 			      cache-level = <2>;
 			      next-level-cache = <&L3_0>;
 			};
