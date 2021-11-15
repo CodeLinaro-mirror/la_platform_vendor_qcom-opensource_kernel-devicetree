@@ -1491,7 +1491,8 @@
 #include "scuba-coresight.dtsi"
 #include "scuba-audio.dtsi"
 #include "scuba-audio-overlay.dtsi"
-
+#include "camera/scuba-camera.dtsi"
+#include "camera/scuba-camera-sensor-idp.dtsi"
 &qupv3_se1_i2c {
 	#address-cells = <1>;
 	#size-cells = <0>;
