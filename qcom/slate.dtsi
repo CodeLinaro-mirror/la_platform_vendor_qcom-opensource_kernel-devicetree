@@ -29,6 +29,7 @@
 
 	audio_cc_ipc_platform: qcom,audio-cc-ipc-platform {
 		compatible = "qcom,audio-cc-ipc-platform";
+		qcom,glink-cc-ipc = <&audio_ipc>, <&audio_ipc1>;
 		cc_codec: qcom,cc-codec {
 			compatible = "qcom,cc-codec";
 			qcom,service-id = <3>;
