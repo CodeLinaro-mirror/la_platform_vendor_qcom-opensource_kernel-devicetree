@@ -18,6 +18,7 @@
 };
 
 #include "display/quin-vm-display-la.dtsi"
+#include "direwolf-cnss.dtsi"
 
 &usb0 {
 	status = "okay";
