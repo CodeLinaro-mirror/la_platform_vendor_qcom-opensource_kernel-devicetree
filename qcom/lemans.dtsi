@@ -4,6 +4,8 @@
 #include <dt-bindings/clock/qcom,gcc-lemans.h>
 #include <dt-bindings/clock/qcom,gpucc-lemans.h>
 #include <dt-bindings/clock/qcom,videocc-lemans.h>
+#include <dt-bindings/interconnect/qcom,epss-l3.h>
+#include <dt-bindings/interconnect/qcom,lemans.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
 / {
@@ -451,6 +453,81 @@
 		clock-output-names = "videocc_clocks";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
+	};
+
+	clk_virt: interconnect@0 {
+		compatible = "qcom,lemans-clk_virt";
+		#interconnect-cells = <1>;
+	};
+
+	mc_virt: interconnect@1 {
+		compatible = "qcom,lemans-mc_virt";
+		#interconnect-cells = <1>;
+	};
+
+	config_noc: interconnect@014C0000 {
+		compatible = "qcom,lemans-config_noc";
+		reg = <0x014C0000 0x25400>;
+		#interconnect-cells = <1>;
+	};
+
+	system_noc: interconnect@01680000 {
+		compatible = "qcom,lemans-system_noc";
+		reg = <0x01680000 0x1B200>;
+		#interconnect-cells = <1>;
+	};
+
+	aggre1_noc:interconnect@016C0000 {
+		compatible = "qcom,lemans-aggre1_noc";
+		reg = <0x016C0000 0xE080>;
+		#interconnect-cells = <1>;
+	};
+
+	aggre2_noc: interconnect@01700000 {
+		compatible = "qcom,lemans-aggre2_noc";
+		reg = <0x01700000 0xD400>;
+		#interconnect-cells = <1>;
+	};
+
+	mmss_noc: interconnect@017A0000 {
+		compatible = "qcom,lemans-mmss_noc";
+		reg = <0x017A0000 0x40000>;
+		#interconnect-cells = <1>;
+	};
+
+	lpass_ag_noc: interconnect@03C40000 {
+		compatible = "qcom,lemans-lpass_ag_noc";
+		reg = <0x3C40000 0x17200>;
+		#interconnect-cells = <1>;
+	};
+
+	dc_noc: interconnect@090E0000 {
+		compatible = "qcom,lemans-dc_noc";
+		reg = <0x090E0000 0x5080>;
+		#interconnect-cells = <1>;
+	};
+
+	gem_noc: interconnect@09100000 {
+		compatible = "qcom,lemans-gem_noc";
+		reg = <0x09100000 0xF6080>;
+		#interconnect-cells = <1>;
+	};
+
+	nspa_noc: interconnect@260C0000 {
+		compatible = "qcom,lemans-nspa_noc";
+		reg = <0x260C0000 0x15080>;
+		#interconnect-cells = <1>;
+	};
+
+	nspb_noc: interconnect@2A0C0000 {
+		compatible = "qcom,lemans-nspb_noc";
+		reg = <0x2A0C0000 0x15080>;
+		#interconnect-cells = <1>;
+	};
+
+	epss_l3_cpu: l3_cpu@18590000 {
+		compatible = "lahaina-epss-l3-cpu";
+		#interconnect-cells = <1>;
 	};
 };
 
