@@ -94,9 +94,9 @@
 };
 
 &cnss_pcie0 {
-	status = "disabled";
+	status = "ok";
 };
 
 &cnss_pcie2 {
-	status = "disabled";
+	status = "ok";
 };
