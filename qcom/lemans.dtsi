@@ -455,6 +455,16 @@
 		#reset-cells = <1>;
 	};
 
+	tlmm: pinctrl@f000000 {
+		compatible = "qcom,lemans-pinctrl";
+		reg = <0xf000000 0x1000000>;
+		interrupts = <GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		interrupt-controller;
+		#interrupt-cells = <2>;
+	};
+
 	clk_virt: interconnect@0 {
 		compatible = "qcom,lemans-clk_virt";
 		#interconnect-cells = <1>;
@@ -532,6 +542,7 @@
 };
 
 #include "direwolf-gdsc.dtsi"
+#include "lemans-pinctrl.dtsi"
 
 &cam_cc_titan_top_gdsc {
 	compatible = "regulator-fixed";
