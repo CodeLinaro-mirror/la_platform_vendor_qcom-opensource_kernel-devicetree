@@ -1115,6 +1115,7 @@
 
 #include "lemans-gdsc.dtsi"
 #include "lemans-pinctrl.dtsi"
+#include "lemans-ion.dtsi"
 #include "lemans-qupv3.dtsi"
 #include "lemans-usb.dtsi"
 #include "lemans-smp2p.dtsi"
