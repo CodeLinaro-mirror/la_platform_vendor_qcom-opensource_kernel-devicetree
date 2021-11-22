@@ -620,9 +620,19 @@ dtb-$(CONFIG_ARCH_DIREWOLF) += direwolf-ivi-rumi.dtb \
 	direwolf-adas-adp-ride-v2.dtb
 endif
 
+ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+	dtbo-$(CONFIG_ARCH_LEMANS) += lemans-rumi-overlay.dtbo \
+		lemans-adp-air-overlay.dtbo \
+		lemans-adp-star-overlay.dtbo
+
+lemans-rumi-overlay.dtbo-base	:= lemans.dtb
+lemans-adp-air-overlay.dtbo-base	:= lemans.dtb
+lemans-adp-star-overlay.dtbo-base	:= lemans.dtb
+else
 dtb-$(CONFIG_ARCH_LEMANS) += lemans-rumi.dtb \
 	lemans-adp-air.dtb \
 	lemans-adp-star.dtb
+endif
 
 always		:= $(dtb-y)
 subdir-y	:= $(dts-dirs)

@@ -1,11 +1,10 @@
 /dts-v1/;
-/memreserve/ 0x90000000 0x00000100;
+/plugin/;
 
-#include "lemans.dtsi"
 #include "lemans-rumi.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Lemans RUMI";
 	compatible = "qcom,lemans", "qcom,rumi", "qcom,lemans-rumi";
-	qcom,board-id = <15 0>;
+	qcom,board-id = <0x1000F 0>;
 };
