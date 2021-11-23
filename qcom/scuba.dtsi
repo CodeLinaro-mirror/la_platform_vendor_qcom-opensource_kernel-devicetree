@@ -13,7 +13,7 @@
 / {
 	model = "Qualcomm Technologies, Inc. SCUBA";
 	compatible = "qcom,scuba";
-	qcom,msm-id = <473 0x10000>;
+	qcom,msm-id = <524 0x10000>;
 
 	#address-cells = <2>;
 	#size-cells = <2>;
