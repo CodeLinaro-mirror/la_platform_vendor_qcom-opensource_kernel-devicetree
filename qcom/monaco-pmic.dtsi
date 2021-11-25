@@ -176,8 +176,8 @@
 	status = "okay";
 	qcom,battery-data = <&monaco_batterydata>;
 	dpdm-supply = <&usb2_phy0>;
-	nvmem-names = "sdam_base";
-	nvmem = <&pm5100_sdam_7>;
+	nvmem-cell-names = "charger_debug_mask";
+	nvmem-cells = <&charger_debug_mask>;
 	qcom,auto-recharge-soc = <98>;
 	qcom,suspend-input-on-debug-batt;
 	qcom,chg-term-src = <1>;

@@ -279,6 +279,11 @@
 				reg = <0x48 0x1>;
 				bits = <1 7>;
 			};
+
+			charger_debug_mask: debug@94 {
+				reg = <0x94 0x1>;
+			};
+
 		};
 
 		pm5100_sdam_7: sdam@7600 {
