@@ -284,6 +284,14 @@
 				reg = <0x94 0x1>;
 			};
 
+			qbg_debug_mask_low: debug@96 {
+				reg = <0x96 0x1>;
+			};
+
+			qbg_debug_mask_high: debug@97 {
+				reg = <0x97 0x1>;
+			};
+
 		};
 
 		pm5100_sdam_7: sdam@7600 {
