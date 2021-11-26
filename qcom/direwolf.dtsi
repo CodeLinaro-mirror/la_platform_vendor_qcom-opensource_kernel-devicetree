@@ -1183,6 +1183,7 @@
 
 		rpm-level = <3>;
 		spm-level = <5>;
+		ufs-dev-types = <2>;
 
 		status = "disabled";
 	};
@@ -1318,6 +1319,7 @@
 
 		rpm-level = <3>;
 		spm-level = <5>;
+		ufs-dev-types = <2>;
 
 		secondary-storage;
 		status = "disabled";
