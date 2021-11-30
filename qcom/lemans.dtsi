@@ -645,8 +645,14 @@
 	};
 
 	camcc: clock-controller@ade0000 {
-		compatible = "qcom,dummycc";
-		clock-output-names = "camcc_clocks";
+		compatible = "qcom,lemans-camcc", "syscon";
+		reg = <0xade0000 0x20000>;
+		reg-name = "cc_base";
+		vdd_mm-supply = <&VDD_MM_LEVEL>;
+		vdd_mxa-supply = <&VDD_MXA_LEVEL>;
+		vdd_mxc-supply = <&VDD_MXC_LEVEL>;
+		clocks = <&rpmhcc RPMH_CXO_CLK>, <&gcc GCC_CAMERA_AHB_CLK>, <&sleep_clk>;
+		clock-names = "bi_tcxo", "iface", "sleep_clk";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -780,8 +786,10 @@
 #include "lemans-usb.dtsi"
 
 &cam_cc_titan_top_gdsc {
-	compatible = "regulator-fixed";
 	reg = <0xadf31bc 0x4>;
+	clocks = <&gcc GCC_CAMERA_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_MXC_VOTER_LEVEL>;
 	status = "ok";
 };
 

@@ -1,4 +1,5 @@
 #include "lemans.dtsi"
+#include <dt-bindings/clock/qcom,gcc-lemans.h>
 
 &arch_timer {
 	clock-frequency = <500000>;
@@ -65,4 +66,8 @@
 		 <&ufs_phy_rx_symbol_1_clk>, <&ufs_phy_tx_symbol_0_clk>,
 		 <&usb3_phy_wrapper_gcc_usb30_prim_pipe_clk>,
 		 <&usb3_phy_wrapper_gcc_usb30_sec_pipe_clk>;
+};
+
+&camcc {
+	clocks = <&bi_tcxo>, <&gcc GCC_CAMERA_AHB_CLK>, <&sleep_clk>;
 };
