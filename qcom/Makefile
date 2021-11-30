@@ -442,6 +442,16 @@ endif
 dtb-$(CONFIG_ARCH_SA2150P) += sa2150p-ccard-emmc.dtb
 endif
 
+ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+	dtbo-$(CONFIG_ARCH_SM6150) += \
+		qcs610-iot-overlay.dtbo
+
+qcs610-iot-overlay.dtbo-base := qcs610.dtb
+else
+dtb-$(CONFIG_ARCH_SM6150)	+= \
+	qcs610-iot.dtb
+endif
+
 ifeq ($(CONFIG_ARCH_LAHAINA), y)
 ifeq ($(CONFIG_ARCH_QTI_VM), y)
 dtb-$(CONFIG_ARCH_QTI_VM) += lahaina-vm-mtp.dtb \
