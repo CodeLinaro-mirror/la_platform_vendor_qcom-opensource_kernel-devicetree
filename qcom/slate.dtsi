@@ -55,6 +55,11 @@
 			qcom,intents = <0x0C 1>;
 		};
 
+		qcom,glink-slate-ux-ctl {
+			qcom,glink-channels = "slate-ux-ctl";
+			qcom,intents = <0x0C 1>;
+		};
+
 		qcom,glink-slate-rsb {
 			qcom,glink-channels = "slate-rsb-ctl";
 			qcom,intents = <0x0C 1>;

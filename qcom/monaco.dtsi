@@ -1638,6 +1638,12 @@ qcom,msm-adsprpc-mem {
 			qcom,glinkpkt-ch-name = "slate-haptics-offload";
 			qcom,glinkpkt-dev-name = "glinkpkt_slate_haptics_offload";
 		};
+
+		qcom,glinkpkt-slate-ux-ctl {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "slate-ux-ctl";
+			qcom,glinkpkt-dev-name = "glink_pkt_slate_ux_ctl";
+		};
 	};
 
 	qcom,smp2p-modem {
