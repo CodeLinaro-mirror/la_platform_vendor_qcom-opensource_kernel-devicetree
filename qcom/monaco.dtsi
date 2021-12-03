@@ -1644,6 +1644,24 @@ qcom,msm-adsprpc-mem {
 			qcom,glinkpkt-ch-name = "slate-ux-ctl";
 			qcom,glinkpkt-dev-name = "glink_pkt_slate_ux_ctl";
 		};
+
+		qcom,glinkpkt-slate-bt-ctrl {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "slate_bt_ctrl";
+			qcom,glinkpkt-dev-name = "glink_pkt_slate_bt_ctrl";
+		};
+
+		qcom,glinkpkt-bt-offload-event {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "bt_offload_event";
+			qcom,glinkpkt-dev-name = "glink_pkt_bt_offload_event";
+		};
+
+		qcom,glinkpkt-bt-app-offload-data {
+			qcom,glinkpkt-edge = "slate";
+			qcom,glinkpkt-ch-name = "slate_bt_app";
+			qcom,glinkpkt-dev-name = "glink_pkt_slate_bt_app";
+		};
 	};
 
 	qcom,smp2p-modem {
