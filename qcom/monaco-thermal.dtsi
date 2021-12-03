@@ -79,6 +79,11 @@
 				qcom,qmi-dev-name = "wlan";
 				#cooling-cells = <2>;
 			};
+
+			modem_tmd_rf_cal: modem_tmd_rf_cal {
+				qcom,qmi-dev-name = "tmd_rf_cal";
+				#cooling-cells = <2>;
+			};
 		};
 
 		adsp {
@@ -88,6 +93,16 @@
 				qcom,qmi-dev-name = "cpuv_restriction_cold";
 				#cooling-cells = <2>;
 			};
+		};
+	};
+
+	qmi_sensor: qmi-ts-sensors {
+		compatible = "qcom,qmi-sensors";
+		#thermal-sensor-cells = <1>;
+
+		modem {
+			qcom,instance-id = <QMI_MODEM_INST_ID>;
+			qcom,qmi-sensor-names = "rf_cal";
 		};
 	};
 
@@ -536,6 +551,33 @@
 			quiet_cdev3 {
 				trip = <&quiet_cx_trip>;
 				cooling-device = <&cpu3_isolate 1 1>;
+			};
+		};
+	};
+
+	rf_cal {
+		polling-delay-passive = <0>;
+		polling-delay = <0>;
+		thermal-sensors = <&qmi_sensor
+				(QMI_MODEM_INST_ID+QMI_RF_CAL)>;
+		thermal-governor = "step_wise";
+		trips {
+			rf_cal_trip: rf-cal-config {
+				temperature = <2>;
+				hysteresis = <1>;
+				type = "passive";
+			};
+		};
+
+		cooling-maps {
+			bcl_off_cdev {
+				trip = <&rf_cal_trip>;
+				cooling-device = <&bcl_off 1 1>;
+			};
+
+			tmd_rf_cal_cdev {
+				trip = <&rf_cal_trip>;
+				cooling-device = <&modem_tmd_rf_cal 1 1>;
 			};
 		};
 	};

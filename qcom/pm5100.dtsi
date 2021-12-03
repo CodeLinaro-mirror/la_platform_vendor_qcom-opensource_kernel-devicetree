@@ -269,6 +269,12 @@
 			#thermal-sensor-cells = <0>;
 		};
 
+		bcl_off: bcl-off@4700 {
+			compatible = "qcom,bcl-off";
+			reg =  <0x4700 0x100>;
+			#cooling-cells = <2>;
+		};
+
 		pm5100_sdam_2: sdam@7100 {
 			compatible = "qcom,spmi-sdam";
 			reg = <0x7100>;
