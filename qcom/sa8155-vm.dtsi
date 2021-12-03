@@ -875,4 +875,5 @@
 	/delete-property/ qcom,msm-bus,num-paths;
 	/delete-property/ qcom,msm-bus,vectors-bus-ids;
 	qcom,iommu-dma = "bypass";
+	status = "disabled";
 };
