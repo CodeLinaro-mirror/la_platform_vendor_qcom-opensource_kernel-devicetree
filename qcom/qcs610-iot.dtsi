@@ -9,6 +9,8 @@
 #include <dt-bindings/clock/qcom,gpucc-sm6150.h>
 #include <dt-bindings/iio/qti_power_supply_iio.h>
 
+#include "camera/qcs610-camera-sensor-idp.dtsi"
+
 / {
 	model = "Qualcomm Technologies, Inc. QCS610 IOT";
 	compatible = "qcom,qcs610-iot", "qcom,qcs610", "qcom,iot";
@@ -35,6 +37,27 @@
 			bias-disable;
 			output-low;
 		};
+	};
+
+	cam_sensor_dvdd_en: cam_sensor_dvdd_en {
+		pins = "gpio3";
+		function = "normal";
+		power-source = <0>;
+		output-low;
+	};
+
+	cam_sensor_0_vana: cam_sensor_0_vana {
+		pins = "gpio9";
+		function = "normal";
+		power-source = <0>;
+		output-low;
+	};
+
+	cam_sensor_1_2_vana: cam_sensor_1_2_vana {
+		pins = "gpio4";
+		function = "normal";
+		power-source = <0>;
+		output-low;
 	};
 };
 
