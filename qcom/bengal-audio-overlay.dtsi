@@ -246,6 +246,7 @@
 		pinctrl-names = "aud_active", "aud_sleep";
 		pinctrl-0 = <&spkr_1_sd_n_active>;
 		pinctrl-1 = <&spkr_1_sd_n_sleep>;
+		#gpio-cells = <0>;
 	};
 
 	wsa881x_analog_clk: wsa_ana_clk {
