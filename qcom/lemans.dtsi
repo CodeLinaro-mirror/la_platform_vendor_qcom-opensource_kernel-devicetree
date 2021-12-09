@@ -22,7 +22,9 @@
 
 	chosen: chosen { };
 
-	aliases { };
+	aliases {
+		serial0 = &qupv3_se10_2uart;
+	 };
 
 	soc: soc { };
 
@@ -692,6 +694,7 @@
 
 #include "direwolf-gdsc.dtsi"
 #include "lemans-pinctrl.dtsi"
+#include "lemans-qupv3.dtsi"
 
 &cam_cc_titan_top_gdsc {
 	compatible = "regulator-fixed";

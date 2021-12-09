@@ -1,2 +1,29 @@
 &tlmm {
+	qupv3_se10_2uart_pins: qupv3_se10_2uart_pins {
+		qupv3_se10_2uart_active: qupv3_se10_2uart_active {
+			mux {
+				pins = "gpio44", "gpio45";
+				function = "qup1_se2";
+			};
+
+			config {
+				pins = "gpio44", "gpio45";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		qupv3_se10_2uart_sleep: qupv3_se10_2uart_sleep {
+			mux {
+				pins = "gpio44", "gpio45";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio44", "gpio45";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+	};
 };
