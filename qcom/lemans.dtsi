@@ -679,8 +679,13 @@
 	};
 
 	videocc: clock-controller@abf0000 {
-		compatible = "qcom,dummycc";
-		clock-output-names = "videocc_clocks";
+		compatible = "qcom,lemans-videocc", "syscon";
+		reg = <0xabf0000 0x10000>;
+		reg-name = "cc_base";
+		vdd_mm-supply = <&VDD_MM_LEVEL>;
+		vdd_mx-supply = <&VDD_MXA_LEVEL>;
+		clocks = <&rpmhcc RPMH_CXO_CLK>, <&gcc GCC_VIDEO_AHB_CLK>, <&sleep_clk>;
+		clock-names = "bi_tcxo", "iface", "sleep_clk";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -927,26 +932,34 @@
 };
 
 &video_cc_mvs0_gdsc {
-	compatible = "regulator-fixed";
 	reg = <0xabf809c 0x4>;
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
 	status = "ok";
 };
 
 &video_cc_mvs0c_gdsc {
-	compatible = "regulator-fixed";
 	reg = <0xabf804c 0x4>;
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
 	status = "ok";
 };
 
 &video_cc_mvs1_gdsc {
-	compatible = "regulator-fixed";
 	reg = <0xabf80c0 0x4>;
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
 	status = "ok";
 };
 
 &video_cc_mvs1c_gdsc {
-	compatible = "regulator-fixed";
 	reg = <0xabf8074 0x4>;
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
 	status = "ok";
 };
 
