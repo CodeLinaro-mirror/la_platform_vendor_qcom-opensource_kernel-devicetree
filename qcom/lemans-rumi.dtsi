@@ -75,3 +75,8 @@
 &videocc {
 	clocks = <&bi_tcxo>, <&gcc GCC_VIDEO_AHB_CLK>, <&sleep_clk>;
 };
+
+&gpucc {
+	clocks = <&bi_tcxo>, <&gcc GCC_GPU_CFG_AHB_CLK>,
+		 <&gcc GCC_GPU_GPLL0_CLK_SRC>, <&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>;
+};

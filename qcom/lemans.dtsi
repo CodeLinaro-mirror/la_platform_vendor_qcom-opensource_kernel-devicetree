@@ -672,8 +672,14 @@
 	};
 
 	gpucc: clock-controller@3d90000 {
-		compatible = "qcom,dummycc";
-		clock-output-names = "gpucc_clocks";
+		compatible = "qcom,lemans-gpucc", "syscon";
+		reg = <0x3d90000 0xa000>;
+		reg-name = "cc_base";
+		vdd_cx-supply = <&VDD_CX_LEVEL>;
+		vdd_mxa-supply = <&VDD_MXA_LEVEL>;
+		clocks = <&rpmhcc RPMH_CXO_CLK>, <&gcc GCC_GPU_CFG_AHB_CLK>,
+			 <&gcc GCC_GPU_GPLL0_CLK_SRC>, <&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>;
+		clock-names = "bi_tcxo", "iface", "gpll0_out_main", "gpll0_out_main_div";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
@@ -914,20 +920,34 @@
 };
 
 &gpu_cc_cx_gdsc_hw_ctrl {
-	compatible = "syscon";
 	reg = <0x3d9953c 0x4>;
-	status = "ok";
 };
 
 &gpu_cc_cx_gdsc {
-	compatible = "regulator-fixed";
 	reg = <0x3d99108 0x4>;
+	clocks = <&gcc GCC_GPU_CFG_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_CX_LEVEL>;
 	status = "ok";
 };
 
+&gpu_cc_gx_domain_addr {
+	reg = <0x3d99504 0x4>;
+};
+
+&gpu_cc_gx_sw_reset {
+	reg = <0x3d99058 0x4>;
+};
+
 &gpu_cc_gx_gdsc {
-	compatible = "regulator-fixed";
 	reg = <0x3d9905c 0x4>;
+	clocks = <&gcc GCC_GPU_CFG_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_GX_MXC_VOTER_LEVEL>;
+	sw-reset = <&gpu_cc_gx_sw_reset>,
+		   <&gpu_cc_gx_acd_reset>,
+		   <&gpu_cc_gx_acd_iroot_reset>;
+	qcom,skip-disable-before-sw-enable;
 	status = "ok";
 };
 

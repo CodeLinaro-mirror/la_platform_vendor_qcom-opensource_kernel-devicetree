@@ -46,4 +46,14 @@
 		qcom,retain-regs;
 		status = "disabled";
 	};
+
+	gpu_cc_gx_acd_reset: syscon@3d99358 {
+		compatible = "syscon";
+		reg = <0x3d99358 0x4>;
+	};
+
+	gpu_cc_gx_acd_iroot_reset: syscon@3d9958c {
+		compatible = "syscon";
+		reg = <0x3d9958c 0x4>;
+	};
 };
