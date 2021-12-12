@@ -18,6 +18,21 @@
 		compatible = "semtech,sx1508q";
 		reg = <0x21>;
 		gpio-controller;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&sx1508_lcd0_vsn_active>;
+
+		sx1508_lcd0_vsn_active: sx1508_lcd0_vsn_active {
+			pins = "gpio1";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_lcd0_vsn_sleep: sx1508_lcd0_vsn_sleep {
+			pins = "gpio1";
+			bias-disable;
+			output-low;
+		};
 	};
 
 	ioexp22: i2c0gpio-expander@22 {
@@ -25,6 +40,21 @@
 		compatible = "semtech,sx1508q";
 		reg = <0x22>;
 		gpio-controller;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&sx1508_lcd0_vsp_active>;
+
+		sx1508_lcd0_vsp_active: sx1508_lcd0_vsp_active {
+			pins = "gpio7";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_lcd0_vsp_sleep: sx1508_lcd0_vsp_sleep {
+			pins = "gpio7";
+			bias-disable;
+			output-low;
+		};
 	};
 
 	ioexp23: i2c0gpio-expander@23 {
@@ -226,6 +256,7 @@
 	};
 
 	fan0: pwm-fan {
+		status = "disabled";
 		compatible = "pwm-fan";
 		pwms = <&pm6125_pwm 0 100000>;
 		cooling-levels = <0 32 64 128 170 230 255>;
