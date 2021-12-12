@@ -15,6 +15,29 @@
 		compatible = "semtech,sx1508q";
 		reg = <0x20>;
 		gpio-controller;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&sx1508_cam0a_strobe_active
+				&sx1508_cam0b_strobe_active
+				&sx1508_cam0b_spare_active>;
+
+		sx1508_cam0a_strobe_active: sx1508_cam0a_strobe_active {
+			pins = "gpio0";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_cam0b_strobe_active: sx1508_cam0b_strobe_active {
+			pins = "gpio3";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_cam0b_spare_active: sx1508_cam0b_spare_active {
+			pins = "gpio4";
+			bias-disable;
+			output-high;
+		};
 	};
 
 	ioexp21: i2c0gpio-expander@21 {
@@ -66,6 +89,36 @@
 		compatible = "semtech,sx1508q";
 		reg = <0x23>;
 		gpio-controller;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&sx1508_cam1_strobe_active
+				&sx1508_cam2_strobe_active
+				&sx1508_cam2_pwdn_active
+				&sx1508_gmsl_power_active>;
+
+		sx1508_cam1_strobe_active: sx1508_cam1_strobe_active {
+			pins = "gpio2";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_cam2_strobe_active: sx1508_cam2_strobe_active {
+			pins = "gpio3";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_cam2_pwdn_active: sx1508_cam2_pwdn_active {
+			pins = "gpio5";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_gmsl_power_active: sx1508_gmsl_power_active {
+			pins = "gpio7";
+			bias-disable;
+			output-high;
+		};
 	};
 };
 
