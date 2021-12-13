@@ -143,7 +143,7 @@
 		qcom,cdc-vddpx-voltage = <1800000 1800000>;
 		qcom,cdc-vddpx-current = <20000>;
 
-		cdc-vdd-buck-supply = <&L14A>;
+		cdc-vdd-buck-supply = <&L9A>;
 		qcom,cdc-vdd-buck-voltage = <1800000 1800000>;
 		qcom,cdc-vdd-buck-current = <650000>;
 

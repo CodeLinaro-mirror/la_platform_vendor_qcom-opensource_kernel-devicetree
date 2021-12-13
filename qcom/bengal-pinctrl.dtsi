@@ -231,12 +231,12 @@
 
 		wcd937x_reset_active: wcd937x_reset_active {
 			mux {
-				pins = "gpio92";
+				pins = "gpio82";
 				function = "gpio";
 			};
 
 			config {
-				pins = "gpio92";
+				pins = "gpio82";
 				drive-strength = <16>;
 				output-high;
 			};
@@ -244,12 +244,12 @@
 
 		wcd937x_reset_sleep: wcd937x_reset_sleep {
 			mux {
-				pins = "gpio92";
+				pins = "gpio82";
 				function = "gpio";
 			};
 
 			config {
-				pins = "gpio92";
+				pins = "gpio82";
 				drive-strength = <16>;
 				bias-disable;
 				output-low;
