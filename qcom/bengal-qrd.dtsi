@@ -3,6 +3,68 @@
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/iio/qti_power_supply_iio.h>
 
+&qupv3_se0_i2c {
+	status = "ok";
+
+	ioexp20: i2c0gpio-expander@20 {
+		#gpio-cells = <2>;
+		compatible = "semtech,sx1508q";
+		reg = <0x20>;
+		gpio-controller;
+	};
+
+	ioexp21: i2c0gpio-expander@21 {
+		#gpio-cells = <2>;
+		compatible = "semtech,sx1508q";
+		reg = <0x21>;
+		gpio-controller;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&sx1508_lcd0_vsn_active>;
+
+		sx1508_lcd0_vsn_active: sx1508_lcd0_vsn_active {
+			pins = "gpio1";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_lcd0_vsn_sleep: sx1508_lcd0_vsn_sleep {
+			pins = "gpio1";
+			bias-disable;
+			output-low;
+		};
+	};
+
+	ioexp22: i2c0gpio-expander@22 {
+		#gpio-cells = <2>;
+		compatible = "semtech,sx1508q";
+		reg = <0x22>;
+		gpio-controller;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&sx1508_lcd0_vsp_active>;
+
+		sx1508_lcd0_vsp_active: sx1508_lcd0_vsp_active {
+			pins = "gpio7";
+			bias-disable;
+			output-high;
+		};
+
+		sx1508_lcd0_vsp_sleep: sx1508_lcd0_vsp_sleep {
+			pins = "gpio7";
+			bias-disable;
+			output-low;
+		};
+	};
+
+	ioexp23: i2c0gpio-expander@23 {
+		#gpio-cells = <2>;
+		compatible = "semtech,sx1508q";
+		reg = <0x23>;
+		gpio-controller;
+	};
+};
+
 &qupv3_se1_i2c {
 	status = "ok";
 	#include "smb1355.dtsi"
@@ -194,6 +256,7 @@
 	};
 
 	fan0: pwm-fan {
+		status = "disabled";
 		compatible = "pwm-fan";
 		pwms = <&pm6125_pwm 0 100000>;
 		cooling-levels = <0 32 64 128 170 230 255>;
