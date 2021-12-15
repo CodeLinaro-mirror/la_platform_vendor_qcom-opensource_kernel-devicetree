@@ -158,7 +158,7 @@
 };
 
 &bengal_snd {
-	qcom,model = "bengal-idp-snd-card";
+	qcom,model = "bengal-qrd-snd-card";
 	qcom,msm-mi2s-master = <1>, <1>, <1>, <1>;
 	qcom,wcn-btfm = <1>;
 	qcom,va-bolero-codec = <1>;
