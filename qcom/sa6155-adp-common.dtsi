@@ -2,6 +2,10 @@
 #include <dt-bindings/clock/qcom,gcc-sm6150.h>
 #include "sa6155-cnss.dtsi"
 
+&qupv3_2 {
+	status = "ok";
+};
+
 &qupv3_se0_2uart {
 	status = "ok";
 };
