@@ -2434,7 +2434,7 @@
 		qcom,minidump-id = <7>;
 		qcom,sysmon-id = <7>;
 		qcom,ssctl-instance-id = <0x17>;
-		qcom,firmware-name = "cdsp0";
+		qcom,firmware-name = "cdsp";
 		memory-region = <&pil_cdsp_mem>;
 		qcom,complete-ramdump;
 		qcom,minidump-as-elf32;
