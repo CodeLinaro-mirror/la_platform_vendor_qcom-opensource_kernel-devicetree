@@ -332,7 +332,8 @@ ifneq ($(CONFIG_ARCH_SA410M),y)
 				qrb2210-rb1.dtb
 else
 	dtb-$(CONFIG_ARCH_SA410M) += \
-				sa410m.dtb
+				sa410m-idp.dtb \
+				sa410m-qrd.dtb
 endif
 
 dtb-$(CONFIG_ARCH_BENGAL) += qrb4210-rb2.dtb
