@@ -2,7 +2,10 @@
 #include <dt-bindings/clock/qcom,gpucc-scuba.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/iio/qcom,spmi-vadc.h>
+
 #include "scuba-ion.dtsi"
+#include "display/scuba-sde.dtsi"
+#include "display/scuba-sde-display-qrd.dtsi"
 
 &qupv3_se0_i2c {
 	status = "ok";
@@ -63,6 +66,55 @@
 		compatible = "semtech,sx1508q";
 		reg = <0x23>;
 		gpio-controller;
+	};
+};
+
+&qupv3_se2_i2c {
+	status = "ok";
+
+	pinctrl-0 = <&qupv3_se2_i2c_active &lt9611_level_shift_active>;
+	pinctrl-1 = <&qupv3_se2_i2c_sleep &lt9611_level_shift_sleep>;
+
+	lt9611: lt,lt9611@2b {
+		compatible = "lt,lt9611uxc";
+		reg = <0x2b>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <46 0>;
+		interrupt-names = "lt_irq";
+		lt,irq-gpio = <&tlmm 46 0>;
+		lt,reset-gpio = <&tlmm 41 0>;
+		instance_id = <0>;
+		lt,non-pluggable;
+		lt,preferred-mode = "1920x1080";
+
+		lt,customize-modes {
+			lt,customize-mode-id@0 {
+				lt,mode-h-active = <1920>;
+				lt,mode-h-front-porch = <88>;
+				lt,mode-h-pulse-width = <44>;
+				lt,mode-h-back-porch = <148>;
+				lt,mode-h-active-high;
+				lt,mode-v-active = <1080>;
+				lt,mode-v-front-porch = <4>;
+				lt,mode-v-pulse-width = <5>;
+				lt,mode-v-back-porch = <36>;
+				lt,mode-v-active-high;
+				lt,mode-refresh-rate = <60>;
+				lt,mode-clock-in-khz = <148500>;
+			};
+		};
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				lt9611_in: endpoint {
+					remote-endpoint = <&ext_dsi_out>;
+				};
+			};
+		};
 	};
 };
 
@@ -173,4 +225,18 @@
 
 &pm2250_pwm3 {
 	status = "okay";
+};
+
+&sde_dsi {
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			ext_dsi_out: endpoint {
+				remote-endpoint = <&lt9611_in>;
+			};
+		};
+	};
 };
