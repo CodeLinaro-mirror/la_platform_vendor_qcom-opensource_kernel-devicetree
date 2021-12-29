@@ -742,6 +742,10 @@
 		rpm-channel-type = <15>; /* SMD_APPS_RPM */
 	};
 
+	system_pm_rpm {
+		compatible = "qcom,system-pm-rpm";
+	};
+
 	qcom,sps {
 		compatible = "qcom,msm-sps-4k";
 		qcom,pipe-attr-ee;
