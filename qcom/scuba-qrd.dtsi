@@ -239,6 +239,7 @@
 };
 
 &pm2250_qg {
+	status = "disabled";
 	qcom,battery-data = <&scuba_batterydata>;
 	qcom,qg-iterm-ma = <150>;
 	qcom,hold-soc-while-full;
