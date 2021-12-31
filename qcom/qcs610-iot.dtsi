@@ -85,9 +85,26 @@
 		#include "qg-batterydata-alium-3600mah.dtsi"
 		#include "qg-batterydata-mlp356477-2800mah.dtsi"
 	};
-
-
 };
+
+&tlmm {
+	usb_typea_host {
+		usb_typea_host_en: usb_typea_host_en {
+			mux {
+				pins = "gpio54";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio54";
+				drive-strength = <2>;
+				bias-disable;
+				output-high;
+			};
+		};
+	};
+};
+
 
 &flash_led {
 	status = "ok";
@@ -108,6 +125,12 @@
 
 &pm6150l_pwm_1 {
 	status = "disabled";
+};
+
+&usb1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb_typea_host_en>;
 };
 
 &pm6150_qg {
@@ -301,6 +324,14 @@
 };
 
 &L7C {
+	regulator-always-on;
+};
+
+&L10A {
+	regulator-always-on;
+};
+
+&L14A {
 	regulator-always-on;
 };
 
