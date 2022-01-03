@@ -10,6 +10,8 @@
 	aliases {
 		hsuart0 = &qupv3_se13_4uart;
 		sdhc2 = &sdhc_2; /* SDC2 SD card slot */
+		mhi-netdev0 = &mhi_netdev_0;
+		mhi-netdev1 = &mhi_netdev_1;
 	};
 
 	cpus {
@@ -892,6 +894,7 @@
 #include "sm8150-slpi-pinctrl.dtsi"
 #include "sa8195-vm-usb.dtsi"
 #include "sa8195-vm-pcie.dtsi"
+#include "sa8195-vm-mhi.dtsi"
 #include "sa8195-qupv3.dtsi"
 #include "sa8195-ssc-qupv3.dtsi"
 #include "sa8155-vm-audio.dtsi"
