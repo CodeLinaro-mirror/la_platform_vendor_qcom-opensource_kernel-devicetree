@@ -238,6 +238,42 @@
 	};
 };
 
+&qupv3_se1_i2c {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	qcom,clk-freq-out = <400000>;
+
+	sx1508q: ch_io_expander@22 {
+		compatible = "semtech,sx1508q";
+		reg = <0x22>;
+		#gpio-cells = <2>;
+		#interrupt-cells = <2>;
+		gpio-controller;
+	};
+};
+
+&qupv3_se2_i2c {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	qcom,clk-freq-out = <400000>;
+
+	ch101_0: ch101_0@45 {
+		compatible = "invensense,ch101";
+		reg = <0x45>;
+		rst-gpios = <&tlmm 111 GPIO_ACTIVE_HIGH>;
+		rtc_rst-gpios = <&tlmm 80 GPIO_ACTIVE_HIGH>;
+		prg-gpios = <0 1 2 3 4 5>;
+		int-gpios = <&tlmm 95 GPIO_ACTIVE_HIGH>,
+				<&tlmm 113 GPIO_ACTIVE_HIGH>,
+				<&tlmm 114 GPIO_ACTIVE_HIGH>,
+				<&tlmm 34 GPIO_ACTIVE_HIGH>,
+				<&tlmm 35 GPIO_ACTIVE_HIGH>,
+				<&tlmm 36 GPIO_ACTIVE_HIGH>;
+	};
+};
+
 &pm2250_qg {
 	qcom,battery-data = <&scuba_batterydata>;
 	qcom,qg-iterm-ma = <150>;
