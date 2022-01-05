@@ -221,10 +221,6 @@
 		};
 	};
 
-	qcom,power-state {
-		compatible = "qcom,power-state";
-	};
-
 	qcom,slatecom-rpmsg {
 		compatible = "qcom,slatecom-rpmsg";
 		qcom,glink-channels = "slate-ctrl";
