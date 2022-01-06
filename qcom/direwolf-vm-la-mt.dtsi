@@ -62,3 +62,5 @@
 &qcom_rng_ee3 {
 	status = "okay";
 };
+
+#include "direwolf-vm-gnss.dtsi"
