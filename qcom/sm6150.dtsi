@@ -2649,9 +2649,6 @@
 };
 
 &gpu_gx_gdsc {
-	clock-names = "core_root_clk";
-	clocks = <&gpucc GPU_CC_GX_GFX3D_CLK_SRC>;
-	qcom,force-enable-root-clk;
 	parent-supply = <&VDD_CX_LEVEL>;
 	status = "ok";
 };
