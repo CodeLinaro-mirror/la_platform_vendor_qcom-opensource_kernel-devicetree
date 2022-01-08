@@ -1514,6 +1514,12 @@
 #include "sa410m-audio-overlay.dtsi"
 #include "scuba-pm.dtsi"
 
+&soc {
+	qcom,ion {
+		/delete-node/ qcom,ion-heap@26;
+	};
+};
+
 &qupv3_se4_2uart {
 	status = "ok";
 };
