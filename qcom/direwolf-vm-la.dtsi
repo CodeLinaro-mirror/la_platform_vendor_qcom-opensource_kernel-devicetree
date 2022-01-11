@@ -71,3 +71,7 @@
 &usb2_phy5 {
 	status = "okay";
 };
+
+&qupv3_se13_2uart {
+	status = "okay";
+};
