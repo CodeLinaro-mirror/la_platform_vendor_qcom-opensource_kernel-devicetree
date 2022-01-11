@@ -527,6 +527,7 @@ dtb-$(CONFIG_QTI_QUIN_GVM) += sa8155-vm-la.dtb \
 	direwolf-vm-lv.dtb \
 	direwolf-vm-la.dtb \
 	direwolf-vm-la-mt.dtb \
+	direwolf-vm-la1-mt.dtb \
 	direwolf-vm-lv-mt.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
