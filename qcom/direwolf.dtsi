@@ -283,6 +283,11 @@
 			reg = <0x0 0x808FF000 0x0 0x1000>;
 		};
 
+		uefi_log: uefi_log@808B0000 {
+			reg = <0x0 0x808B0000 0x0 0x10000>;
+			label = "uefi_log";
+		};
+
 		smem_mem: smem_mem_region@80900000 {
 			no-map;
 			reg = <0x0 0x80900000 0x0 0x200000>;
