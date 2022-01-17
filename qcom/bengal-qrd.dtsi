@@ -46,7 +46,8 @@
 		gpio-controller;
 
 		pinctrl-names = "default";
-		pinctrl-0 = <&sx1508_lcd0_vsn_active>;
+		pinctrl-0 = <&sx1508_lcd0_vsn_active
+				&sx1508_cam1_pwdn_active>;
 
 		sx1508_lcd0_vsn_active: sx1508_lcd0_vsn_active {
 			pins = "gpio1";
@@ -58,6 +59,12 @@
 			pins = "gpio1";
 			bias-disable;
 			output-low;
+		};
+
+		sx1508_cam1_pwdn_active: sx1508_cam1_pwdn_active {
+			pins = "gpio4";
+			bias-disable;
+			output-high;
 		};
 	};
 
