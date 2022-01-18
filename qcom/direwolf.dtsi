@@ -2978,7 +2978,7 @@
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 
 		snps,reset-gpios = <&pm8540_1_gpios 1 GPIO_ACTIVE_HIGH>;
-		vreg_rgmii-supply = <&pm8540_a0_l2>;
+		vreg_emac_phy-supply = <&pm8540_a0_l2>;
 		gdsc_emac-supply = <&gcc_emac0_gdsc>;
 		qcom,phy-intr-redirect = <&tlmm 127 GPIO_ACTIVE_LOW>;
 		pinctrl-names = "dev-emac-mdc",
