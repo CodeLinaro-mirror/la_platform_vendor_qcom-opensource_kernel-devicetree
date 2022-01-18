@@ -31,3 +31,7 @@
 		};
 	};
 };
+
+&qcom_rng_ee4 {
+	status = "okay";
+};

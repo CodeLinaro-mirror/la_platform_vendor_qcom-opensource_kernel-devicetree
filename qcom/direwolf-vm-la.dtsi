@@ -78,3 +78,7 @@
 &qupv3_se13_2uart {
 	status = "okay";
 };
+
+&qcom_rng_ee3 {
+	status = "okay";
+};
