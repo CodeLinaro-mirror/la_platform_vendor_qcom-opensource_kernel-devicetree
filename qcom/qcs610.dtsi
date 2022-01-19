@@ -230,6 +230,28 @@
 	};
 };
 
+&qupv3_se4_spi {
+	compatible = "qcom,spi-geni";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	reg = <0xa80000 0x4000>;
+	reg-names = "se_phys";
+	clock-names = "se-clk", "m-ahb", "s-ahb";
+	clocks = <&gcc GCC_QUPV3_WRAP1_S0_CLK>,
+		<&gcc GCC_QUPV3_WRAP_1_M_AHB_CLK>,
+		<&gcc GCC_QUPV3_WRAP_1_S_AHB_CLK>;
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&qupv3_se4_spi_active>;
+	pinctrl-1 = <&qupv3_se4_spi_sleep>;
+	interrupts = <GIC_SPI 353 IRQ_TYPE_LEVEL_HIGH>;
+	spi-max-frequency = <50000000>;
+	qcom,wrapper-core = <&qupv3_1>;
+	dmas = <&gpi_dma1 0 0 1 64 0>,
+			<&gpi_dma1 1 0 1 64 0>;
+	dma-names = "tx", "rx";
+	status = "disabled";
+};
+
 &smb1390 {
 	/delete-property/ interrupts;
 	interrupts = <0x0 0xc2 0x0 IRQ_TYPE_LEVEL_LOW>;

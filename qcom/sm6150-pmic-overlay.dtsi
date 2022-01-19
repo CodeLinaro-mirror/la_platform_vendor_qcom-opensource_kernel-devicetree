@@ -121,6 +121,20 @@
 };
 
 &spmi_bus {
+	qcom,pm6150@0 {
+		pm6150_clkdiv: clock-controller@5b00 {
+			compatible = "qcom,spmi-clkdiv";
+			reg = <0x5b00>;
+			#clock-cells = <1>;
+			qcom,num-clkdivs = <1>;
+			clock-output-names = "pm6150_div_clk1";
+			clocks = <&rpmhcc RPMH_CXO_CLK>;
+			clock-names = "xo";
+			assigned-clocks = <&pm6150_clkdiv 1>;
+			assigned-clock-rates = <19200000>;
+		};
+	};
+
 	qcom,pm6150l@4 {
 		pm6150l_clkdiv: clock-controller@5b00 {
 			compatible = "qcom,spmi-clkdiv";
@@ -135,6 +149,17 @@
 };
 
 &pm6150_gpios {
+	wcd934x_mclk {
+		wcd934x_mclk_default: wcd934x_mclk_default{
+			pins = "gpio8";
+			function = "func1";
+			qcom,drive-strength = <2>;
+			power-source = <0>;
+			bias-disable;
+			output-low;
+		};
+	};
+
 	smb_stat {
 		smb_stat_default: smb_stat_default {
 			pins = "gpio3";
