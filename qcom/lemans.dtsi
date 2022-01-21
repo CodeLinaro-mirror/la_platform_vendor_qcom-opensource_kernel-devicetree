@@ -39,7 +39,7 @@
 			compatible = "qcom,kryo";
 			reg = <0x0 0x0>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_0>;
 			L2_0: l2-cache {
@@ -61,7 +61,7 @@
 			compatible = "qcom,kryo";
 			reg = <0x0 0x100>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_1>;
 			L2_1: l2-cache {
@@ -77,7 +77,7 @@
 			compatible = "qcom,kryo";
 			reg = <0x0 0x200>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_2>;
 			L2_2: l2-cache {
@@ -93,7 +93,7 @@
 			compatible = "qcom,kryo";
 			reg = <0x0 0x300>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_3>;
 			L2_3: l2-cache {
@@ -104,13 +104,13 @@
 			};
 		};
 
-		CPU4: cpu@400 {
+		CPU4: cpu@10000 {
 			device_type = "cpu";
 			compatible = "qcom,kryo";
-			reg = <0x0 0x400>;
+			reg = <0x0 0x10000>;
 			enable-method = "spin-table";
 			cache-size = <0x20000>;
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			next-level-cache = <&L2_4>;
 			L2_4: l2-cache {
 			      compatible = "arm,arch-cache";
@@ -126,12 +126,12 @@
 			};
 		};
 
-		CPU5: cpu@500 {
+		CPU5: cpu@10100 {
 			device_type = "cpu";
 			compatible = "qcom,kryo";
-			reg = <0x0 0x500>;
+			reg = <0x0 0x10100>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_5>;
 			L2_5: l2-cache {
@@ -142,12 +142,12 @@
 			};
 		};
 
-		CPU6: cpu@600 {
+		CPU6: cpu@10200 {
 			device_type = "cpu";
 			compatible = "qcom,kryo";
-			reg = <0x0 0x600>;
+			reg = <0x0 0x10200>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_6>;
 			L2_6: l2-cache {
@@ -158,12 +158,12 @@
 			};
 		};
 
-		CPU7: cpu@700 {
+		CPU7: cpu@10300 {
 			device_type = "cpu";
 			compatible = "qcom,kryo";
-			reg = <0x0 0x700>;
+			reg = <0x0 0x10300>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0x0 0x90000000>;
+			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_7>;
 			L2_7: l2-cache {
