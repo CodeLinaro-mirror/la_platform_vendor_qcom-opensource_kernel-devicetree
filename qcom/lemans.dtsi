@@ -744,6 +744,7 @@
 #include "direwolf-gdsc.dtsi"
 #include "lemans-pinctrl.dtsi"
 #include "lemans-qupv3.dtsi"
+#include "lemans-usb.dtsi"
 
 &cam_cc_titan_top_gdsc {
 	compatible = "regulator-fixed";
