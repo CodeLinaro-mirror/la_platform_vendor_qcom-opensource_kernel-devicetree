@@ -382,6 +382,7 @@
 	rpm-regulator-ldoa25 {
 		status = "okay";
 		L25A: pm5100_l25: regulator-l25 {
+			parent-supply = <&L12A>;
 			regulator-min-microvolt = <3080000>;
 			regulator-max-microvolt = <3080000>;
 			qcom,init-voltage = <3080000>;
