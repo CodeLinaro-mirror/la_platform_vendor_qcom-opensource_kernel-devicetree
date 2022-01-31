@@ -6,6 +6,6 @@
 / {
 	model = "Qualcomm Technologies, Inc. Direwolf Multi LA1 Virtual Machine";
 	compatible = "qcom,direwolf";
-	qcom,board-id = <0x3000001 0>;
+	qcom,board-id = <0 0x3000001>;
 };
 
