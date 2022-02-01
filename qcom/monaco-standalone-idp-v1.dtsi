@@ -120,7 +120,6 @@
 			   "cycle_count",
 			   "charge_full_design",
 			   "time_to_full_now";
-	qcom,concurrency-mode-supported;
 };
 
 &pm5100_gpios {

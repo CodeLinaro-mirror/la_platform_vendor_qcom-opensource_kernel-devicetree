@@ -186,4 +186,5 @@
 	qcom,fcc-step-delay-ms = <1000>;
 	qcom,fcc-step-size-ua = <100000>;
 	qcom,fcc-step-start-ua = <200000>;
+	qcom,concurrency-mode-supported;
 };
