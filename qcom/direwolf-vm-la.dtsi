@@ -47,11 +47,11 @@
 	status = "okay";
 };
 
-&pcie4 {
+&usb1 {
 	status = "okay";
 };
 
-&pcie4_msi_snps {
+&usb2_phy1 {
 	status = "okay";
 };
 
@@ -72,6 +72,14 @@
 };
 
 &usb2_phy5 {
+	status = "okay";
+};
+
+&pcie4 {
+	status = "okay";
+};
+
+&pcie4_msi_snps {
 	status = "okay";
 };
 
