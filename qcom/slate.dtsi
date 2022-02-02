@@ -45,6 +45,16 @@
 		compatible = "qcom,glink-slatecom-xprt";
 		label = "slate";
 
+		qcom,glink-slate-apps-diag-cntl {
+			qcom,glink-channels = "DIAG_SLATE_APPS_CNTL";
+			qcom,intents = <0x200 1>;
+		};
+
+		qcom,glink-slate-adsp-diag-cntl {
+			qcom,glink-channels = "DIAG_SLATE_ADSP_CNTL";
+			qcom,intents = <0x200 1>;
+		};
+
 		qcom,glink-slate-events-bridge {
 			qcom,glink-channels = "slate-event";
 			qcom,intents = <0x0181 1>;
