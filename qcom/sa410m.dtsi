@@ -1513,7 +1513,6 @@
 #include "sa410m-audio.dtsi"
 #include "sa410m-audio-overlay.dtsi"
 #include "scuba-pm.dtsi"
-#include "scuba-coresight.dtsi"
 
 &soc {
 	qcom,ion {
