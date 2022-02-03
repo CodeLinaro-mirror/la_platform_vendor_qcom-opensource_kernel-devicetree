@@ -27,3 +27,13 @@
 		};
 	};
 };
+
+&soc {
+	ss5_pwr_ctrl0:ss5_pwr_ctrl0 {
+		compatible = "qcom,gnss_sirf";
+		pinctrl-0 = <&sirf_reset_default>;
+		ssVreset-gpio = <&pm8540_4_gpios 3 1>;
+		ssVonoff-gpio = <&pm8540_4_gpios 2 1>;
+		ssVboot-gpio = <&pm8540_4_gpios 1 1>;
+	};
+};
