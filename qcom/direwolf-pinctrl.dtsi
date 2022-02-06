@@ -1142,6 +1142,21 @@
 				bias-pull-down;
 			};
 		};
+
+		 qupv3_se13_2uart_disable: qupv3_se13_2uart_disable {
+			rtr {
+				pins = "gpio27";
+				drive-strength = <2>;
+				bias-disable;
+				input-enable;
+			};
+
+			cts {
+				pins = "gpio26";
+				drive-strength = <6>;
+				bias-pull-up;
+			};
+		};
 	};
 
 	qupv3_se14_i2c_pins: qupv3_se14_i2c_pins {
