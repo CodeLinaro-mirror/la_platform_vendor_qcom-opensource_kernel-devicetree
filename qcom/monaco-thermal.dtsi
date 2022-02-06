@@ -510,8 +510,8 @@
 
 		trips {
 			quiet_bat_trip0: quiet-bat-trip0 {
-				temperature = <40000>;
-				hysteresis = <4000>;
+				temperature = <42000>;
+				hysteresis = <3000>;
 				type = "passive";
 			};
 
@@ -528,14 +528,20 @@
 			};
 
 			quiet_bat_trip1: quiet-bat-trip1 {
-				temperature = <46000>;
-				hysteresis = <4000>;
+				temperature = <45000>;
+				hysteresis = <3000>;
 				type = "passive";
 			};
 
 			quiet_gpu_trip: quiet-gpu-trip {
 				temperature = <48000>;
 				hysteresis = <0>;
+				type = "passive";
+			};
+
+			quiet_bat_trip2: quiet-bat-trip2 {
+				temperature = <48000>;
+				hysteresis = <4000>;
 				type = "passive";
 			};
 		};
@@ -567,12 +573,17 @@
 
 			quiet_cdev4 {
 				trip = <&quiet_bat_trip0>;
-				cooling-device = <&pm5100_charger 2 2>;
+				cooling-device = <&pm5100_charger 7 7>;
 			};
 
 			quiet_cdev5 {
 				trip = <&quiet_bat_trip1>;
-				cooling-device = <&pm5100_charger 3 3>;
+				cooling-device = <&pm5100_charger 9 9>;
+			};
+
+			quiet_cdev6 {
+				trip = <&quiet_bat_trip2>;
+				cooling-device = <&pm5100_charger 15 15>;
 			};
 		};
 	};
