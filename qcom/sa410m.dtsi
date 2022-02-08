@@ -552,6 +552,10 @@
 		rpm-channel-type = <15>; /* SMD_APPS_RPM */
 	};
 
+	system_pm_rpm {
+		compatible = "qcom,system-pm-rpm";
+	};
+
 	mem_dump {
 		compatible = "qcom,mem-dump";
 		memory-region = <&dump_mem>;
