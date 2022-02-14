@@ -4,6 +4,7 @@
 #include "display/sm6150-sde-display.dtsi"
 #include <dt-bindings/clock/qcom,gcc-sm6150.h>
 #include <dt-bindings/iio/qti_power_supply_iio.h>
+#include "camera/sm6150-camera-sensor-idp.dtsi"
 
 &qupv3_se3_i2c {
 	#address-cells = <1>;
@@ -24,6 +25,43 @@
 			power-source = <0>;
 		};
 	};
+
+	cam_sensor_dvdd {
+		cam_sensor_dvdd_default: cam_sensor_dvdd_default {
+			pins = "gpio3";
+			function = "normal";
+			output-low;
+			power-source = <0>;
+		};
+	};
+
+	cam_sensor_1_vana {
+		cam_sensor_1_vana_default: cam_sensor_1_vana_default {
+			pins = "gpio8";
+			function = "normal";
+			output-low;
+			power-source = <0>;
+		};
+	};
+
+	cam_sensor_0_vana {
+		cam_sensor_0_vana_default: cam_sensor_0_vana_default {
+			pins = "gpio9";
+			function = "normal";
+			output-low;
+			power-source = <0>;
+		};
+	};
+
+	cam_sensor_1_2_vana {
+		cam_sensor_1_2_vana_default: cam_sensor_1_2_vana_default {
+			pins = "gpio4";
+			function = "normal";
+			output-low;
+			power-source = <0>;
+		};
+	};
+
 };
 
 &soc {
@@ -137,6 +175,10 @@
 };
 
 &qupv3_se7_4uart {
+	status = "ok";
+};
+
+&flash_led {
 	status = "ok";
 };
 
