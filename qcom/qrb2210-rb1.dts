@@ -6,5 +6,5 @@
 / {
 	model = "Qualcomm Technologies, Inc. Scuba QRD";
 	compatible = "qcom,scuba";
-	qcom,board-id = <0x22 0x10>, <0x22 0x11>, <0x0B 0x05>;
+	qcom,board-id = <0x0501000B 0x0>;
 };
