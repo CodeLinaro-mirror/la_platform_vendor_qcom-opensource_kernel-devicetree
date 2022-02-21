@@ -21,17 +21,6 @@
 	};
 };
 
-&firmware {
-	android {
-		boot_devices = "vdevs/1c220000.virtio_blk,vdevs/1c120000.virtio_blk,vdevs/1c210000.virtio_blk,vdevs/1c190000.virtio_blk,vdevs/1c160000.virtio_blk";
-		fstab {
-			vendor {
-				dev="/dev/block/platform/vdevs/1c210000.virtio_blk/vendor";
-			};
-		};
-	};
-};
-
 &qcom_rng_ee4 {
 	status = "okay";
 };
