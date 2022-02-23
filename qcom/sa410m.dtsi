@@ -1425,6 +1425,7 @@
 		qcom,ee = <0>;
 		qcom,use-ipa-tethering-bridge;
 		qcom,modem-cfg-emb-pipe-flt;
+		qcom,use-xbl-boot;
 		qcom,ipa-wdi2;
 		qcom,ipa-wdi2_over_gsi;
 		qcom,ipa-endp-delay-wa;
