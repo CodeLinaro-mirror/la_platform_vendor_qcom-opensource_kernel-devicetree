@@ -1030,14 +1030,11 @@
 	qcom_rng: qrng@1b53000 {
 		compatible = "qcom,msm-rng";
 		reg = <0x1b53000 0x1000>;
-		qcom,msm-rng-iface-clk;
 		interconnect-names = "data_path";
 		interconnects = <&bimc MASTER_AMPSS_M0 &config_noc SLAVE_HWKM_CORE>;
 		qcom,no-qrng-config;
-	//	clocks = <&gcc GCC_PRNG_AHB_CLK>;
-	//	clock-names = "iface_clk";
-		clock-names = "km_clk_src";
-		clocks = <&rpmcc RPM_SMD_HWKM_CLK>;
+		clocks = <&gcc GCC_PRNG_AHB_CLK>;
+		clock-names = "iface_clk";
 	};
 
 	qcom_cedev: qcedev@1b20000 {
@@ -1066,7 +1063,6 @@
 		iommus = <&apps_smmu 0x0086 0x0011>,
 			 <&apps_smmu 0x0096 0x0011>;
 		qcom,iommu-dma = "atomic";
-		status = "disabled";
 		qcom_cedev_ns_cb {
 			compatible = "qcom,qcedev,context-bank";
 			label = "ns_context";
@@ -1120,7 +1116,6 @@
 		iommus = <&apps_smmu 0x0084 0x0011>,
 			<&apps_smmu 0x0094 0x0011>;
 		qcom,iommu-dma = "atomic";
-		status = "disabled";
 	};
 
 	qcom,mpm2-sleep-counter@4403000 {
