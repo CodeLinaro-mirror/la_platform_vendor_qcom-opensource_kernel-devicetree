@@ -1176,6 +1176,10 @@
 		rpm-channel-type = <15>; /* SMD_APPS_RPM */
 	};
 
+	system_pm_rpm {
+		compatible = "qcom,system-pm-rpm";
+	};
+
 	qcom,chd_silver {
 		compatible = "qcom,core-hang-detect";
 		label = "silver";
