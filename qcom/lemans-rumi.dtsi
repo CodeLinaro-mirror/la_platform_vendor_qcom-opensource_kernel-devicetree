@@ -32,6 +32,24 @@
 				     0x0 0x4
 				     0x9 0x14>;
 	};
+
+	bi_tcxo: bi_tcxo {
+		compatible = "fixed-factor-clock";
+		clock-mult = <1>;
+		clock-div = <2>;
+		clocks = <&xo_board>;
+		clock-output-names = "bi_tcxo";
+		#clock-cells = <0>;
+	};
+
+	bi_tcxo_ao: bi_tcxo_ao {
+		compatible = "fixed-factor-clock";
+		clock-mult = <1>;
+		clock-div = <2>;
+		clocks = <&xo_board>;
+		clock-output-names = "bi_tcxo_ao";
+		#clock-cells = <0>;
+	};
 };
 
 &usb0 {
@@ -78,4 +96,27 @@
 &gpucc {
 	clocks = <&bi_tcxo>, <&gcc GCC_GPU_CFG_AHB_CLK>,
 		 <&gcc GCC_GPU_GPLL0_CLK_SRC>, <&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>;
+};
+
+&dispcc0 {
+	clocks = <&bi_tcxo>, <&bi_tcxo_ao>, <&sleep_clk>,
+		<&gcc GCC_DISP_AHB_CLK>;
+};
+
+&dispcc1 {
+	clocks = <&bi_tcxo>, <&bi_tcxo_ao>, <&sleep_clk>,
+		<&gcc GCC_DISP1_AHB_CLK>;
+};
+
+&rpmhcc {
+	compatible = "qcom,dummycc";
+	clock-output-names = "rpmhcc_clocks";
+};
+
+&debugcc {
+	clocks = <&bi_tcxo>;
+};
+
+&cpufreq_hw {
+	clocks = <&bi_tcxo>, <&gcc GCC_GPLL0>;
 };
