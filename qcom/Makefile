@@ -449,15 +449,18 @@ endif
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_SM6150) += \
 		qcs610-iot-overlay.dtbo \
-		prairie-iot-idp-overlay.dtbo
+		prairie-iot-idp-overlay.dtbo \
+		qcs610-opk-overlay.dtbo
 
 qcs610-iot-overlay.dtbo-base := qcs610.dtb
 prairie-iot-idp-overlay.dtbo-base := qcs610.dtb
+qcs610-opk-overlay.dtbo-base := qcs610.dtb
 
 else
 dtb-$(CONFIG_ARCH_SM6150)	+= \
 	qcs610-iot.dtb \
-	prairie-iot-idp.dtb
+	prairie-iot-idp.dtb \
+	qcs610-opk.dtb
 endif
 
 ifeq ($(CONFIG_ARCH_LAHAINA), y)
