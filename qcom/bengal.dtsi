@@ -1033,8 +1033,8 @@
 		interconnect-names = "data_path";
 		interconnects = <&bimc MASTER_AMPSS_M0 &config_noc SLAVE_HWKM_CORE>;
 		qcom,no-qrng-config;
-		clocks = <&gcc GCC_PRNG_AHB_CLK>;
-		clock-names = "iface_clk";
+		clock-names = "km_clk_src";
+		clocks = <&rpmcc RPM_SMD_HWKM_CLK>;
 	};
 
 	qcom_cedev: qcedev@1b20000 {
