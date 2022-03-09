@@ -317,3 +317,33 @@
 	adsp-fw-names = "adsp2";
 	adsp-fw-bit-values = <0x1>;
 };
+
+&lpi_tlmm {
+	cdc_dmic23_clk_active: dmic23_clk_active {
+		mux {
+			pins = "gpio8";
+			function = "func1";
+		};
+
+		config {
+			pins = "gpio8";
+			drive-strength = <8>;
+			bias-disable;           /* NO PULL */
+			output-high;
+		};
+	};
+
+	cdc_dmic23_clk_sleep: dmic23_clk_sleep {
+		mux {
+			pins = "gpio8";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio8";
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+};

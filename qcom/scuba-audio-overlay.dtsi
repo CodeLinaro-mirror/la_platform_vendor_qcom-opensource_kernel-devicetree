@@ -307,3 +307,33 @@
 &va_cdc_dma_0_tx {
 	qcom,msm-dai-is-island-supported = <1>;
 };
+
+&lpi_tlmm {
+	cdc_dmic23_clk_active: dmic23_clk_active {
+		mux {
+			pins = "gpio8";
+			function = "func1";
+		};
+
+		config {
+			pins = "gpio8";
+			drive-strength = <8>;
+			bias-disable;           /* NO PULL */
+			output-high;
+		};
+	};
+
+	cdc_dmic23_clk_sleep: dmic23_clk_sleep {
+		mux {
+			pins = "gpio8";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio8";
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+};
