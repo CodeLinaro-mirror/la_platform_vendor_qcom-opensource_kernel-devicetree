@@ -1,6 +1,7 @@
 #include <dt-bindings/interconnect/qcom,icc.h>
 #include <dt-bindings/interconnect/qcom,sdx55.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
 
 / {
@@ -400,5 +401,11 @@
 };
 
 #include "sa515m-pinctrl.dtsi"
+#include "sdx55-regulator.dtsi"
 #include "sa515m-ion.dtsi"
 #include "msm-arm-smmu-sa515m.dtsi"
+
+&vreg_rgmii_io_pads {
+	regulator-min-microvolt = <1800000>;
+	regulator-max-microvolt = <1800000>;
+};
