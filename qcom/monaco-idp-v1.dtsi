@@ -32,6 +32,7 @@
 
 &icnss {
 	qcom,is_slate_rfa = <1>;
+	qcom,rf_subtype = <0>;
 };
 
 &qupv3_se5_4uart {
