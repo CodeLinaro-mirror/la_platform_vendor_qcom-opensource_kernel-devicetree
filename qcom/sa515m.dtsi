@@ -332,3 +332,4 @@
 };
 
 #include "sa515m-pinctrl.dtsi"
+#include "sa515m-ion.dtsi"
