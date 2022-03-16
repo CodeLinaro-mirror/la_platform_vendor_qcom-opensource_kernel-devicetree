@@ -1,5 +1,5 @@
 &hab {
-	vmid = <3>;
+	vmid = <5>;
 };
 
 &reserved_memory {
