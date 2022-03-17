@@ -36,6 +36,9 @@
 	};
 };
 
+#include "display/quin-vm-display-la1.dtsi"
+
+
 &qcom_rng_ee4 {
 	status = "okay";
 };
