@@ -144,6 +144,11 @@
 	#size-cells = <1>;
 	ranges;
 
+	psci {
+		compatible = "arm,psci-1.0";
+		method = "smc";
+	};
+
 	apps_rsc: rsc@17830000 {
 		label = "apps_rsc";
 		compatible = "qcom,rpmh-rsc";
