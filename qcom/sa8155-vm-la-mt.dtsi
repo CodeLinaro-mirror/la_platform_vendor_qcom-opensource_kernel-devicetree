@@ -26,6 +26,9 @@
 		};
 	};
 
+	chosen {
+		bootargs = "rcupdate.rcu_expedited=1 rcu_nocbs=0-7 cgroup.memory=nokmem,nosocket androidboot.usbcontroller=a600000.dwc3";
+	};
 };
 
 &usb0 {

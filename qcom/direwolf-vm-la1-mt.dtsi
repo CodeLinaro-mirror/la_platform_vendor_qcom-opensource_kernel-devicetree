@@ -34,6 +34,10 @@
 			rename-dev = "eth1";
 		};
 	};
+
+	chosen {
+		bootargs = "rcupdate.rcu_expedited=1 rcu_nocbs=0-7 cgroup.memory=nokmem,nosocket androidboot.usbcontroller=a800000.dwc3";
+	};
 };
 
 #include "display/quin-vm-display-la1.dtsi"
