@@ -22,7 +22,7 @@
 			rename-dev-ab = "super", "userdata", "metadata",
 					"persist", "modem_a", "bluetooth_a",
 					"misc", "vbmeta_a", "vbmeta_b",
-					"boot", "dtbo";
+					"boot_a", "dtbo_a";
 		};
 	};
 
