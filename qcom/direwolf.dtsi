@@ -2874,6 +2874,33 @@
 	status = "ok";
 };
 
+&video_cc_mvs0_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&video_cc_mvs0c_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&video_cc_mvs1_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
+
+&video_cc_mvs1c_gdsc {
+	clocks = <&gcc GCC_VIDEO_AHB_CLK>;
+	clock-names = "ahb_clk";
+	parent-supply = <&VDD_MM_LEVEL>;
+	status = "ok";
+};
 
 &gpu_cc_cx_gdsc {
 	clocks = <&gcc GCC_GPU_CFG_AHB_CLK>;
