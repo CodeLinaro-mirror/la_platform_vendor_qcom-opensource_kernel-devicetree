@@ -1800,6 +1800,20 @@
 		};
 	};
 
+	tps_i2c_intr: tps_i2c_intr {
+		mux {
+			pins = "gpio138";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio138";
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+
 	pcie0 {
 		pcie2a_perst_default: pcie2a_perst_default {
 			mux {
