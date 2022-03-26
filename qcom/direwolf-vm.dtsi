@@ -488,6 +488,34 @@
 		#clock-cells = <0>;
 	};
 
+	usb3_phy_wrapper_gcc_usb30_pipe_clk: usb3_phy_wrapper_gcc_usb30_pipe_clk {
+		compatible = "fixed-clock";
+		clock-frequency = <1000>;
+		clock-output-names = "usb3_phy_wrapper_gcc_usb30_pipe_clk";
+		#clock-cells = <0>;
+	};
+
+	usb3_uni_phy_mp_gcc_usb30_pipe_0_clk: usb3_uni_phy_mp_gcc_usb30_pipe_0_clk {
+		compatible = "fixed-clock";
+		clock-frequency = <1000>;
+		clock-output-names = "usb3_uni_phy_mp_gcc_usb30_pipe_0_clk";
+		#clock-cells = <0>;
+	};
+
+	usb3_uni_phy_mp_gcc_usb30_pipe_1_clk: usb3_uni_phy_mp_gcc_usb30_pipe_1_clk {
+		compatible = "fixed-clock";
+		clock-frequency = <1000>;
+		clock-output-names = "usb3_uni_phy_mp_gcc_usb30_pipe_1_clk";
+		#clock-cells = <0>;
+	};
+
+	usb3_uni_phy_sec_gcc_usb30_pipe_clk: usb3_uni_phy_sec_gcc_usb30_pipe_clk {
+		compatible = "fixed-clock";
+		clock-frequency = <1000>;
+		clock-output-names = "usb3_uni_phy_sec_gcc_usb30_pipe_clk";
+		#clock-cells = <0>;
+	};
+
 	rpmh_cxo_clk: rpmh_cxo_clk {
 		compatible = "qcom,dummycc";
 		clock-output-names = "bi_tcxo";
@@ -686,6 +714,12 @@
 		regulator-name = "ldog7";
 		regulator-min-microvolt = <1620000>;
 		regulator-max-microvolt = <1980000>;
+	};
+
+	L4C0: pm8540_c0_l4: regulator-pm8540_c0-l4 {
+		regulator-name = "ldoc4";
+		regulator-min-microvolt = <1140000>;
+		regulator-max-microvolt = <1260000>;
 	};
 };
 
