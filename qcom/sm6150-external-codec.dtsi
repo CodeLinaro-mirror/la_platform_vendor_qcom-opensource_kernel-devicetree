@@ -117,6 +117,8 @@
 	asoc-codec-names = "msm-stub-codec.1", "msm-ext-disp-audio-codec-rx", "tavil_codec",
 			"wsa-codec1", "wsa-codec2";
 	qcom,wsa-max-devs = <2>;
+	qcom,msm-mbhc-hphl-swh = <0>;
+	qcom,msm-mbhc-gnd-swh = <0>;
 	qcom,msm_audio_ssr_devs = <&audio_apr>, <&wcd934x_cdc>,
 					<&q6core>, <&lpi_tlmm>;
 };
