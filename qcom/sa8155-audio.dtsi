@@ -479,6 +479,13 @@ qcom,msm-dai-q6 {
 			qcom,msm-dai-q6-dev-id = <242>;
 		};
 	};
+
+	pcm3: qcom,msm-low-latency-noproccess {
+		compatible = "qcom,msm-pcm-dsp";
+		qcom,msm-pcm-dsp-id = <3>;
+		qcom,msm-pcm-low-latency;
+		qcom,latency-level = "llnp";
+	};
 };
 
 &audio_apr {
@@ -500,12 +507,12 @@ qcom,msm-dai-q6 {
 		qcom,quat-tdm-gpios = <&tdm_quat_rx>;
 		qcom,quin-tdm-gpios = <&tdm_quin_rx>;
 
-		asoc-platform = <&pcm0>, <&pcm1>, <&pcm2>, <&voip>, <&voice>,
+		asoc-platform = <&pcm0>, <&pcm1>, <&pcm2>, <&pcm3>, <&voip>, <&voice>,
 				<&loopback>, <&compress>, <&hostless>,
 				<&afe>, <&lsm>, <&routing>, <&compr>,
 				<&pcm_noirq>, <&loopback1>, <&pcm_dtmf>;
 		asoc-platform-names = "msm-pcm-dsp.0", "msm-pcm-dsp.1",
-				"msm-pcm-dsp.2", "msm-voip-dsp",
+				"msm-pcm-dsp.2", "msm-pcm-dsp.3", "msm-voip-dsp",
 				"msm-pcm-voice", "msm-pcm-loopback",
 				"msm-compress-dsp", "msm-pcm-hostless",
 				"msm-pcm-afe", "msm-lsm-client",
