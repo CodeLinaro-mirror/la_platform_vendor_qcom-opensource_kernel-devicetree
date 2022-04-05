@@ -1235,6 +1235,7 @@
 	};
 };
 
+#include "lemans-4pmic-regulators.dtsi"
 #include "lemans-gdsc.dtsi"
 #include "lemans-pinctrl.dtsi"
 #include "msm-arm-smmu-lemans.dtsi"
@@ -1449,5 +1450,4 @@
 	status = "ok";
 };
 
-#include "lemans-stub-regulator.dtsi"
 #include "lemans-thermal.dtsi"
