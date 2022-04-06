@@ -303,14 +303,12 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&usb_id_interrupt>;
 
+	qcom,batteryless-platform;
 	qcom,auto-recharge-soc = <98>;
-	qcom,suspend-input-on-debug-batt;
-	qcom,battery-data = <&scuba_batterydata>;
 	io-channels = <&pm2250_vadc ADC5_USB_IN_V_16>,
 			<&pm2250_vadc ADC5_CHG_TEMP>;
 	io-channel-names = "usb_in_voltage",
 			"chg_temp";
-	qcom,thermal-mitigation = <2000000 1500000 1000000 500000>;
 };
 
 &qusb_phy0 {
