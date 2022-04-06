@@ -223,7 +223,7 @@
 &sm6150_snd {
 
 	qcom,model = "sm6150-idp-snd-card";
-	qcom,msm-mi2s-master = <1>, <1>, <0>, <1>, <1>;
+	qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>;
 	qcom,ext-disp-audio-rx = <0>;
 	qcom,audio-routing =
 		"AMIC2", "Analog Mic2",
@@ -254,6 +254,7 @@
 	qcom,msm-mbhc-gnd-swh = <1>;
 	qcom,cdc-dmic01-gpios = <&cdc_dmic01_gpios>;
 	qcom,cdc-dmic23-gpios = <&cdc_dmic23_gpios>;
+	qcom,tert-mi2s-gpios = <&cdc_tert_mi2s_gpios>;
 	asoc-codec  = <&stub_codec>, <&bolero>,
 				<&wcd937x_codec>,
 				<&wsa881x_0213>, <&wsa881x_0214>;

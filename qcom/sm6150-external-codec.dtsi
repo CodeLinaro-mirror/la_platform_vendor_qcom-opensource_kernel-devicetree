@@ -25,11 +25,8 @@
 &sm6150_snd {
 	qcom,model = "sm6150-tavil-snd-card";
 	qcom,tavil_codec = <1>;
-	qcom,msm-mi2s-master = <1>, <1>, <0>, <1>, <1>;
 	qcom,ext-disp-audio-rx = <0>;
-	qcom,mi2s-audio-intf = <0>;
 	qcom,auxpcm-audio-intf = <0>;
-	qcom,wcn-btfm = <0>;
 	qcom,audio-routing =
 		"AIF4 VI", "MCLK",
 		"RX_BIAS", "MCLK",
