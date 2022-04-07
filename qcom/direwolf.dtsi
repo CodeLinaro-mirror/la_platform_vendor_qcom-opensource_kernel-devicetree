@@ -3024,9 +3024,8 @@
 		compatible = "qcom,stmmac-ethqos";
 		qcom,arm-smmu;
 		reg = <0x20000 0x10000>,
-			<0x36000 0x100>,
-			<0x3D00000 0x300000>;
-		reg-names = "stmmaceth", "rgmii","tlmm-central-base";
+			<0x36000 0x100>;
+		reg-names = "stmmaceth", "rgmii";
 		clocks = <&gcc GCC_EMAC0_AXI_CLK>,
 			<&gcc GCC_EMAC0_SLV_AHB_CLK>,
 			<&gcc GCC_EMAC0_PTP_CLK>,
