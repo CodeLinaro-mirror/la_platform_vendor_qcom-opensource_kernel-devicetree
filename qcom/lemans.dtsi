@@ -44,6 +44,7 @@
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			next-level-cache = <&L2_0>;
+			#cooling-cells = <2>;
 			L2_0: l2-cache {
 			      compatible = "arm,arch-cache";
 			      cache-level = <2>;
@@ -114,6 +115,7 @@
 			cache-size = <0x20000>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			next-level-cache = <&L2_4>;
+			#cooling-cells = <2>;
 			L2_4: l2-cache {
 			      compatible = "arm,arch-cache";
 			      cache-level = <2>;
