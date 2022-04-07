@@ -401,3 +401,4 @@
 
 #include "sa515m-pinctrl.dtsi"
 #include "sa515m-ion.dtsi"
+#include "msm-arm-smmu-sa515m.dtsi"
