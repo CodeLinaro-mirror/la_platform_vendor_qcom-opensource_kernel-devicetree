@@ -308,6 +308,7 @@
 		interrupts = <39 0>;
 		interrupt-names = "can_irq";
 		spi-max-frequency = <10000000>;
+		message-transmit-interval = <800>;
 		gpio-controller;
 		status = "okay";
 	};
