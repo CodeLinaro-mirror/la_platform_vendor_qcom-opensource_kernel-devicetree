@@ -3,6 +3,14 @@
 		reg = <0x1 0x2c200000 0x0 0x53e00000>;
 		label = "pmem_shared_mem";
 	};
+
+	secure_display_memory: secure_display_region {
+		compatible = "shared-dma-pool";
+		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+		reusable;
+		alignment = <0x0 0x400000>;
+		size = <0x0 0x0a000000>;
+	};
 };
 
 #include "display/quin-vm-display-la.dtsi"
@@ -54,4 +62,12 @@
 
 &sdhc_2 {
 	status = "ok";
+};
+
+&msm_ion {
+	qcom,ion-heap@10 {
+		reg = <ION_SECURE_DISPLAY_HEAP_ID>;
+		memory-region = <&secure_display_memory>;
+		qcom,ion-heap-type = "HYP_CMA";
+	};
 };
