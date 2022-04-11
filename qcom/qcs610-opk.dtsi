@@ -314,6 +314,19 @@
 	};
 };
 
+&emac_pin_pps_0 {
+	mux {
+		pins = "gpio77";
+		function = "rgmii_sync";
+	};
+
+	config {
+		pins = "gpio77";
+		bias-pull-up;
+		drive-strength = <16>;
+	};
+};
+
 &flash_led {
 	status = "ok";
 };
