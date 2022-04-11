@@ -524,3 +524,16 @@
 		};
 	};
 };
+
+&sb_7_rx {
+	qcom,msm-dai-q6-slim-dev-id = <1>;
+};
+
+&sb_7_tx {
+	qcom,msm-dai-q6-slim-dev-id = <1>;
+};
+
+&sb_8_tx {
+	qcom,msm-dai-q6-slim-dev-id = <1>;
+};
+
