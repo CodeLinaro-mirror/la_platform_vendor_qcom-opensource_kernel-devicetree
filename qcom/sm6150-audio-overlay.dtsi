@@ -452,6 +452,14 @@
 		startup-delay-us = <0>;
 		enable-active-high;
 	};
+
+	cdc_tert_mi2s_gpios: msm_cdc_pinctrl_pri {
+		compatible = "qcom,msm-cdc-pinctrl";
+		pinctrl-names = "aud_active", "aud_sleep";
+		pinctrl-0 = <&tert_i2s_sck_ws_d0_active>;
+		pinctrl-1 = <&tert_i2s_sck_ws_d0_sleep>;
+		#gpio-cells = <0>;
+	};
 };
 
 &slim_aud {
