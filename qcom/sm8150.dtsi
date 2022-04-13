@@ -43,6 +43,8 @@
 		hsuart0 = &qupv3_se13_4uart;
 		hsuart1 = &qupv3_se4_2uart;
 		spi22 = &qupv3_se22_spi;
+		mhi0 = &mhi_0;
+		mhi_netdev0 = &mhi_netdev_0;
 	};
 
 	cpus {
@@ -3359,4 +3361,5 @@
 #include "sm8150-gpu.dtsi"
 #include "sm8150-npu.dtsi"
 #include "sm8150-thermal.dtsi"
+#include "sm8150-mhi.dtsi"
 #include "sm8150-coresight.dtsi"
