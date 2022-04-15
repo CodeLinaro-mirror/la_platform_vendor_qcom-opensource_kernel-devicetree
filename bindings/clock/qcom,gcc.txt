@@ -23,6 +23,7 @@ Required properties :
 			"qcom,gcc-sdm630"
 			"qcom,gcc-sdm660"
 			"qcom,gcc-sdm845"
+			"qcom,gcc-kona"
 			"qcom,lahaina-gcc"
 			"qcom,sm8150-gcc"
 			"qcom,sm8150-gcc-v2"
