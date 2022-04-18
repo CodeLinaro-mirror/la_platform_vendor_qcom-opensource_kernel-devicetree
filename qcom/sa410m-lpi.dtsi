@@ -58,19 +58,6 @@
 					output-high;
 				};
 			};
-
-			quat_mi2s_sck_alt_active: quat_mi2s_sck_alt_active {
-				mux {
-					pins = "gpio0";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio0";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		quat_mi2s_ws {
@@ -99,19 +86,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			quat_mi2s_ws_alt_active: quat_mi2s_ws_alt_active {
-				mux {
-					pins = "gpio1";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio1";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -264,19 +238,6 @@
 					output-high;
 				};
 			};
-
-			lpi_i2s1_sck_alt_active: lpi_i2s1_sck_alt_active {
-				mux {
-					pins = "gpio6";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio6";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_i2s1_ws {
@@ -305,19 +266,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_i2s1_ws_alt_active: lpi_i2s1_ws_alt_active {
-				mux {
-					pins = "gpio7";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio7";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -410,19 +358,6 @@
 					output-high;
 				};
 			};
-
-			lpi_i2s2_sck_alt_active: lpi_i2s2_sck_alt_active {
-				mux {
-					pins = "gpio10";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio10";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_i2s2_ws {
@@ -451,19 +386,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_i2s2_ws_alt_active: lpi_i2s2_ws_alt_active {
-				mux {
-					pins = "gpio11";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio11";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -556,19 +478,6 @@
 					output-high;
 				};
 			};
-
-			lpi_i2s3_sck_alt_active: lpi_i2s3_sck_alt_active {
-				mux {
-					pins = "gpio14";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio14";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_i2s3_ws {
@@ -597,19 +506,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_i2s3_ws_alt_active: lpi_i2s3_ws_alt_active {
-				mux {
-					pins = "gpio15";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio15";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -702,19 +598,6 @@
 					output-high;
 				};
 			};
-
-			quat_tdm_sck_alt_active: quat_tdm_sck_alt_active {
-				mux {
-					pins = "gpio0";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio0";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		quat_tdm_ws {
@@ -743,19 +626,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			quat_tdm_ws_alt_active: quat_tdm_ws_alt_active {
-				mux {
-					pins = "gpio1";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio1";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -908,19 +778,6 @@
 					output-high;
 				};
 			};
-
-			lpi_tdm1_sck_alt_active: lpi_tdm1_sck_alt_active {
-				mux {
-					pins = "gpio6";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio6";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_tdm1_ws {
@@ -949,19 +806,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_tdm1_ws_alt_active: lpi_tdm1_ws_alt_active {
-				mux {
-					pins = "gpio7";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio7";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -1054,19 +898,6 @@
 					output-high;
 				};
 			};
-
-			lpi_tdm2_sck_alt_active: lpi_tdm2_sck_alt_active {
-				mux {
-					pins = "gpio10";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio10";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_tdm2_ws {
@@ -1095,19 +926,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_tdm2_ws_alt_active: lpi_tdm2_ws_alt_active {
-				mux {
-					pins = "gpio11";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio11";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -1200,19 +1018,6 @@
 					output-high;
 				};
 			};
-
-			lpi_tdm3_sck_alt_active: lpi_tdm3_sck_alt_active {
-				mux {
-					pins = "gpio14";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio14";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_tdm3_ws {
@@ -1241,19 +1046,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_tdm3_ws_alt_active: lpi_tdm3_ws_alt_active {
-				mux {
-					pins = "gpio15";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio15";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -1346,19 +1138,6 @@
 					output-high;
 				};
 			};
-
-			quat_aux_sck_alt_active: quat_aux_sck_alt_active {
-				mux {
-					pins = "gpio0";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio0";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		quat_aux_ws {
@@ -1387,19 +1166,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			quat_aux_ws_alt_active: quat_aux_ws_alt_active {
-				mux {
-					pins = "gpio1";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio1";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -1552,19 +1318,6 @@
 					output-high;
 				};
 			};
-
-			lpi_aux1_sck_alt_active: lpi_aux1_sck_alt_active {
-				mux {
-					pins = "gpio6";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio6";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_aux1_ws {
@@ -1593,19 +1346,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_aux1_ws_alt_active: lpi_aux1_ws_alt_active {
-				mux {
-					pins = "gpio7";
-					function = "func2";
-				};
-
-				config {
-					pins = "gpio7";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -1698,19 +1438,6 @@
 					output-high;
 				};
 			};
-
-			lpi_aux2_sck_alt_active: lpi_aux2_sck_alt_active {
-				mux {
-					pins = "gpio10";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio10";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_aux2_ws {
@@ -1739,19 +1466,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_aux2_ws_alt_active: lpi_aux2_ws_alt_active {
-				mux {
-					pins = "gpio11";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio11";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
@@ -1844,19 +1558,6 @@
 					output-high;
 				};
 			};
-
-			lpi_aux3_sck_alt_active: lpi_aux3_sck_alt_active {
-				mux {
-					pins = "gpio14";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio14";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
-				};
-			};
 		};
 
 		lpi_aux3_ws {
@@ -1885,19 +1586,6 @@
 					drive-strength = <8>;   /* 8 mA */
 					bias-disable;           /* NO PULL */
 					output-high;
-				};
-			};
-
-			lpi_aux3_ws_alt_active: lpi_aux3_ws_alt_active {
-				mux {
-					pins = "gpio15";
-					function = "func1";
-				};
-
-				config {
-					pins = "gpio15";
-					drive-strength = <8>;   /* 8 mA */
-					bias-disable;           /* NO PULL */
 				};
 			};
 		};
