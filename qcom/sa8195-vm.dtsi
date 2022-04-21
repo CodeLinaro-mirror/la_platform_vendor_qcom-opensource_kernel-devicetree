@@ -157,6 +157,16 @@
 		regulator-name = "vreg_wlan";
 	};
 
+	ptp_virtual {
+		compatible = "qcom,ptp_virtual";
+		reg =	<0xeb600000 0x1000>,
+			<0x20000 0x1000>,
+			<0x17c23000 0x1000>;
+		reg-names =	"ptp_carveout_mem",
+				"ptp_reg",
+				"qtimer_reg";
+	};
+
 	/* PWR_CTR2_VDD_1P8 supply */
 	vreg_conn_1p8: vreg_conn_1p8 {
 		compatible = "regulator-fixed";
