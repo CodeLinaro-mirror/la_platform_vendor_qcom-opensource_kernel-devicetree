@@ -21,6 +21,7 @@ Required properties :
 			"qcom,kona-mc_virt";
 			"qcom,kona-mmss_noc";
 			"qcom,kona-system_noc";
+			"qcom,kona-npu_noc";
 - #interconnect-cells : should contain 1
 
 Examples:
