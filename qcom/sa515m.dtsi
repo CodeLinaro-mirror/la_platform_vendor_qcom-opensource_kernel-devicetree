@@ -1,3 +1,5 @@
+#include <dt-bindings/clock/qcom,gcc-sdx55.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
 #include <dt-bindings/interconnect/qcom,icc.h>
 #include <dt-bindings/interconnect/qcom,sdx55.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
@@ -167,6 +169,13 @@
 				  <WAKE_TCS    2>,
 				  <CONTROL_TCS 1>;
 
+		rpmhcc: qcom,rpmh {
+			compatible = "qcom,sdx55-rpmh-clk";
+			clocks = <&xo_board>;
+			clock-names = "xo";
+			#clock-cells = <1>;
+		};
+
 		apps_bcm_voter: bcm_voter {
 			compatible = "qcom,bcm-voter";
 		};
@@ -188,6 +197,94 @@
 		#interrupt-cells = <3>;
 		interrupt-parent = <&intc>;
 		interrupt-controller;
+	};
+
+	clocks {
+		xo_board: xo-board {
+			compatible = "fixed-clock";
+			clock-frequency = <38400000>;
+			clock-output-names = "xo_board";
+			#clock-cells = <0>;
+		};
+
+		sleep_clk: sleep-clk {
+			compatible = "fixed-clock";
+			clock-frequency = <32000>;
+			clock-output-names = "sleep_clk";
+			#clock-cells = <0>;
+		};
+	};
+
+	gcc: clock-controller@100000 {
+		compatible = "qcom,gcc-sdx55", "syscon";
+		reg = <0x100000 0x1f0000>;
+		reg-names = "cc_base";
+		clocks = <&rpmhcc RPMH_CXO_CLK>, <&rpmhcc RPMH_CXO_CLK_A>,
+			<&sleep_clk>;
+		clock-names = "bi_tcxo", "bi_tcxo_ao", "sleep_clk";
+		vdd_cx-supply = <&VDD_CX_LEVEL>;
+		vdd_cx_ao-supply = <&VDD_CX_LEVEL_AO>;
+		vdd_mx-supply = <&VDD_MX_LEVEL>;
+		#clock-cells = <1>;
+		#reset-cells = <1>;
+	};
+
+	cpucc: syscon@17811000 {
+		compatible = "syscon";
+		reg = <0x17811000 0x20>;
+	};
+
+	mccc: syscon@90b0000 {
+		compatible = "syscon";
+		reg = <0x90b0000 0x54>;
+	};
+
+	debugcc: debug-clock-controller@0 {
+		compatible = "qcom,sdx55-debugcc";
+		qcom,gcc = <&gcc>;
+		qcom,apsscc = <&cpucc>;
+		qcom,mccc = <&mccc>;
+		clock-names = "xo_clk_src";
+		clocks = <&rpmhcc RPMH_CXO_CLK>;
+		#clock-cells = <1>;
+	};
+
+	/* GDSCs in Global CC */
+	gdsc_usb30: qcom,gdsc@10b004 {
+		compatible = "qcom,gdsc";
+		regulator-name = "gdsc_usb30";
+		reg = <0x10b004 0x4>;
+	};
+
+	gdsc_emac: qcom,gdsc@147004 {
+		compatible = "qcom,gdsc";
+		regulator-name = "gdsc_emac";
+		reg = <0x147004 0x4>;
+	};
+
+	gdsc_pcie: qcom,gdsc@137004 {
+		compatible = "qcom,gdsc";
+		regulator-name = "gdsc_pcie";
+		reg = <0x137004 0x4>;
+	};
+
+	apsscc: clock-controller@17808100 {
+		compatible = "qcom,sdx55-apsscc";
+		clocks = <&rpmhcc RPMH_CXO_CLK_A>,
+			<&gcc GPLL0>;
+		clock-names = "bi_tcxo_ao", "gpll0_out_even";
+		reg = <0x17810008 0x8>,
+			<0x17808100 0x44>;
+		reg-names = "apcs_cmd" , "apcs_pll";
+		vdd-pll-supply = <&VDD_CX_LEVEL_AO>;
+		cpu-vdd-supply = <&VDD_CX_LEVEL_AO>;
+		qcom,speed0-bin-v0 =
+			< 0 0>,
+			<  345600000 RPMH_REGULATOR_LEVEL_LOW_SVS>,
+			<  576000000 RPMH_REGULATOR_LEVEL_SVS>,
+			< 1094400000 RPMH_REGULATOR_LEVEL_NOM>,
+			< 1555200000 RPMH_REGULATOR_LEVEL_TURBO>;
+		#clock-cells = <1>;
 	};
 
 	system_noc: interconnect@1620000 {
