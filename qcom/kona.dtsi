@@ -874,18 +874,6 @@
 		};
 	};
 
-	bus_proxy_client: qcom,bus_proxy_client {
-		compatible = "qcom,bus-proxy-client";
-		qcom,msm-bus,name = "bus-proxy-client";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <2>;
-		qcom,msm-bus,vectors-KBps =
-			<22 512 0 0>, <23 512 0 0>,
-			<22 512 1500000 1500000>, <23 512 1500000 1500000>;
-		qcom,msm-bus,active-only;
-		status = "ok";
-	};
-
 	keepalive_opp_table: keepalive-opp-table {
 		compatible = "operating-points-v2";
 		opp-1 {
@@ -1004,7 +992,7 @@
 	npu_npu_llcc_bw: qcom,npu-npu-llcc-bw {
 		compatible = "qcom,devbw";
 		governor = "performance";
-		//qcom,src-dst-ports = <MSM_BUS_MASTER_NPU MSM_BUS_SLAVE_LLCC>;
+		interconnects = <&compute_noc MASTER_NPU &gem_noc SLAVE_LLCC>;
 		operating-points-v2 = <&suspendable_llcc_bw_opp_table>;
 	};
 
@@ -1012,8 +1000,6 @@
 		compatible = "qcom,bimc-bwmon4";
 		reg = <0x00060400 0x300>, <0x00060300 0x200>;
 		reg-names = "base", "global_base";
-		qcom,msm_bus = <154 10070>;
-		qcom,msm_bus_name = "npu_bwmon_cdsp";
 		clocks = <&clock_gcc GCC_NPU_BWMON_CFG_AHB_CLK>,
 				<&clock_gcc GCC_NPU_BWMON_AXI_CLK>;
 		clock-names = "npu_bwmon_ahb", "npu_bwmon_axi";
@@ -1028,7 +1014,7 @@
 	npu_llcc_ddr_bw: qcom,npu-llcc-ddr-bw {
 		compatible = "qcom,devbw-ddr";
 		governor = "performance";
-		//qcom,src-dst-ports = <MSM_BUS_SLAVE_LLCC MSM_BUS_SLAVE_EBI_CH0>;
+		interconnects = <&gem_noc SLAVE_LLCC &mc_virt SLAVE_EBI1>;
 		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
 	};
 
@@ -1045,7 +1031,7 @@
 	npudsp_npu_ddr_bw: qcom,npudsp-npu-ddr-bw {
 		compatible = "qcom,devbw-ddr";
 		governor = "performance";
-		//qcom,src-dst-ports = <MSM_BUS_MASTER_NPU MSM_BUS_SLAVE_EBI_CH0>;
+		interconnects = <&compute_noc MASTER_NPU &mc_virt SLAVE_EBI1>;
 		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
 	};
 
@@ -1053,8 +1039,6 @@
 		compatible = "qcom,bimc-bwmon4";
 		reg = <0x00070300 0x300>, <0x00070200 0x200>;
 		reg-names = "base", "global_base";
-		qcom,msm_bus = <154 10070>;
-		qcom,msm_bus_name = "npudsp_bwmon_cdsp";
 		clocks = <&clock_gcc GCC_NPU_BWMON_CFG_AHB_CLK>,
 				<&clock_gcc GCC_NPU_BWMON_AXI_CLK>;
 		clock-names = "npu_bwmon_ahb", "npu_bwmon_axi";
@@ -1069,7 +1053,7 @@
 	npu_npu_ddr_latfloor: qcom,npu-npu-ddr-latfloor {
 		compatible = "qcom,devbw-ddr";
 		governor = "powersave";
-		//qcom,src-dst-ports = <MSM_BUS_MASTER_NPU MSM_BUS_SLAVE_EBI_CH0>;
+		interconnects = <&compute_noc MASTER_NPU &mc_virt SLAVE_EBI1>;
 		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
 	};
 
@@ -1383,6 +1367,10 @@
 			compatible = "qcom,msm-imem-diag-dload";
 			reg = <0xc8 0xc8>;
 		};
+	};
+
+	dload_mode {
+		compatible = "qcom,dload-mode";
 	};
 
 	restart@c264000 {
@@ -2371,12 +2359,8 @@
 		reg = <0x793000 0x1000>;
 		qcom,msm-rng-iface-clk;
 		qcom,no-qrng-config;
-		qcom,msm-bus,name = "msm-rng-noc";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
-		qcom,msm-bus,vectors-KBps =
-			<1 618 0 0>,    /* No vote */
-			<1 618 0 300000>;  /* 75 MHz */
+		interconnect-names = "data_path";
+		interconnects = <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_PRNG>;
 		clocks = <&clock_gcc GCC_PRNG_AHB_CLK>;
 		clock-names = "iface_clk";
 	};
@@ -2633,9 +2617,6 @@
 		clocks = <&clock_gcc GCC_CAMERA_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "bps_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,support-hw-trigger;
 		qcom,retain-regs;
 	};
@@ -2648,9 +2629,6 @@
 		clocks = <&clock_gcc GCC_CAMERA_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "ife_0_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,retain-regs;
 	};
 
@@ -2662,9 +2640,6 @@
 		clocks = <&clock_gcc GCC_CAMERA_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "ife_1_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,retain-regs;
 	};
 
@@ -2676,9 +2651,6 @@
 		clocks = <&clock_gcc GCC_CAMERA_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "ipe_0_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,support-hw-trigger;
 		qcom,retain-regs;
 	};
@@ -2691,9 +2663,6 @@
 		clocks = <&clock_gcc GCC_CAMERA_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "sbi_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,retain-regs;
 	};
 
@@ -2705,9 +2674,6 @@
 		clocks = <&clock_gcc GCC_CAMERA_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "titan_top_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,retain-regs;
 		qcom,gds-timeout = <500>;
 	};
@@ -2721,9 +2687,6 @@
 		clocks = <&clock_gcc GCC_DISP_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "mdss_core_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,support-hw-trigger;
 		qcom,retain-regs;
 		proxy-supply = <&mdss_core_gdsc>;
@@ -2796,9 +2759,6 @@
 		clocks = <&clock_gcc GCC_VIDEO_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "mvs0_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,support-hw-trigger;
 		qcom,retain-regs;
 	};
@@ -2811,9 +2771,6 @@
 		clocks = <&clock_gcc GCC_VIDEO_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "mvs0c_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,retain-regs;
 	};
 
@@ -2825,9 +2782,6 @@
 		clocks = <&clock_gcc GCC_VIDEO_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "mvs1_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,support-hw-trigger;
 		qcom,retain-regs;
 	};
@@ -2840,9 +2794,6 @@
 		clocks = <&clock_gcc GCC_VIDEO_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
-		qcom,msm-bus,name = "mvs1c_gdsc_ahb";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
 		qcom,retain-regs;
 	};
 
@@ -3035,9 +2986,16 @@
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
 
-	compute_noc: interconnect@1724000 {
-		reg = <0x1724000 0x10>;
+	compute_noc: interconnect@3 {
 		compatible = "qcom,kona-compute_noc";
+		#interconnect-cells = <1>;
+		qcom,bcm-voter-names = "hlos";
+		qcom,bcm-voters = <&apps_bcm_voter>;
+	};
+
+	npu_noc: interconnect@9990000 {
+		reg = <0x9990000 0x1600>;
+		compatible = "qcom,kona-npu_noc";
 		#interconnect-cells = <1>;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
@@ -3053,6 +3011,7 @@
 			<&clock_gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
 			<&clock_gcc GCC_AGGRE_USB3_SEC_AXI_CLK>;
 	};
+
 	ufsphy_mem: ufsphy_mem@1d87000 {
 		reg = <0x1d87000 0xe00>, <0x1d90000 0x8000>; /* PHY regs */
 		reg-names = "phy_mem", "ufs_ice";
@@ -3906,12 +3865,9 @@
 		qcom,ahb-freq = <200000000>;
 
 		qcom,pas-id = <9>;
-		qcom,msm-bus,name = "pil-venus";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
-		qcom,msm-bus,vectors-KBps =
-			<63 512 0 0>,
-			<63 512 0 304000>;
+		interconnect-names = "pil-venus";
+		interconnects = <&mmss_noc MASTER_VIDEO_P0
+				&mc_virt SLAVE_EBI1>;
 		qcom,proxy-timeout-ms = <100>;
 		qcom,firmware-name = "venus";
 		memory-region = <&pil_video_mem>;
@@ -4157,12 +4113,8 @@
 		qcom,ce-device = <0>;
 		qcom,ce-hw-shared;
 		qcom,bam-ee = <0>;
-		qcom,msm-bus,name = "qcedev-noc";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
-		qcom,msm-bus,vectors-KBps =
-				<125 512 0 0>,
-				<125 512 393600 393600>;
+		interconnect-names = "data_path";
+		interconnects = <&system_noc MASTER_CRYPTO &mc_virt SLAVE_EBI1>;
 		qcom,smmu-s1-enable;
 		qcom,no-clock-support;
 		iommus = <&apps_smmu 0x0586 0x0011>,
@@ -4202,12 +4154,8 @@
 		qcom,bam-ee = <0>;
 		qcom,ce-hw-shared;
 		qcom,clk-mgmt-sus-res;
-		qcom,msm-bus,name = "qcrypto-noc";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
-		qcom,msm-bus,vectors-KBps =
-			<125 512 0 0>,
-			<125 512 393600 393600>;
+		interconnect-names = "data_path";
+		interconnects = <&system_noc MASTER_CRYPTO &mc_virt SLAVE_EBI1>;
 		qcom,use-sw-aes-cbc-ecb-ctr-algo;
 		qcom,use-sw-aes-xts-algo;
 		qcom,use-sw-aes-ccm-algo;
@@ -4781,10 +4729,6 @@
 		qcom,set-wlaon-pwr-ctrl;
 		cnss-enable-self-recovery;
 
-		qcom,msm-bus,name = "msm-cnss";
-		qcom,msm-bus,num-cases = <7>;
-		qcom,msm-bus,num-paths = <1>;
-
 		vdd-wlan-aon-supply = <&pm8150_s6>;
 		qcom,vdd-wlan-aon-config = <950000 950000 0 0 1>;
 		vdd-wlan-dig-supply = <&pm8009_s2>;
@@ -4797,6 +4741,27 @@
 		qcom,vdd-wlan-rfa2-config = <1350000 1350000 0 0 1>;
 		wlan-ant-switch-supply = <&pm8150a_l5>;
 		qcom,wlan-ant-switch-config = <1800000 1800000 0 0 0>;
+
+		interconnects = <&aggre2_noc MASTER_PCIE_0 &mc_virt SLAVE_EBI1>;
+		interconnect-names = "pcie_to_ddr";
+
+		qcom,icc-path-count = <1>;
+		qcom,bus-bw-cfg-count = <7>;
+		qcom,bus-bw-cfg =
+		/* no vote */
+		<0 0>,
+		/* idle: 0-18 Mbps, ddr freq: 451.2 MHz */
+		<2250 1600000>,
+		/* low: 18-60 Mbps, ddr freq: 451.2 MHz*/
+		<7500 1600000>,
+		/* medium: 60-240 Mbps, ddr freq: 451.2 MHz */
+		<30000 1804800>,
+		/* high: 240 - 800 Mbps, ddr freq: 451.2 MHz */
+		<100000 1804800>,
+		/* very high: 800 - 1400 Mbps, ddr freq: 1555.2 MHz */
+		<175000 6220800>,
+		/* low (latency critical): 18 - 60 Mbps, ddr freq: 547.2 MHz */
+		<7500 2188800>;
 
 		mhi,max-channels = <30>;
 		mhi,timeout = <10000>;
@@ -4936,62 +4901,6 @@
 		qcom,keep-radio-on-during-sleep;
 		qcom,use-ap-power-save;
 		status = "disabled";
-	};
-
-	tspp: msm_tspp@8880000 {
-		compatible = "qcom,msm_tspp";
-		reg = <0x088a7000 0x200>, /* MSM_TSIF0_PHYS */
-		      <0x088a8000 0x200>, /* MSM_TSIF1_PHYS */
-		      <0x088a9000 0x1000>, /* MSM_TSPP_PHYS  */
-		      <0x08884000 0x23000>; /* MSM_TSPP_BAM_PHYS */
-		reg-names = "MSM_TSIF0_PHYS",
-			"MSM_TSIF1_PHYS",
-			"MSM_TSPP_PHYS",
-			"MSM_TSPP_BAM_PHYS";
-		interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,/*TSIF_TSPP_IRQ*/
-			<GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>, /* TSIF0_IRQ */
-			<GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>, /* TSIF1_IRQ */
-			<GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>; /* TSIF_BAM_IRQ */
-		interrupt-names = "TSIF_TSPP_IRQ",
-			"TSIF0_IRQ",
-			"TSIF1_IRQ",
-			"TSIF_BAM_IRQ";
-
-		clock-names = "iface_clk", "ref_clk";
-		clocks = <&clock_gcc GCC_TSIF_AHB_CLK>,
-			<&clock_gcc GCC_TSIF_REF_CLK>;
-
-		qcom,msm-bus,name = "tsif";
-		qcom,msm-bus,num-cases = <2>;
-		qcom,msm-bus,num-paths = <1>;
-		qcom,msm-bus,vectors-KBps =
-				<82 512 0 0>, /* No vote */
-				<82 512 12288 24576>;
-				/* Max. bandwidth, 2xTSIF, each max of 96Mbps */
-
-		pinctrl-names = "disabled",
-			"tsif0-mode1", "tsif0-mode2",
-			"tsif1-mode1", "tsif1-mode2",
-			"dual-tsif-mode1", "dual-tsif-mode2";
-
-		pinctrl-0 = <>;				/* disabled */
-		pinctrl-1 = <&tsif0_signals_active>;	/* tsif0-mode1 */
-		pinctrl-2 = <&tsif0_signals_active
-			&tsif0_sync_active>;		/* tsif0-mode2 */
-		pinctrl-3 = <&tsif1_signals_active>;	/* tsif1-mode1 */
-		pinctrl-4 = <&tsif1_signals_active
-			&tsif1_sync_active>;		/* tsif1-mode2 */
-		pinctrl-5 = <&tsif0_signals_active
-			&tsif1_signals_active>;		/* dual-tsif-mode1 */
-		pinctrl-6 = <&tsif0_signals_active
-			&tsif0_sync_active
-			&tsif1_signals_active
-			&tsif1_sync_active>;		/* dual-tsif-mode2 */
-
-		memory-region = <&qseecom_mem>;
-		iommus = <&apps_smmu 0xA0 0x00>;
-		qcom,iommu-dma-addr-pool = <0x10000000  0x40000000>;
-		qcom,smmu-s1-enable;
 	};
 
 	demux {
