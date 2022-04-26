@@ -566,7 +566,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &sde_dsi &sde_rscc>;
+	connectors = <&smmu_sde_unsec &sde_dsi &sde_rscc &sde_wb>;
 };
 
 &dsi_ili9881c_720p_video {
