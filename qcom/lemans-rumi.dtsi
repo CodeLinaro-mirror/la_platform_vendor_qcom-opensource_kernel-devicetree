@@ -1,4 +1,3 @@
-#include "lemans.dtsi"
 #include <dt-bindings/clock/qcom,gcc-lemans.h>
 
 &arch_timer {
