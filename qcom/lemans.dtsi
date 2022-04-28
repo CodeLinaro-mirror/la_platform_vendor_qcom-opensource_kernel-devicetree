@@ -216,6 +216,12 @@
 	};
 };
 
+&firmware {
+	scm {
+		compatible = "qcom,scm";
+	};
+};
+
 &reserved_memory {
 	#address-cells = <2>;
 	#size-cells = <2>;
