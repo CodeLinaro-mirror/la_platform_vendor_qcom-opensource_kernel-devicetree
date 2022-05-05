@@ -1967,3 +1967,4 @@
 };
 
 #include "lemans-thermal.dtsi"
+#include "lemans-pcie.dtsi"
