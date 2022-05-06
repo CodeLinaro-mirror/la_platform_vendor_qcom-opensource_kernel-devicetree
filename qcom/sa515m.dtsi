@@ -137,6 +137,7 @@
 			compatible = "arm,cortex-a7";
 			reg = <0x0>;
 			enable-method = "psci";
+			cpu-idle-states = <&A7_SPC &A7_PC &CX_MIN>;
 			#cooling-cells = <2>;
 		};
 	};
@@ -180,6 +181,10 @@
 
 		apps_bcm_voter: bcm_voter {
 			compatible = "qcom,bcm-voter";
+		};
+
+		system_pm {
+			compatible = "qcom,system-pm";
 		};
 	};
 
@@ -954,6 +959,7 @@
 #include "msm-arm-smmu-sa515m.dtsi"
 #include "sa515m-usb.dtsi"
 #include "sa515m-pcie.dtsi"
+#include "sa515m-pm.dtsi"
 #include "sa515m-audio.dtsi"
 
 &vreg_rgmii_io_pads {
