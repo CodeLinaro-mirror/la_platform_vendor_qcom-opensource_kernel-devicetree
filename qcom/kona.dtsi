@@ -4620,6 +4620,11 @@
 		#thermal-sensor-cells = <1>;
 	};
 
+	pil_scm_pas {
+		compatible = "qcom,pil-tz-scm-pas";
+		interconnects = <&aggre2_noc MASTER_CRYPTO &mc_virt SLAVE_EBI1>;
+	};
+
 	qcom,msm-rtb {
 		compatible = "qcom,msm-rtb";
 		qcom,rtb-size = <0x100000>;
@@ -4988,6 +4993,7 @@
 #include "kona-pm.dtsi"
 #include "kona-qupv3.dtsi"
 #include "kona-thermal.dtsi"
+#include "kona-vidc.dtsi"
 #include "kona-cvp.dtsi"
 #include "kona-npu.dtsi"
 #include "kona-gpu.dtsi"
