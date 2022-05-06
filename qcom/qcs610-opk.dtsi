@@ -345,7 +345,7 @@
 };
 
 &pm6150l_pwm_1 {
-	status = "disabled";
+	status = "okay";
 };
 
 &usb1 {
