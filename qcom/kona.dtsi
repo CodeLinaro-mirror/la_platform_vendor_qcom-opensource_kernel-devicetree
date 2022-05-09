@@ -392,7 +392,6 @@
 		};
 
 		reserved_xbl_uefi_log: res_xbl_uefi_log_region@80880000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x80880000 0x0 0x14000>;
 		};
@@ -408,79 +407,66 @@
 		};
 
 		pil_camera_mem: pil_camera_region@86200000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x86200000 0x0 0x500000>;
 		};
 
 		pil_wlan_fw_mem: pil_wlan_fw_region@86700000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x86700000 0x0 0x100000>;
 		};
 
 		pil_ipa_fw_mem: pil_ipa_fw_region@86800000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x86800000 0x0 0x10000>;
 		};
 
 		pil_ipa_gsi_mem: pil_ipa_gsi_region@86810000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x86810000 0x0 0xa000>;
 		};
 
 		pil_gpu_mem: pil_gpu_region@8681a000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x8681a000 0x0 0x2000>;
 		};
 
 		pil_npu_mem: pil_npu_region@86900000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x86900000 0x0 0x500000>;
 		};
 
 		pil_video_mem: pil_video_region@86e00000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x86e00000 0x0 0x500000>;
 		};
 
 		pil_cvp_mem: pil_cvp_region@87300000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x87300000 0x0 0x500000>;
 		};
 
 		pil_cdsp_mem: pil_cdsp_region@87800000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x87800000 0x0 0x1400000>;
 		};
 
 		pil_slpi_mem: pil_slpi_region@88c00000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x88c00000 0x0 0x1500000>;
 		};
 
 		pil_adsp_mem: pil_adsp_region@8a100000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x8a100000 0x0 0x1d00000>;
 		};
 
 		pil_spss_mem: pil_spss_region@8be00000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x8be00000 0x0 0x100000>;
 		};
 
 		cdsp_secure_heap: cdsp_secure_heap@8bf00000 {
-			compatible = "removed-dma-pool";
 			no-map;
 			reg = <0x0 0x8bf00000 0x0 0x4600000>;
 		};
@@ -762,6 +748,11 @@
 			reg = <0x17c2d000 0x1000>;
 			status = "disabled";
 		};
+	};
+
+	pil_scm_pas {
+		compatible = "qcom,pil-tz-scm-pas";
+		interconnects = <&aggre2_noc MASTER_CRYPTO &mc_virt SLAVE_EBI1>;
 	};
 
 	jtag_mm0: jtagmm@7040000 {
