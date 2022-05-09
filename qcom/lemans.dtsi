@@ -1331,5 +1331,9 @@
 	status = "ok";
 };
 
+&qupv3_se10_2uart {
+	status = "ok";
+};
+
 #include "lemans-stub-regulator.dtsi"
 #include "lemans-thermal.dtsi"
