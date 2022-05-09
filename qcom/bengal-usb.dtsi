@@ -55,7 +55,7 @@
 				<&bimc MASTER_AMPSS_M0 &config_noc SLAVE_USB3>;
 
 		qcom,interconnect-values-nom = /* NOMINAL Votes */
-						<1000000 1550000>,
+						<240000 700000>,
 						<0 2400>,
 						<0 40000>;
 		qcom,interconnect-values-svs = /* SVS Votes */
