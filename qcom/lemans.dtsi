@@ -868,6 +868,14 @@
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
 
+	gpdsp_anoc: interconnect@01780000 {
+		compatible = "qcom,lemans-gpdsp_anoc";
+		reg = <0x01780000 0xE080>;
+		#interconnect-cells = <1>;
+		qcom,bcm-voter-names = "hlos";
+		qcom,bcm-voters = <&apps_bcm_voter>;
+	};
+
 	mmss_noc: interconnect@017A0000 {
 		compatible = "qcom,lemans-mmss_noc";
 		reg = <0x017A0000 0x40000>;
