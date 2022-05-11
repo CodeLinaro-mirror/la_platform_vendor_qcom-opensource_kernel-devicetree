@@ -303,9 +303,9 @@
 		reg = <0x0 0x95200000 0x0 0x500000>;
 	};
 
-	pil_video_mem: pil_video_region@95700000 {
+	pil_video_mem: pil_video_region@9fc00000 {
 		no-map;
-		reg = <0x0 0x95700000 0x0 0x500000>;
+		reg = <0x0 0x9fc00000 0x0 0x700000>;
 	};
 
 	pil_adsp_mem: pil_adsp_region@95C00000 {
@@ -313,19 +313,19 @@
 		reg = <0x0 0x95C00000 0x0 0x1E00000>;
 	};
 
-	pil_gdsp0_mem: pil_gdsp0_region@97A00000 {
+	pil_gdsp0_mem: pil_gdsp0_region@97b00000 {
 		no-map;
-		reg = <0x0 0x97A00000 0x0 0x1e00000>;
+		reg = <0x0 0x97b00000 0x0 0x1e00000>;
 	};
 
-	pil_gdsp1_mem: pil_gdsp1_region@99800000 {
+	pil_gdsp1_mem: pil_gdsp1_region@99900000 {
 		no-map;
-		reg = <0x0 0x99800000 0x0 0x1e00000>;
+		reg = <0x0 0x99900000 0x0 0x1e00000>;
 	};
 
-	pil_cdsp0_mem: pil_cdsp0_region@9B600000 {
+	pil_cdsp0_mem: pil_cdsp0_region@9B800000 {
 		no-map;
-		reg = <0x0 0x9B600000 0x0 0x1e00000>;
+		reg = <0x0 0x9B800000 0x0 0x1e00000>;
 	};
 
 	pil_gpu_mem: pil_gpu_region@9D400000 {
@@ -338,14 +338,14 @@
 		reg = <0x0 0x9D500000 0x0 0x300000>;
 	};
 
-	pil_cdsp1_mem: pil_cdsp1_region@9D800000 {
+	pil_cdsp1_mem: pil_cdsp1_region@9D700000 {
 		no-map;
-		reg = <0x0 0x9D800000 0x0 0x1E00000>;
+		reg = <0x0 0x9D700000 0x0 0x1E00000>;
 	};
 
-	pil_cvp_mem: pil_cvp_region@9F600000 {
+	pil_cvp_mem: pil_cvp_region@9F500000 {
 		no-map;
-		reg = <0x0 0x9F600000 0x0 0x700000>;
+		reg = <0x0 0x9F500000 0x0 0x700000>;
 	};
 
 	uefi_mem: uefi_mem_region@AF000000 {
