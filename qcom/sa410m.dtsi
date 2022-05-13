@@ -766,6 +766,12 @@
 			qcom,dump-size = <0x2000>;
 			qcom,dump-id = <0x123>;
 		};
+
+		spm_reg {
+			qcom,dump-size = <0x400>;
+			qcom,dump-id = <0x164>;
+		};
+
 	};
 
 	clocks {
