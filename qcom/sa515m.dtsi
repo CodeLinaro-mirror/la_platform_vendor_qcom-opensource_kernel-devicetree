@@ -674,6 +674,55 @@
 		};
 	};
 
+	pil_modem: qcom,mss@4080000 {
+		compatible = "qcom,pil-tz-generic";
+		reg = <0x4080000 0x100>;
+
+		clocks = <&rpmhcc RPMH_CXO_CLK>;
+		clock-names = "xo";
+		qcom,proxy-clock-names = "xo";
+
+		vdd_cx-supply = <&VDD_CX_LEVEL>;
+		qcom,vdd_cx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
+		vdd_mss-supply = <&VDD_MODEM_LEVEL>;
+		qcom,vdd_mss-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
+		qcom,proxy-reg-names = "vdd_cx", "vdd_mss";
+
+		qcom,firmware-name = "modem";
+		memory-region = <&mpss_adsp_mem>;
+		qcom,pas-id = <4>;
+		qcom,smem-id = <421>;
+		qcom,sysmon-id = <0>;
+		qcom,ssctl-instance-id = <0x22>;
+		qcom,minidump-id = <3>;
+
+		interrupts-extended = <&intc 0 250 1>,
+				<&modem_smp2p_in 0 0>,
+				<&modem_smp2p_in 2 0>,
+				<&modem_smp2p_in 1 0>,
+				<&modem_smp2p_in 3 0>,
+				<&modem_smp2p_in 7 0>;
+
+		interrupt-names = "qcom,wdog",
+				"qcom,err-fatal",
+				"qcom,proxy-unvote",
+				"qcom,err-ready",
+				"qcom,stop-ack",
+				"qcom,shutdown-ack";
+
+		qcom,smem-states = <&modem_smp2p_out 0>;
+		qcom,smem-state-names = "qcom,force-stop";
+
+		status = "ok";
+	};
+
+	pil_scm_pas {
+		compatible = "qcom,pil-tz-scm-pas";
+		interconnects = <&system_noc MASTER_CRYPTO
+				&mc_virt SLAVE_EBI1>;
+	};
+
+
 };
 
 #include "sa515m-pinctrl.dtsi"
@@ -684,4 +733,10 @@
 &vreg_rgmii_io_pads {
 	regulator-min-microvolt = <1800000>;
 	regulator-max-microvolt = <1800000>;
+};
+
+&firmware {
+	scm {
+		compatible = "qcom,scm";
+	};
 };
