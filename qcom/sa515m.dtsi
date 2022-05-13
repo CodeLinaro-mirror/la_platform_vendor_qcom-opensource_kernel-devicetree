@@ -722,6 +722,9 @@
 				&mc_virt SLAVE_EBI1>;
 	};
 
+	qcom-secure-buffer {
+		compatible = "qcom,secure-buffer";
+	};
 
 };
 
