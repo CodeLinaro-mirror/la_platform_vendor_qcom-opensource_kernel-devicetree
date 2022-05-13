@@ -120,3 +120,39 @@
 &cpufreq_hw {
 	clocks = <&bi_tcxo>, <&gcc GCC_GPLL0>;
 };
+
+&ufsphy_mem {
+	compatible = "qcom,ufs-phy-qrbtc-sdm845";
+
+	vdda-phy-supply = <&L4A>;
+	vdda-pll-supply = <&L1C>;
+	vdda-phy-max-microamp = <137000>;
+	vdda-pll-max-microamp = <18300>;
+
+	status = "ok";
+};
+
+&ufshc_mem {
+
+	limit-tx-hs-gear = <1>;
+	limit-rx-hs-gear = <1>;
+	limit-rate = <1>; /* HS Rate-B */
+
+	vdd-hba-supply = <&gcc_ufs_phy_gdsc>;
+	vdd-hba-fixed-regulator;
+
+	vcc-supply = <&L8A>;
+	vcc-max-microamp = <800000>;
+
+	vccq-supply = <&L4C>;
+	vccq-max-microamp = <800000>;
+
+	qcom,vddp-ref-clk-supply = <&L4C>;
+	qcom,vddp-ref-clk-max-microamp = <100>;
+
+	qcom,disable-lpm;
+	rpm-level = <0>;
+	spm-level = <0>;
+
+	status = "ok";
+};
