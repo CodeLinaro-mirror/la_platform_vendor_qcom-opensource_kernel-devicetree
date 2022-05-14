@@ -1502,6 +1502,16 @@
 		"MAX";
 
 		status = "disabled";
+
+		qos0 {
+			mask = <0xf0>;
+			vote = <44>;
+		};
+
+		qos1 {
+			mask = <0x0f>;
+			vote = <44>;
+		};
 	};
 
 	mtl_rx_setup: rx-queues-config {
