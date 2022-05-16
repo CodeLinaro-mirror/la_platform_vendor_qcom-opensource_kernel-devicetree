@@ -43,7 +43,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x0>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLD_PC &GOLD_RAIL_OFF>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
@@ -67,7 +68,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x100>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLD_PC &GOLD_RAIL_OFF>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
@@ -84,7 +86,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x200>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLD_PC &GOLD_RAIL_OFF>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
@@ -101,7 +104,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x300>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLD_PC &GOLD_RAIL_OFF>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			qcom,freq-domain = <&cpufreq_hw 0 4>;
@@ -118,7 +122,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x10000>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLDPLUS_PC &GOLDPLUS_RAIL_OFF>;
 			cache-size = <0x20000>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			qcom,freq-domain = <&cpufreq_hw 1 4>;
@@ -142,7 +147,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x10100>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLDPLUS_PC &GOLDPLUS_RAIL_OFF>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			qcom,freq-domain = <&cpufreq_hw 1 4>;
@@ -159,7 +165,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x10200>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLDPLUS_PC &GOLDPLUS_RAIL_OFF>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			qcom,freq-domain = <&cpufreq_hw 1 4>;
@@ -176,7 +183,8 @@
 			device_type = "cpu";
 			compatible = "qcom,kryo";
 			reg = <0x0 0x10300>;
-			enable-method = "spin-table";
+			enable-method = "psci";
+			cpu-idle-states = <&GOLDPLUS_PC &GOLDPLUS_RAIL_OFF>;
 			cpu-release-addr = <0x0 0xC0000000>;
 			cache-size = <0x20000>;
 			qcom,freq-domain = <&cpufreq_hw 1 4>;
@@ -387,6 +395,11 @@
 	#size-cells = <1>;
 	ranges = <0 0 0 0xffffffff>;
 	compatible = "simple-bus";
+
+	psci {
+		compatible = "arm,psci-1.0";
+		method = "smc";
+	};
 
 	apps_rsc: rsc@18200000 {
 		label = "apps_rsc";
@@ -1406,6 +1419,7 @@
 #include "lemans-qupv3.dtsi"
 #include "lemans-usb.dtsi"
 #include "lemans-smp2p.dtsi"
+#include "lemans-pm.dtsi"
 
 &cam_cc_titan_top_gdsc {
 	reg = <0xadf31bc 0x4>;
