@@ -1,26 +1,13 @@
-#include "sdx55-mtp.dtsi"
-#include "sa515m.dtsi"
-#include "sa515m-ccard-cnss.dtsi"
+#include "sa515m-audio-lpass.dtsi"
 
 &soc {
-	codec_vreg: regulator-codec-tlv320aic3x {
-		compatible = "regulator-fixed";
-		regulator-name = "codec_vreg";
-		startup-delay-us = <100>;
-		gpio = <&tlmm 23 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-	};
-
-	snd_tlv3x: sound-auto {
-		compatible = "qcom,sdx-asoc-snd-auto";
-		qcom,model = "sdx-auto-i2s-snd-card";
+	snd_934x: sound-tavil {
+		compatible = "qcom,sdx-asoc-snd-tavil";
+		qcom,model = "sdx-tavil-i2s-snd-card";
 		qcom,prim_mi2s_aux_master = <&prim_master>;
 		qcom,prim_mi2s_aux_slave = <&prim_slave>;
 		qcom,sec_mi2s_aux_master = <&sec_master_slave>;
 		qcom,sec_mi2s_aux_slave = <&sec_slave>;
-
-		pinctrl-names = "default";
-		pinctrl-0 = <&a2b_cdc_sel_default>, <&i2s_mclk_active>;
 
 		asoc-platform = <&pcm0>, <&pcm1>, <&voip>, <&voice>,
 				<&loopback>, <&hostless>, <&afe>, <&routing>,
@@ -58,46 +45,5 @@
 				"msm-dai-q6-tdm.36882", "msm-dai-q6-tdm.36883",
 				"msm-dai-q6-auxpcm.2", "msm-dai-q6-dev.32769",
 				"msm-dai-q6-dev.32770", "msm-dai-q6-dev.32774";
-		asoc-codec = <&tlv320aic3x_codec>, <&stub_codec>;
-		asoc-codec-names = "tlv320aic3x-codec", "msm-stub-codec.1";
-		qcom,msm_audio_ssr_devs = <&audio_apr>, <&q6core>;
-	};
-
-};
-
-&snd_934x {
-	status = "disabled";
-};
-
-&wcd9xxx_intc {
-	status = "disabled";
-};
-
-&clock_audio_up {
-	status = "disabled";
-};
-
-&wcd_rst_gpio {
-	status = "disabled";
-};
-
-&wcd934x_cdc {
-	status = "disabled";
-};
-
-&vbus_detect {
-	status = "okay";
-};
-
-&i2c_3 {
-	tlv320aic3x_codec: tlv320aic3x@18 {
-		compatible = "ti,tlv320aic3x";
-		reg = <0x18>;
-		gpio-reset = <&tlmm 92 0>;
-		reset-inverted;
-		AVDD-supply = <&codec_vreg>;
-		IOVDD-supply = <&codec_vreg>;
-		ai3x-ocmv = <1>;
 	};
 };
-
