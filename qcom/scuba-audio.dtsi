@@ -9,6 +9,8 @@
 &audio_apr {
 	q6core: qcom,q6core-audio {
 		compatible = "qcom,q6core-audio";
+		#address-cells = <1>;
+		#size-cells = <0>;
 
 		lpass_audio_hw_vote: vote_lpass_audio_hw {
 			compatible = "qcom,audio-ref-clk";
@@ -84,12 +86,12 @@
 			compatible = "qcom,bolero-clk-rsc-mngr";
 		};
 
-		va_macro: va-macro@0a730000 {
+		va_macro: va-macro@a730000 {
 			swr0: va_swr_master {
 			};
 		};
 
-		rx_macro: rx-macro@0a600000 {
+		rx_macro: rx-macro@a600000 {
 			swr1: rx_swr_master {
 			};
 		};

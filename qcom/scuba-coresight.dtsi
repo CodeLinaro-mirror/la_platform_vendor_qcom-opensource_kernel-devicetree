@@ -444,18 +444,19 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				funnel_apss0_out_funnel_in1: endpoint {
 					remote-endpoint =
 					<&funnel_in1_in_funnel_apss0>;
 				};
 			};
+		};
 
-			port@1 {
+		in-ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port@0 {
 				reg = <0>;
 				funnel_apss0_in_etm0: endpoint {
 					slave-mode;
@@ -464,7 +465,7 @@
 				};
 			};
 
-			port@2 {
+			port@1 {
 				reg = <1>;
 				funnel_apss0_in_etm1: endpoint {
 					slave-mode;
@@ -473,7 +474,7 @@
 				};
 			};
 
-			port@3 {
+			port@2 {
 				reg = <2>;
 				funnel_apss0_in_etm2: endpoint {
 					slave-mode;
@@ -482,7 +483,7 @@
 				};
 			};
 
-			port@4 {
+			port@3 {
 				reg = <3>;
 				funnel_apss0_in_etm3: endpoint {
 					slave-mode;
@@ -491,7 +492,7 @@
 				};
 			};
 
-			port@5 {
+			port@4 {
 				reg = <4>;
 				funnel_apss0_in_tpda_actpm: endpoint {
 					slave-mode;
@@ -500,7 +501,7 @@
 				};
 			};
 
-			port@6 {
+			port@5 {
 				reg = <5>;
 				funnel_apss0_in_tpda_llm_silver: endpoint {
 					slave-mode;
@@ -509,7 +510,7 @@
 				};
 			};
 
-			port@7 {
+			port@6 {
 				reg = <6>;
 				funnel_apss0_in_tpda_apss: endpoint {
 					slave-mode;
@@ -534,19 +535,17 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				tpda_actpm_out_funnel_apss0: endpoint {
 					remote-endpoint =
 					<&funnel_apss0_in_tpda_actpm>;
 				};
 			};
+		};
 
-			port@1 {
-				reg = <0>;
+		in-ports {
+			port {
 				tpda_actpm_in_tpdm_actpm: endpoint {
 					slave-mode;
 					remote-endpoint =
@@ -570,19 +569,17 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				tpda_apss_out_funnel_apss0: endpoint {
 					remote-endpoint =
 					<&funnel_apss0_in_tpda_apss>;
 				};
 			};
+		};
 
-			port@1 {
-				reg = <0>;
+		in-ports {
+			port {
 				tpda_apss_in_tpdm_apss: endpoint {
 					slave-mode;
 					remote-endpoint =
@@ -606,19 +603,17 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				tpda_llm_silver_out_funnel_apss0: endpoint {
 					remote-endpoint =
 					<&funnel_apss0_in_tpda_llm_silver>;
 				};
 			};
+		};
 
-			port@1 {
-				reg = <0>;
+		in-ports {
+			port {
 				tpda_llm_silver_in_tpdm_llm_silver: endpoint {
 					slave-mode;
 					remote-endpoint =
@@ -642,19 +637,17 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				tpda_mapss_out_funnel_in1: endpoint {
 					remote-endpoint =
 					<&funnel_in1_in_tpda_mapss>;
 				};
 			};
+		};
 
-			port@1 {
-				reg = <0>;
+		in-ports {
+			port {
 				tpda_mapss_in_tpdm_mapss: endpoint {
 					slave-mode;
 					remote-endpoint =
@@ -674,26 +667,23 @@
 		status = "disabled";
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				funnel_gpu_out_tpda1: endpoint {
 					remote-endpoint =
 					<&tpda1_in_funnel_gpu>;
 				};
 			};
+		};
 
-			port@1 {
-				reg = <0>;
+		in-ports {
+			port {
 				funnel_gpu_in_tpdm_gpu: endpoint {
 					slave-mode;
 					remote-endpoint =
 					<&tpdm_gpu_out_funnel_gpu>;
 				};
 			};
-
 		};
 	};
 
@@ -720,18 +710,19 @@
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
 
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				tpda_out_funnel_qatb: endpoint {
 					remote-endpoint =
 					<&funnel_qatb_in_tpda>;
 				};
 			};
+		};
 
-			port@1 {
+		in-ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port@0 {
 				reg = <0>;
 				tpda0_in_tpdm_dl_ct: endpoint {
 					slave-mode;
@@ -740,7 +731,7 @@
 				};
 			};
 
-			port@2 {
+			port@1 {
 				reg = <1>;
 				tpda1_in_funnel_gpu: endpoint {
 					slave-mode;
@@ -749,7 +740,7 @@
 				};
 			};
 
-			port@3 {
+			port@7 {
 				reg = <7>;
 				tpda7_in_tpdm_vsense: endpoint {
 					slave-mode;
@@ -758,7 +749,7 @@
 				};
 			};
 
-			port@4 {
+			port@8 {
 				reg = <8>;
 				tpda8_in_tpdm_dcc: endpoint {
 					slave-mode;
@@ -767,7 +758,7 @@
 				};
 			};
 
-			port@5 {
+			port@a {
 				reg = <10>;
 				tpda10_in_tpdm_prng: endpoint {
 					slave-mode;
@@ -776,7 +767,7 @@
 				};
 			};
 
-			port@6 {
+			port@c {
 				reg = <12>;
 				tpda12_in_tpdm_qm: endpoint {
 					slave-mode;
@@ -785,7 +776,7 @@
 				};
 			};
 
-			port@7 {
+			port@d {
 				reg = <13>;
 				tpda13_in_tpdm_west: endpoint {
 					slave-mode;
@@ -794,7 +785,7 @@
 				};
 			};
 
-			port@8 {
+			port@f {
 				reg = <15>;
 				tpda15_in_tpdm_pimem: endpoint {
 					slave-mode;
@@ -816,18 +807,19 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				funnel_qatb_out_funnel_in0: endpoint {
 					remote-endpoint =
 					<&funnel_in0_in_funnel_qatb>;
 				};
 			};
+		};
 
-			port@1 {
+		in-ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port@0 {
 				reg = <0>;
 				funnel_qatb_in_tpda: endpoint {
 					slave-mode;
@@ -836,7 +828,7 @@
 				};
 			};
 
-			port@2 {
+			port@1 {
 				reg = <5>;
 				funnel_qatb_in_tpdm_lpass: endpoint {
 					slave-mode;
@@ -845,7 +837,7 @@
 				};
 			};
 
-			port@3 {
+			port@2 {
 				reg = <5>;
 				funnel_qatb_in_audio_etm0: endpoint {
 					slave-mode;
@@ -866,18 +858,19 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				funnel_in0_out_funnel_merg: endpoint {
 					remote-endpoint =
 					<&funnel_merg_in_funnel_in0>;
 				};
 			};
+		};
 
-			port@1 {
+		in-ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port@6 {
 				reg = <6>;
 				funnel_in0_in_funnel_qatb: endpoint {
 					slave-mode;
@@ -886,7 +879,7 @@
 				};
 			};
 
-			port@2 {
+			port@7 {
 				reg = <7>;
 				funnel_in0_in_stm: endpoint {
 					slave-mode;
@@ -908,17 +901,18 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				funnel_in1_out_funnel_merg: endpoint {
 					remote-endpoint =
 					<&funnel_merg_in_funnel_in1>;
 				};
 			};
+		};
 
+		in-ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
 			port@1 {
 				reg = <1>;
 				funnel_in1_in_tpda_mapss: endpoint {
@@ -955,7 +949,7 @@
 				};
 			};
 
-			port@5 {
+			port@6 {
 				reg = <6>;
 				funnel_in1_in_funnel_apss0: endpoint {
 					slave-mode;
@@ -977,18 +971,19 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				funnel_merg_out_tmc_etf: endpoint {
 					remote-endpoint =
 					<&tmc_etf_in_funnel_merg>;
 				};
 			};
+		};
 
-			port@1 {
+		in-ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port@0 {
 				reg = <0>;
 				funnel_merg_in_funnel_in0: endpoint {
 					slave-mode;
@@ -997,7 +992,7 @@
 				};
 			};
 
-			port@2 {
+			port@1 {
 				reg = <1>;
 				funnel_merg_in_funnel_in1: endpoint {
 					slave-mode;
@@ -1023,19 +1018,17 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				tmc_etf_out_replicator_qdss: endpoint {
 					remote-endpoint =
 					<&replicator_qdss_in_tmc_etf>;
 				};
 			};
+		};
 
-			port@1 {
-				reg = <0>;
+		in-ports {
+			port {
 				tmc_etf_in_funnel_merg: endpoint {
 					slave-mode;
 					remote-endpoint =
@@ -1056,19 +1049,17 @@
 
 		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
 		clock-names = "apb_pclk";
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		out-ports {
+			port {
 				replicator_qdss_out_tmc_etr: endpoint {
 					remote-endpoint =
 					<&tmc_etr_in_replicator_qdss>;
 				};
 			};
+		};
 
-			port@1 {
-				reg = <0>;
+		in-ports {
+			port {
 				replicator_qdss_in_tmc_etf: endpoint {
 					slave-mode;
 					remote-endpoint =
@@ -1110,11 +1101,8 @@
 		interrupts = <GIC_SPI 429 IRQ_TYPE_EDGE_RISING>;
 		interrupt-names = "byte-cntr-irq";
 
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@0 {
-				reg = <0>;
+		in-ports {
+			port {
 				tmc_etr_in_replicator_qdss: endpoint {
 					slave-mode;
 					remote-endpoint =

@@ -166,11 +166,7 @@
 		};
 
 		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			port@0 {
-				reg = <0>;
+			port {
 				lt9611_in: endpoint {
 					remote-endpoint = <&ext_dsi_out>;
 				};
@@ -326,11 +322,7 @@
 
 &sde_dsi {
 	ports {
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		port@0 {
-			reg = <0>;
+		port {
 			ext_dsi_out: endpoint {
 				remote-endpoint = <&lt9611_in>;
 			};

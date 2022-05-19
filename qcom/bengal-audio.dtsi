@@ -9,6 +9,8 @@
 &audio_apr {
 	q6core: qcom,q6core-audio {
 		compatible = "qcom,q6core-audio";
+		#address-cells = <1>;
+		#size-cells = <0>;
 
 		lpass_audio_hw_vote: vote_lpass_audio_hw {
 			compatible = "qcom,audio-ref-clk";
