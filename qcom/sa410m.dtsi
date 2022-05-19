@@ -1460,6 +1460,8 @@
 
 		qcom,devfreq,freq-table = <50000000 202000000>;
 
+		cd-gpios = <&tlmm 88 GPIO_ACTIVE_LOW>;
+
 		status = "disabled";
 
 		qos0 {
