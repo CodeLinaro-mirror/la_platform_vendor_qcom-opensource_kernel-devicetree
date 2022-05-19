@@ -1,6 +1,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include "kona-pmic-overlay.dtsi"
 #include "kona-thermal-overlay.dtsi"
+#include "kona-audio-overlay.dtsi"
 #include <dt-bindings/iio/qti_power_supply_iio.h>
 
 &vendor {
@@ -790,7 +791,7 @@
 
 &vendor {
 	bluetooth: bt_qca6390 {
-		compatible = "qca,qca6390";
+		compatible = "qcom,qca6390";
 		pinctrl-names = "default";
 		pinctrl-0 = <&bt_en_sleep>;
 		qca,bt-reset-gpio = <&tlmm 21 0>; /* BT_EN */

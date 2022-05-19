@@ -4988,6 +4988,7 @@
 
 #include "kona-pm.dtsi"
 #include "kona-qupv3.dtsi"
+#include "kona-audio.dtsi"
 #include "kona-thermal.dtsi"
 #include "kona-vidc.dtsi"
 #include "kona-cvp.dtsi"
