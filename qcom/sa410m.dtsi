@@ -157,9 +157,9 @@
 	#size-cells = <2>;
 	ranges;
 
-	hyp_region: hyp_region@45700000 {
+	hyp_region: hyp_region@45600000 {
 		no-map;
-		reg = <0x0 0x45700000 0x0 0x600000>;
+		reg = <0x0 0x45600000 0x0 0x700000>;
 	};
 
 	xbl_aop_mem: xbl_aop_mem@45e00000 {
