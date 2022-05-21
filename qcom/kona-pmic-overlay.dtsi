@@ -216,4 +216,7 @@
 						<0 2400>,
 						<0 40000>;
 	extcon = <&pm8150b_pdphy>, <&eud>;
+	#io-channel-cells = <1>;
+	io-channels= <&pm8150b_charger PSY_IIO_USB_REAL_TYPE>;
+	io-channel-names = "chg_type";
 };
