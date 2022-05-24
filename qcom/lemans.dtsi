@@ -1591,6 +1591,9 @@
 
 		reset-gpios = <&tlmm 149 GPIO_ACTIVE_LOW>;
 
+		resets = <&gcc GCC_UFS_PHY_BCR>;
+		reset-names = "rst";
+
 		status = "disabled";
 
 		qos0 {
