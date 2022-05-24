@@ -332,10 +332,18 @@ ifneq ($(CONFIG_ARCH_SA410M),y)
 				qrb2210-rb1.dtb \
 				qrb2210-rb1-v2.dtb
 else
+ifneq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtb-$(CONFIG_ARCH_SA410M) += \
 				sa410m-idp.dtb \
 				sa410m-qrd.dtb \
 				sa410m-rumi.dtb
+else
+	dtbo-$(CONFIG_ARCH_SA410M) += \
+				sa410m-idp-overlay.dtbo \
+				sa410m-qrd-overlay.dtbo
+	sa410m-idp-overlay.dtbo-base := sa410m.dtb
+	sa410m-qrd-overlay.dtbo-base := sa410m.dtb
+endif
 endif
 
 dtb-$(CONFIG_ARCH_BENGAL) += \
