@@ -443,6 +443,10 @@
 				  <WAKE_TCS    3>,
 				  <CONTROL_TCS 0>;
 
+		system_pm {
+			compatible = "qcom,system-pm";
+		};
+
 		apps_bcm_voter: bcm_voter {
 			compatible = "qcom,bcm-voter";
 		};
