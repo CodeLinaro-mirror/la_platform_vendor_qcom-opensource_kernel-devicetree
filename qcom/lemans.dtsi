@@ -1589,6 +1589,8 @@
 		"HS_RB_G1_L2", "HS_RB_G2_L2", "HS_RB_G3_L2", "HS_RB_G4_L2",
 		"MAX";
 
+		reset-gpios = <&tlmm 149 GPIO_ACTIVE_LOW>;
+
 		status = "disabled";
 
 		qos0 {
