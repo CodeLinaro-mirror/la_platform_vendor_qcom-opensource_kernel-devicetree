@@ -748,6 +748,127 @@
 		compatible = "qcom,secure-buffer";
 	};
 
+	qcom,msm_gsi {
+		compatible = "qcom,msm_gsi";
+	};
+
+	qcom,rmnet-ipa {
+		compatible = "qcom,rmnet-ipa3";
+		qcom,rmnet-ipa-ssr;
+	};
+
+	qcom,ipa_fws {
+		compatible = "qcom,pil-tz-generic";
+		qcom,pas-id = <0xf>;
+		qcom,firmware-name = "ipa_fws";
+		qcom,pil-force-shutdown;
+	};
+
+	ipa_hw: qcom,ipa@01e00000 {
+		compatible = "qcom,ipa";
+		mboxes = <&qmp_aop 0>;
+		reg = <0x1e00000 0x84000>,
+		      <0x1e04000 0x23000>;
+		reg-names = "ipa-base", "gsi-base";
+		interrupts =
+			<0 241 IRQ_TYPE_NONE>,
+			<0 47 IRQ_TYPE_NONE>;
+		interrupt-names = "ipa-irq", "gsi-irq";
+		qcom,ipa-hw-ver = <17>; /* IPA core version = IPAv4.5 */
+		qcom,ipa-hw-mode = <0>;
+		qcom,ee = <0>;
+		qcom,use-ipa-tethering-bridge;
+		qcom,mhi-event-ring-id-limits = <9 14>; /* start and end */
+		qcom,modem-cfg-emb-pipe-flt;
+		qcom,use-ipa-pm;
+		qcom,use-xbl-boot;
+		qcom,arm-smmu;
+		qcom,wlan-ce-db-over-pcie;
+		qcom,bandwidth-vote-for-ipa;
+		qcom,msm-bus,name = "ipa";
+		qcom,ipa-wdi2_over_gsi;
+		qcom,ipa-endp-delay-wa;
+		qcom,ipa-wdi3-holb-2g = <8>;
+		qcom,ipa-wdi3-holb-5g = <15>;
+		qcom,msm-bus,num-cases = <5>;
+		qcom,msm-bus,num-paths = <5>;
+		qcom,wan-aggr-time-limit = <200>;
+		qcom,lan-aggr-time-limit = <200>;
+		qcom,rndis-aggr-time-limit = <200>;
+		qcom,max_num_smmu_cb = <3>;
+		qcom,interconnect,num-cases = <5>;
+		qcom,interconnect,num-paths = <5>;
+		interconnects = <&system_noc MASTER_IPA &system_noc SLAVE_SNOC_MEM_NOC_GC>,
+				<&system_noc MASTER_IPA &mc_virt SLAVE_EBI1>,
+				<&system_noc MASTER_IPA &system_noc SLAVE_IMEM>,
+				<&mem_noc MASTER_APPSS_PROC &system_noc SLAVE_IPA_CFG>,
+				<&ipa_virt MASTER_IPA_CORE &ipa_virt SLAVE_IPA_CORE>;
+		interconnect-names = "ipa_to_memnoc", "ipa_to_ebi1", "ipa_to_imem", "ipacore_to_ipacore", "ipacore_to_ipacore";
+
+		/* No vote */
+		qcom,no-vote =
+		<0 0 0 0 0 0 0 0 0 0>;
+
+		/* SVS2 */
+		qcom,svs2 =
+		<150000 600000 150000 1804000 75000 450000 0 171400 0 150>;
+
+		/* SVS */
+		qcom,svs =
+		<625000 1000000 625000 3072000 312500 750000 0 200000 0 250>;
+
+		/* NOMINAL */
+		qcom,nominal =
+		<1250000 2000000 1250000 6220800 625000 1500000 0 400000 0 500>;
+
+		/* TURBO */
+		qcom,turbo =
+		<2000000 2400000 2000000 7219200 1000000 1920000 0 533320 0 600>;
+
+		qcom,throughput-threshold = <310 600 1000>;
+		qcom,scaling-exceptions = <>;
+
+		/* ipa tz unlock registers */
+		qcom,ipa-tz-unlock-reg =
+			<0x4043583c 0x1000>; /* 32-bit reg addr and size*/
+
+		ipa_smmu_ap: ipa_smmu_ap {
+			compatible = "qcom,ipa-smmu-ap-cb";
+			iommus = <&apps_smmu 0x5E0 0x0>;
+			qcom,iommu-dma-addr-pool = <0x20000000 0x40000000>;
+			qcom,additional-mapping =
+				/* modem tables in IMEM */
+				<0x14688000 0x14688000 0x3000>;
+			qcom,ipa-q6-smem-size = <36864>;
+			qcom,iommu-dma = "fastmap";
+			qcom,geometry-mapping = <0x0 0xF0000000>;
+		};
+
+		ipa_smmu_wlan: ipa_smmu_wlan {
+			compatible = "qcom,ipa-smmu-wlan-cb";
+			iommus = <&apps_smmu 0x5E1 0x0>;
+			qcom,iommu-dma-addr-pool = <0x60000000 0x10000000>;
+		};
+
+		ipa_smmu_uc: ipa_smmu_uc {
+			compatible = "qcom,ipa-smmu-uc-cb";
+			iommus = <&apps_smmu 0x5E2 0x0>;
+			qcom,iommu-dma-addr-pool = <0x40000000 0x20000000>;
+		};
+
+		/* smp2p information */
+		qcom,smp2p_map_ipa_1_out {
+			compatible = "qcom,smp2p-map-ipa-1-out";
+			qcom,smem-states = <&smp2p_ipa_1_out 0>;
+			qcom,smem-state-names = "ipa-smp2p-out";
+		};
+
+		qcom,smp2p_map_ipa_1_in {
+			compatible = "qcom,smp2p-map-ipa-1-in";
+			interrupts-extended = <&smp2p_ipa_1_in 0 0>;
+			interrupt-names = "ipa-smp2p-in";
+		};
+	};
 };
 
 #include "sa515m-pinctrl.dtsi"
