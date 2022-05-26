@@ -167,12 +167,6 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	vph_pwr@83 {
-		reg = <ADC5_VPH_PWR>;
-		label = "vph_pwr";
-		qcom,pre-scaling = <1 3>;
-	};
-
 	conn_therm@4f {
 		reg = <ADC5_AMUX_THM3_100K_PU>;
 		label = "conn_therm";
@@ -181,28 +175,10 @@
 		qcom,pre-scaling = <1 1>;
 	};
 
-	chg_sbux@99 {
-		reg = <ADC5_SBUx>;
-		label = "chg_sbux";
-		qcom,pre-scaling = <1 3>;
-	};
-
 	mid_chg_div6@1e {
 		reg = <ADC5_MID_CHG_DIV6>;
-		label = "chg_mid";
+		label = "mid_voltage";
 		qcom,pre-scaling = <1 6>;
-	};
-
-	usb_in_i_uv@7 {
-		reg = <ADC5_USB_IN_I>;
-		label = "usb_in_i_uv";
-		qcom,pre-scaling = <1 1>;
-	};
-
-	usb_in_v_div_16@8 {
-		reg = <ADC5_USB_IN_V_16>;
-		label = "usb_in_v_div_16";
-		qcom,pre-scaling = <1 16>;
 	};
 };
 
@@ -273,12 +249,14 @@
 		      <&pm8150b_vadc ADC5_SBUx>,
 		      <&pm8150b_vadc ADC5_VPH_PWR>,
 		      <&pm8150b_vadc ADC5_DIE_TEMP>,
+		      <&pm8150b_vadc ADC5_MID_CHG_DIV6>,
 		      <&pm8150b_vadc ADC5_CHG_TEMP>;
 	io-channel-names = "usb_in_voltage",
 			   "usb_in_current",
 			   "sbux_res",
 			   "vph_voltage",
 			   "die_temp",
+			   "mid_voltage",
 			   "chg_temp";
 	qcom,battery-data = <&kona_qrd_batterydata>;
 	qcom,sw-jeita-enable;
