@@ -450,6 +450,11 @@
 		apps_bcm_voter: bcm_voter {
 			compatible = "qcom,bcm-voter";
 		};
+
+		rpmhcc: qcom,rpmhcc {
+			compatible = "qcom,lemans-rpmh-clk";
+			#clock-cells = <1>;
+		};
 	};
 
 	intc: interrupt-controller@17a00000 {
@@ -689,11 +694,6 @@
 			clock-output-names = "usb3_phy_wrapper_gcc_usb30_sec_pipe_clk";
 			#clock-cells = <0>;
 		};
-	};
-
-	rpmhcc: qcom,rpmhcc {
-		compatible = "qcom,lemans-rpmh-clk";
-		#clock-cells = <1>;
 	};
 
 	gcc: clock-controller@100000 {
