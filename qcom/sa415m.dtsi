@@ -197,3 +197,5 @@
 		qcom,rtb-size = <0x100000>;
 	};
 };
+
+#include "sa415m-pinctrl.dtsi"
