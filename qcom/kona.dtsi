@@ -4930,6 +4930,15 @@
 			bits = <7 1>;
 		};
 	};
+
+	clocks {
+		usb3_phy_wrapper_gcc_usb30_pipe_clk: usb3_phy_wrapper_gcc_usb30_pipe_clk {
+			compatible = "fixed-clock";
+			clock-frequency = <1000>;
+			clock-output-names = "usb3_phy_wrapper_gcc_usb30_pipe_clk";
+			#clock-cells = <0>;
+		};
+	};
 };
 
 #include "kona-regulators.dtsi"
