@@ -791,7 +791,7 @@
 };
 
 &usb1 {
-	status = "disabled";
+	status = "ok";
 	qcom,default-mode-none;
 };
 
