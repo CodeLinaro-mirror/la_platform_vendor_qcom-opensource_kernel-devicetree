@@ -799,6 +799,13 @@
 		qcom,freq-hw-domain = <&cpufreq_hw 0>, <&cpufreq_hw 1>;
 	};
 
+	aopcc: qcom,aopcc {
+		compatible = "qcom,aop-qmp-clk";
+		mboxes = <&qmp_aop 0>;
+		mbox-names = "qdss_clk";
+		#clock-cells = <1>;
+	};
+
 	apsscc: syscon@182a0000 {
 		compatible = "syscon";
 		reg = <0x182a0000 0x1c>;
