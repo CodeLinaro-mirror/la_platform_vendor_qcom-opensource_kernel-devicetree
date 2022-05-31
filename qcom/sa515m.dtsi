@@ -20,6 +20,7 @@
 	chosen: chosen { };
 
 	aliases {
+		pci-domain0 = &pcie0; /* PCIe0 domain */
 	};
 
 	reserved_mem: reserved-memory {
@@ -907,6 +908,7 @@
 #include "sa515m-ion.dtsi"
 #include "msm-arm-smmu-sa515m.dtsi"
 #include "sa515m-usb.dtsi"
+#include "sa515m-pcie.dtsi"
 
 &vreg_rgmii_io_pads {
 	regulator-min-microvolt = <1800000>;
