@@ -878,7 +878,7 @@
 	};
 
 	snoc_cnoc_keepalive: qcom,snoc_cnoc_keepalive {
-		compatible = "qcom,devbw";
+		compatible = "qcom,devfreq-icc";
 		governor = "powersave";
 		interconnects = <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_IMEM_CFG>;
 		qcom,active-only;
@@ -949,7 +949,7 @@
 	};
 
 	cpu_cpu_llcc_bw: qcom,cpu-cpu-llcc-bw {
-		compatible = "qcom,devbw";
+		compatible = "qcom,devfreq-icc";
 		governor = "performance";
 		interconnects = <&gem_noc MASTER_APPSS_PROC &gem_noc SLAVE_LLCC>;
 		qcom,active-only;
@@ -968,7 +968,7 @@
 	};
 
 	cpu_llcc_ddr_bw: qcom,cpu-llcc-ddr-bw {
-		compatible = "qcom,devbw-ddr";
+		compatible = "qcom,devfreq-icc-ddr";
 		governor = "performance";
 		interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
 		qcom,active-only;
@@ -986,7 +986,7 @@
 	};
 
 	npu_npu_llcc_bw: qcom,npu-npu-llcc-bw {
-		compatible = "qcom,devbw";
+		compatible = "qcom,devfreq-icc";
 		governor = "performance";
 		interconnects = <&compute_noc MASTER_NPU &gem_noc SLAVE_LLCC>;
 		operating-points-v2 = <&suspendable_llcc_bw_opp_table>;
@@ -1008,7 +1008,7 @@
 	};
 
 	npu_llcc_ddr_bw: qcom,npu-llcc-ddr-bw {
-		compatible = "qcom,devbw-ddr";
+		compatible = "qcom,devfreq-icc-ddr";
 		governor = "performance";
 		interconnects = <&gem_noc SLAVE_LLCC &mc_virt SLAVE_EBI1>;
 		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
@@ -1025,7 +1025,7 @@
 	};
 
 	npudsp_npu_ddr_bw: qcom,npudsp-npu-ddr-bw {
-		compatible = "qcom,devbw-ddr";
+		compatible = "qcom,devfreq-icc-ddr";
 		governor = "performance";
 		interconnects = <&compute_noc MASTER_NPU &mc_virt SLAVE_EBI1>;
 		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
@@ -1047,7 +1047,7 @@
 	};
 
 	npu_npu_ddr_latfloor: qcom,npu-npu-ddr-latfloor {
-		compatible = "qcom,devbw-ddr";
+		compatible = "qcom,devfreq-icc-ddr";
 		governor = "powersave";
 		interconnects = <&compute_noc MASTER_NPU &mc_virt SLAVE_EBI1>;
 		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
@@ -1070,7 +1070,7 @@
 	};
 
 	cpu0_cpu_llcc_lat: qcom,cpu0-cpu-llcc-lat {
-		compatible = "qcom,devbw";
+		compatible = "qcom,devfreq-icc";
 		governor = "performance";
 		interconnects = <&gem_noc MASTER_APPSS_PROC &gem_noc SLAVE_LLCC>;
 		qcom,active-only;
@@ -1078,7 +1078,7 @@
 	};
 
 	cpu4_cpu_llcc_lat: qcom,cpu4-cpu-llcc-lat {
-		compatible = "qcom,devbw";
+		compatible = "qcom,devfreq-icc";
 		governor = "performance";
 		interconnects = <&gem_noc MASTER_APPSS_PROC &gem_noc SLAVE_LLCC>;
 		qcom,active-only;
@@ -1086,7 +1086,7 @@
 	};
 
 	cpu0_llcc_ddr_lat: qcom,cpu0-llcc-ddr-lat {
-		compatible = "qcom,devbw-ddr";
+		compatible = "qcom,devfreq-icc-ddr";
 		governor = "performance";
 		interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
 		qcom,active-only;
@@ -1094,7 +1094,7 @@
 	};
 
 	cpu4_llcc_ddr_lat: qcom,cpu4-llcc-ddr-lat {
-		compatible = "qcom,devbw-ddr";
+		compatible = "qcom,devfreq-icc-ddr";
 		governor = "performance";
 		interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
 		qcom,active-only;
@@ -1102,7 +1102,7 @@
 	};
 
 	cpu4_cpu_ddr_latfloor: qcom,cpu4-cpu-ddr-latfloor {
-		compatible = "qcom,devbw-ddr";
+		compatible = "qcom,devfreq-icc-ddr";
 		governor = "performance";
 		interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
 		qcom,active-only;
@@ -1309,7 +1309,7 @@
 	};
 
 	snoc_cnoc_keepalive: qcom,snoc_cnoc_keepalive {
-		compatible = "qcom,devbw";
+		compatible = "qcom,devfreq-icc";
 		governor = "powersave";
 		interconnects = <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_IMEM_CFG>;
 		qcom,active-only;
