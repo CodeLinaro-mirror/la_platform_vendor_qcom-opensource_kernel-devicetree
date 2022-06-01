@@ -45,6 +45,10 @@
 	};
 };
 
+&L11C {
+	regulator-always-on;
+};
+
 &lt9611_pins {
 	mux {
 		pins = "gpio63";
