@@ -1084,8 +1084,8 @@
 				      IPCC_MPROC_SIGNAL_GLINK_QMP
 				      IRQ_TYPE_EDGE_RISING>;
 
-			label = "cdsp0";
-			qcom,glink-label = "cdsp0";
+			label = "cdsp";
+			qcom,glink-label = "cdsp";
 
 			qcom,cdsp0_qrtr {
 				qcom,glink-channels = "IPCRTR";
