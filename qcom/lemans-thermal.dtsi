@@ -39,7 +39,7 @@
 
 	tsens3:tsens@c225000 {
 		compatible = "qcom,tsens26xx";
-		reg = <0x0C223000 0x8>,
+		reg = <0x0C225000 0x8>,
 			<0x0C252000 0x1ff>;
 		reg-names = "tsens_srot_physical",
 			"tsens_tm_physical";
