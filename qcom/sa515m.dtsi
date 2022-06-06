@@ -863,6 +863,7 @@
 		qcom,msm-bus,name = "ipa";
 		qcom,ipa-wdi2_over_gsi;
 		qcom,ipa-endp-delay-wa;
+		qcom,ipa-config-is-auto;
 		qcom,ipa-wdi3-holb-2g = <8>;
 		qcom,ipa-wdi3-holb-5g = <15>;
 		qcom,msm-bus,num-cases = <5>;
