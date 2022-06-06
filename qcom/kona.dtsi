@@ -3153,8 +3153,7 @@
 				<GIC_SPI 222 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "hc_irq", "pwr_irq";
 
-		qcom,bus-width = <4>;
-		qcom,large-address-bus;
+		bus-width = <4>;
 
 		interconnects = <&aggre2_noc MASTER_SDCC_2 &mc_virt SLAVE_EBI1>,
 			<&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_SDCC_2>;
@@ -3190,28 +3189,26 @@
 			100750000 200000000 4294967295>;
 
 		qcom,restore-after-cx-collapse;
-
-		qcom,clk-rates = <400000 20000000 25000000
-					50000000 100000000 201500000>;
-		qcom,bus-speed-mode = "SDR12", "SDR25", "SDR50", "DDR50",
-				      "SDR104";
-
 		qcom,devfreq,freq-table = <50000000 201500000>;
 		clocks = <&clock_gcc GCC_SDCC2_AHB_CLK>,
 			<&clock_gcc GCC_SDCC2_APPS_CLK>;
-		clock-names = "iface_clk", "core_clk";
-
-		/* PM QoS */
-		qcom,pm-qos-irq-type = "affine_irq";
-		qcom,pm-qos-irq-latency = <44 44>;
-		qcom,pm-qos-cpu-groups = <0x3f 0xc0>;
-		qcom,pm-qos-legacy-latency-us = <44 44>, <44 44>;
+		clock-names = "iface", "core";
 
 		/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
 		qcom,dll-hsr-list = <0x0007642C 0xA800 0x10
 					0x2C010800 0x80040868>;
 
 		status = "disabled";
+
+		qos0 {
+			mask = <0x0f>;
+			vote = <44>;
+		};
+
+		qos1 {
+			mask = <0xf0>;
+			vote = <44>;
+		};
 	};
 
 	ipcc_mproc: qcom,ipcc@408000 {
