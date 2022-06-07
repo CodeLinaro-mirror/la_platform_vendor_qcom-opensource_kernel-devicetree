@@ -1,5 +1,6 @@
 /dts-v1/;
 
+#include "lemans.dtsi"
 #include "lemans-adp-air.dtsi"
 
 / {
