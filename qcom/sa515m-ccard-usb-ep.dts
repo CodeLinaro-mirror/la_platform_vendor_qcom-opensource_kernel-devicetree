@@ -22,3 +22,7 @@
 	qcom,default-policy-nop;
 	status = "okay";
 };
+
+&usb {
+	qcom,num-gsi-evt-buffs = <0x5>;
+};
