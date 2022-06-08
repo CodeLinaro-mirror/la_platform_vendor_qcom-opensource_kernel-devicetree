@@ -47,6 +47,39 @@
 				<GIC_SPI 685 IRQ_TYPE_LEVEL_HIGH>,
 				<GIC_SPI 686 IRQ_TYPE_LEVEL_HIGH>,
 				<GIC_SPI 687 IRQ_TYPE_LEVEL_HIGH>;
+
+		gfx_0_tbu: gfx_0_tbu@3dd1000 {
+			compatible = "qcom,qsmmuv500-tbu";
+			reg = <0x3DD1000 0x1000>,
+				<0x3DCA200 0x8>;
+			reg-names = "base", "status-reg";
+			qcom,stream-id-range = <0x0 0x400>;
+		};
+
+		gfx_1_tbu: gfx_1_tbu@3dd3000 {
+			compatible = "qcom,qsmmuv500-tbu";
+			reg = <0x3DD3000 0x1000>,
+				<0x3DCA208 0x8>;
+			reg-names = "base", "status-reg";
+			qcom,stream-id-range = <0x400 0x400>;
+		};
+
+		gfx_2_tbu: gfx_2_tbu@3dd9000 {
+			compatible = "qcom,qsmmuv500-tbu";
+			reg = <0x3DD9000 0x1000>,
+				<0x3DCB200 0x8>;
+			reg-names = "base", "status-reg";
+			qcom,stream-id-range = <0x800 0x400>;
+		};
+
+		gfx_3_tbu: gfx_3_tbu@3ddb000 {
+			compatible = "qcom,qsmmuv500-tbu";
+			reg = <0x3DDB000 0x1000>,
+				<0x3DCB208 0x8>;
+			reg-names = "base", "status-reg";
+			qcom,stream-id-range = <0xC00 0x400>;
+		};
+
 	};
 
 	pcie_smmu: pcie-smmu@0x15200000 {
