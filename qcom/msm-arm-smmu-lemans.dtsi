@@ -166,6 +166,22 @@
 
 		interconnects = <&pcie_anoc MASTER_PCIE_0 &mc_virt SLAVE_EBI1>,
 				<&pcie_anoc MASTER_PCIE_1 &mc_virt SLAVE_EBI1>;
+
+		pcie_0_tbu: pcie_0_tbu@152f9000 {
+			compatible = "qcom,qsmmuv500-tbu";
+			reg = <0x152F9000 0x1000>,
+				<0x152F2200 0x8>;
+			reg-names = "base", "status-reg";
+			qcom,stream-id-range = <0x0 0x400>;
+		};
+
+		pcie_1_tbu: pcie_1_tbu@152fb000 {
+			compatible = "qcom,qsmmuv500-tbu";
+			reg = <0x152FB000 0x1000>,
+				<0x152F3200 0x8>;
+			reg-names = "base", "status-reg";
+			qcom,stream-id-range = <0x400 0x400>;
+		};
 	};
 
 	apps_smmu: apps-smmu@15000000 {
