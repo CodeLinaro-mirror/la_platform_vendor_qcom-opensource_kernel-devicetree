@@ -1,4 +1,6 @@
 #include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/soc/qcom,ipcc.h>
+#include <dt-bindings/clock/qcom,aop-qmp.h>
 #include <dt-bindings/clock/qcom,camcc-lemans.h>
 #include <dt-bindings/clock/qcom,dispcc-lemans.h>
 #include <dt-bindings/clock/qcom,gcc-lemans.h>
@@ -874,6 +876,17 @@
 		clocks = <&rpmhcc RPMH_CXO_CLK>;
 		clock-names = "xo_clk_src";
 		#clock-cells = <1>;
+	};
+
+	qoslat_opp_table: qoslat-opp-table {
+		compatible = "operating-points-v2";
+		opp-1 {
+			opp-hz = /bits/ 64 < 1 >;
+		};
+
+		opp-2 {
+			opp-hz = /bits/ 64 < 2 >;
+		};
 	};
 
 	tlmm: pinctrl@f000000 {
@@ -2166,6 +2179,20 @@
 	qcom-secure-buffer {
 		compatible = "qcom,secure-buffer";
 	};
+
+	qfprom: qfprom@784000 {
+		compatible = "qcom,qfprom";
+		reg = <0x784000 0x3000>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+		read-only;
+		ranges;
+
+		gpu_speed_bin: gpu_speed_bin@18b {
+				reg = <0x18b 0x1>;
+				bits = <5 3>;
+		};
+	};
 };
 
 #include "lemans-4pmic-regulators.dtsi"
@@ -2416,3 +2443,4 @@
 
 #include "lemans-thermal.dtsi"
 #include "lemans-pcie.dtsi"
+#include "lemans-gpu.dtsi"
