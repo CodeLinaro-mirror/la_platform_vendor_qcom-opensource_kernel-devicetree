@@ -104,7 +104,7 @@
 &qupv3_se0_spi {
 	status = "okay";
 	can@0 {
-		compatible = "microchip,mcp2517fd";
+		compatible = "microchip,mcp2518fd";
 		reg = <0>;
 		clocks = <&clk40M>;
 		interrupt-parent = <&tlmm>;
