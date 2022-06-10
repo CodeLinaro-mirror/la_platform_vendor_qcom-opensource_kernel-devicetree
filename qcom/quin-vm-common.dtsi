@@ -238,6 +238,18 @@
 			role = "fe";
 			remote-vmids = <0>;
 		};
+
+		mmidgrp1400: mmidgrp1400 {
+			grp-start-id = <1400>;
+			role = "fe";
+			remote-vmids = <0>;
+		};
+
+		mmidgrp1500: mmidgrp1500 {
+			grp-start-id = <1500>;
+			role = "fe";
+			remote-vmids = <0>;
+		};
 	};
 
 	qcom,msm-imem@14680000 {
