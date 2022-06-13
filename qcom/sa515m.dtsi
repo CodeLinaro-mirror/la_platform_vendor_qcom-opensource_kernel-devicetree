@@ -199,7 +199,7 @@
 		reg-names = "base", "mux-base";
 		qcom,pdc-ranges = <0 147 52>;
 		qcom,pdc-mux-ranges = <20 28 0>, <21 32 1>, <22 35 2>,
-				      <23 57 3>, <24 49 4>, <25 103 5>;
+				      <23 57 3>, <24 49 4>, <25 58 5>;
 		#interrupt-cells = <2>;
 		interrupt-parent = <&intc>;
 		interrupt-controller;
