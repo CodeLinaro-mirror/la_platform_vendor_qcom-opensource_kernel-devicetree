@@ -780,13 +780,12 @@
 		qcom,bt-vdd-rfa2-supply = <&pm8150a_s8>;
 		qcom,bt-vdd-asd-supply = <&pm8150_l16>;
 
-		qcom,bt-vdd-aon-voltage-level = <950000 950000>;
-		qcom,bt-vdd-dig-voltage-level = <950000 952000>;
-		qcom,bt-vdd-rfa1-voltage-level = <1900000 1900000>;
-		qcom,bt-vdd-rfa2-voltage-level = <1350000 1350000>;
-		qcom,bt-vdd-asd-voltage-level = <3024000 3304000>;
+		qcom,bt-vdd-aon-config = <950000 950000 0 1>;
+		qcom,bt-vdd-dig-config = <950000 952000 0 1>;
+		qcom,bt-vdd-rfa1-config = <1900000 1900000 0 1>;
+		qcom,bt-vdd-rfa2-config = <1350000 1350000 0 1>;
+		qcom,bt-vdd-asd-config = <3024000 3304000 10000 1>;
 
-		qcom,bt-vdd-asd-current-level = <10000>;
 	};
 };
 
