@@ -641,16 +641,22 @@ endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_LEMANS) += lemans-rumi-overlay.dtbo \
-		lemans-adp-air-overlay.dtbo \
-		lemans-adp-star-overlay.dtbo
+		lemans-adas-high-adp-air-overlay.dtbo \
+		lemans-adas-high-adp-star-overlay.dtbo \
+		lemans-ivi-adp-air-overlay.dtbo \
+		lemans-ivi-adp-star-overlay.dtbo
 
 lemans-rumi-overlay.dtbo-base	:= lemans.dtb
-lemans-adp-air-overlay.dtbo-base	:= lemans.dtb
-lemans-adp-star-overlay.dtbo-base	:= lemans.dtb
+lemans-adas-high-adp-air-overlay.dtbo-base	:= lemans-adas-high.dtb
+lemans-adas-high-adp-star-overlay.dtbo-base	:= lemans-adas-high.dtb
+lemans-ivi-adp-air-overlay.dtbo-base	:= lemans-ivi.dtb
+lemans-ivi-adp-star-overlay.dtbo-base	:= lemans-ivi.dtb
 else
 dtb-$(CONFIG_ARCH_LEMANS) += lemans-rumi.dtb \
-	lemans-adp-air.dtb \
-	lemans-adp-star.dtb
+	lemans-adas-high-adp-air.dtb \
+	lemans-adas-high-adp-star.dtb \
+	lemans-ivi-adp-air.dtb \
+	lemans-ivi-adp-star.dtb
 endif
 
 always		:= $(dtb-y)
