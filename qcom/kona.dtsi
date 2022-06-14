@@ -3929,7 +3929,7 @@
 		clock-names = "xo";
 		qcom,proxy-clock-names = "xo";
 		qcom,pil-generic-irq-handler;
-		status = "disabled";
+		status = "ok";
 
 		qcom,signal-aop;
 		qcom,complete-ramdump;
