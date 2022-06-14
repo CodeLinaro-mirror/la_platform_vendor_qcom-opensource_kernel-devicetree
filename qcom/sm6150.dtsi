@@ -2604,6 +2604,10 @@
 				"l3-scu-errirq",
 				"l3-scu-faultirq";
 	};
+
+	qcom,power-state {
+		compatible = "qcom,power-state";
+	};
 };
 
 #include "sm6150-regulator.dtsi"
