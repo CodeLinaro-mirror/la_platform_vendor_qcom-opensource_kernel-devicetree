@@ -1859,8 +1859,10 @@
 
 		lanes-per-direction = <2>;
 		clock-names = "ref_clk_src",
+			"ref_clk",
 			"ref_aux_clk";
 		clocks = <&rpmhcc RPMH_CXO_CLK>,
+			<&gcc GCC_EDP_REF_CLKREF_EN>,
 			<&gcc GCC_UFS_PHY_PHY_AUX_CLK>;
 		resets = <&ufshc_mem 0>;
 		status = "disabled";
@@ -2388,11 +2390,14 @@
 	vdd-hba-fixed-regulator;
 
 	vcc-supply = <&L8A>;
-	vcc-voltage-level = <2950000 2960000>;
-	vcc-max-microamp = <800000>;
+	vcc-voltage-level = <2504000 2506000>;
+	vcc-max-microamp = <1100000>;
 
 	vccq-supply = <&L4C>;
-	vccq-max-microamp = <800000>;
+	vccq-max-microamp = <1200000>;
+
+	vccq2-supply = <&S4A>;
+	vccq2-max-microamp = <800000>;
 
 	qcom,vddp-ref-clk-supply = <&L4C>;
 	qcom,vddp-ref-clk-max-microamp = <100>;
