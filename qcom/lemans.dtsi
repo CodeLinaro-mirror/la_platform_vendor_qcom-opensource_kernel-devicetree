@@ -2385,7 +2385,7 @@
 };
 
 &ufsphy_mem {
-	compatible = "qcom,ufs-phy-qmp-v4-lahaina";
+	compatible = "qcom,ufs-phy-qmp-v4-waipio";
 
 	vdda-phy-supply = <&L4A>;
 	vdda-pll-supply = <&L1C>;
