@@ -2565,7 +2565,7 @@
 		qcom,wakeup-enable;
 	};
 
-	qcom,chd_sliver {
+	qcom,chd_silver {
 		compatible = "qcom,core-hang-detect";
 		label = "silver";
 		qcom,threshold-arr = <0x18000058 0x18010058 0x18020058
