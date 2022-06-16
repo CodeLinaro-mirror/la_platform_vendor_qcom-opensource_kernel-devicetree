@@ -3,6 +3,7 @@
 #include "sm6150-pmic-overlay.dtsi"
 
 #include "sm6150-pm.dtsi"
+#include "sm6150-thermal-overlay.dtsi"
 #include "sm6150-thermal.dtsi"
 #include "sm6150-coresight.dtsi"
 
@@ -335,6 +336,19 @@
 };
 
 &thermal_zones {
+	pm6150l_tz {
+		cooling-maps {
+			/delete-node/ trip0_cpu2;
+			/delete-node/ trip0_cpu3;
+			/delete-node/ trip0_cpu4;
+			/delete-node/ trip0_cpu5;
+			/delete-node/ trip1_cpu2;
+			/delete-node/ trip1_cpu3;
+			/delete-node/ trip1_cpu4;
+			/delete-node/ trip1_cpu5;
+		};
+	};
+
 	cpuss-0-step {
 		/delete-node/ cooling-maps;
 	};
