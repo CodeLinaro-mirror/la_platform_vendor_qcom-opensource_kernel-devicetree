@@ -646,7 +646,7 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 		lemans-ivi-adp-air-overlay.dtbo \
 		lemans-ivi-adp-star-overlay.dtbo
 
-lemans-rumi-overlay.dtbo-base	:= lemans.dtb
+lemans-rumi-overlay.dtbo-base	:= lemans-adas-high.dtb
 lemans-adas-high-adp-air-overlay.dtbo-base	:= lemans-adas-high.dtb
 lemans-adas-high-adp-star-overlay.dtbo-base	:= lemans-adas-high.dtb
 lemans-ivi-adp-air-overlay.dtbo-base	:= lemans-ivi.dtb
