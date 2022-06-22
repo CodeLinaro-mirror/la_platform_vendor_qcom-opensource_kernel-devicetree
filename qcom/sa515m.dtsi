@@ -11,7 +11,7 @@
 	#size-cells = <1>;
 	model = "Qualcomm Technologies, Inc. SA515M";
 	compatible = "qcom,sa515m";
-	qcom,msm-id = <418 0x20000>;
+	qcom,msm-id = <418 0x10000>;
 
 	interrupt-parent = <&intc>;
 
