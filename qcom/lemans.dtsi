@@ -2409,8 +2409,6 @@
 	qcom,vddp-ref-clk-supply = <&L4C>;
 	qcom,vddp-ref-clk-max-microamp = <100>;
 
-	qcom,disable-lpm;
-
 	status = "ok";
 };
 
