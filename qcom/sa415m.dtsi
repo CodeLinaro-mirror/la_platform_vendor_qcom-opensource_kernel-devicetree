@@ -1,5 +1,6 @@
 #include <dt-bindings/clock/qcom,rpmh.h>
 #include <dt-bindings/clock/qcom,gcc-sdxpoorwills.h>
+#include <dt-bindings/interconnect/qcom,sdxpoorwills.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
 
@@ -155,6 +156,10 @@
 			clocks = <&xo_board>;
 			clock-names = "xo";
 			#clock-cells = <1>;
+		};
+
+		apps_bcm_voter: bcm_voter {
+			compatible = "qcom,bcm-voter";
 		};
 	};
 
@@ -331,6 +336,36 @@
 		priority = <0>;
 		mbox-desc-offset = <0x0>;
 		#mbox-cells = <1>;
+	};
+
+	ipa_virt: interconnect@0 {
+		compatible = "qcom,sdxpoorwills-ipa_virt";
+		#interconnect-cells = <1>;
+		qcom,bcm-voter-names = "hlos";
+		qcom,bcm-voters = <&apps_bcm_voter>;
+	};
+
+	mc_virt: interconnect@1 {
+		compatible = "qcom,sdxpoorwills-mc_virt";
+		#interconnect-cells = <1>;
+		qcom,bcm-voter-names = "hlos";
+		qcom,bcm-voters = <&apps_bcm_voter>;
+	};
+
+	mem_noc: interconnect@1380000 {
+		compatible = "qcom,sdxpoorwills-mem_noc";
+		reg = <0x01380000 0x27200>;
+		#interconnect-cells = <1>;
+		qcom,bcm-voter-names = "hlos";
+		qcom,bcm-voters = <&apps_bcm_voter>;
+	};
+
+	system_noc: interconnect@1620000 {
+		compatible = "qcom,sdxpoorwills-system_noc";
+		reg = <0x1620000 0x2B080>;
+		#interconnect-cells = <1>;
+		qcom,bcm-voter-names = "hlos";
+		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
 
 	clocks {
