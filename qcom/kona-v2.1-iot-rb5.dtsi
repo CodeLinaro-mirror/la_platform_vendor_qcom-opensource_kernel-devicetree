@@ -247,7 +247,7 @@
 		reg = <0x45>;
 		rst-gpios = <&tlmm 140 GPIO_ACTIVE_HIGH>;
 		rtc_rst-gpios = <&tlmm 0 GPIO_ACTIVE_HIGH>;
-		//prg-gpios = <3 4 5>;
+		prg-gpios = <3 4 5>;
 		int-gpios = <&tlmm 122 GPIO_ACTIVE_HIGH>,
 			<&tlmm 123 GPIO_ACTIVE_HIGH>,
 			<&tlmm 66 GPIO_ACTIVE_HIGH>;
@@ -268,7 +268,7 @@
 		reg = <0x45>;
 		rst-gpios = <&tlmm 140 GPIO_ACTIVE_HIGH>;
 		rtc_rst-gpios = <&tlmm 0 GPIO_ACTIVE_HIGH>;
-		//prg-gpios = <0 1 2>;
+		prg-gpios = <0 1 2>;
 		int-gpios = <&tlmm 129 GPIO_ACTIVE_HIGH>,
 				<&tlmm 141 GPIO_ACTIVE_HIGH>,
 				<&tlmm 113 GPIO_ACTIVE_HIGH>;
