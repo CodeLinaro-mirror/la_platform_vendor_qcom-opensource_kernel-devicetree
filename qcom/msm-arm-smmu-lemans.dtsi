@@ -3,8 +3,8 @@
 &soc {
 	kgsl_smmu: kgsl-smmu@3da0000 {
 		compatible = "qcom,qsmmu-v500";
-		reg = <0x3DA0000 0x20000>,
-			<0x3DCA000 0x28>;
+		reg = <0x3da0000 0x20000>,
+			<0x3dca000 0x28>;
 		reg-names = "base", "tcu-base";
 		#iommu-cells = <2>;
 		qcom,skip-init;
@@ -13,6 +13,7 @@
 		#global-interrupts = <2>;
 		#size-cells = <1>;
 		#address-cells = <1>;
+		#tcu-testbus-version = <1>;
 		ranges;
 		dma-coherent;
 		qcom,regulator-names = "vdd";
@@ -94,6 +95,7 @@
 		#global-interrupts = <2>;
 		#size-cells = <1>;
 		#address-cells = <1>;
+		#tcu-testbus-version = <1>;
 		ranges;
 		dma-coherent;
 
@@ -179,6 +181,7 @@
 		#global-interrupts = <2>;
 		#size-cells = <1>;
 		#address-cells = <1>;
+		#tcu-testbus-version = <1>;
 		ranges;
 		interrupts =	<GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
 				<GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>,
