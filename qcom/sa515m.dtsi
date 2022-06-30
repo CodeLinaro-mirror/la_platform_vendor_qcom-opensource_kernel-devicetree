@@ -2,6 +2,7 @@
 #include <dt-bindings/clock/qcom,rpmh.h>
 #include <dt-bindings/interconnect/qcom,icc.h>
 #include <dt-bindings/interconnect/qcom,sdx55.h>
+#include <dt-bindings/clock/qcom,apsscc-sdxlemur.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
@@ -155,6 +156,20 @@
 	psci {
 		compatible = "arm,psci-1.0";
 		method = "smc";
+	};
+
+	msm_cpufreq: qcom, msm-cpufreq {
+		compatible = "qcom, msm-cpufreq";
+		clocks = <&clock_cpu APCS_MUX_CLK>;
+		clock-names = "cpu0_clk";
+
+		qcom,cpufreq-table-0 =
+				<  153600 >,
+				<  300000 >,
+				<  345600 >,
+				<  576000 >,
+				<  1094400 >,
+				<  1555200 >;
 	};
 
 	apps_rsc: rsc@17830000 {
