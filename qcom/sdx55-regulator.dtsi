@@ -89,8 +89,9 @@
 		mx_cdev: mx-cdev-lvl {
 			compatible = "qcom,regulator-cooling-device";
 			regulator-cdev-supply = <&VDD_MX_LEVEL>;
-			regulator-levels = <RPMH_REGULATOR_LEVEL_OFF
-					RPMH_REGULATOR_LEVEL_NOM>;
+			regulator-levels =
+				<RPMH_REGULATOR_LEVEL_RETENTION
+				 RPMH_REGULATOR_LEVEL_NOM>;
 			#cooling-cells = <2>;
 		};
 	};
