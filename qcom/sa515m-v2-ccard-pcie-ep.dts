@@ -32,7 +32,7 @@
 	ipa_smmu_uc: ipa_smmu_uc {
 		qcom,iommu-dma = "bypass";
 	};
-}:
+};
 
 &mhi_device {
 	reg = <0x1c03000 0x1000>,
