@@ -5,6 +5,7 @@
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
+#include <dt-bindings/gpio/gpio.h>
 
 / {
 	#address-cells = <1>;
@@ -950,6 +951,63 @@
 			interrupt-names = "ipa-smp2p-in";
 		};
 	};
+
+	ethqos_hw: qcom,ethernet@00020000 {
+		compatible = "qcom,sdxprairie-ethqos";
+		qcom,arm-smmu;
+		reg = <0x20000 0x10000>,
+			<0x36000 0x100>,
+			<0xf100000 0x300000>;
+		reg-names = "stmmaceth", "rgmii","tlmm-central-base";
+		clocks = <&gcc GCC_ETH_AXI_CLK>,
+			<&gcc GCC_ETH_SLAVE_AHB_CLK>,
+			<&gcc GCC_ETH_PTP_CLK>,
+			<&gcc GCC_ETH_RGMII_CLK>;
+		clock-names = "stmmaceth", "pclk", "ptp_ref", "rgmii";
+		interrupts-extended = <&intc 0 62 4>, <&intc 0 60 4>,
+			<&tlmm 90 2>, <&intc 0 290 1>, <&intc 0 291 1>;
+		interrupt-names = "macirq", "eth_lpi",
+			"phy-intr",	"ptp_pps_irq_0", "ptp_pps_irq_1";
+
+		snps,tso;
+		rx-fifo-depth = <4096>;
+		tx-fifo-depth = <4096>;
+
+		vreg_rgmii-supply = <&pmx55_vref_rgmii>;
+		vreg_emac_phy-supply =  <&vreg_emac_phy>;
+		vreg_rgmii_io_pads-supply = <&vreg_rgmii_io_pads>;
+		gdsc_emac-supply = <&gdsc_emac>;
+
+		qcom,phy-intr-redirect = <&tlmm 90 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "dev-emac_pin_pps_0", "dev-emac_pin_pps_1";
+		pinctrl-0 = <&emac_pin_pps_0>;
+		pinctrl-1 = <&emac_pin_pps_1>;
+		snps,reset-gpios = <&tlmm 91 GPIO_ACTIVE_HIGH>;
+
+		snps,reset-delays-us = <0 10000 100000>;
+		phy-mode = "rgmii";
+
+		ethqos_emb_smmu: ethqos_emb_smmu {
+				compatible = "qcom,emac-smmu-embedded";
+				iommus = <&apps_smmu 0x1c0 0xf>;
+				qcom,iommu-dma = "fastmap";
+				qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
+		};
+
+
+		rgmii-io-macro-info {
+			prg-rclk-dly = <1507>;
+			config-cdr-en = <0>;
+			mclk-gating-en = <1>;
+			cdr-fine-phase = <1>;
+			loopback-en = <0>;
+			rx-prog-swap = <1>;
+			tx-clk-phase-shift-en = <1>;
+			dll-clock-dis = <1>;
+			ddr-traffic-init-sel = <0>;
+			ddr-traffic-init-sw = <0>;
+			};
+		};
 };
 
 #include "sa515m-pinctrl.dtsi"
