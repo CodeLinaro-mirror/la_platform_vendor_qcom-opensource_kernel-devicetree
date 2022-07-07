@@ -40,6 +40,7 @@
 
 #include "display/quin-vm-display-la.dtsi"
 #include "direwolf-cnss.dtsi"
+#include "direwolf-cnss-dual.dtsi"
 
 &msm_ion {
 	qcom,ion-heap@10 {
@@ -101,6 +102,14 @@
 	status = "okay";
 };
 
+&pcie0 {
+	status = "okay";
+};
+
+&pcie2a_msi_snps {
+	status = "okay";
+};
+
 &pcie4 {
 	status = "okay";
 };
@@ -114,6 +123,14 @@
 };
 
 &qcom_rng_ee3 {
+	status = "okay";
+};
+
+&cnss_pcie0 {
+	status = "okay";
+};
+
+&cnss_pcie2 {
 	status = "okay";
 };
 
