@@ -53,6 +53,14 @@
 	status = "okay";
 };
 
+&usb_qmp_phy0 {
+	status = "okay";
+};
+
+&usb_qmp_phy1 {
+	status = "okay";
+};
+
 &usb2_phy2 {
 	status = "okay";
 };
