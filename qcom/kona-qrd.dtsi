@@ -188,7 +188,8 @@
 	redriver: redriver@1c {
 		compatible = "onnn,redriver";
 		reg = <0x1c>;
-		extcon = <&pm8150b_pdphy>, <&pm8150b_pdphy>;
+		set-aux = <1>;
+
 		eq = /bits/ 8 <
 				/* Parameters for USB */
 				0x4 0x4 0x4 0x4
@@ -211,8 +212,15 @@
 				0x3 0x3 0x3 0x3>;
 	};
 
+	fsa4480: fsa4480@43 {
+		status = "disabled";
+	};
 
 	#include "smb1390.dtsi"
+};
+
+&usb0 {
+	ssusb_redriver = <&redriver>;
 };
 
 &smb1390 {
