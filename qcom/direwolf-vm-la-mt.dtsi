@@ -49,6 +49,10 @@
 	status = "okay";
 };
 
+&usb_qmp_dp_phy0 {
+	status = "okay";
+};
+
 &usb2 {
 	status = "okay";
 };
