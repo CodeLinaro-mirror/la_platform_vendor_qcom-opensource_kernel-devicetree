@@ -4622,6 +4622,10 @@
 		qcom,firmware-name = "slpi";
 	};
 
+	qtee_shmbridge {
+		compatible = "qcom,tee-shared-memory-bridge";
+	};
+
 	qcom_smcinvoke: smcinvoke@87900000 {
 		compatible = "qcom,smcinvoke";
 		reg = <0x87900000 0x2200000>;
