@@ -159,9 +159,9 @@
 		method = "smc";
 	};
 
-	msm_cpufreq: qcom, msm-cpufreq {
-		compatible = "qcom, msm-cpufreq";
-		clocks = <&clock_cpu APCS_MUX_CLK>;
+	msm_cpufreq: qcom,msm-cpufreq {
+		compatible = "qcom,msm-cpufreq";
+		clocks = <&apsscc APCS_MUX_CLK>;
 		clock-names = "cpu0_clk";
 
 		qcom,cpufreq-table-0 =
