@@ -8,6 +8,9 @@
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
 #include <dt-bindings/gpio/gpio.h>
 
+#define MHZ_TO_MBPS(mhz, w) ((mhz * 1000000 * w) / (1024 * 1024))
+#define BW_OPP_ENTRY(mhz, w) opp-mhz {opp-hz = /bits/ 64 <MHZ_TO_MBPS(mhz, w)>;}
+
 / {
 	#address-cells = <1>;
 	#size-cells = <1>;
@@ -171,6 +174,39 @@
 				<  576000 >,
 				<  1094400 >,
 				<  1555200 >;
+	};
+
+	ddr_bw_opp_table: ddr-bw-opp-table {
+		compatible = "operating-points-v2";
+		BW_OPP_ENTRY( 100, 4); /*  381 MB/s */
+		BW_OPP_ENTRY( 200, 4); /*  762 MB/s */
+		BW_OPP_ENTRY( 300, 4); /* 1144 MB/s */
+		BW_OPP_ENTRY( 451, 4); /* 1720 MB/s */
+		BW_OPP_ENTRY( 547, 4); /* 2086 MB/s */
+		BW_OPP_ENTRY( 681, 4); /* 2597 MB/s */
+		BW_OPP_ENTRY( 768, 4); /* 2929 MB/s */
+		BW_OPP_ENTRY(1017, 4); /* 3879 MB/s */
+		BW_OPP_ENTRY(1353, 4); /* 5161 MB/s */
+		BW_OPP_ENTRY(1555, 4); /* 5931 MB/s */
+		BW_OPP_ENTRY(1804, 4); /* 6881 MB/s */
+	};
+
+	cpubw: qcom,cpubw {
+		compatible = "qcom,devfreq-icc";
+		governor = "cpufreq";
+		interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
+		qcom,active-only;
+		operating-points-v2 = <&ddr_bw_opp_table>;
+	};
+
+	devfreq-cpufreq {
+		cpubw-cpufreq {
+			target-dev = <&cpubw>;
+			cpu-to-dev-map =
+				<  576000 MHZ_TO_MBPS( 300, 4) >,
+				< 1497600 MHZ_TO_MBPS(1017, 4) >,
+				< 1555200 MHZ_TO_MBPS(1804, 4) >;
+		};
 	};
 
 	apps_rsc: rsc@17830000 {
@@ -471,6 +507,30 @@
 		qcom,rtb-size = <0x100000>;
 	};
 
+	keepalive_opp_table: keepalive-opp-table {
+		compatible = "operating-points-v2";
+		opp-1 {
+			opp-hz = /bits/ 64 < 1 >;
+		};
+	};
+
+	snoc_pcnoc_keepalive: qcom,snoc_pcnoc_keepalive {
+		compatible = "qcom,devfreq-icc";
+		governor = "powersave";
+		interconnects = <&mem_noc MASTER_APPSS_PROC &system_noc SLAVE_IMEM_CFG>;
+		qcom,active-only;
+		status = "ok";
+		operating-points-v2 = <&keepalive_opp_table>;
+	};
+
+	ddr_keepalive: qcom,ddr_keepalive {
+		compatible = "qcom,devfreq-icc";
+		governor = "powersave";
+		interconnects = <&mem_noc MASTER_APPSS_PROC &mc_virt SLAVE_EBI1>;
+		qcom,active-only;
+		status = "ok";
+		operating-points-v2 = <&keepalive_opp_table>;
+	};
 
 	qnand_1: nand@1b00000 {
 		compatible = "qcom,msm-nand";
