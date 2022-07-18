@@ -38,3 +38,7 @@
 &qupv3_2 {
 	status = "disabled";
 };
+
+&qcom_rng_ee3 {
+	status = "okay";
+};
