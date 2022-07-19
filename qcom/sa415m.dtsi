@@ -105,6 +105,7 @@
 			device_type = "cpu";
 			compatible = "arm,cortex-a7";
 			enable-method = "psci";
+			cpu-idle-states = <&A7_SPC &A7_PC &CX_MIN>;
 			reg = <0x0>;
 			#cooling-cells = <2>;
 		};
@@ -139,6 +140,10 @@
 				  <SLEEP_TCS   2>,
 				  <WAKE_TCS    2>,
 				  <CONTROL_TCS 1>;
+
+		system_pm {
+			compatible = "qcom,system-pm";
+		};
 	};
 
 	intc: interrupt-controller@17800000 {
@@ -287,3 +292,4 @@
 
 #include "sdxpoorwills-regulator.dtsi"
 #include "sa415m-pinctrl.dtsi"
+#include "sa415m-pm.dtsi"
