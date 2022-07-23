@@ -98,5 +98,10 @@
 		IOVDD-supply = <&codec_vreg>;
 		ai3x-ocmv = <1>;
 	};
-};
 
+	eeprom@52 {
+		compatible = "atmel,24c128";
+		reg = <0x52>;
+		pagesize = <32>;
+	};
+};
