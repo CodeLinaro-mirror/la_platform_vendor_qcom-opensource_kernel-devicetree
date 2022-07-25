@@ -72,9 +72,15 @@
 		vdd-wlan-s5c-supply = <&pm8150_2_s5>;
 		vdd-wlan-vh-supply = <&pm8150_2_l15>;
 
-		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-ctrl2";
+		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-ctrl2",
+			     "vdd-wlan-vl", "vdd-wlan-vm",
+			     "vdd-wlan-s5c", "vdd-wlan-vh";
 		qcom,vdd-wlan-ctrl1-config = <0 0 0 0 0>;
 		qcom,vdd-wlan-ctrl2-config = <0 0 0 0 0>;
+		qcom,vdd-wlan-vl-config = <1055000 1055000 0 0 0>;
+		qcom,vdd-wlan-vm-config = <1370000 1370000 0 0 0>;
+		qcom,vdd-wlan-s5c-config = <2040000 2040000 0 0 0>;
+		qcom,vdd-wlan-vh-config = <1900000 1900000 450000 0 0>;
 		wlan-en-gpio = <&tlmm 169 0>;
 		qcom,bt-en-gpio = <&tlmm 172 0>;
 		pinctrl-names = "wlan_en_active", "wlan_en_sleep";
