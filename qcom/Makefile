@@ -463,7 +463,9 @@ dtb-$(CONFIG_ARCH_KONA) += kona-v2-qrd.dtb \
 	qrb5165-iot-rb5.dtb \
         qrb5165m-iot-rb5.dtb \
         qrb5165n-v2-iot-rb5.dtb \
-	qrb5165n-iot-rb5.dtb
+	qrb5165n-iot-rb5.dtb \
+	qrb5165m-iot-rb5-pine.dtb \
+	qrb5165-iot-rb5-pine.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_SM6150) += \
