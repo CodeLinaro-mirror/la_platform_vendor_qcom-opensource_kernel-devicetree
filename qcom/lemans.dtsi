@@ -42,6 +42,7 @@
 		serial0 = &qupv3_se10_2uart;
 		ufshc1 = &ufshc_mem; /* Embedded UFS slot */
 		ufshc2 = &ufshc2_mem; /* Embedded 2nd UFS Slot */
+		hsuart0 = &qupv3_se17_4uart;
 	 };
 
 	soc: soc { };
