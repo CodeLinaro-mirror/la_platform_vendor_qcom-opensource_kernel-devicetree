@@ -975,26 +975,25 @@
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x0>;
 			snps,route-up;
-			snps,route-ptp;
-			snps,route-dcbcp;
+			snps,priority = <0x1>;
 		};
 
 		queue1 {
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x1>;
-			snps,route-avcp;
-			snps,route-multi-broad;
+			snps,route-ptp;
 		};
 
 		queue2 {
 			snps,avb-algorithm;
 			snps,map-to-dma-channel = <0x2>;
+			snps,route-avcp;
 		};
 
 		queue3 {
 			snps,avb-algorithm;
 			snps,map-to-dma-channel = <0x3>;
-			snps,priority = <0x0C>;
+			snps,priority = <0xC>;
 		};
 	};
 
@@ -1038,6 +1037,8 @@
 			<&gcc GCC_ETH_PTP_CLK>,
 			<&gcc GCC_ETH_RGMII_CLK>;
 		clock-names = "stmmaceth", "pclk", "ptp_ref", "rgmii";
+		snps,ptp-ref-clk-rate = <230400000>;
+		snps,ptp-req-clk-rate = <57600000>;
 		interrupts-extended = <&intc 0 62 4>, <&intc 0 60 4>,
 			<&tlmm 90 2>, <&intc 0 290 1>, <&intc 0 291 1>;
 		interrupt-names = "macirq", "eth_lpi",
