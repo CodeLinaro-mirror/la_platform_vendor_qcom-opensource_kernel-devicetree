@@ -43,6 +43,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -262,6 +263,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -481,6 +483,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -699,6 +702,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -923,6 +927,8 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
+
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 97200>;
 		qcom,vreg-cx-voltage-level = <RPMH_REGULATOR_LEVEL_MAX

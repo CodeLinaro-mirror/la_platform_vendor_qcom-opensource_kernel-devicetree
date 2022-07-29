@@ -45,6 +45,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -93,9 +94,9 @@
 				"pcie_pipe_clk_ext_src",
 				"pcie_aggre_noc_south_sf_axi_clk", "pcie_0_pipediv2_clk";
 
-		max-clock-frequency-hz = <0>, <0>, <19200000>, <0>, <0>, <0>,
+		max-clock-frequency-hz = <0>, <0>, <0>, <19200000>, <0>, <0>, <0>,
 					<0>, <0>, <0>, <0>, <100000000>, <0>,
-					<0>, <0>, <0>, <0>;
+					<0>, <0>, <0>;
 
 		resets = <&gcc GCC_PCIE_2A_BCR>,
 			<&gcc GCC_PCIE_2A_PHY_NOCSR_COM_PHY_BCR>;
@@ -264,6 +265,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -312,9 +314,9 @@
 				"pcie_pipe_clk_ext_src",
 				"pcie_aggre_noc_south_sf_axi_clk", "pcie_1_pipediv2_clk";
 
-		max-clock-frequency-hz = <0>, <0>, <19200000>, <0>, <0>, <0>,
+		max-clock-frequency-hz = <0>, <0>, <0>, <19200000>, <0>, <0>, <0>,
 					<0>, <0>, <0>, <0>, <100000000>, <0>,
-					<0>, <0>, <0>, <0>;
+					<0>, <0>, <0>;
 
 		resets = <&gcc GCC_PCIE_2B_BCR>,
 			<&gcc GCC_PCIE_2B_PHY_NOCSR_COM_PHY_BCR>;
@@ -483,6 +485,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -531,9 +534,9 @@
 				"pcie_pipe_clk_ext_src",
 				"pcie_aggre_noc_south_sf_axi_clk", "pcie_2_pipediv2_clk";
 
-		max-clock-frequency-hz = <0>, <0>, <19200000>, <0>, <0>, <0>,
+		max-clock-frequency-hz = <0>, <0>, <0>, <19200000>, <0>, <0>, <0>,
 					<0>, <0>, <0>, <0>, <100000000>, <0>,
-					<0>, <0>, <0>, <0>;
+					<0>, <0>, <0>;
 
 		resets = <&gcc GCC_PCIE_3A_BCR>,
 			<&gcc GCC_PCIE_3A_PHY_NOCSR_COM_PHY_BCR>;
@@ -701,6 +704,7 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 99000>;
@@ -749,9 +753,9 @@
 				"pcie_pipe_clk_ext_src",
 				"pcie_aggre_noc_south_sf_axi_clk", "pcie_3_pipediv2_clk";
 
-		max-clock-frequency-hz = <0>, <0>, <19200000>, <0>, <0>, <0>,
+		max-clock-frequency-hz = <0>, <0>, <0>, <19200000>, <0>, <0>, <0>,
 					<0>, <0>, <0>, <0>, <100000000>, <0>,
-					<0>, <0>, <0>, <0>;
+					<0>, <0>, <0>;
 
 		resets = <&gcc GCC_PCIE_3B_BCR>,
 			<&gcc GCC_PCIE_3B_PHY_NOCSR_COM_PHY_BCR>;
@@ -901,11 +905,11 @@
 		#interrupt-cells = <1>;
 		interrupt-map-mask = <0 0 0 0xffffffff>;
 
-		interrupt-map = <0 0 0 0 &intc GIC_SPI 518 IRQ_TYPE_LEVEL_HIGH
-				0 0 0 1 &intc GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH
-				0 0 0 2 &intc GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH
-				0 0 0 3 &intc GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH
-				0 0 0 4 &intc GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-map = <0 0 0 0 &intc 0 GIC_SPI 518 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 1 &intc 0 GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 2 &intc 0 GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 3 &intc 0 GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH
+				0 0 0 4 &intc 0 GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
 
 		msi-map = <0x0 &gic_its 0xe0000 0x10000>;
 
@@ -926,6 +930,8 @@
 		vreg-1p8-supply = <&L3A0>;
 		vreg-0p9-supply = <&L11A0>;
 		vreg-cx-supply = <&VDD_CX_LEVEL>;
+		qcom,nogdsc-retention;
+
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 25000>;
 		qcom,vreg-0p9-voltage-level = <880000 880000 97200>;
 		qcom,vreg-cx-voltage-level = <RPMH_REGULATOR_LEVEL_MAX
@@ -974,7 +980,7 @@
 				"pcie_aggre_noc_south_sf_axi_clk", "pcie_cnoc_4_qx",
 				"pcie_4_pipediv2_clk";
 
-		max-clock-frequency-hz = <0>, <0>, <19200000>, <0>, <0>, <0>,
+		max-clock-frequency-hz = <0>, <0>, <0>, <19200000>, <0>, <0>, <0>,
 					<0>, <0>, <0>, <0>, <100000000>, <0>,
 					<0>, <0>, <0>, <0>;
 
