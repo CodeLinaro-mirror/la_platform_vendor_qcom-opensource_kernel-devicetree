@@ -684,6 +684,43 @@
 		};
 	};
 
+
+	qcom_tzlog: tz-log@0x1468f720 {
+		compatible = "qcom,tz-log";
+		reg = <0x1468f720 0x2000>;
+	};
+
+	qtee_shmbridge {
+		compatible = "qcom,tee-shared-memory-bridge";
+	};
+
+	qcom_seecom: qseecom@90000000 {
+		compatible = "qcom,qseecom";
+		reg = <0x90000000 0x500000>;
+		reg-names = "secapp-region";
+		memory-region = <&qseecom_mem>;
+		qcom,hlos-num-ce-hw-instances = <1>;
+		qcom,hlos-ce-hw-instance = <0>;
+		qcom,qsee-ce-hw-instance = <0>;
+		qcom,no-clock-support;
+		qcom,msm-bus,name = "qseecom-noc";
+		qcom,msm-bus,num-cases = <4>;
+		qcom,msm-bus,num-paths = <1>;
+		qcom,msm-bus,vectors-KBps =
+			<125 512 0 0>,
+			<125 512 20000 40000>,
+			<125 512 30000 80000>,
+			<125 512 40000 100000>;
+		qcom,qsee-reentrancy-support = <2>;
+	};
+
+	qcom_smcinvoke: smcinvoke@90000000 {
+		compatible = "qcom,smcinvoke";
+		qcom,support-legacy_smc;
+		reg = <0x90000000 0x500000>;
+		reg-names = "secapp-region";
+	};
+
 	tcsr_mutex_block: syscon@1f40000 {
 		compatible = "syscon";
 		reg = <0x1f40000 0x20000>;
