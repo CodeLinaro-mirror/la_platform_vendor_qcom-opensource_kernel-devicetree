@@ -1143,6 +1143,7 @@
 			dll-clock-dis = <1>;
 			ddr-traffic-init-sel = <0>;
 			ddr-traffic-init-sw = <0>;
+			rgmii-tx-drv = <1>;
 			};
 		};
 };
