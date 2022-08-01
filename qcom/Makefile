@@ -523,9 +523,11 @@ dtb-$(CONFIG_ARCH_SDXLEMUR) += sdxlemur-rumi.dtb \
 
 dtb-$(CONFIG_ARCH_SA515M) += sa515m-ccard.dtb \
 	sa515m-ccard-eth-ep.dtb \
+	sa515m-ccard-eth-phy-ep.dtb \
 	sa515m-ccard-pcie-ep.dtb \
 	sa515m-ccard-usb-ep.dtb \
 	sa515m-v2-ccard-eth-ep.dtb \
+	sa515m-v2-ccard-eth-phy-ep.dtb \
 	sa515m-v2-ccard-pcie-ep.dtb \
 	sa515m-v2-ccard-usb-ep.dtb \
 	sa515m-v2-ccard.dtb \
