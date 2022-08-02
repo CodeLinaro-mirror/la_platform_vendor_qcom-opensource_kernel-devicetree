@@ -3081,6 +3081,6 @@
 	status = "ok";
 };
 
-#include "lemans-thermal.dtsi"
 #include "lemans-pcie.dtsi"
 #include "lemans-gpu.dtsi"
+#include "lemans-thermal.dtsi"
