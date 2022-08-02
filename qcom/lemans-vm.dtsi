@@ -1,3 +1,4 @@
+#include <dt-bindings/interconnect/qcom,lemans.h>
 #include "quin-vm-common.dtsi"
 
 / {
@@ -160,6 +161,53 @@
 				<GIC_SPI 893 IRQ_TYPE_LEVEL_HIGH>,
 				<GIC_SPI 892 IRQ_TYPE_LEVEL_HIGH>,
 				<GIC_SPI 891 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
+	virtio_icc: virtio_icc@0x1cc00000 {
+		compatible = "virtio,mmio";
+		reg = <0x1cc00000 0x1000>;
+		interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
+		#interconnect-cells = <1>;
+
+		xm_usb3_0 {
+			node-name = "usb3_0";
+			node-id = /bits/ 16 <MASTER_USB3_0>;
+			node-num-links = /bits/ 16 <1>;
+			node-links = /bits/ 16 <SLAVE_EBI1>;
+		};
+
+		qhm_pcie_0 {
+			node-name = "pcie_0";
+			node-id = /bits/ 16 <MASTER_PCIE_0>;
+			node-num-links = /bits/ 16 <1>;
+			node-links = /bits/ 16 <SLAVE_EBI1>;
+		};
+
+		qhm_pcie_1 {
+			node-name = "pcie_1";
+			node-id = /bits/ 16 <MASTER_PCIE_1>;
+			node-num-links = /bits/ 16 <1>;
+			node-links = /bits/ 16 <SLAVE_EBI1>;
+		};
+
+		ebi {
+			node-name = "ebi1";
+			node-id = /bits/ 16 <SLAVE_EBI1>;
+			node-num-links = /bits/ 16 <0>;
+		};
+
+		chm_apps {
+			node-name = "appss_proc";
+			node-id = /bits/ 16 <MASTER_APPSS_PROC>;
+			node-num-links = /bits/ 16 <1>;
+			node-links = /bits/ 16 <SLAVE_USB3_0>;
+		};
+
+		qhs_usb3_0 {
+			node-name = "usb3_0";
+			node-id = /bits/ 16 <SLAVE_USB3_0>;
+			node-num-links = /bits/ 16 <0>;
+		};
 	};
 };
 
