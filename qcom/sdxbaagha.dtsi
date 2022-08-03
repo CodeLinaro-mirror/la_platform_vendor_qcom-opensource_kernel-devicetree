@@ -146,7 +146,44 @@
 			reg = <0x0>;
 			qcom,freq-domain = <&cpufreq_hw 0>;
 			enable-method = "psci";
+			cpu-idle-states = <&A7_SPC &A7_PC>;
+			power-domains = <&CPU_PD0>;
+			power-domain-names = "psci";
 		};
+	};
+
+	idle-states {
+		entry-method = "psci";
+
+		A7_SPC: a7-c3 { /* C3 */
+			compatible = "arm,idle-state";
+			idle-state-name = "standalone-pc";
+			entry-latency-us = <350>;
+			exit-latency-us = <450>;
+			min-residency-us = <1774>;
+			arm,psci-suspend-param = <0x40000003>;
+			local-timer-stop;
+		};
+
+		A7_PC: a7-c4 { /* C4 */
+			compatible = "arm,idle-state";
+			idle-state-name = "pc";
+			entry-latency-us = <550>;
+			exit-latency-us = <750>;
+			min-residency-us = <6700>;
+			arm,psci-suspend-param = <0x40000004>;
+			local-timer-stop;
+		};
+
+		CX_MIN: cx-min { /* C8 */
+			compatible = "domain-idle-state";
+			idle-state-name = "cx-min";
+			entry-latency-us = <750>;
+			exit-latency-us = <2350>;
+			min-residency-us = <9144>;
+			arm,psci-suspend-param = <0x40000008>;
+		};
+
 	};
 
 	soc: soc { };
@@ -163,6 +200,16 @@
 	psci {
 		compatible = "arm,psci-1.0";
 		 method = "smc";
+
+		CPU_PD0: cpu-pd0 {
+			#power-domain-cells = <0>;
+			power-domains = <&CLUSTER_PD>;
+		};
+
+		CLUSTER_PD: cluster-pd {
+			#power-domain-cells = <0>;
+			domain-idle-states = <&CX_MIN>;
+		};
 	};
 
 	intc: interrupt-controller@17000000 {
@@ -337,6 +384,7 @@
 		interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
 			     <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>, /* dummy */
 			     <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+		power-domains = <&CLUSTER_PD>;
 
 		apps_rsc_drv2: drv@2 {
 			qcom,drv-id = <2>;
@@ -370,6 +418,11 @@
 		#interrupt-cells = <2>;
 		interrupt-parent = <&intc>;
 		interrupt-controller;
+	};
+
+	cluster-device {
+		compatible = "qcom,lpm-cluster-dev";
+		power-domains = <&CLUSTER_PD>;
 	};
 
 	timer {
