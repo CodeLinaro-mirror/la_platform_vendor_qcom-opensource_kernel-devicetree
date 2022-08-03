@@ -1407,3 +1407,4 @@
 		};
 	};
 };
+#include "sdxprairie-coresight.dtsi"
