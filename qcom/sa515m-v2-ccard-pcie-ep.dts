@@ -52,3 +52,7 @@
 	qcom,status-out2-gpio = <&tlmm 31 0x00>;
 	status = "okay";
 };
+
+&usb {
+	qcom,iommu-dma = "bypass";
+};
