@@ -460,6 +460,8 @@ dtb-$(CONFIG_ARCH_KONA) += kona-v2-qrd.dtb \
 	kona-v2.1-mtp.dtb \
 	kona-v2.1-qrd.dtb \
 	kona-v2.1-iot-rb5.dtb \
+	kona-7230-iot-rb5.dtb \
+	kona-7230m-iot-rb5.dtb \
 	qrb5165-iot-rb5.dtb \
         qrb5165m-iot-rb5.dtb \
         qrb5165n-v2-iot-rb5.dtb \
