@@ -24,6 +24,7 @@
 
 	aliases {
 		qpic_nand1 = &qnand_1;
+		pci-domain0 = &pcie0;
 	};
 
 	reserved_mem: reserved-memory {
@@ -1128,3 +1129,4 @@
 &gdsc_usb30 {
 	status = "ok";
 };
+#include "sa415m-pcie.dtsi"
