@@ -209,6 +209,26 @@
 			node-num-links = /bits/ 16 <0>;
 		};
 	};
+
+	pcie_0_pipe_clk: pcie_0_pipe_clk {
+		compatible = "fixed-clock";
+		clock-frequency = <1000>;
+		clock-output-names = "pcie_0_pipe_clk";
+		#clock-cells = <0>;
+	};
+
+	pcie_1_pipe_clk: pcie_1_pipe_clk {
+		compatible = "fixed-clock";
+		clock-frequency = <1000>;
+		clock-output-names = "pcie_1_pipe_clk";
+		#clock-cells = <0>;
+	};
+
+	rpmh_cxo_clk: rpmh_cxo_clk {
+		compatible = "qcom,dummycc";
+		clock-output-names = "bi_tcxo";
+		#clock-cells = <0>;
+	};
 };
 
 &regulator {
