@@ -615,6 +615,18 @@
 			interrupts-extended = <&smp2p_ipa_1_in 0 0>;
 			interrupt-names = "ipa-smp2p-in";
 		};
+
+	serial_uart: serial@831000 {
+		compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
+		reg = <0x831000 0x200>;
+		interrupts = <0 26 0>;
+		clocks = <&gcc GCC_BLSP1_UART3_APPS_CLK>,
+			<&gcc GCC_BLSP1_AHB_CLK>;
+		clock-names = "core", "iface";
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&uart3_console_active>;
+		pinctrl-1 = <&uart3_console_sleep>;
+		status = "ok";
 	};
 
 	apcs_glb: mailbox@0x17811000 {
@@ -770,6 +782,7 @@
 
 #include "sdxpoorwills-regulator.dtsi"
 #include "sa415m-pinctrl.dtsi"
+#include "sa415m-blsp.dtsi"
 #include "sa415m-ion.dtsi"
 #include "sa415m-pm.dtsi"
 #include "sdxpoorwills-thermal.dtsi"
