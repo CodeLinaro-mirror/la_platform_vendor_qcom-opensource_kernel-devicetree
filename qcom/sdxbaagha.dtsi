@@ -425,6 +425,17 @@
 		power-domains = <&CLUSTER_PD>;
 	};
 
+	soc-sleep-stats@c370000 {
+		compatible = "qcom,rpmh-sleep-stats";
+		reg = <0xc370000 0x400>;
+		ss-name = "modem", "apss";
+	};
+
+	subsystem-sleep-stats@c370000 {
+		compatible = "qcom,subsystem-sleep-stats";
+		reg = <0xc370000 0x400>;
+	};
+
 	timer {
 		compatible = "arm,armv7-timer";
 		interrupts = <1 13 0xf08>,
