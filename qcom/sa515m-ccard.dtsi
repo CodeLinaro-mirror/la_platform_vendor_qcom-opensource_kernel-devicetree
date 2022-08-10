@@ -62,6 +62,14 @@
 		qcom,msm_audio_ssr_devs = <&audio_apr>, <&q6core>;
 	};
 
+	pps {
+		compatible = "pps-gpio";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_pps>;
+		gpios = <&tlmm 32 GPIO_ACTIVE_HIGH>;
+		status = "okay";
+	};
+
 };
 
 &snd_934x {
