@@ -283,6 +283,8 @@
 	status = "disabled";
 };
 
+#include "lemans-vm-audio.dtsi"
+
 &hab {
 	vmid = <3>;
 };
