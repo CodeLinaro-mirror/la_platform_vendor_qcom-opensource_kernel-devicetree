@@ -275,10 +275,6 @@
 	};
 };
 
-&gcc {
-	status = "disabled";
-};
-
 &scc {
 	status = "disabled";
 };
