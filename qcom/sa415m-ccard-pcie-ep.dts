@@ -9,3 +9,18 @@
 	qcom,board-id = <25 1>, <25 0x101>;
 };
 
+&ipa_hw {
+	qcom,use-ipa-in-mhi-mode;
+	qcom,mhi-event-ring-id-limits = <7 13>; /* start and end */
+	ipa_smmu_ap: ipa_smmu_ap {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_wlan: ipa_smmu_wlan {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_uc: ipa_smmu_uc {
+		qcom,iommu-dma = "bypass";
+	};
+};
