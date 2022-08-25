@@ -104,6 +104,12 @@
 			qcom,intents = <0x38 1>;
 		};
 
+		qcom,glinkpkt-slate-location-ctrl {
+			qcom,glink-channels = "location_ctrl";
+			qcom,intents = <0x1000 2
+					0x3E8  2>;
+		};
+
 		qcom,glink-slate-display-data  {
 			qcom,glink-channels = "display-data";
 			qcom,intents = <0x10 1>;
