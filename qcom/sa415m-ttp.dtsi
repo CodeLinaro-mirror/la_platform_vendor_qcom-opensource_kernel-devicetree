@@ -1,1 +1,5 @@
 #include "sa415m-mtp.dtsi"
+
+&vbus_detect {
+	status = "okay";
+};

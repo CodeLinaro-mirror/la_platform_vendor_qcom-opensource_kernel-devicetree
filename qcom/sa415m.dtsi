@@ -1045,8 +1045,37 @@
 		< 1094400 >,
 		< 1497600 >;
 	};
+
+	spmi_bus: qcom,spmi@c440000 {
+		compatible = "qcom,spmi-pmic-arb";
+		reg = <0xc440000 0x1100>,
+			<0xc600000 0x2000000>,
+			<0xe600000 0x100000>,
+			<0xe700000 0xa0000>,
+			<0xc40a000 0x26000>;
+		reg-names = "core", "chnls",
+			"obsrvr", "intr", "cnfg";
+		interrupt-names = "periph_irq";
+		interrupts-extended = <&pdc 1 IRQ_TYPE_LEVEL_HIGH>;
+		qcom,ee = <0>;
+		qcom,channel = <0>;
+		#address-cells = <2>;
+		#size-cells = <0>;
+		interrupt-controller;
+		#interrupt-cells = <4>;
+		cell-index = <0>;
+	};
+
+	vbus_detect: qcom,pmd-vbus-det {
+		compatible = "qcom,pmd-vbus-det";
+		interrupt-parent = <&spmi_bus>;
+		interrupts = <0x0 0x0d 0x0 IRQ_TYPE_NONE>;
+		interrupt-names = "usb_vbus";
+		status = "disabled";
+	};
 };
 
+#include "pmxpoorwills.dtsi"
 #include "sdxpoorwills-regulator.dtsi"
 #include "sa415m-pinctrl.dtsi"
 #include "sa415m-blsp.dtsi"
