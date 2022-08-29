@@ -837,12 +837,12 @@
 &tlmm {
 	bt_en_active: bt_en_active {
 		mux {
-			pins = "gpio126", "gpio31";
+			pins = "gpio126";
 			function = "gpio";
 		};
 
 		config {
-			pins = "gpio126", "gpio31";
+			pins = "gpio126";
 			drive-strength = <2>;
 			bias-pull-down;
 		};
@@ -851,4 +851,33 @@
 
 &qupv3_se6_4uart {
 	status = "ok";
+};
+
+&tlmm {
+	bt_en_active_1: bt_en_active_1 {
+		mux {
+			pins = "gpio31";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio31";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+};
+
+&soc {
+	/* Control new Bluetooth chip's power */
+	bluetooth1: bt-qca-auto-dual {
+		compatible = "qcom,qca-auto-dual";
+		pinctrl-names = "default";
+		pinctrl-0 = <&bt_en_active_1>;
+		/* BT_EN */
+		qcom,bt-reset-gpio = <&tlmm 31 0>;
+		/* WL_EN */
+		qcom,wl-reset-gpio = <&tlmm 65 0>;
+
+	};
 };
