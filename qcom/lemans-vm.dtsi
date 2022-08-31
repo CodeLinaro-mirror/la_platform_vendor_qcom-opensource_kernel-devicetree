@@ -1,3 +1,4 @@
+#include <dt-bindings/clock/qcom,gcc-lemans.h>
 #include <dt-bindings/interconnect/qcom,lemans.h>
 #include "quin-vm-common.dtsi"
 
@@ -282,6 +283,9 @@
 	};
 };
 
+#include "lemans-pinctrl.dtsi"
+#include "lemans-qupv3.dtsi"
+
 &scc {
 	status = "disabled";
 };
@@ -296,4 +300,28 @@
 
 &wdog {
 	status = "disabled";
+};
+
+&qupv3_0 {
+	/delete-property/ qcom,msm-bus,num-paths;
+	/delete-property/ qcom,msm-bus,vectors-bus-ids;
+	qcom,iommu-dma = "bypass";
+};
+
+&qupv3_1 {
+	/delete-property/ qcom,msm-bus,num-paths;
+	/delete-property/ qcom,msm-bus,vectors-bus-ids;
+	qcom,iommu-dma = "bypass";
+};
+
+&qupv3_2 {
+	/delete-property/ qcom,msm-bus,num-paths;
+	/delete-property/ qcom,msm-bus,vectors-bus-ids;
+	qcom,iommu-dma = "bypass";
+};
+
+&qupv3_3 {
+	/delete-property/ qcom,msm-bus,num-paths;
+	/delete-property/ qcom,msm-bus,vectors-bus-ids;
+	qcom,iommu-dma = "bypass";
 };
