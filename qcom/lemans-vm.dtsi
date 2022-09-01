@@ -285,6 +285,7 @@
 
 #include "lemans-pinctrl.dtsi"
 #include "lemans-qupv3.dtsi"
+#include "pm8775-vm.dtsi"
 
 &scc {
 	status = "disabled";
@@ -292,10 +293,6 @@
 
 &hab {
 	vmid = <3>;
-};
-
-&spmi_bus {
-	status = "disabled";
 };
 
 &wdog {
