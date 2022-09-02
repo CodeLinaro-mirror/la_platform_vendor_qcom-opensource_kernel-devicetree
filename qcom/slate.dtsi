@@ -222,12 +222,12 @@
 
 		qcom,glin-dcf-bt-ctrl {
 			qcom,glink-channels = "dcf_bt_ctrl";
-			qcom,intents = <0x50 1>;
+			qcom,intents = <0x500 1>;
 		};
 
 		qcom,glink-dcf-bt-data {
 			qcom,glink-channels = "dcf_bt_data";
-			qcom,intents = <0x100 1>;
+			qcom,intents = <0x1000 1>;
 		};
 
 		audio_ipc: qcom,audio_cc_ipc {
