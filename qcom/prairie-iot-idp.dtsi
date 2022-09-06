@@ -515,6 +515,7 @@
 
 &sde_dsi {
 	qcom,dsi-hibernate-splash-enable;
+	qcom,dsi-reserve-splash-region;
 };
 
 &sde_dp {
