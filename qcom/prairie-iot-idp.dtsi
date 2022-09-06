@@ -513,6 +513,10 @@
 	status = "ok";
 };
 
+&sde_dsi {
+	qcom,dsi-hibernate-splash-enable;
+};
+
 &sde_dp {
 	status="disabled";
 };
