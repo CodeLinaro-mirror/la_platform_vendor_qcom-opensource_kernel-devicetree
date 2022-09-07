@@ -68,6 +68,7 @@
 		};
 
 		audio_mem: audio_region@0 {
+			compatible = "shared-dma-pool";
 			reusable;
 			size = <0x400000>;
 		};
@@ -78,13 +79,15 @@
 		};
 
 		qseecom_mem: qseecom_region@0 {
-		     reusable;
-		     alignment = <0x400000>;
-		     size = <0x800000>;
-		     status = "disabled";
+			compatible = "shared-dma-pool";
+			reusable;
+			alignment = <0x400000>;
+			size = <0x800000>;
+			status = "disabled";
 		};
 
 		qseecom_ta_mem: qseecom_ta_region@0 {
+			compatible = "shared-dma-pool";
 			reusable;
 			alignment = <0x400000>;
 			size = <0x400000>;
@@ -300,5 +303,6 @@
 
 #include "sdxpoorwills-regulator.dtsi"
 #include "sa415m-pinctrl.dtsi"
+#include "sa415m-ion.dtsi"
 #include "sa415m-pm.dtsi"
 #include "sdxpoorwills-thermal.dtsi"
