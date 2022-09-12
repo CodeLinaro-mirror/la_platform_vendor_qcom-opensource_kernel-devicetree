@@ -294,6 +294,16 @@
 		};
 	};
 
+	qcom,wdt@17817000 {
+		compatible = "qcom,msm-watchdog";
+		reg = <0x17817000 0x1000>;
+		reg-names = "wdt-base";
+		interrupts = <1 3 0>, <1 2 0>;
+		qcom,bark-time = <11000>;
+		qcom,pet-time = <9360>;
+		qcom,wakeup-enable;
+	};
+
 	restart_pshold: restart@c264000 {
 		compatible = "qcom,pshold";
 		reg = <0x0c264000 0x4>,
