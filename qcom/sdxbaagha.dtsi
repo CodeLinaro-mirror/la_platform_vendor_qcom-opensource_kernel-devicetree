@@ -22,6 +22,8 @@
 		bootargs = "pcie_ports=compat";
 	};
 
+	firmware: firmware { };
+
 	memory { device_type = "memory"; reg = <0 0>; };
 
 	reserved_memory: reserved-memory {
@@ -409,6 +411,11 @@
 		regulator-name = "gcc_usb20_gdsc";
 	};
 
+	tcsr: syscon@1fc0000 {
+		compatible = "syscon";
+		reg = <0x1fc0000 0x30000>;
+	};
+
 	qcom,dload-mode {
 		compatible = "qcom,dload-mode";
 	};
@@ -469,6 +476,13 @@
 		qcom,skip-qos;
 	};
 
+};
+
+&firmware {
+	qcom_scm {
+		compatible = "qcom,scm";
+		qcom,dload-mode = <&tcsr 0x13000>;
+	};
 };
 
 #include "sdxbaagha-pinctrl.dtsi"
