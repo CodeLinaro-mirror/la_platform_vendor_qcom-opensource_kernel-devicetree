@@ -368,6 +368,22 @@
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
 
+	keepalive_opp_table: keepalive-opp-table {
+		compatible = "operating-points-v2";
+		opp-1 {
+			opp-hz = /bits/ 64 < 1 >;
+		};
+	};
+
+	snoc_cnoc_keepalive: qcom,snoc_cnoc_keepalive {
+		compatible = "qcom,devfreq-icc";
+		governor = "powersave";
+		interconnects = <&system_noc MASTER_QDSS_BAM &system_noc SLAVE_AOP>;
+		operating-points-v2 = <&keepalive_opp_table>;
+		qcom,active-only;
+		status = "ok";
+	};
+
 	clocks {
 		xo_board: xo-board {
 			compatible = "fixed-clock";
