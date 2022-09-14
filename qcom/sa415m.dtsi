@@ -331,6 +331,7 @@
 		priority = <0>;
 		mbox-desc-offset = <0x0>;
 		#mbox-cells = <1>;
+	};
 
 	clocks {
 		xo_board: xo-board {
