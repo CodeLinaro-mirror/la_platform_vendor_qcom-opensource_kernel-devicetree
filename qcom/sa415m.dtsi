@@ -6,6 +6,9 @@
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/clock/qcom,apsscc-sdxlemur.h>
 
+#define MHZ_TO_MBPS(mhz, w) ((mhz * 1000000 * w) / (1024 * 1024))
+#define BW_OPP_ENTRY(mhz, w) opp-mhz {opp-hz = /bits/ 64 <MHZ_TO_MBPS(mhz, w)>;}
+
 / {
 	#address-cells = <1>;
 	#size-cells = <1>;
@@ -1044,6 +1047,35 @@
 		<  576000 >,
 		< 1094400 >,
 		< 1497600 >;
+	};
+
+	ddr_bw_opp_table: ddr-bw-opp-table {
+		compatible = "operating-points-v2";
+		BW_OPP_ENTRY( 200, 4);  /*   762 MB/s */
+		BW_OPP_ENTRY( 470, 4);  /*   1792 MB/s */
+		BW_OPP_ENTRY( 547, 4);  /*   2086 MB/s */
+		BW_OPP_ENTRY( 691, 4);  /*   2634 MB/s */
+		BW_OPP_ENTRY( 806, 4);  /*   3074 MB/s */
+		BW_OPP_ENTRY( 940, 4);  /*   3584 MB/s */
+		BW_OPP_ENTRY( 1383, 4); /*   5274 MB/s */
+	};
+
+	cpubw: qcom,cpubw {
+		compatible = "qcom,devfreq-icc";
+		governor = "cpufreq";
+		interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
+		qcom,active-only;
+		operating-points-v2 = <&ddr_bw_opp_table>;
+	};
+
+	devfreq-cpufreq {
+		cpubw-cpufreq {
+			target-dev = <&cpubw>;
+			cpu-to-dev-map =
+				<  153600 MHZ_TO_MBPS( 200, 4) >,
+				<  576000 MHZ_TO_MBPS( 691, 4) >,
+				< 1497600 MHZ_TO_MBPS(1383, 4) >;
+		};
 	};
 
 	spmi_bus: qcom,spmi@c440000 {
