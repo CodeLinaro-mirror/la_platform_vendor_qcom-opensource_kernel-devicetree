@@ -303,8 +303,12 @@
 	};
 };
 
+&sde_wb {
+	status = "disabled";
+};
+
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &sde_wb &sde_dsi &sde_dsi1 &sde_rscc>;
+	connectors = <&smmu_sde_unsec &sde_dsi &sde_dsi1 &sde_rscc>;
 };
 
 &qupv3_se5_i2c {
