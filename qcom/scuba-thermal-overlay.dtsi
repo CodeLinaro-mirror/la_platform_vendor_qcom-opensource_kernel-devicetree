@@ -4,6 +4,7 @@
 	pm2250-tz {
 		cooling-maps {
 			trip0_cpu0 {
+				#cooling-cells = <2>;
 				trip = <&pm2250_trip0>;
 				cooling-device =
 					<&CPU0 THERMAL_MAX_LIMIT
@@ -30,6 +31,7 @@
 	socd {
 		cooling-maps {
 			soc_cpu0 {
+				#cooling-cells = <2>;
 				trip = <&pm2250_socd_trip>;
 				cooling-device =
 					<&CPU0 (THERMAL_MAX_LIMIT-4)

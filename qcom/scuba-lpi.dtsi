@@ -1,5 +1,5 @@
 &q6core {
-	lpi_tlmm: lpi_pinctrl@0a7c0000 {
+	lpi_tlmm: lpi_pinctrl@a7c0000 {
 		compatible = "qcom,lpi-pinctrl";
 		reg = <0x0a7c0000 0x0>;
 		qcom,slew-reg = <0x0a95a000 0x0>;

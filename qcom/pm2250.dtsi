@@ -179,7 +179,7 @@
 		pm2250_qg: qpnp,qg {
 			compatible = "qcom,qpnp-qg-lite";
 			#address-cells = <1>;
-			#size-cells = <1>;
+			#size-cells = <0>;
 
 			qcom,vbatt-cutoff-mv = <3400>;
 			qcom,vbatt-low-mv = <3500>;
@@ -214,7 +214,7 @@
 		pm2250_charger: qcom,qpnp-smblite {
 			compatible = "qcom,qpnp-smblite";
 			#address-cells = <1>;
-			#size-cells = <1>;
+			#size-cells = <0>;
 			#cooling-cells = <2>;
 
 			qcom,pmic-revid = <&pm2250_revid>;

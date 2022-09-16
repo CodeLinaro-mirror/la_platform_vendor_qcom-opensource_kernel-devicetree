@@ -55,7 +55,7 @@
 				<&bimc MASTER_AMPSS_M0 &config_noc SLAVE_USB3>;
 
 		qcom,interconnect-values-nom = /* NOMINAL Votes */
-						<1000000 1550000>,
+						<240000 700000>,
 						<0 2400>,
 						<0 40000>;
 		qcom,interconnect-values-svs = /* SVS Votes */
@@ -75,15 +75,15 @@
 			snps,dis_u2_susphy_quirk;
 			snps,dis_enblslpm_quirk;
 			snps,has-lpm-erratum;
-			snps,hird-threshold = /bits/ 8 <0x0>;
-			snps,is-utmi-l1-suspend;
+			snps,hird-threshold = /bits/ 8 <0x10>;
+			snps,usb3-u1u2-disable;
 			snps,usb3_lpm_capable;
 			usb-core-id = <0>;
 			maximum-speed = "super-speed";
 			dr_mode = "otg";
 		};
 
-		qcom,usbbam@0x04f04000 {
+		qcom,usbbam@4f04000 {
 			compatible = "qcom,usb-bam-msm";
 			reg = <0x04f04000 0x17000>;
 			interrupts = <GIC_SPI 253 IRQ_TYPE_LEVEL_HIGH>;
