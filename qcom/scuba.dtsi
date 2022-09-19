@@ -1116,7 +1116,6 @@
 		BW_OPP_ENTRY_DDR( 547, 8, 0xA0); /* 4173 MB/s */
 		BW_OPP_ENTRY_DDR( 681, 8, 0xA0); /* 5195 MB/s */
 		BW_OPP_ENTRY_DDR( 768, 8, 0xA0); /* 5859 MB/s */
-		BW_OPP_ENTRY_DDR( 931, 8, 0x20); /* 7102 MB/s */
 		BW_OPP_ENTRY_DDR(1017, 8, 0x80); /* 7759 MB/s */
 		BW_OPP_ENTRY_DDR(1353, 8, 0x80); /*10322 MB/s */
 		BW_OPP_ENTRY_DDR(1555, 8, 0x80); /*11863 MB/s */
@@ -1132,7 +1131,6 @@
 		BW_OPP_ENTRY_DDR( 547, 8, 0xA0); /* 4173 MB/s */
 		BW_OPP_ENTRY_DDR( 681, 8, 0xA0); /* 5195 MB/s */
 		BW_OPP_ENTRY_DDR( 768, 8, 0xA0); /* 5859 MB/s */
-		BW_OPP_ENTRY_DDR( 931, 8, 0x20); /* 7102 MB/s */
 		BW_OPP_ENTRY_DDR(1017, 8, 0x80); /* 7759 MB/s */
 		BW_OPP_ENTRY_DDR(1353, 8, 0x80); /*10322 MB/s */
 		BW_OPP_ENTRY_DDR(1555, 8, 0x80); /*11863 MB/s */
@@ -1141,10 +1139,10 @@
 
 	cpu_cpu_ddr_bw: qcom,cpu-cpu-ddr-bw {
 		compatible = "qcom,devfreq-icc-ddr";
-		governor = "performance";
+		governor = "bw_hwmon";
 		interconnects = <&bimc MASTER_AMPSS_M0 &bimc SLAVE_EBI_CH0>;
 		qcom,active-only;
-		operating-points-v2 = <&ddr_bw_opp_table>;
+		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
 	};
 
 	cpu_cpu_ddr_bwmon: qcom,cpu-cpu-ddr-bwmon@01b8e200 {
@@ -1160,18 +1158,19 @@
 
 	cpu0_cpu_ddr_latfloor: qcom,cpu0-cpu-ddr-latfloor {
 		compatible = "qcom,devfreq-icc-ddr";
-		governor = "performance";
+		governor = "compute";
 		interconnects = <&bimc MASTER_AMPSS_M0 &bimc SLAVE_EBI_CH0>;
 		qcom,active-only;
-		operating-points-v2 = <&ddr_bw_opp_table>;
+		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
 	};
 
 	cpu0_cpu_ddr_lat: qcom,cpu0-cpu-ddr-lat {
 		compatible = "qcom,devfreq-icc-ddr";
-		governor = "performance";
+		governor = "mem_latency";
 		interconnects = <&bimc MASTER_AMPSS_M0 &bimc SLAVE_EBI_CH0>;
 		qcom,active-only;
-		operating-points-v2 = <&ddr_bw_opp_table>;
+		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
+		status = "disabled";
 	};
 
 	cpu0_memlat_cpugrp: qcom,cpu0-cpugrp {
@@ -1183,6 +1182,7 @@
 			qcom,cpulist = <&CPU0 &CPU1 &CPU2 &CPU3>;
 			qcom,target-dev = <&cpu0_cpu_ddr_lat>;
 			qcom,cachemiss-ev = <0x17>;
+			status = "disabled";
 			ddr3-map {
 				qcom,ddr-type = <DDR_TYPE_LPDDR3>;
 				qcom,core-dev-table =
