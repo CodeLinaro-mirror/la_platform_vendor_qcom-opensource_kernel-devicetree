@@ -214,6 +214,13 @@ interconnects:
 		- BIT(1)	PCIe bus driver will not start enumeration if it
 				receives a WAKE interrupt
 
+- qcom,nogdsc_retention:
+	Usage: optional
+	Value type: <bool>
+	Definition: PCIe GDSC retention is not supported. PCIe
+		root complex driver should not turn off GDSC if this property
+		is set.
+
 - qcom,drv-supported:
 	Usage: optional
 	Value type: <bool>
