@@ -25,10 +25,22 @@
 		#size-cells = <1>;
 		ranges;
 
-		peripheral2_mem: peripheral2_region@8fe00000 {
-			 no-map;
-			 reg = <0x8fe40000 0xdc0000>;
-			 label = "peripheral2_mem";
+		ac_db_mem: ac_db_region@90c00000 {
+			no-map;
+			reg = <0x90c00000 0x800000>;
+			label = "ac_db_mem";
+		};
+
+		peripheral2_mem: peripheral2_region@8ff00000 {
+			no-map;
+			reg = <0x8ff00000 0xd00000>;
+			label = "peripheral2_mem";
+		};
+
+		smem_mem: smem_region@8fe40000 {
+			no-map;
+			reg = <0x8fe40000 0xc0000>;
+			label = "smem_mem";
 		};
 
 		cmd_db: reserved-memory@8fe20000 {
@@ -43,31 +55,50 @@
 		};
 
 		sbl_region: sbl_region@8fd00000 {
-		    no-map;
-		    reg = <0x8fd00000 0x100000>;
-		    label = "sbl_mem";
+			no-map;
+			reg = <0x8fd00000 0x100000>;
+			label = "sbl_mem";
 		};
 
-		flex_sec_apps_mem: flex_sec_apps_regions@8fcfd000 {
-			   no-map;
-			   reg = <0x8fcfd000 0x3000>;
+		flex_sec_apps_mem: flex_sec_apps_regions@8fcfe000 {
+			no-map;
+			reg = <0x8fcfe000 0x2000>;
 		};
 
-		access_control_mem: access_control_mem@8fc80000 {
-			    no-map;
-			    reg = <0x8fc80000 0x40000>;
+		secdata_mem: secdata_region@8fcfd000 {
+			no-map;
+			reg = <0x8fcfd000 0x1000>;
+			label = "secdata_mem";
+		};
+
+		ipa_fw_mem: ipa_fw_region@8fced000 {
+			no-map;
+			reg = <0x8fced000 0x10000>;
+			label = "ipa_fw_mem";
 		};
 
 		hyp_region: hyp_region@8fc00000 {
-		    no-map;
-		    reg = <0x8fc00000 0x80000>;
-		    label = "hyp_mem";
+			no-map;
+			reg = <0x8fc00000 0x80000>;
+			label = "hyp_mem";
 		};
 
-		mss_mem: mss_region@87400000 {
+		abl_mem: abl_region@8fb00000 {
 			no-map;
-			reg = <0x86c00000 0x8b00000>;
-			label = "mss_mem";
+			reg = <0x8fb00000 0x100000>;
+			label = "abl_mem";
+		};
+
+		uefi_mem: uefi_region@8f700000 {
+			no-map;
+			reg = <0x8f700000 0x400000>;
+			label = "uefi_mem";
+		};
+
+		mpss_adsp_mem: mpss_adsp_region@86400000 {
+			no-map;
+			reg = <0x86400000 0x9300000>;
+			label = "mpss_adsp_mem";
 		};
 
 		audio_mem: audio_region@0 {
@@ -95,11 +126,6 @@
 			alignment = <0x400000>;
 			size = <0x400000>;
 			status = "disabled";
-		};
-
-		subsys_backup_region: subsys_backup_region {
-			      reusable;
-			      size = <0xC00000>;
 		};
 	};
 
