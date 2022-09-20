@@ -623,3 +623,4 @@
 #include "sa415m-ion.dtsi"
 #include "sa415m-pm.dtsi"
 #include "sdxpoorwills-thermal.dtsi"
+#include "msm-arm-smmu-sa415m.dtsi"
