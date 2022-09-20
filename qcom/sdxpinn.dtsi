@@ -884,6 +884,12 @@
 		status = "disabled";
 	};
 
+	qcom,msm-rtb {
+		compatible = "qcom,msm-rtb";
+		qcom,rtb-size = <0x100000>;
+		status="disabled";
+	};
+
 	spmi_bus: qcom,spmi@c42d000 {
 		compatible = "qcom,spmi-pmic-arb";
 		reg = <0xc42d000 0x4000>,
