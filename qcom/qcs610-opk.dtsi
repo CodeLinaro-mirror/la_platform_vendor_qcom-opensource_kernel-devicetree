@@ -21,6 +21,10 @@
 	qcom,board-id = <32 0>;
 };
 
+&tlmm {
+	qcom,gpios-reserved = <6 7 8 9>;
+};
+
 &pm6150l_gpios {
 	key_vol_up {
 		key_vol_up_default: key_vol_up_default {
