@@ -25,12 +25,6 @@
 		#size-cells = <1>;
 		ranges;
 
-		ac_db_mem: ac_db_region@90c00000 {
-			no-map;
-			reg = <0x90c00000 0x800000>;
-			label = "ac_db_mem";
-		};
-
 		peripheral2_mem: peripheral2_region@8ff00000 {
 			no-map;
 			reg = <0x8ff00000 0xd00000>;
@@ -71,28 +65,16 @@
 			label = "secdata_mem";
 		};
 
-		ipa_fw_mem: ipa_fw_region@8fced000 {
+		ac_db_mem: ac_db_region@8fc80000 {
 			no-map;
-			reg = <0x8fced000 0x10000>;
-			label = "ipa_fw_mem";
+			reg = <0x8fc80000 0x40000>;
+			label = "ac_db_mem";
 		};
 
 		hyp_region: hyp_region@8fc00000 {
 			no-map;
 			reg = <0x8fc00000 0x80000>;
 			label = "hyp_mem";
-		};
-
-		abl_mem: abl_region@8fb00000 {
-			no-map;
-			reg = <0x8fb00000 0x100000>;
-			label = "abl_mem";
-		};
-
-		uefi_mem: uefi_region@8f700000 {
-			no-map;
-			reg = <0x8f700000 0x400000>;
-			label = "uefi_mem";
 		};
 
 		mpss_adsp_mem: mpss_adsp_region@86400000 {
