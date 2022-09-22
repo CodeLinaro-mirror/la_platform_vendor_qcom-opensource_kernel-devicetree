@@ -1,0 +1,10 @@
+&hab {
+	vmid = <6>;
+};
+
+&reserved_memory {
+	pmem_shared: pmem_shared_region {
+		reg = <0x1 0x66500000 0x0 0x200000>;
+		label = "pmem_shared_mem";
+	};
+};
