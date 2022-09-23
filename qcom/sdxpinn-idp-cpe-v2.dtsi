@@ -1,0 +1,4 @@
+#include "sdxpinn-idp-cpe.dtsi"
+
+&soc {
+};

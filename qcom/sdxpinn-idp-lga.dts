@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxpinn.dtsi"
+#include "sdxpinn-idp-lga.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXPINN IDP LGA";
+	compatible = "qcom,sdxpinn-idp",
+			"qcom,sdxpinn", "qcom,idp";
+	qcom,board-id = <0x5010022 0x305>;
+};
