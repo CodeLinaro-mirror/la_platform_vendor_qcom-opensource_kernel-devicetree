@@ -25,12 +25,6 @@
 		#size-cells = <1>;
 		ranges;
 
-		ac_db_mem: ac_db_region@90c00000 {
-			no-map;
-			reg = <0x90c00000 0x800000>;
-			label = "ac_db_mem";
-		};
-
 		peripheral2_mem: peripheral2_region@8ff00000 {
 			no-map;
 			reg = <0x8ff00000 0xd00000>;
@@ -71,28 +65,16 @@
 			label = "secdata_mem";
 		};
 
-		ipa_fw_mem: ipa_fw_region@8fced000 {
+		ac_db_mem: ac_db_region@8fc80000 {
 			no-map;
-			reg = <0x8fced000 0x10000>;
-			label = "ipa_fw_mem";
+			reg = <0x8fc80000 0x40000>;
+			label = "ac_db_mem";
 		};
 
 		hyp_region: hyp_region@8fc00000 {
 			no-map;
 			reg = <0x8fc00000 0x80000>;
 			label = "hyp_mem";
-		};
-
-		abl_mem: abl_region@8fb00000 {
-			no-map;
-			reg = <0x8fb00000 0x100000>;
-			label = "abl_mem";
-		};
-
-		uefi_mem: uefi_region@8f700000 {
-			no-map;
-			reg = <0x8f700000 0x400000>;
-			label = "uefi_mem";
 		};
 
 		mpss_adsp_mem: mpss_adsp_region@86400000 {
@@ -304,6 +286,11 @@
 			reg = <0x10 0x8>;
 		};
 
+		dload_type@1c {
+			compatible = "qcom,msm-imem-dload-type";
+			reg = <0x1c 0x4>;
+		};
+
 		restart_reason@65c {
 			compatible = "qcom,msm-imem-restart_reason";
 			reg = <0x65c 0x4>;
@@ -348,6 +335,51 @@
 	};
 
 	thermal_zones: thermal-zones {
+	};
+
+	pil_modem: qcom,mss@4080000 {
+		compatible = "qcom,pil-tz-generic";
+		reg = <0x4080000 0x100>;
+
+		clocks = <&rpmhcc RPMH_CXO_CLK>;
+		clock-names = "xo";
+		qcom,proxy-clock-names = "xo";
+
+		vdd_cx-supply = <&VDD_CX_LEVEL>;
+		vdd_mss-supply = <&pmxpoorwills_s1_level>;
+		qcom,proxy-reg-names = "vdd_cx", "vdd_mss";
+
+		qcom,firmware-name = "modem";
+		memory-region = <&mpss_adsp_mem>;
+		qcom,pas-id = <4>;
+		qcom,smem-id = <421>;
+		qcom,sysmon-id = <0>;
+		qcom,ssctl-instance-id = <0x22>;
+
+		interrupts-extended = <&intc 0 250 1>,
+			<&modem_smp2p_in 0 0>,
+			<&modem_smp2p_in 2 0>,
+			<&modem_smp2p_in 1 0>,
+			<&modem_smp2p_in 3 0>,
+			<&modem_smp2p_in 7 0>;
+
+		interrupt-names = "qcom,wdog",
+			"qcom,err-fatal",
+			"qcom,proxy-unvote",
+			"qcom,err-ready",
+			"qcom,stop-ack",
+			"qcom,shutdown-ack";
+
+		qcom,smem-states = <&modem_smp2p_out 0>;
+		qcom,smem-state-names = "qcom,force-stop";
+
+		status = "ok";
+	};
+
+	pil_scm_pas {
+		compatible = "qcom,pil-tz-scm-pas";
+		interconnects = <&system_noc MASTER_CRYPTO
+			&mc_virt SLAVE_EBI1>;
 	};
 
 	qmp_aop: qcom,qmp-aop@c300000 {
@@ -774,3 +806,9 @@
 #include "sa415m-pm.dtsi"
 #include "sdxpoorwills-thermal.dtsi"
 #include "msm-arm-smmu-sa415m.dtsi"
+
+&firmware {
+	scm {
+		compatible = "qcom,scm";
+	};
+};
