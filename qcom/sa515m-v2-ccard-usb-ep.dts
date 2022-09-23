@@ -25,4 +25,8 @@
 
 &usb {
 	qcom,num-gsi-evt-buffs = <0x5>;
+
+	dwc3@a600000 {
+		num-gsi-eps = <5>;
+	}；
 };
