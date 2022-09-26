@@ -20,6 +20,7 @@
 	chosen: chosen { };
 
 	aliases {
+		qpic_nand1 = &qnand_1;
 	};
 
 	reserved_mem: reserved-memory {
@@ -886,6 +887,32 @@
 			qcom,dump-size = <0x512>;
 			qcom,dump-id = <0xf2>;
 		};
+	};
+
+	qnand_1: nand@1b00000 {
+		compatible = "qcom,msm-nand";
+		reg = < 0x01b00000 0x10000>,
+			<0x01b04000 0x1a000>;
+		reg-names = "nand_phys","bam_phys";
+		qcom,reg-adjustment-offset = <0x4000>;
+		qcom,qpic-clk-rpmh;
+
+		interrupts = <0 135 0>;
+		interrupt-names = "bam_irq";
+
+		qcom,msm-bus,name = "qpic_nand";
+		qcom,msm-bus,num-cases = <2>;
+		qcom,msm-bus,num-paths = <1>;
+
+		qcom,msm-bus,vectors-KBps =
+					<91 512 0 0>,
+					/* Voting for max b/w on PNOC bus for now */
+					<91 512 400000 400000>;
+
+		clock-names = "core_clk";
+		clocks = <&rpmhcc RPMH_QPIC_CLK>;
+
+		status = "ok";
 	};
 };
 
