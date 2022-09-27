@@ -3,6 +3,8 @@
 #include <dt-bindings/interconnect/qcom,sdxpoorwills.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include <dt-bindings/clock/qcom,apsscc-sdxlemur.h>
 
 / {
 	#address-cells = <1>;
@@ -506,6 +508,25 @@
 		qcom,apsscc = <&cpucc>;
 		clock-names = "xo_clk_src";
 		clocks = <&rpmhcc RPMH_CXO_CLK>;
+		#clock-cells = <1>;
+	};
+
+	apsscc: clock-controller@17808100 {
+		compatible = "qcom,sdxpoorwills-apsscc";
+		clocks = <&rpmhcc RPMH_CXO_CLK_A>,
+			<&gcc GPLL0>;
+		clock-names = "bi_tcxo_ao", "gpll0_out_even";
+		reg = <0x17810008 0x8>,
+			<0x17808100 0x68>;
+		reg-names = "apcs_cmd" , "apcs_pll";
+		vdd-pll-supply = <&VDD_CX_LEVEL_AO>;
+		cpu-vdd-supply = <&VDD_CX_LEVEL_AO>;
+		qcom,speed0-bin-v0 =
+			< 0 0>,
+			<  345600000 RPMH_REGULATOR_LEVEL_LOW_SVS>,
+			<  576000000 RPMH_REGULATOR_LEVEL_SVS>,
+			< 1094400000 RPMH_REGULATOR_LEVEL_NOM>,
+			< 1497600000 RPMH_REGULATOR_LEVEL_TURBO>;
 		#clock-cells = <1>;
 	};
 
