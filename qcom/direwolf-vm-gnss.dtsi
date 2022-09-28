@@ -37,3 +37,7 @@
 		ssVboot-gpio = <&pm8540_4_gpios 1 1>;
 	};
 };
+
+&qupv3_se13_2uart {
+	status = "okay";
+};
