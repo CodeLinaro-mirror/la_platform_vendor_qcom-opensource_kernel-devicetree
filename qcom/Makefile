@@ -594,6 +594,7 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	direwolf-vm-la1-mt-overlay.dtbo \
 	direwolf-vm-lv-mt-overlay.dtbo \
 	direwolf-vm-lv-overlay.dtbo \
+	direwolf-vm-lv-headless-mt-overlay.dtbo \
 	lemans-vm-lv-overlay.dtbo
 
 sa8155-vm-la-overlay.dtbo-base := sa8155-vm-la.dtb
@@ -611,6 +612,7 @@ direwolf-vm-la-overlay.dtbo-base := direwolf-vm-la.dtb
 direwolf-vm-la1-mt-overlay.dtbo-base := direwolf-vm-la1-mt.dtb
 direwolf-vm-lv-mt-overlay.dtbo-base := direwolf-vm-lv-mt.dtb
 direwolf-vm-lv-overlay.dtbo-base := direwolf-vm-lv.dtb
+direwolf-vm-lv-headless-mt-overlay.dtbo-base := direwolf-vm-lv-headless-mt.dtb
 lemans-vm-lv-overlay.dtbo-base := lemans-vm-lv.dtb
 else
 dtb-$(CONFIG_QTI_QUIN_GVM) += sa8155-vm-la.dtb \
@@ -629,6 +631,7 @@ dtb-$(CONFIG_QTI_QUIN_GVM) += sa8155-vm-la.dtb \
 	direwolf-vm-la-mt.dtb \
 	direwolf-vm-la1-mt.dtb \
 	direwolf-vm-lv-mt.dtb \
+	direwolf-vm-lv-headless-mt.dtb \
 	lemans-vm-lv.dtb
 endif
 
