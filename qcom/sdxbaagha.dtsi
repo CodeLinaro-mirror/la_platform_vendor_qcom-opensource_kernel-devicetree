@@ -967,6 +967,7 @@
 #include "sdxbaagha-pcie.dtsi"
 #include "sdxbaagha-qupv3.dtsi"
 #include "sdxbaagha-usb.dtsi"
+#include "sdxbaagha-coresight.dtsi"
 
 &qupv3_se3_2uart {
 	status = "ok";
