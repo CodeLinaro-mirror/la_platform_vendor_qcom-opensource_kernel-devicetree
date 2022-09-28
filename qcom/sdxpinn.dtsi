@@ -251,6 +251,13 @@
 		alignment = <0x0 0x400000>;
 		size = <0x0 0x400000>;
 	};
+
+	va_md_mem: va_md_mem_region {
+		compatible = "shared-dma-pool";
+		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+		reusable;
+		size = <0x0 0x1000000>;
+	};
 };
 
 &soc {
@@ -1324,6 +1331,15 @@
 			<0xff2000 0x1000>;
 		reg-names = "eud_base", "eud_mode_mgr2";
 		qcom,secure-eud-en;
+	};
+
+	mini_dump_mode {
+		compatible = "qcom,minidump";
+	};
+
+	va_mini_dump {
+		compatible = "qcom,va-minidump";
+		memory-region = <&va_md_mem>;
 	};
 
 	qcom,mpm2-sleep-counter@c221000 {
