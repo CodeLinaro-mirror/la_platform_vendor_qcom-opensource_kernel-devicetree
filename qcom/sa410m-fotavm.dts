@@ -1,0 +1,8 @@
+/dts-v1/;
+
+#include "sa410m-fotavm.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA410M FOTAVM";
+	compatible = "qcom,sa410m", "qcom,sa410m-fotavm";
+};

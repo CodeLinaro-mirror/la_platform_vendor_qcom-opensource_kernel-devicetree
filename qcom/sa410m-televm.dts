@@ -1,0 +1,9 @@
+/dts-v1/;
+
+#include "sa410m-televm.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA410M TELEVM";
+	compatible = "qcom,sa410m", "qcom,idp", "qcom,sa410m-idp";
+	qcom,board-id = <34 0x20300>;
+};

@@ -1,0 +1,63 @@
+&reserved_memory {
+	televm_mem: televm_region@55200000 {
+		no-map;
+		reg = <0x0 0x55200000 0x0 0x5000000>;
+	};
+
+	televm_vblk0_ring: televm_vblk0_ring@5A200000 {
+		no-map;
+		reg = <0x0 0x5A200000 0x0 0x4000>;
+		gunyah-label = <0x11>;
+	};
+
+	tele_vm_vnet0_ring: tele_vm_vnet0_ring@5A204000 {
+		no-map;
+		reg = <0x0 0x5A204000 0x0 0xC000>;
+		gunyah-label = <0x13>;
+	};
+
+	televm_swiotlb: televm_swiotlb@5A210000 {
+		no-map;
+		reg = <0x0 0x5A210000 0x0 0x200000>;
+		gunyah-label = <0x12>;
+	};
+};
+
+&qcom_tzlog {
+	qcom,hyplog-enabled;
+	hyplog-address-offset = <0x410>;
+	hyplog-size-offset = <0x414>;
+};
+
+&soc {
+	qcom,guestvm_loader@55200000 {
+		compatible = "qcom,guestvm-loader";
+		qcom,pas-id = <28>;
+		qcom,vmid = <45>;
+		qcom,firmware-name = "televm";
+		memory-region = <&televm_mem>;
+	};
+
+	televm: qcom,televm@5A200000 {
+		reg = <0x5A200000 0x210000>;
+		vm_name = "televm";
+		shared-buffers = <&televm_vblk0_ring &tele_vm_vnet0_ring &televm_swiotlb>;
+	};
+
+	qcom,virtio_backend@0 {
+		compatible = "qcom,virtio_backend";
+		qcom,vm = <&televm>;
+		qcom,label = <0x11>;
+	};
+
+	qcom,virtio_backend@1 {
+		compatible = "qcom,virtio_backend";
+		qcom,vm = <&televm>;
+		qcom,label = <0x13>;
+	};
+
+	qcom,televm-vsock-msgq {
+		compatible = "qcom,gunyah-vsock";
+		msgq-label = <0x14>;
+	};
+};
