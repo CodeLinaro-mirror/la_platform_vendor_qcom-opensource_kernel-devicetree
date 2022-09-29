@@ -1,0 +1,7 @@
+#include "bengal-qrd.dtsi"
+#include "camera/bengal-camera-sensor-idp-v3.dtsi"
+#include "display/bengal-sde-display-qrd-v3.dtsi"
+
+&dsi_ili9881p_720p_video {
+	qcom,platform-reset-gpio = <&tlmm 97 0>;
+};
