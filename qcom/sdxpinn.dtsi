@@ -1110,6 +1110,15 @@
 	qcom,mem-buf-msgq {
 		compatible = "qcom,mem-buf-msgq";
 	};
+
+	llcc_device: cache-controller@19200000 {
+		compatible = "qcom,sdxpinn-llcc", "qcom,llcc-v41";
+		reg = <0x19200000 0x200000>;
+		reg-names = "llcc_base";
+		interrupts = <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>;
+		cap-based-alloc-and-pwr-collapse;
+	};
+
 };
 
 &firmware {
