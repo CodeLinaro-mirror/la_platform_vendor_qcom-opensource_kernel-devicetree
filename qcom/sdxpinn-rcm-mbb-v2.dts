@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxpinn.dtsi"
+#include "sdxpinn-rcm-mbb-v2.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXPINN RCM MBB V2";
+	compatible = "qcom,sdxpinn-rcm",
+			"qcom,sdxpinn", "qcom,rcm";
+	qcom,board-id = <0x20015 0x300>;
+};

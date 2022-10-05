@@ -212,7 +212,17 @@ gen4auto-overlays-dtb-$(CONFIG_ARCH_LEMANS) +=  \
 dtb-y += $(gen4auto-dtb-y)
 
 sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb sa525m-rumi.dtb \
-		sdxpinn-idp-mbb.dtb
+		sdxpinn-idp-mbb.dtb \
+		sdxpinn-idp-mbb-v2.dtb \
+		sdxpinn-idp-cpe.dtb \
+		sdxpinn-idp-cpe-v2.dtb \
+		sdxpinn-idp-m2.dtb \
+		sdxpinn-idp-m2-v2.dtb \
+		sdxpinn-idp-m2-v3.dtb \
+		sdxpinn-idp-lga.dtb \
+		sdxpinn-idp-lga-v2.dtb \
+		sdxpinn-rcm-mbb.dtb \
+		sdxpinn-rcm-mbb-v2.dtb
 dtb-y += $(sdxpinn-dtb-y)
 
 sa410m_auto-dtb-$(CONFIG_ARCH_SA410M) += \
