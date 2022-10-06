@@ -1644,6 +1644,14 @@
 		qcom,pipe-attr-ee;
 	};
 
+	qcom_tzlog: tz-log@14680720 {
+		compatible = "qcom,tz-log";
+		reg = <0x14680720 0x3000>;
+		qcom,hyplog-enabled;
+		hyplog-address-offset = <0x400>;
+		hyplog-size-offset = <0x424>;
+	};
+
 	qcom,secure-buffer {
 		compatible = "qcom,secure-buffer";
 	};
