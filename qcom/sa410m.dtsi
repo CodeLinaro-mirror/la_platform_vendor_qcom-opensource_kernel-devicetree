@@ -1701,28 +1701,41 @@
 #include "scuba-thermal.dtsi"
 
 &thermal_zones {
-	gpu-step {
-		trips {
-			gpu-cxip-trip {
-				temperature = <105000>;
-			};
-
-			gpu-trip {
-				temperature = <105000>;
-			};
-
-			gpu-cx-mon {
-				temperature = <115000>;
-			};
-		};
-
-		cooling-maps {
-			/delete-node/ gpu_cdev;
-			/delete-node/ gpu-cx-cdev0;
-		};
+	wlan-usr {
+		thermal-sensors = <&tsens0 1>;
 	};
 
+	cpuss-0-usr {
+		thermal-sensors = <&tsens0 2>;
+	};
+
+	cpuss-1-usr {
+		thermal-sensors = <&tsens0 3>;
+	};
+
+	mdm-0-usr {
+		thermal-sensors = <&tsens0 4>;
+	};
+
+	mdm-1-usr {
+		thermal-sensors = <&tsens0 5>;
+	};
+
+	video-usr {
+		thermal-sensors = <&tsens0 6>;
+	};
+
+	/delete-node/ gpu-usr;
+
+	hm-center-usr {
+		thermal-sensors = <&tsens0 7>;
+	};
+
+	/delete-node/ camera-usr;
+	/delete-node/ gpu-step;
+
 	cpuss-0-step {
+		thermal-sensors = <&tsens0 2>;
 		trips {
 			cpu-0-2-config {
 				temperature = <115000>;
@@ -1731,6 +1744,7 @@
 	};
 
 	cpuss-1-step {
+		thermal-sensors = <&tsens0 3>;
 		trips {
 			cpu-1-3-configs {
 				temperature = <115000>;
@@ -1739,6 +1753,7 @@
 	};
 
 	mdm-0-step {
+		thermal-sensors = <&tsens0 4>;
 		trips {
 			mdm0-cx-mon {
 				temperature = <105000>;
@@ -1767,6 +1782,7 @@
 	};
 
 	mdm-1-step {
+		thermal-sensors = <&tsens0 5>;
 		trips {
 			mdm1-cx-mon {
 				temperature = <105000>;
