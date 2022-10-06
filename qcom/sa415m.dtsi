@@ -5,6 +5,7 @@
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/clock/qcom,apsscc-sdxlemur.h>
+#include <dt-bindings/clock/qcom,aop-qmp.h>
 
 #define MHZ_TO_MBPS(mhz, w) ((mhz * 1000000 * w) / (1024 * 1024))
 #define BW_OPP_ENTRY(mhz, w) opp-mhz {opp-hz = /bits/ 64 <MHZ_TO_MBPS(mhz, w)>;}
@@ -563,6 +564,13 @@
 		status = "ok";
 	};
 
+	clock_aop: qcom,aop {
+		compatible = "qcom,aop-qmp-clk";
+		mboxes = <&qmp_aop 0>;
+		mbox-names = "qdss_clk";
+		#clock-cells = <1>;
+	};
+
 	clocks {
 		xo_board: xo-board {
 			compatible = "fixed-clock";
@@ -1105,6 +1113,34 @@
 		interrupt-names = "usb_vbus";
 		status = "disabled";
 	};
+
+	qfprom: qfprom@780000 {
+		compatible = "qcom,qfprom";
+		reg = <0x00780000 0x6030>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+		read-only;
+		ranges;
+
+		thermal_revision: thermal-revision@198 {
+			reg = <0x198 0x1>;
+			bits = <4 2>;
+		};
+
+		thermal_cpe: thermal-cpe@20b {
+			reg = <0x20b 0x1>;
+			bits = <4 1>;
+		};
+
+		stm_debug_fuse: stm@20f0 {
+			reg = <0x20f0 0x4>;
+		};
+
+		thermal_iot: thermal-iot@602f {
+			reg = <0x602f 0x1>;
+			bits = <7 1>;
+		};
+	};
 };
 
 #include "pmxpoorwills.dtsi"
@@ -1117,6 +1153,7 @@
 #include "msm-arm-smmu-sa415m.dtsi"
 #include "sa415m-audio.dtsi"
 #include "sa415m-usb.dtsi"
+#include "sdxpoorwills-coresight.dtsi"
 
 &firmware {
 	scm {
