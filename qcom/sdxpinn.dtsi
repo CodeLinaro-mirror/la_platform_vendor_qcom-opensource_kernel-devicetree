@@ -1442,6 +1442,11 @@
 		qcom,dload-mode = <&tcsr 0x13000>;
 		status = "disabled";
 	};
+
+	qcom,sps {
+		compatible = "qcom,msm-sps-4k";
+		qcom,pipe-attr-ee;
+	};
 };
 
 #include "ipcc-test-sdxpinn.dtsi"
