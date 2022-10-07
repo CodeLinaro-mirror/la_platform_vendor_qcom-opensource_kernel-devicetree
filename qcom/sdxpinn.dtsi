@@ -927,7 +927,6 @@
 		ranges = <0x0 0x14680000 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <1>;
-		status = "disabled";
 
 		mem_dump_table@10  {
 			compatible = "qcom,msm-imem-mem_dump_table";
@@ -973,7 +972,6 @@
 	cpu_pmu: cpu-pmu {
 		compatible = "arm,armv8-pmuv3";
 		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
-		status = "disabled";
 	};
 
 	tlmm: pinctrl@f000000 {
@@ -1007,7 +1005,6 @@
 
 	vendor_hooks: qcom,cpu-vendor-hooks {
 		compatible = "qcom,cpu-vendor-hooks";
-		status = "disabled";
 	};
 
 	ipcc_mproc: qcom,ipcc@408000 {
@@ -1017,6 +1014,13 @@
 		interrupt-controller;
 		#interrupt-cells = <3>;
 		#mbox-cells = <2>;
+	};
+
+	 qcom,chd {
+		compatible = "qcom,core-hang-detect";
+		label = "core";
+		qcom,threshold-arr = <0x17800058 0x17810058 0x17820058 0x17830058>;
+		com,config-arr = <0x17800060 0x17810060 0x17820060 0x17830060>;
 	};
 
 	modem_pas: remoteproc-mss@04080000 {
@@ -1440,7 +1444,6 @@
 	qcom_scm {
 		compatible = "qcom,scm";
 		qcom,dload-mode = <&tcsr 0x13000>;
-		status = "disabled";
 	};
 
 	qcom,sps {
