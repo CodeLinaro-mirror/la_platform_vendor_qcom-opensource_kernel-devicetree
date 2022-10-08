@@ -1,6 +1,12 @@
+#include "sdxpinn-pmic-overlay.dtsi"
+
 &soc {
 };
 
 &qnand_1 {
+	status = "ok";
+};
+
+&pmx75_vbus_detect {
 	status = "ok";
 };
