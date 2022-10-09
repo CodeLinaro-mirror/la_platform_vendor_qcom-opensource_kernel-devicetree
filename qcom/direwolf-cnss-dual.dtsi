@@ -870,8 +870,8 @@
 
 &soc {
 	/* Control new Bluetooth chip's power */
-	bluetooth1: bt-qca-auto-dual {
-		compatible = "qcom,qca-auto-dual";
+	bluetooth1: bt-qca-auto-secondary {
+		compatible = "qcom,qca-auto-secondary";
 		pinctrl-names = "default";
 		pinctrl-0 = <&bt_en_active_1>;
 		/* BT_EN */
@@ -879,5 +879,7 @@
 		/* WL_EN */
 		qcom,wl-reset-gpio = <&tlmm 65 0>;
 
+		/* PWR_CTR1_VDD_PA for new Bluetooth RF */
+		qcom,bt-vdd-ctrl1-supply = <&vreg_conn_pa2>;
 	};
 };
