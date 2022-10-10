@@ -676,6 +676,7 @@
 			interrupts-extended = <&smp2p_ipa_1_in 0 0>;
 			interrupt-names = "ipa-smp2p-in";
 		};
+	};
 
 	serial_uart: serial@831000 {
 		compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
