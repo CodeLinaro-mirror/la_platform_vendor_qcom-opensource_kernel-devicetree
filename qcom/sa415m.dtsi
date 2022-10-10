@@ -103,7 +103,6 @@
 			reusable;
 			alignment = <0x400000>;
 			size = <0x800000>;
-			status = "disabled";
 		};
 
 		qseecom_ta_mem: qseecom_ta_region@0 {
@@ -111,7 +110,6 @@
 			reusable;
 			alignment = <0x400000>;
 			size = <0x400000>;
-			status = "disabled";
 		};
 	};
 
