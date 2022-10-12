@@ -427,6 +427,10 @@
 			&mc_virt SLAVE_EBI1>;
 	};
 
+	qcom-secure-buffer {
+		compatible = "qcom,secure-buffer";
+	};
+
 	qmp_aop: qcom,qmp-aop@c300000 {
 		compatible = "qcom,qmp-mbox";
 		reg = <0xc300000 0x400>, <0x17811008 0x4>;
