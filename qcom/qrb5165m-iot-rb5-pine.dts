@@ -1,7 +1,7 @@
 /dts-v1/;
 
 #include "qrb5165.dtsi"
-#include "qrb5165m-iot-rb5-pine.dtsi"
+#include "qrb5165m-pine.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. QRB5165M IOT RB5 PINE";
