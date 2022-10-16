@@ -962,6 +962,20 @@
 		reg-names = "dcc-base", "dcc-ram-base";
 		dcc-ram-offset = <0x6000>;
 	};
+
+	msm_cpufreq: qcom,msm-cpufreq {
+	compatible = "qcom,msm-cpufreq";
+	clocks = <&apsscc APCS_MUX_CLK>;
+	clock-names = "cpu0_clk";
+
+	qcom,cpufreq-table-0 =
+		<  153600 >,
+		<  300000 >,
+		<  345600 >,
+		<  576000 >,
+		< 1094400 >,
+		< 1497600 >;
+	};
 };
 
 #include "sdxpoorwills-regulator.dtsi"
