@@ -3,3 +3,18 @@
 &qnand_1 {
 	status = "ok";
 };
+
+&qupv3_se5_i2c {
+	status = "okay";
+	asm330lhh@6a {
+		compatible = "st,asm330lhh";
+		reg = <0x6a>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sensor_int1_default>,<&sensor_int2_default>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <109 IRQ_TYPE_EDGE_RISING>;
+		st,drdy-int-pin= <2>;
+		qcom,regulator_check = <0>;
+		qcom,asm330_hrtimer;
+	};
+};

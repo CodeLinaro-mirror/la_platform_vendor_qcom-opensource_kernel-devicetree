@@ -1260,3 +1260,26 @@
 &usb0 {
 	USB3_GDSC-supply = <&gcc_usb30_prim_gdsc>;
 };
+
+&pm2250_l15 {
+	regulator-always-on;
+};
+
+&pm2250_l17 {
+	regulator-always-on;
+};
+
+&qupv3_se2_i2c {
+	status = "okay";
+	asm330lhh@6a {
+		compatible = "st,asm330lhh";
+		reg = <0x6a>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sensor_int1_default>,<&sensor_int2_default>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <32 IRQ_TYPE_EDGE_RISING>;
+		st,drdy-int-pin= <2>;
+		qcom,regulator_check = <0>;
+		qcom,asm330_hrtimer;
+	};
+};
