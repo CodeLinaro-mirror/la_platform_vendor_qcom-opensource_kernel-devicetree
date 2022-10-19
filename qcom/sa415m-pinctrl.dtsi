@@ -1565,7 +1565,7 @@
 			pri_ws_active_master: pri_ws_active_master {
 				mux {
 					pins = "gpio12";
-					function = "pri_mi2s";
+					function = "pri_mi2s_ws";
 				};
 
 				config {
@@ -1579,7 +1579,7 @@
 			pri_sck_active_master: pri_sck_active_master {
 				mux {
 					pins = "gpio15";
-					function = "pri_mi2s";
+					function = "pri_mi2s_sck";
 				};
 
 				config {
@@ -1593,7 +1593,7 @@
 			pri_ws_active_slave: pri_ws_active_slave {
 				mux {
 					pins = "gpio12";
-					function = "pri_mi2s";
+					function = "pri_mi2s_ws";
 				};
 
 				config {
@@ -1606,7 +1606,7 @@
 			pri_sck_active_slave: pri_sck_active_slave {
 				mux {
 					pins = "gpio15";
-					function = "pri_mi2s";
+					function = "pri_mi2s_sck";
 				};
 
 				config {
@@ -1619,7 +1619,7 @@
 			pri_dout_active: pri_dout_active {
 				mux {
 					pins = "gpio14";
-					function = "pri_mi2s";
+					function = "pri_mi2s_data1";
 				};
 
 				config {
@@ -1649,7 +1649,7 @@
 			pri_din_active: pri_din_active {
 				mux {
 					pins = "gpio13";
-					function = "pri_mi2s";
+					function = "pri_mi2s_data0";
 				};
 
 				config {
@@ -1706,7 +1706,7 @@
 			sec_ws_active_master: sec_ws_active_master {
 				mux {
 					pins = "gpio16";
-					function = "sec_mi2s";
+					function = "sec_mi2s_ws";
 				};
 
 				config {
@@ -1720,7 +1720,7 @@
 			sec_sck_active_master: sec_sck_active_master {
 				mux {
 					pins = "gpio19";
-					function = "sec_mi2s";
+					function = "sec_mi2s_sck";
 				};
 
 				config {
@@ -1734,7 +1734,7 @@
 			sec_ws_active_slave: sec_ws_active_slave {
 				mux {
 					pins = "gpio16";
-					function = "sec_mi2s";
+					function = "sec_mi2s_ws";
 				};
 
 				config {
@@ -1747,7 +1747,7 @@
 			sec_sck_active_slave: sec_sck_active_slave {
 				mux {
 					pins = "gpio19";
-					function = "sec_mi2s";
+					function = "sec_mi2s_sck";
 				};
 
 				config {
@@ -1760,7 +1760,7 @@
 			sec_dout_active: sec_dout_active {
 				mux {
 					pins = "gpio18";
-					function = "sec_mi2s";
+					function = "sec_mi2s_data1";
 				};
 
 				config {
@@ -1922,7 +1922,7 @@
 			sec_din_active: sec_din_active {
 				mux {
 					pins = "gpio17";
-					function = "sec_mi2s";
+					function = "sec_mi2s_data0";
 				};
 
 				config {
@@ -2197,6 +2197,14 @@
 		ambient_therm_default: ambient_therm_default {
 			pins = "gpio2";
 			bias-high-impedance;
+		};
+	};
+
+	a2b_cdc_sel {
+		a2b_cdc_sel_default: a2b_cdc_sel_default {
+			pins = "gpio5";
+			power-source = <1>;
+			output-high;
 		};
 	};
 };

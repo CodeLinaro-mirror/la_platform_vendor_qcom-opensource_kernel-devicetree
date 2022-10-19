@@ -1083,6 +1083,7 @@
 #include "sa415m-pm.dtsi"
 #include "sdxpoorwills-thermal.dtsi"
 #include "msm-arm-smmu-sa415m.dtsi"
+#include "sa415m-audio.dtsi"
 #include "sa415m-usb.dtsi"
 
 &firmware {
