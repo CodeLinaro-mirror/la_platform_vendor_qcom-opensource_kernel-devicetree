@@ -1,3 +1,5 @@
+#include "sdxpinn-pmic-overlay.dtsi"
+
 &soc {
 };
 
