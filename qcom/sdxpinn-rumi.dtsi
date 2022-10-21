@@ -136,6 +136,14 @@
 	};
 };
 
+&usb_qmp_phy {
+	status = "disabled";
+};
+
+&eusb2_phy {
+	status = "disabled";
+};
+
 &usb {
 	dwc3@a600000 {
 		usb-phy = <&usb_emu_phy_0>, <&usb_nop_phy>;
