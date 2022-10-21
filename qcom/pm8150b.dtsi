@@ -736,7 +736,7 @@
 		};
 	};
 
-	socd {
+	soc {
 		polling-delay-passive = <100>;
 		polling-delay = <0>;
 		thermal-governor = "step_wise";
