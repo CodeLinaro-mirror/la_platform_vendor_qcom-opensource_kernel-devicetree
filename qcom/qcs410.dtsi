@@ -1,6 +1,7 @@
 #include "sm6150.dtsi"
 #include "display/sm6150-sde-display.dtsi"
 #include "sm6150-pmic-overlay.dtsi"
+#include "sm6150-audio.dtsi"
 
 #include "sm6150-pm.dtsi"
 #include "sm6150-thermal-overlay.dtsi"
@@ -27,6 +28,12 @@
 			};
 		};
 	};
+};
+
+&aliases {
+	swr0 = &swr0;
+	swr1 = &swr1;
+	swr2 = &swr2;
 };
 
 &soc {
