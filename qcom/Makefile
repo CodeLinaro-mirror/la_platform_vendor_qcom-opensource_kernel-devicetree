@@ -227,7 +227,6 @@ dtb-y += $(sdxpinn-dtb-y)
 
 SA410M_AUTO_BASE_DTB += sa410m.dtb
 SA410M_AUTO_BOARDS += \
-		sa410m-rumi-overlay.dtbo \
 		sa410m-nand-idp-overlay.dtbo \
 		sa410m-emmc-idp-overlay.dtbo \
 		sa410m-nand-ccard-overlay.dtbo \
