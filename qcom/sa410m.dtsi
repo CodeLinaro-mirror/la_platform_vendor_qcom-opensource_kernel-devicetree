@@ -475,24 +475,44 @@
 		#freq-domain-cells = <1>;
 	};
 
-	bimc_noc: interconnect@0 {
-		compatible = "qcom,sa410m-bimc";
-		#interconnect-cells = <1>;
-	};
-
-	config_noc: interconnect@1 {
-		compatible = "qcom,sa410m-config_noc";
-		#interconnect-cells = <1>;
-	};
-
-	clk_virt: interconnect@2 {
+	clk_virt: interconnect@0 {
 		compatible = "qcom,sa410m-clk_virt";
+		qcom,keepalive;
 		#interconnect-cells = <1>;
+		clock-names = "bus", "bus_a";
+		clocks = <&rpmcc RPM_SMD_QUP_CLK>,
+			<&rpmcc RPM_SMD_QUP_A_CLK>;
 	};
 
-	sys_noc: interconnect@3 {
+	sys_noc: interconnect@1880000 {
+		reg = <0x1880000 0x5e080>;
 		compatible = "qcom,sa410m-sys_noc";
+		qcom,keepalive;
 		#interconnect-cells = <1>;
+		clock-names = "bus", "bus_a";
+		clocks = <&rpmcc RPM_SMD_SNOC_CLK>,
+			<&rpmcc RPM_SMD_SNOC_A_CLK>;
+	};
+
+	config_noc: interconnect@1900000 {
+		reg = <0x01900000 0x9200>;
+		compatible = "qcom,sa410m-config_noc";
+		qcom,keepalive;
+		#interconnect-cells = <1>;
+		clock-names = "bus", "bus_a";
+		clocks = <&rpmcc RPM_SMD_CNOC_CLK>,
+			<&rpmcc RPM_SMD_CNOC_A_CLK>;
+	};
+
+	bimc_noc: interconnect@4480000 {
+		reg = <0x4480000 0x80000>;
+		compatible = "qcom,sa410m-bimc";
+		qcom,util-factor = <153>;
+		qcom,keepalive;
+		#interconnect-cells = <1>;
+		clock-names = "bus", "bus_a";
+		clocks = <&rpmcc RPM_SMD_BIMC_CLK>,
+			<&rpmcc RPM_SMD_BIMC_A_CLK>;
 	};
 
 	thermal_zones: thermal-zones { };
