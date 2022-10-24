@@ -1198,12 +1198,10 @@
 	tcsr: syscon@1fc0000 {
 		compatible = "syscon";
 		reg = <0x1fc0000 0x30000>;
-		status = "disabled";
 	};
 
 	qcom,dload-mode {
 		compatible = "qcom,dload-mode";
-		status = "disabled";
 	};
 
 	vendor_hooks: qcom,cpu-vendor-hooks {
