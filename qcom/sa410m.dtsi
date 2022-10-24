@@ -294,6 +294,9 @@
 		#gpio-cells = <0>;
 	};
 
+	rpm_bus: qcom,rpm-smd {
+	};
+
 	arch_timer: timer {
 		compatible = "arm,armv8-timer";
 		interrupts = <GIC_PPI 1 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
@@ -650,8 +653,8 @@
 	};
 };
 
-#include "sa410m-stub-regulators.dtsi"
-
+#include "pm2250-rpm-regulator.dtsi"
+#include "sa410m-regulators.dtsi"
 #include "scuba-thermal.dtsi"
 
 &thermal_zones {
