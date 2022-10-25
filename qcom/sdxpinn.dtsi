@@ -1226,9 +1226,7 @@
 
 	modem_pas: remoteproc-mss@04080000 {
 		compatible = "qcom,sdxpinn-modem-pas";
-		reg = <0x4080000 0x10000>,
-			<0x4180000 0x10000>;
-		status = "disabled";
+		reg = <0x4080000 0x10000>;
 
 		clocks = <&rpmhcc RPMH_CXO_CLK>;
 		clock-names = "xo";
@@ -1236,7 +1234,7 @@
 		cx-supply = <&VDD_CX_LEVEL>;
 		cx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
 		mx-supply = <&VDD_MODEM_LEVEL>;
-		mx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
+		mx-uV-uA = <RPMH_REGULATOR_LEVEL_NOM_L1 100000>;
 		reg-names = "cx", "mx";
 
 		qcom,signal-aop;
