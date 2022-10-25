@@ -329,8 +329,15 @@
 	status = "disabled";
 };
 
+&sde_dp {
+	usb-phy = <&usb_qmp_dp_phy>;
+	qcom,dp-aux-switch = <&redriver>;
+	qcom,aux-en-gpio = <&tlmm 69 0>;
+	qcom,aux-sel-gpio = <&tlmm 71 0>;
+};
+
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &sde_dsi &sde_dsi1 &sde_rscc>;
+	connectors = <&sde_dp &smmu_sde_unsec &sde_dsi &sde_dsi1 &sde_rscc>;
 };
 
 &qupv3_se5_i2c {
