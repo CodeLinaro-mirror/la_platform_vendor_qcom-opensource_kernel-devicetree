@@ -217,6 +217,7 @@
 		atid = <78>;
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
+		status = "disabled";
 
 		out-ports {
 			port {
@@ -238,7 +239,7 @@
 		atid = <78>;
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
-
+		status = "disabled";
 		out-ports {
 			port {
 				tpdm_prng_out_tpda_dl_center_19: endpoint {
@@ -603,6 +604,7 @@
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		qcom,cmb-msr-skip;
+		status = "disabled";
 
 		out-ports {
 			port {
@@ -1108,6 +1110,7 @@
 
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
+		status = "disabled";
 
 		in-ports {
 
@@ -1350,6 +1353,7 @@
 		coresight-name = "coresight-etm0";
 		qcom,skip-power-up;
 
+		status = "disabled";
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		atid = <1>;
@@ -1373,6 +1377,7 @@
 
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
+		status = "disabled";
 		atid = <2>;
 		out-ports {
 			port {
@@ -1394,6 +1399,7 @@
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		atid = <3>;
+		status = "disabled";
 		out-ports {
 			port {
 				ete2_out_funnel_ete: endpoint {
@@ -1414,6 +1420,7 @@
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		atid = <4>;
+		status = "disabled";
 		out-ports {
 			port {
 				ete3_out_funnel_ete: endpoint {
@@ -2461,6 +2468,7 @@
 		arm,primecell-periphid = <0x000bb922>;
 		coresight-name = "coresight-cti-vmss_cs_cti";
 
+		status = "disabled";
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		qcom,extended_cti;
@@ -2475,30 +2483,8 @@
 
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
+		status = "disabled";
 	};
 
-	mvmss_internal_cti0: cti@24981000 {
-		compatible = "arm,coresight-cti", "arm,primecell";
-		reg = <0x24981000 0x1000>;
-
-		arm,primecell-periphid = <0x000bb922>;
-		coresight-name = "coresight-cti-mvmss_internal_cti0";
-
-		clocks = <&aoss_qmp>;
-		clock-names = "apb_pclk";
-		qcom,extended_cti;
-	};
-
-	mvmss_internal_cti1: cti@24982000 {
-		compatible = "arm,coresight-cti", "arm,primecell";
-		reg = <0x24982000 0x1000>;
-
-		arm,primecell-periphid = <0x000bb922>;
-		coresight-name = "coresight-cti-mvmss_internal_cti1";
-
-		clocks = <&aoss_qmp>;
-		clock-names = "apb_pclk";
-		qcom,extended_cti;
-	};
 };
 
