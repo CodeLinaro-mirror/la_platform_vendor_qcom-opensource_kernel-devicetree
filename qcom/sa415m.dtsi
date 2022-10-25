@@ -711,7 +711,6 @@
 		qcom,wan-aggr-time-limit = <2>;
 		qcom,lan-aggr-time-limit = <2>;
 		qcom,rndis-aggr-time-limit = <2>;
-		qcom,ipa-config-is-auto;
 		qcom,max_num_smmu_cb = <3>;
 		qcom,interconnect,num-cases = <5>;
 		qcom,interconnect,num-paths = <5>;
