@@ -55,3 +55,11 @@
 &gcc {
 	clocks = <&bi_tcxo>, <&pcie_pipe_clk>, <&sleep_clk>;
 };
+
+&debugcc {
+	clocks = <&bi_tcxo>, <&gcc 0>;
+};
+
+&cpufreq_hw {
+	clocks = <&bi_tcxo>, <&gcc GPLL0>;
+};
