@@ -365,6 +365,7 @@
 		reg = <0xf200000 0x10000>,     /* GICD */
 		      <0xf300000 0x100000>;    /* GICR * 8 */
 		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+		#gpio-cells = <0>;
 	};
 
 	psci {
