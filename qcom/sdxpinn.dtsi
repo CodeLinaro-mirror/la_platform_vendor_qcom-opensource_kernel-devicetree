@@ -1185,14 +1185,12 @@
 			<0xff2000 0x1000>;
 		reg-names = "eud_base", "eud_mode_mgr2";
 		qcom,secure-eud-en;
-		status = "disabled";
 	};
 
 	qcom,mpm2-sleep-counter@c221000 {
 		compatible = "qcom,mpm2-sleep-counter";
 		reg = <0xc221000 0x1000>;
 		clock-frequency = <32768>;
-		status = "disabled";
 	};
 
 	tcsr: syscon@1fc0000 {
@@ -1311,7 +1309,6 @@
 	qcom,msm-rtb {
 		compatible = "qcom,msm-rtb";
 		qcom,rtb-size = <0x100000>;
-		status="disabled";
 	};
 
 	spmi_bus: qcom,spmi@c42d000 {
