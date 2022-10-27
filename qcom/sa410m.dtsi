@@ -838,7 +838,7 @@
 		};
 	};
 
-	 remoteproc-lpass@ab00000 {
+	adsp_pas: remoteproc-lpass@ab00000 {
 		compatible = "qcom,scuba_auto-lpass-pas";
 		reg = <0xab00000 0x00100>;
 		status = "ok";
