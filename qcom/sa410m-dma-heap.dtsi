@@ -21,5 +21,11 @@
 			qcom,dma-heap-type = <HEAP_TYPE_CMA>;
 			memory-region = <&user_contig_mem>;
 		};
+
+		qcom,system {
+			qcom,dma-heap-name = "qcom,system-uncached";
+			qcom,dma-heap-type = <HEAP_TYPE_CMA>;
+			memory-region = <&system_cma>;
+		};
 	};
 };
