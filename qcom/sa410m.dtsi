@@ -1225,6 +1225,140 @@
 		qcom,commonlib64-loaded-by-uefi;
 		qcom,qsee-reentrancy-support = <2>;
 	};
+
+	mtl_rx_setup: rx-queues-config {
+		snps,rx-queues-to-use = <4>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x0>;
+			snps,route-up;
+			snps,priority = <0x1>;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,route-ptp;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x2>;
+			snps,route-avcp;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x3>;
+			snps,priority = <0xC>;
+		};
+	};
+
+	mtl_tx_setup: tx-queues-config {
+		snps,tx-queues-to-use = <4>;
+		snps,tx-sched-sp;
+		queue0 {
+			snps,dcb-algorithm;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+	};
+
+	ethqos_hw: qcom,ethernet@5000000 {
+		compatible = "qcom,stmmac-ethqos", "snps,dwmac-4.20a";
+		reg = <0x5000000 0x10000>,
+			<0x5016000 0x100>,
+			<0x500000 0x100000>;
+		reg-names = "stmmaceth", "rgmii", "tlmm-central-base";
+		interrupts-extended = <&intc 0 271 4>, <&intc 0 419 4>,
+			<&tlmm 137 2>;
+		interrupt-names = "macirq", "eth_lpi",
+			"phy-intr";
+
+		vreg_emac_phy-supply =  <&vreg_emac_phy>;
+		vreg_rgmii_io_pads-supply = <&vreg_rgmii_io_pads>;
+		gdsc_emac-supply = <&gcc_emac0_gdsc>;
+
+		clocks = <&gcc GCC_EMAC0_AXI_CLK>,
+			<&gcc GCC_EMAC0_SLV_AHB_CLK>,
+			<&gcc GCC_EMAC0_PTP_CLK>,
+			<&gcc GCC_EMAC0_RGMII_CLK>;
+		clock-names = "stmmaceth", "pclk", "ptp_ref", "rgmii";
+
+		snps,ptp-ref-clk-rate = <230400000>;
+		snps,ptp-req-clk-rate = <57600000>;
+
+		pinctrl-names = "dev-emac-mdc",
+			"dev-emac-mdio",
+			"dev-emac-rgmii_txd0_state",
+			"dev-emac-rgmii_txd1_state",
+			"dev-emac-rgmii_txd2_state",
+			"dev-emac-rgmii_txd3_state",
+			"dev-emac-rgmii_txc_state",
+			"dev-emac-rgmii_tx_ctl_state",
+			"dev-emac-rgmii_rxd0_state",
+			"dev-emac-rgmii_rxd1_state",
+			"dev-emac-rgmii_rxd2_state",
+			"dev-emac-rgmii_rxd3_state",
+			"dev-emac-rgmii_rxc_state",
+			"dev-emac-rgmii_rx_ctl_state";
+
+		pinctrl-0 = <&emac_mdc>;
+		pinctrl-1 = <&emac_mdio>;
+
+		pinctrl-2 = <&emac_rgmii_txd0>;
+		pinctrl-3 = <&emac_rgmii_txd1>;
+		pinctrl-4 = <&emac_rgmii_txd2>;
+		pinctrl-5 = <&emac_rgmii_txd3>;
+		pinctrl-6 = <&emac_rgmii_txc>;
+		pinctrl-7 = <&emac_rgmii_tx_ctl>;
+
+		pinctrl-8 = <&emac_rgmii_rxd0>;
+		pinctrl-9 = <&emac_rgmii_rxd1>;
+		pinctrl-10 = <&emac_rgmii_rxd2>;
+		pinctrl-11 = <&emac_rgmii_rxd3>;
+		pinctrl-12 = <&emac_rgmii_rxc>;
+		pinctrl-13 = <&emac_rgmii_rx_ctl>;
+
+		rx-fifo-depth = <4096>;
+		tx-fifo-depth = <4096>;
+
+		snps,mtl-rx-config = <&mtl_rx_setup>;
+		snps,mtl-tx-config = <&mtl_tx_setup>;
+		qcom,arm-smmu;
+		qcom,phy-intr-redirect = <&tlmm 137 GPIO_ACTIVE_LOW>;
+		snps,reset-gpios = <&tlmm 112 GPIO_ACTIVE_LOW>;
+		snps,reset-delays-us = <0 10000 100000>;
+		phy-mode = "rgmii";
+		eth-c22-mdio-probe;
+		reg-egpio-enable;
+		ethqos_emb_smmu: ethqos_emb_smmu {
+				compatible = "qcom,emac-smmu-embedded";
+				iommus = <&apps_smmu 0x200 0xf>;
+				qcom,iommu-dma = "fastmap";
+				qcom,iommu-dma-addr-pool = <0x40000000 0x10000000>;
+		};
+	};
 };
 
 #include "pm2250-rpm-regulator.dtsi"
