@@ -98,3 +98,17 @@ Example:
                memory-region = <&adsp_mem>;
                restrict-access;
        };
+
+mdsp:
+
+Required properties:
+- compatible            :       Must be "qcom,msm-mdsprpc-mem-region"
+- memory-region         :       CMA region which is owned by this device
+- restrict-access       :       Blocking vote for hyp_assign_phys function call
+
+Example:
+       qcom,mdsprpc-mem {
+               compatible = "qcom,msm-mdsprpc-mem-region";
+               memory-region = <&mdsp_mem>;
+               restrict-access;
+       };
