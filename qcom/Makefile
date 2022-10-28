@@ -211,7 +211,7 @@ gen4auto-overlays-dtb-$(CONFIG_ARCH_LEMANS) +=  \
 
 dtb-y += $(gen4auto-dtb-y)
 
-sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb sa525m-rumi.dtb \
+sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb \
 		sdxpinn-idp-mbb.dtb \
 		sdxpinn-idp-mbb-v2.dtb \
 		sdxpinn-idp-cpe.dtb \
@@ -224,6 +224,17 @@ sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb sa525m-rumi.dtb \
 		sdxpinn-rcm-mbb.dtb \
 		sdxpinn-rcm-mbb-v2.dtb
 dtb-y += $(sdxpinn-dtb-y)
+
+SA525_BASE_DTB += sa525m.dtb
+
+SA525_BOARDS += sa525m-rumi-overlay.dtbo \
+		sdxpinn-idp-mbb-overlay.dtbo
+
+sa525-dtb-$(CONFIG_ARCH_SA525) += \
+		$(call add-overlays, $(SA525_BOARDS) ,$(SA525_BASE_DTB))
+sa525-overlays-dtb-$(CONFIG_ARCH_SA525) += $(SA525_BOARDS) $(SA525_BASE_DTB)
+
+dtb-y += $(sa525-dtb-y)
 
 SA410M_AUTO_BASE_DTB += sa410m.dtb
 SA410M_AUTO_BOARDS += \

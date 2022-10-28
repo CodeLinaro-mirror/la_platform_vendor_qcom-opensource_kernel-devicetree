@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+#include "sdxpinn-idp-mbb.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXPINN IDP MBB Overlay";
+	compatible = "qcom,sdxpinn-idp",
+		"qcom,sdxpinn", "qcom,idp";
+	qcom,board-id = <0x2010022 0x302>;
+};
+
+&qnand_1 {
+	status = "disabled";
+};
+
+&pcie0 {
+	status = "disabled";
+};
+
+&pcie0_msi {
+	status = "disabled";
+};
+
+&pcie1 {
+	status = "disabled";
+};
+
+&pcie2 {
+	status = "disabled";
+};
