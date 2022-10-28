@@ -104,6 +104,21 @@
 		qcom,pre-scaling = <1 3>;
 	};
 
+	pm7550ba_chg_temp {
+		reg = <PM7550BA_ADC5_GEN3_CHG_TEMP_V>;
+		label = "pm7550ba_chg_temp";
+	};
+
+	pm7550ba_iin_fb {
+		reg = <PM7550BA_ADC5_GEN3_IIN_FB>;
+		label = "pm7550ba_iin_fb";
+	};
+
+	pm7550ba_ichg_fb {
+		reg = <PM7550BA_ADC5_GEN3_ICHG_FB>;
+		label = "pm7550ba_ichg_fb";
+	};
+
 	/* PMX75 Channel nodes */
 	pmx75_offset_ref {
 		reg = <PMX75_ADC5_GEN3_OFFSET_REF>;
