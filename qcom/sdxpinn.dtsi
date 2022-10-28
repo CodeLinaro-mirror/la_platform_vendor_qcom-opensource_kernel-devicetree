@@ -528,7 +528,7 @@
 				compatible = "qcom,memlat-mon";
 				qcom,cpulist = <&CPU0 &CPU1 &CPU2 &CPU3>;
 				qcom,cpufreq-memfreq-tbl =
-					< 1440000  652800 >,
+					< 1440000  556800 >,
 					< 1747200 1440000 >;
 					qcom,sampling-enabled;
 			};
