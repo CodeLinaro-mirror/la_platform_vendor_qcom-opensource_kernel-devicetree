@@ -1,6 +1,27 @@
+#include <dt-bindings/gpio/gpio.h>
+
 #include "sdxpinn-pmic-overlay.dtsi"
 
 &soc {
+	aqr_vreg: aqr_vreg {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "aqr_vreg";
+		gpio = <&tlmm 86 GPIO_ACTIVE_HIGH>;
+		regulator-min-microvolt = <700000>;
+		regulator-max-microvolt = <700000>;
+		enable-active-high;
+		regulator-enable-ramp-delay = <10000>;
+	};
+
+	napa_vreg: napa_vreg {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "napa_vreg";
+		gpio = <&tlmm 88 GPIO_ACTIVE_HIGH>;
+		regulator-min-microvolt = <1050000>;
+		regulator-max-microvolt = <1050000>;
+		enable-active-high;
+		regulator-enable-ramp-delay = <80000>;
+	};
 };
 
 &pmx75_vbus_detect {
