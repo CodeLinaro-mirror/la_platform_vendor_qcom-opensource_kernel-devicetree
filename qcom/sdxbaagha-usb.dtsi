@@ -14,10 +14,12 @@
 
 		clocks = <&gcc GCC_USB20_MASTER_CLK>,
 			<&gcc GCC_SYS_NOC_USB_SF_AXI_CLK>,
+			<&gcc GCC_SNOC_CNOC_USB3_CLK>,
 			<&gcc GCC_USB20_SLEEP_CLK>,
 			<&gcc GCC_USB20_MOCK_UTMI_CLK>;
 
-		clock-names = "core_clk", "iface_clk", "sleep_clk", "utmi_clk";
+		clock-names = "core_clk", "iface_clk", "bus_aggr_clk",
+				"sleep_clk", "utmi_clk";
 
 		resets = <&gcc GCC_USB20_BCR>;
 		reset-names = "core_reset";
