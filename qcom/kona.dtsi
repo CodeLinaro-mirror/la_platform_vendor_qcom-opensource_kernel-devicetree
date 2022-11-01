@@ -2353,12 +2353,11 @@
 	qcom_rng: qrng@793000 {
 		compatible = "qcom,msm-rng";
 		reg = <0x793000 0x1000>;
-		qcom,msm-rng-iface-clk;
 		qcom,no-qrng-config;
 		interconnect-names = "data_path";
 		interconnects = <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_PRNG>;
 		clocks = <&clock_gcc GCC_PRNG_AHB_CLK>;
-		clock-names = "iface_clk";
+		clock-names = "km_clk_src";
 	};
 
 	mdm0: qcom,mdm0 {
@@ -2426,7 +2425,6 @@
 		#clock-cells = <1>;
 		mboxes = <&qmp_aop 0>;
 		mbox-names = "qdss_clk";
-		qcom,clk-stop-bimc-log;
 	};
 
 	clock_gcc: qcom,gcc@100000 {

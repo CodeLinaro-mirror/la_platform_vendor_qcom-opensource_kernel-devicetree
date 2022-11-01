@@ -1,10 +1,14 @@
+#include <dt-bindings/interconnect/qcom,kona.h>
 &soc {
 	/* QUPv3_0  wrapper  instance : North QUP*/
 	qupv3_0: qcom,qupv3_0_geni_se@9c0000 {
 		compatible = "qcom,qupv3-geni-se";
 		reg = <0x9c0000 0x2000>;
+			qcom,msm-bus,num-paths = <1>;
+			qcom,msm-bus,vectors-bus-ids = <MASTER_QUP_0 SLAVE_EBI1>;
 		iommus = <&apps_smmu 0x5a3 0x0>;
 		qcom,iommu-dma-addr-pool = <0x40000000 0xc0000000>;
+			qcom,iommu-geometry = <0x40000000 0xc0000000>;
 		qcom,iommu-dma = "fastmap";
 	};
 
@@ -457,11 +461,13 @@
 	qupv3_1: qcom,qupv3_1_geni_se@ac0000 {
 		compatible = "qcom,qupv3-geni-se";
 		reg = <0xac0000 0x2000>;
+				qcom,msm-bus,num-paths = <1>;
+				qcom,msm-bus,vectors-bus-ids = <MASTER_QUP_1 SLAVE_EBI1>;
 		iommus = <&apps_smmu 0x43 0x0>;
 		qcom,iommu-dma-addr-pool = <0x40000000 0xc0000000>;
+				qcom,iommu-geometry = <0x40000000 0xc0000000>;
 		qcom,iommu-dma = "fastmap";
 	};
-
 	/* Debug UART Instance for CDP/MTP platform */
 	qupv3_se12_2uart: qcom,qup_uart@a90000 {
 		compatible = "qcom,msm-geni-console";
@@ -759,8 +765,11 @@
 	qupv3_2: qcom,qupv3_2_geni_se@8c0000 {
 		compatible = "qcom,qupv3-geni-se";
 		reg = <0x8c0000 0x2000>;
+				qcom,msm-bus,num-paths = <1>;
+				qcom,msm-bus,vectors-bus-ids = <MASTER_QUP_2 SLAVE_EBI1>;
 		iommus = <&apps_smmu 0x63 0x0>;
 		qcom,iommu-dma-addr-pool = <0x40000000 0xc0000000>;
+				qcom,iommu-geometry = <0x40000000 0xc0000000>;
 		qcom,iommu-dma = "fastmap";
 	};
 
