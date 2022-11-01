@@ -597,7 +597,7 @@
 			<&gcc GCC_SDCC1_APPS_CLK>;
 		clock-names = "iface", "core";
 
-		//qcom,restore-after-cx-collapse;
+		qcom,restore-after-cx-collapse;
 
 		/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
 		qcom,dll-hsr-list = <0x0007642c 0xa800 0x10
@@ -608,6 +608,11 @@
 		no-mmc;
 
 		status = "disabled";
+
+		qos0 {
+			mask = <0x1>;
+			vote = <70>;
+		};
 	};
 
 
@@ -1317,10 +1322,6 @@
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&sdc1_on>;
 	pinctrl-1 = <&sdc1_off>;
-
-	qcom,clk-rates = <400000 20000000 25000000 50000000 100000000
-				200000000>;
-	qcom,devfreq,freq-table = <50000000 200000000>;
 
 	cd-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
 	status = "ok";
