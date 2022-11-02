@@ -83,6 +83,44 @@
 
 &spmi_bus {
 	qcom,pm2250@0 {
+		pm2250_adc_tm_iio: adc_tm@3400 {
+			compatible = "qcom,spmi-adc-tm5-iio";
+			reg = <0x3400>;
+			#thermal-sensor-cells = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			xo_therm {
+				reg = <0>;
+				io-channels = <&pm2250_vadc ADC5_XO_THERM_100K_PU>;
+			};
+
+			pa_therm {
+				reg = <1>;
+				io-channels = <&pm2250_vadc ADC5_AMUX_THM1_100K_PU>;
+			};
+
+			quiet_therm {
+				reg = <2>;
+				io-channels = <&pm2250_vadc ADC5_AMUX_THM2_100K_PU>;
+			};
+
+			msm_therm {
+				reg = <3>;
+				io-channels = <&pm2250_vadc ADC5_AMUX_THM3_100K_PU>;
+			};
+
+			skin_therm {
+				reg = <4>;
+				io-channels = <&pm2250_vadc ADC5_GPIO3_100K_PU>;
+			};
+
+			conn_therm {
+				reg = <5>;
+				io-channels = <&pm2250_vadc ADC5_GPIO4_100K_PU>;
+			};
+		};
+
 		/delete-node/ pm2250_qg;
 		/delete-node/ pm2250_charger;
 	};
@@ -111,6 +149,4 @@
 			};
 		};
 	};
-
-	/delete-node/ socd;
 };
