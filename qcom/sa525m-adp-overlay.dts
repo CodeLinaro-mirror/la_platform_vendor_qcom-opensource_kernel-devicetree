@@ -1,13 +1,13 @@
 /dts-v1/;
 /plugin/;
 
-#include "sdxpinn-idp-mbb.dtsi"
+#include "sa525m-adp.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. SDXPINN IDP MBB Overlay";
-	compatible = "qcom,sdxpinn-idp",
-		"qcom,sdxpinn", "qcom,idp";
-	qcom,board-id = <0x2010022 0>;
+	model = "Qualcomm Technologies, Inc. SA525 ADP Overlay";
+	compatible = "qcom,sdxpinn-adp",
+		"qcom,sdxpinn", "qcom,adp";
+	qcom,board-id = <0x0010019 0x00>;
 };
 
 &qnand_1 {

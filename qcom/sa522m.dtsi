@@ -1,0 +1,5 @@
+#include "sdxpinn.dtsi"
+
+&qnand_1 {
+	status = "ok";
+};

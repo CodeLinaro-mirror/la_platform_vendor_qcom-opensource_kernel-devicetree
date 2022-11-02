@@ -8,5 +8,5 @@
 / {
 	model = "Qualcomm Technologies, Inc. SA525M RUMI";
 	compatible = "qcom,sdxpinn-rumi", "qcom,sdxpinn", "qcom,rumi";
-	qcom,board-id = <15 0x400>;
+	qcom,board-id = <0x001000F 0>;
 };
