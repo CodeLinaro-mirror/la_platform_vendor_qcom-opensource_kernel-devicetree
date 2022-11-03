@@ -1072,6 +1072,7 @@
 		qcom,bandwidth-vote-for-ipa;
 		qcom,msm-bus,name = "ipa";
 		qcom,ipa-wdi2_over_gsi;
+		qcom,ipa-wdi3-over-gsi;
 		qcom,ipa-endp-delay-wa;
 		qcom,ipa-config-is-auto;
 		qcom,ipa-wdi3-holb-2g = <8>;
