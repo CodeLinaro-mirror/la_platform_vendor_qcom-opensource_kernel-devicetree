@@ -104,11 +104,11 @@
 };
 
 &pil_modem {
-	status = "disabled";
+	status = "ok";
 };
 
 &pil_modem_mem {
-	status = "disabled";
+	status = "ok";
 };
 
 &pm8150_1_gpios {
