@@ -51,3 +51,7 @@
 		dr_mode = "peripheral";
 	};
 };
+
+&gcc {
+	clocks = <&bi_tcxo>, <&pcie_pipe_clk>, <&sleep_clk>;
+};
