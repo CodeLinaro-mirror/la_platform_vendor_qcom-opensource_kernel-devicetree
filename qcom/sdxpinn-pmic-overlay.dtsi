@@ -84,39 +84,46 @@
 		reg = <PM7550BA_ADC5_GEN3_OFFSET_REF>;
 		label = "pm7550ba_offset_ref";
 		qcom,pre-scaling = <1 1>;
+		status = "disabled";
 	};
 
 	pm7550ba_vref_1p25 {
 		reg = <PM7550BA_ADC5_GEN3_1P25VREF>;
 		label = "pm7550ba_vref_1p25";
 		qcom,pre-scaling = <1 1>;
+		status = "disabled";
 	};
 
 	pm7550ba_die_temp {
 		reg = <PM7550BA_ADC5_GEN3_DIE_TEMP>;
 		label = "pm7550ba_die_temp";
 		qcom,pre-scaling = <1 1>;
+		status = "disabled";
 	};
 
 	pm7550ba_vph_pwr {
 		reg = <PM7550BA_ADC5_GEN3_VPH_PWR>;
 		label = "pm7550ba_vph_pwr";
 		qcom,pre-scaling = <1 3>;
+		status = "disabled";
 	};
 
 	pm7550ba_chg_temp {
 		reg = <PM7550BA_ADC5_GEN3_CHG_TEMP_V>;
 		label = "pm7550ba_chg_temp";
+		status = "disabled";
 	};
 
 	pm7550ba_iin_fb {
 		reg = <PM7550BA_ADC5_GEN3_IIN_FB>;
 		label = "pm7550ba_iin_fb";
+		status = "disabled";
 	};
 
 	pm7550ba_ichg_fb {
 		reg = <PM7550BA_ADC5_GEN3_ICHG_FB>;
 		label = "pm7550ba_ichg_fb";
+		status = "disabled";
 	};
 
 	/* PMX75 Channel nodes */
