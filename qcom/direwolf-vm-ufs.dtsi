@@ -29,10 +29,6 @@
 };
 
 &soc {
-	aliases {
-		ufshc2 = &ufshc2_mem; /* Embedded 2nd UFS slot */
-	};
-
 	ufs2phy_mem: ufsphy_mem@1da7000 {
 		compatible = "qcom,ufs-phy-qmp-v4-lahaina";
 
