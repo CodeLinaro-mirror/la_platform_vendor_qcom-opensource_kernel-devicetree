@@ -43,6 +43,9 @@
 			reg = <0x0a600000 0xd93c>;
 			interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
 			usb-phy = <&eusb2_phy>, <&usb_qmp_phy>;
+			iommus = <&apps_smmu 0x80 0x0>;
+			qcom,iommu-dma = "bypass";
+			qcom,iommu-dma-addr-pool = <0x40000000 0x40000000>;
 			snps,has-lpm-erratum;
 			snps,dis-u1-entry-quirk;
 			snps,dis-u2-entry-quirk;
