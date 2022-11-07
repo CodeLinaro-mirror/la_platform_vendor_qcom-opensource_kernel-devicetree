@@ -111,4 +111,6 @@
 			};
 		};
 	};
+
+	/delete-node/ socd;
 };
