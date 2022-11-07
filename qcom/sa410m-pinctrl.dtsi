@@ -691,4 +691,30 @@
 			};
 		};
 	};
+
+	sensor_int1_default: sensor_int1_default {
+			mux {
+				pins = "gpio31";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio31";
+				drive-strength = <16>; /* 16 mA */
+				bias-pull-down; /* pull down */
+			};
+	};
+
+	sensor_int2_default: sensor_int2_default {
+			mux {
+				pins = "gpio32";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio32";
+				drive-strength = <16>; /* 16 mA */
+				bias-pull-down; /* pull down */
+			};
+	};
 };
