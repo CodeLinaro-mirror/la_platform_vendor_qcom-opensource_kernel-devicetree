@@ -1245,9 +1245,7 @@
 
 	modem_pas: remoteproc-mss@04080000 {
 		compatible = "qcom,sdxpinn-modem-pas";
-		reg = <0x4080000 0x10000>,
-			<0x4180000 0x10000>;
-		status = "disabled";
+		reg = <0x4080000 0x10000>;
 
 		clocks = <&rpmhcc RPMH_CXO_CLK>;
 		clock-names = "xo";
@@ -1255,7 +1253,7 @@
 		cx-supply = <&VDD_CX_LEVEL>;
 		cx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
 		mx-supply = <&VDD_MODEM_LEVEL>;
-		mx-uV-uA = <RPMH_REGULATOR_LEVEL_TURBO 100000>;
+		mx-uV-uA = <RPMH_REGULATOR_LEVEL_NOM_L1 100000>;
 		reg-names = "cx", "mx";
 
 		qcom,signal-aop;
@@ -1303,6 +1301,54 @@
 			qcom,modem_ds {
 				qcom,glink-channels = "DS";
 				qcom,intents = <0x4000 0x2>;
+			};
+		};
+	};
+
+	pmic_glink: qcom,pmic_glink {
+		compatible = "qcom,pmic-glink";
+		qcom,pmic-glink-channel = "PMIC_RTR_ADSP_APPS";
+		qcom,subsys-name = "mpss";
+		status = "disabled";
+
+		qcom,ucsi {
+			compatible = "qcom,ucsi-glink";
+		};
+
+		qcom,battery_charger {
+			compatible = "qcom,battery-charger";
+		};
+	};
+
+	pmic_glink_log: qcom,pmic_glink_log {
+		compatible = "qcom,pmic-glink";
+		qcom,pmic-glink-channel = "PMIC_LOGS_ADSP_APPS";
+		status = "disabled";
+
+		qcom,battery_debug {
+			compatible = "qcom,battery-debug";
+		};
+
+		qcom,charger_ulog_glink {
+			compatible = "qcom,charger-ulog-glink";
+		};
+
+		qcom,spmi_glink_debug {
+			compatible = "qcom,spmi-glink-debug";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			depends-on-supply = <&spmi_bus>;
+
+			spmi@0 {
+				reg = <0>;
+				#address-cells = <2>;
+				#size-cells = <0>;
+
+				qcom,pm7550ba-debug@7 {
+					compatible = "qcom,spmi-pmic";
+					reg = <0x7 SPMI_USID>;
+					qcom,can-sleep;
+				};
 			};
 		};
 	};

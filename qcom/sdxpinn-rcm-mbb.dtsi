@@ -17,3 +17,24 @@
 	dummy-supply = <&pm7550ba_eusb2_repeater>;
 	usb-repeater = <&pm7550ba_eusb2_repeater>;
 };
+
+&modem_pas {
+	qcom,pmic_glink_rpmsg {
+		qcom,glink-channels = "PMIC_RTR_ADSP_APPS";
+	};
+
+	qcom,pmic_glink_log_rpmsg {
+		qcom,glink-channels = "PMIC_LOGS_ADSP_APPS";
+		qcom,intents = <0x800 5
+				0xc00 3
+				0x2000 1>;
+	};
+};
+
+&pmic_glink {
+	status = "ok";
+};
+
+&pmic_glink_log {
+	status = "ok";
+};
