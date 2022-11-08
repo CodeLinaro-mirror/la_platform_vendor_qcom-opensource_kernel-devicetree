@@ -1,0 +1,9 @@
+/dts-v1/;
+
+#include "sa522m.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA522M";
+	compatible = "qcom,sdxpinn";
+	qcom,board-id = <0 0>;
+};
