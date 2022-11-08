@@ -1292,6 +1292,7 @@
 	pmic_glink: qcom,pmic_glink {
 		compatible = "qcom,pmic-glink";
 		qcom,pmic-glink-channel = "PMIC_RTR_ADSP_APPS";
+		qcom,subsys-name = "mpss";
 		status = "disabled";
 
 		qcom,ucsi {
