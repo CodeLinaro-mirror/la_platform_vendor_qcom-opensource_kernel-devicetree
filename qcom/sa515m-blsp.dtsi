@@ -44,6 +44,8 @@
 		pinctrl-names = "i2c_active", "i2c_sleep";
 		pinctrl-0 = <&i2c_1_active>;
 		pinctrl-1 = <&i2c_1_sleep>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -67,6 +69,8 @@
 		pinctrl-names = "i2c_active", "i2c_sleep";
 		pinctrl-0 = <&i2c_2_active>;
 		pinctrl-1 = <&i2c_2_sleep>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -90,6 +94,8 @@
 		pinctrl-names = "i2c_active", "i2c_sleep";
 		pinctrl-0 = <&i2c_3_active>;
 		pinctrl-1 = <&i2c_3_sleep>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "ok";
 	};
 
@@ -113,6 +119,8 @@
 		pinctrl-names = "i2c_active", "i2c_sleep";
 		pinctrl-0 = <&i2c_4_active>;
 		pinctrl-1 = <&i2c_4_sleep>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -136,6 +144,8 @@
 		pinctrl-names = "i2c_active", "i2c_sleep";
 		pinctrl-0 = <&i2c_5_active>;
 		pinctrl-1 = <&i2c_5_sleep>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -159,6 +169,8 @@
 		pinctrl-names = "i2c_active", "i2c_sleep";
 		pinctrl-0 = <&i2c_6_active>;
 		pinctrl-1 = <&i2c_6_sleep>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -182,6 +194,8 @@
 		pinctrl-names = "i2c_active", "i2c_sleep";
 		pinctrl-0 = <&i2c_7_active>;
 		pinctrl-1 = <&i2c_7_sleep>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
