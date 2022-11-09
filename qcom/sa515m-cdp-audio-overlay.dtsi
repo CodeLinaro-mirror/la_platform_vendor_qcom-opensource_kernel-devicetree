@@ -8,3 +8,7 @@
 	};
 };
 
+&wsa_spkr_wcd_sd2 {
+	pinctrl-0 = <&spkr_1_wcd_en_active>;
+	pinctrl-1 = <&spkr_1_wcd_en_sleep>;
+};
