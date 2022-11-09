@@ -1,5 +1,6 @@
 #include "sa415m.dtsi"
 #include "sa415m-pinctrl.dtsi"
+#include "sa415m-cdp-audio-overlay.dtsi"
 
 &pmxpoorwills_vadc {
 	pinctrl-names = "default";
