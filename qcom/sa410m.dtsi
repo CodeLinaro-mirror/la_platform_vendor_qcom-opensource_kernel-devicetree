@@ -44,6 +44,7 @@
 			reg = <0x0 0x0>;
 			cpu-idle-states = <&SILVER_OFF>;
 			power-domains = <&CPU_PD0>;
+			power-domain-names = "psci";
 			enable-method = "psci";
 			capacity-dmips-mhz = <1024>;
 			dynamic-power-coefficient = <100>;
@@ -70,6 +71,7 @@
 			reg = <0x0 0x1>;
 			cpu-idle-states = <&SILVER_OFF>;
 			power-domains = <&CPU_PD1>;
+			power-domain-names = "psci";
 			enable-method = "psci";
 			capacity-dmips-mhz = <1024>;
 			dynamic-power-coefficient = <100>;
@@ -92,6 +94,7 @@
 			reg = <0x0 0x2>;
 			cpu-idle-states = <&SILVER_OFF>;
 			power-domains = <&CPU_PD2>;
+			power-domain-names = "psci";
 			enable-method = "psci";
 			capacity-dmips-mhz = <1024>;
 			dynamic-power-coefficient = <100>;
@@ -114,6 +117,7 @@
 			reg = <0x0 0x3>;
 			cpu-idle-states = <&SILVER_OFF>;
 			power-domains = <&CPU_PD3>;
+			power-domain-names = "psci";
 			enable-method = "psci";
 			capacity-dmips-mhz = <1024>;
 			dynamic-power-coefficient = <100>;
