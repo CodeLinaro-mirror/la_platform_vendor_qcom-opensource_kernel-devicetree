@@ -164,6 +164,12 @@
 	/delete-node/ xo-therm-step;
 	/delete-node/ xo-therm-usr;
 	/delete-node/ skin-msm-therm-step;
+	/delete-node/ pm8150l-vph-lvl0;
+	/delete-node/ pm8150l-vph-lvl1;
+	/delete-node/ pm8150l-vph-lvl2;
+	/delete-node/ pm8150b-vbat-lvl0;
+	/delete-node/ pm8150b-vbat-lvl1;
+	/delete-node/ pm8150b-vbat-lvl2;
 
 	pm8250-wifi-usr {
 		polling-delay-passive = <0>;
