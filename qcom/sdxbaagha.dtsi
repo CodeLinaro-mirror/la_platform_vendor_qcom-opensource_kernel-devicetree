@@ -144,6 +144,7 @@
 			compatible = "arm,cortex-a7";
 			reg = <0x0>;
 			qcom,freq-domain = <&cpufreq_hw 0>;
+			enable-method = "psci";
 		};
 	};
 
@@ -157,6 +158,11 @@
 	#size-cells = <1>;
 	ranges;
 	compatible = "simple-bus";
+
+	psci {
+		compatible = "arm,psci-1.0";
+		 method = "smc";
+	};
 
 	intc: interrupt-controller@17000000 {
 		compatible = "qcom,msm-qgic2";
