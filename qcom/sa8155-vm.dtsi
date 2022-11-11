@@ -1047,3 +1047,7 @@
 	/delete-node/ mmidgrp1500;
 };
 
+&tlmm {
+	qcom,dirconn-list = <136 0>, <132 0>;
+};
+
