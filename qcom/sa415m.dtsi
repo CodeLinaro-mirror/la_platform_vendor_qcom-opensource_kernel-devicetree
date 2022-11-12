@@ -26,6 +26,7 @@
 	aliases {
 		qpic_nand1 = &qnand_1;
 		pci-domain0 = &pcie0;
+		sdhc1 = &sdhc_1; /* SDC1 eMMC/SD/SDIO slot */
 	};
 
 	reserved_mem: reserved-memory {
@@ -810,6 +811,55 @@
 		status = "ok";
 	};
 
+	sdhc_1: sdhci@8804000 {
+		compatible = "qcom,sdhci-msm-v5";
+		reg = <0x8804000 0x1000>;
+		reg-names = "hc_mem";
+
+		interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>,
+				<GIC_SPI 227 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-names = "hc_irq", "pwr_irq";
+
+		bus-width = <4>;
+
+		interconnects = <&system_noc MASTER_SDCC_1 &mc_virt SLAVE_EBI1>;
+		interconnect-names = "sdhc-ddr";
+
+		qcom,msm-bus,name = "sdhc1";
+		qcom,msm-bus,num-cases = <8>;
+		qcom,msm-bus,num-paths = <1>;
+		qcom,msm-bus,vectors-KBps =  <0 0>, /* No vote */
+				<1600 3200>,    /* 400 KB/s*/
+				<80000 160000>, /* 20 MB/s */
+				<100000 200000>, /* 25 MB/s */
+				<200000 400000>, /* 50 MB/s */
+				<400000 800000>, /* 100 MB/s */
+				<400000 800000>, /* 200 MB/s */
+				<2048000 4096000>; /* Max. bandwidth */
+		qcom,bus-bw-vectors-bps = <0 400000 20000000 25000000 50000000
+						100000000 200000000 4294967295>;
+
+		clocks = <&gcc GCC_SDCC1_AHB_CLK>,
+			<&gcc GCC_SDCC1_APPS_CLK>;
+		clock-names = "iface", "core";
+
+		qcom,restore-after-cx-collapse;
+
+		/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
+		qcom,dll-hsr-list = <0x0007642c 0x0 0x10 0x2c010800 0x80040868>;
+
+		qcom,devfreq,freq-table = <50000000 200000000>;
+		no-sdio;
+		no-mmc;
+
+		status = "disabled";
+
+		qos0 {
+			mask = <0x1>;
+			vote = <70>;
+		};
+	};
+
 	apcs_glb: mailbox@0x17811000 {
 		compatible = "qcom,sdxpoorwills-apcs-gcc";
 		reg = <0x17811000 0xb9>;
@@ -1167,3 +1217,18 @@
 };
 #include "sa415m-pcie.dtsi"
 #include "sa415m-ccard-cnss.dtsi"
+
+&sdhc_1 {
+	vdd-supply = <&vreg_sd_mmc>;
+
+	vdd-io-supply = <&pmxpoorwills_l7>;
+	qcom,vdd-io-voltage-level = <1800000 2950000>;
+	qcom,vdd-io-current-level = <200 10000>;
+
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&sdc1_on>;
+	pinctrl-1 = <&sdc1_off>;
+
+	cd-gpios = <&tlmm 93 GPIO_ACTIVE_LOW>;
+	status = "ok";
+};
