@@ -56,12 +56,15 @@
 			qcom,iommu-dma-addr-pool = <0x90000000 0x60000000>;
 
 			interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-			snps,disable-clk-gating;
 			snps,has-lpm-erratum;
 			snps,hird-threshold = /bits/ 8 <0x0>;
 			snps,is-utmi-l1-suspend;
 			snps,dis-u1-entry-quirk;
 			snps,dis-u2-entry-quirk;
+			snps,dis_u2_susphy_quirk;
+			snps,dis_u3_susphy_quirk;
+			imod-interval-ns = <1000000>;
+			//tx-fifo-resize;
 			maximum-speed = "high-speed";
 			dr_mode = "otg";
 			usb-role-switch;
