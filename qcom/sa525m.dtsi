@@ -18,3 +18,10 @@
 		qcom,asm330_hrtimer;
 	};
 };
+
+&ipa_hw {
+	qcom,ipa-config-is-auto;
+	qcom,wlan-ce-db-over-pcie;
+	qcom,ipa-wdi2_over_gsi;
+	qcom,msm-bus,name = "ipa";
+};
