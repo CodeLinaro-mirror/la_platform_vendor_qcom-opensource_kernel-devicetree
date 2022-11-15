@@ -134,16 +134,6 @@
 		reg = <0x0 0x8e000000 0x0 0x10e00000>;
 	};
 
-	vm1_reserved_mem: vm1_reserved_region@b0000000 {
-		no-map;
-		reg = <0x0 0xb0000000 0x0 0x6000000>;
-	};
-
-	vm2_reserved_mem: vm2_reserved_region@b6000000 {
-		no-map;
-		reg = <0x0 0xb6000000 0x0 0x6000000>;
-	};
-
 	gunyah_trace_buffer_mem: gunyah_trace_buffer_region@bdb00000 {
 		no-map;
 		reg = <0x0 0xbdb00000 0x0 0x2000000>;
