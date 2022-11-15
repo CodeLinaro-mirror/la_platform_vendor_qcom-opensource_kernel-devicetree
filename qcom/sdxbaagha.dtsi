@@ -189,6 +189,11 @@
 		hwlocks = <&tcsr_mutex 3>;
 	};
 
+	cpu_pmu: cpu-pmu {
+		compatible = "arm,cortex-a7-pmu";
+		interrupts = <GIC_PPI 8 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
 	qcom,smp2p-modem {
 		compatible = "qcom,smp2p";
 		qcom,smem = <435>, <428>;
