@@ -38,3 +38,34 @@
 &pmic_glink_log {
 	status = "ok";
 };
+
+&pmk8550_vadc {
+	/* PM8550BA Channel nodes */
+	pm7550ba_offset_ref {
+		status = "ok";
+	};
+
+	pm7550ba_vref_1p25 {
+		status = "ok";
+	};
+
+	pm7550ba_die_temp {
+		status = "ok";
+	};
+
+	pm7550ba_vph_pwr {
+		status = "ok";
+	};
+
+	pm7550ba_chg_temp {
+		status = "ok";
+	};
+
+	pm7550ba_iin_fb {
+		status = "ok";
+	};
+
+	pm7550ba_ichg_fb {
+		status = "ok";
+	};
+};
