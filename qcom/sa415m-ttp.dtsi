@@ -4,6 +4,26 @@
 	status = "okay";
 };
 
+&qcom_seecom {
+	status = "okay";
+};
+
+&sdhc_1 {
+	qcom,nonremovable;
+};
+
+&i2c_3 {
+	eeprom@52 {
+		compatible = "atmel,24c128";
+		reg = <0x52>;
+		pagesize = <32>;
+	};
+};
+
+&smb138x {
+	status = "disabled";
+};
+
 &spi_2 {
 	status = "okay";
 
