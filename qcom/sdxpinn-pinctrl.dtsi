@@ -819,7 +819,7 @@
 		};
 	};
 
-	sdc1_on: sdc1_on {
+	sdc1_emmc_on: sdc1_emmc_on {
 		clk {
 			pins = "sdc1_clk";
 			bias-disable;
@@ -844,7 +844,7 @@
 		};
 	};
 
-	sdc1_off: sdc1_off {
+	sdc1_emmc_off: sdc1_emmc_off {
 		clk {
 			pins = "sdc1_clk";
 			bias-disable;
@@ -869,21 +869,21 @@
 		};
 	};
 
-	sdc2_on: sdc2_on {
+	sdc1_sd_on: sdc1_sd_on {
 		clk {
-			pins = "sdc2_clk";
+			pins = "sdc1_clk";
 			bias-disable;
 			drive-strength = <16>;
 		};
 
 		cmd {
-			pins = "sdc2_cmd";
+			pins = "sdc1_cmd";
 			bias-pull-up;
 			drive-strength = <10>;
 		};
 
 		data {
-			pins = "sdc2_data";
+			pins = "sdc1_data";
 			bias-pull-up;
 			drive-strength = <10>;
 		};
@@ -895,21 +895,21 @@
 		};
 	};
 
-	sdc2_off: sdc2_off {
+	sdc1_sd_off: sdc1_sd_off {
 		clk {
-			pins = "sdc2_clk";
+			pins = "sdc1_clk";
 			bias-disable;
 			drive-strength = <2>;
 		};
 
 		cmd {
-			pins = "sdc2_cmd";
+			pins = "sdc1_cmd";
 			bias-pull-up;
 			drive-strength = <2>;
 		};
 
 		data {
-			pins = "sdc2_data";
+			pins = "sdc1_data";
 			bias-pull-up;
 			drive-strength = <2>;
 		};
