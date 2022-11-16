@@ -269,8 +269,8 @@ msm_gpu: qcom,kgsl-3d0@5900000 {
 				#address-cells = <1>;
 				#size-cells = <0>;
 				qcom,speed-bin = <92>;
-				qcom,ca-target-pwrlevel = <2>;
-				qcom,initial-pwrlevel = <1>;
+				qcom,ca-target-pwrlevel = <1>;
+				qcom,initial-pwrlevel = <2>;
 
 				/* SVS_L1 */
 				qcom,gpu-pwrlevel@0 {
