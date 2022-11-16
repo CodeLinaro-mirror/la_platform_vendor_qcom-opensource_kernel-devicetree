@@ -81,7 +81,7 @@
 	};
 
 	pop-mem-step {
-		status = "disabled";
+		status = "ok";
 	};
 
 	cpu-0-0-iot-step {
