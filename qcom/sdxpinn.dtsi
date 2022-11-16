@@ -1279,7 +1279,7 @@
 		qcom,smem-states = <&modem_smp2p_out 0>;
 		qcom,smem-state-names = "stop";
 
-		glink-edge {
+		glink_edge: glink-edge {
 			qcom,remote-pid = <1>;
 			transport = "smem";
 			mboxes = <&ipcc_mproc IPCC_CLIENT_MPSS 3>;
