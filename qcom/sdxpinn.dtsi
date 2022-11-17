@@ -1317,6 +1317,7 @@
 
 		qcom,battery_charger {
 			compatible = "qcom,battery-charger";
+			qcom,wireless-charging-not-supported;
 		};
 	};
 
