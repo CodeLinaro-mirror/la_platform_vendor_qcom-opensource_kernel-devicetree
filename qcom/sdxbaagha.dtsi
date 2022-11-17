@@ -508,6 +508,14 @@
 		compatible = "qcom,dload-mode";
 	};
 
+	wdog: qcom,wdt@17017000 {
+		compatible ="qcom,msm-watchdog";
+		reg = <0x17017000 0x1000>;
+		reg-names = "wdt-base";
+		interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
 	ipcc_mproc: qcom,ipcc@408000 {
 		compatible = "qcom,ipcc";
 		reg = <0x408000 0x1000>;
