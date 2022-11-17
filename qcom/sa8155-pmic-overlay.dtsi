@@ -161,6 +161,13 @@ pm8150_1_adc_tm: &pm8150_adc_tm {
 	};
 };
 
+&pm8150_sdam_2 {
+	ufs_dev: ufs_dev@9e {
+		reg = <0x9e 0x1>;
+		bits = <0 0>;
+	};
+};
+
 /* PMIC GPIO pin control configurations: */
 &pm8150_1_gpios {
 	key_home {
