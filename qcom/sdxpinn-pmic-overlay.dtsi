@@ -206,6 +206,11 @@
 	};
 };
 
+&pmx75_tz {
+	io-channels = <&pmk8550_vadc PMX75_ADC5_GEN3_DIE_TEMP>;
+	io-channel-names = "thermal";
+};
+
 &thermal_zones {
 	pa-therm1 {
 		polling-delay-passive = <0>;
