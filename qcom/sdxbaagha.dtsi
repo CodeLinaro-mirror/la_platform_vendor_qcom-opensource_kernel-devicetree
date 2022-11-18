@@ -529,13 +529,10 @@
 		glink-edge {
 			qcom,remote-pid = <1>;
 			transport = "smem";
-			mboxes = <&ipcc_mproc IPCC_CLIENT_MPSS
-				  IPCC_MPROC_SIGNAL_GLINK_QMP>;
+			mboxes = <&ipcc_mproc IPCC_CLIENT_MPSS 3>;
 			mbox-names = "mpss_smem";
 			interrupt-parent = <&ipcc_mproc>;
-			interrupts = <IPCC_CLIENT_MPSS
-				      IPCC_MPROC_SIGNAL_GLINK_QMP
-				      IRQ_TYPE_EDGE_RISING>;
+			interrupts = <IPCC_CLIENT_MPSS 3 IRQ_TYPE_EDGE_RISING>;
 
 			label = "modem";
 			qcom,glink-label = "mpss";
