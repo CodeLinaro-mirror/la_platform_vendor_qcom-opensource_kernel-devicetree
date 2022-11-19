@@ -1047,7 +1047,7 @@
 		clock-names = "core_clk";
 		clocks = <&rpmcc RPM_SMD_QPIC_CLK>;
 
-		//interconnects = <&system_noc MASTER_QPIC &mc_virt SLAVE_EBI1>;
+		interconnects = <&sys_noc MASTER_QPIC &bimc_noc SLAVE_EBI_CH0>;
 		interconnect-names = "nand-ddr";
 		qcom,msm-bus,name = "qpic_nand";
 		qcom,msm-bus,num-cases = <2>;
