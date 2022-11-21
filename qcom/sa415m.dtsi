@@ -1232,3 +1232,7 @@
 	cd-gpios = <&tlmm 93 GPIO_ACTIVE_LOW>;
 	status = "ok";
 };
+
+&usb {
+	extcon = <&vbus_detect>;
+};
