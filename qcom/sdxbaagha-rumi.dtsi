@@ -61,6 +61,10 @@
 	qcom,rumi_platform;
 };
 
+&qnand_1 {
+	status = "ok";
+};
+
 &usb0 {
 	dwc3@a600000 {
 		usb-phy = <&usb_emuphy>, <&usb_nop_phy>;
