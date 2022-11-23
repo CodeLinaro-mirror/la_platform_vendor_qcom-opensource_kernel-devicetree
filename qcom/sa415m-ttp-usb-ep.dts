@@ -10,3 +10,6 @@
 	qcom,board-id = <30 0x102>;
 };
 
+&ipa_hw {
+	qcom,ipa-config-is-auto;
+};
