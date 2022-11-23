@@ -11,7 +11,7 @@
 };
 
 &qnand_1 {
-	status = "disabled";
+	status = "ok";
 };
 
 &pcie0 {
