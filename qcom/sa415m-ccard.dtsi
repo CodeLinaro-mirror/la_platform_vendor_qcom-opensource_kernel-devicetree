@@ -139,13 +139,15 @@
 		inven,read_only_slave_type = "none";
 	};
 
-	asm330@6a {
+	asm330@6b {
 		compatible = "st,asm330lhh";
-		reg = <0x6a>;
+		reg = <0x6b>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&sensor_int1_default>;
+		pinctrl-0 = <&sensor_int1_default>, <&sensor_enable_default>;
+		asm330-enable-gpio = <&tlmm 90 0x1>;
 		interrupt-parent = <&tlmm>;
 		interrupts = <78 IRQ_TYPE_EDGE_RISING>;
+		qcom,regulator_check = <0>;
 		st,drdy-int-pin= <2>;
 		qcom,asm330_hrtimer;
 	};
