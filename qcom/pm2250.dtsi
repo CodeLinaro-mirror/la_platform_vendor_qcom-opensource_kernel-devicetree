@@ -17,8 +17,14 @@
 		#size-cells = <0>;
 
 		qcom,power-on@800 {
-			compatible = "qcom,qpnp-power-on";
+			compatible = "qcom,pm8998-pon";
 			reg = <0x800>;
+			mode-bootloader = <0x2>;
+			mode-recovery = <0x1>;
+			mode-rtc = <0x3>;
+			mode-dm-verity-device-corrupted = <0x4>;
+			mode-dm-verity-enforcing = <0x5>;
+			mode-keys-clear = <0x6>;
 			interrupts = <0x0 0x8 0x0 IRQ_TYPE_EDGE_BOTH>,
 					<0x0 0x8 0x1 IRQ_TYPE_EDGE_BOTH>;
 			interrupt-names = "kpdpwr", "resin";
@@ -156,6 +162,18 @@
 			#gpio-cells = <2>;
 			interrupt-controller;
 			#interrupt-cells = <2>;
+		};
+
+		pm2250_sdam_2: sdam@b100 {
+			compatible = "qcom,spmi-sdam";
+			reg = <0xb100>;
+			#address-cells = <1>;
+			#size-cells = <1>;
+
+			restart_reason: restart@48 {
+				reg = <0x48 0x1>;
+				bits = <1 7>;
+			};
 		};
 
 		pm2250_rtc: qcom,pm2250_rtc {
