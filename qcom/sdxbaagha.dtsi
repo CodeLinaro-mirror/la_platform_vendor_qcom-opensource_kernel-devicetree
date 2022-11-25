@@ -134,6 +134,21 @@
 			linux,cma-default;
 		};
 
+		qseecom_mem: qseecom_region {
+			compatible = "shared-dma-pool";
+			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+			reusable;
+			alignment = <0x0 0x400000>;
+			size = <0x0 0x800000>;
+		};
+
+		qseecom_ta_mem: qseecom_ta_region {
+			compatible = "shared-dma-pool";
+			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+			reusable;
+			alignment = <0x0 0x400000>;
+			size = <0x0 0x400000>;
+		};
 	};
 
 	cpus {
@@ -952,12 +967,28 @@
 		compatible = "qcom,msm-mhi-dev-net";
 		status = "disabled";
 	};
+
+	qcom_tzlog: tz-log@14693720 {
+		compatible = "qcom,tz-log";
+		reg = <0x14693720 0x3000>;
+		qcom,hyplog-enabled;
+		hyplog-address-offset = <0x410>;
+		hyplog-size-offset = <0x414>;
+	};
 };
 
 &firmware {
 	qcom_scm {
 		compatible = "qcom,scm";
 		qcom,dload-mode = <&tcsr 0x13000>;
+	};
+
+	qtee_shmbridge {
+		compatible = "qcom,tee-shared-memory-bridge";
+	};
+
+	qcom_smcinvoke {
+		compatible = "qcom,smcinvoke";
 	};
 };
 
