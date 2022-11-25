@@ -219,4 +219,6 @@
 	};
 };
 
-
+&usb {
+	extcon = <&vbus_detect>;
+};
