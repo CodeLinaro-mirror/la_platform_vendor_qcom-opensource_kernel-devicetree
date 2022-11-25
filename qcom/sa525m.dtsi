@@ -1,4 +1,5 @@
 #include "sdxpinn.dtsi"
+#include "sa525m-cnss.dtsi"
 
 &qnand_1 {
 	status = "ok";
