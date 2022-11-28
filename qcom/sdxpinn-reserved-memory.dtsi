@@ -110,6 +110,7 @@
 	};
 
 	audio_heap_mem: audio_heap_region@88800000 {
+		compatible = "shared-dma-pool";
 		no-map;
 		reg = <0x0 0x88800000 0x0 0x400000>;
 	};
