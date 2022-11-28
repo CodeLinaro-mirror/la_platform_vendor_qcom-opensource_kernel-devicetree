@@ -339,17 +339,6 @@
 	};
 };
 
-&firmware {
-	qtee_shmbridge {
-		compatible = "qcom,tee-shared-memory-bridge";
-	};
-
-	qcom_smcinvoke {
-		compatible = "qcom,smcinvoke";
-	};
-};
-
-
 &soc {
 	#address-cells = <1>;
 	#size-cells = <1>;
@@ -540,12 +529,22 @@
 		status="disabled";
 	};
 
+	restart@440b000 {
+		compatible = "qcom,pshold";
+		reg = <0x440b000 0x4>;
+	};
+
+	dload_mode {
+		compatible = "qcom,dload-mode";
+	};
+
 	qcom-secure-buffer {
 		compatible = "qcom,secure-buffer";
 	};
 
-	qcom_scm: qcomscm {
-		compatible = "qcom,scm";
+	tcsr: syscon@3C0000 {
+		compatible = "syscon";
+		reg = <0x3C0000 0x40000>;
 	};
 
 	mem_dump {
@@ -1362,6 +1361,21 @@
 				qcom,iommu-dma = "fastmap";
 				qcom,iommu-dma-addr-pool = <0x40000000 0x10000000>;
 		};
+	};
+};
+
+&firmware {
+	qcom_scm {
+		compatible = "qcom,scm";
+		qcom,dload-mode = <&tcsr 0x13000>;
+	};
+
+	qtee_shmbridge {
+		compatible = "qcom,tee-shared-memory-bridge";
+	};
+
+	qcom_smcinvoke {
+		compatible = "qcom,smcinvoke";
 	};
 };
 
