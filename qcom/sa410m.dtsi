@@ -1058,7 +1058,7 @@
 
 		iommus = <&apps_smmu 0x100 0x3>;
 		qcom,iommu-dma = "bypass";
-		status = "ok";
+		status = "disabled";
 	};
 
 	sdhc_1: sdhci@4744000 {
