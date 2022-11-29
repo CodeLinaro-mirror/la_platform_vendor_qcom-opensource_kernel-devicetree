@@ -750,6 +750,7 @@
 		clock-names = "apb_pclk";
 
 		qcom,msr-fix-req;
+		qcom,cmb-msr-skip;
 
 		out-ports {
 			port {
