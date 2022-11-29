@@ -121,6 +121,9 @@ its hardware characteristcs.
 		- Coresight remote ETM:
 			"qcom,coresight-remote-etm"
 
+		- CoreSight secure ETR:
+			"qcom,coresight-secure-etr"
+
 	* port or ports: see "Graph bindings for Coresight" below.
 
 * Additional required property for coresight-tgu devices:
@@ -182,6 +185,11 @@ its hardware characteristcs.
 	* qcom,eth_support: boolean. Indicates that TMC-ETR supports QDSS over
 	  ethernet function.
 
+* Required property for Secure ETRs:
+	* qdss,support-remote-etm: must be present. QMI instance id for supported remote ETM.
+	* real-name: must be present. Actual ETR name for it represents.
+	* memory-region: must be present. Label of rerserved memory region.
+	* qcom,secure-component: must be present, indicates support Remote ETM trace encryption.
 * Optional property for CATU and APSS :
 	* interrupts : Exactly one SPI may be listed for reporting the address
 	  error for CATU and four interrupts for TGU to get trigger from four
@@ -245,6 +253,9 @@ its hardware characteristcs.
 * Required property for Remote ETMs:
 
 	* qcom,inst-id: must be present. QMI instance id for remote ETMs.
+
+* Optional property for Remote ETMs:
+	* qcom,secure-component: boolean, indicates support Remote ETM trace encryption.
 
 * Optional properties for funnels:
 
