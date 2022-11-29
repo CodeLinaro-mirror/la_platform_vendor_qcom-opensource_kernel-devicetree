@@ -481,7 +481,7 @@
 
 	funnel_monaq: funnel@69c3000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x69c3000 0x1000>;
 		reg-names = "funnel-base";
@@ -515,7 +515,7 @@
 
 	funnel_monaq1: funnel_1@69c3000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x69c1000 0x1>,
 			<0x69c3000 0x1000>;
@@ -570,7 +570,7 @@
 
 	funnel_modem: funnel@6832000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6832000 0x1000>;
 		reg-names = "funnel-base";
