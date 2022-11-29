@@ -152,3 +152,8 @@
 		qcom,asm330_hrtimer;
 	};
 };
+
+&pcie0 {
+	qcom,no-l1-supported;
+	qcom,no-l1ss-supported;
+};
