@@ -313,7 +313,7 @@
 };
 
 &sde_dsi {
-	qcom,dsi-default-panel = <&dsi_ext_bridge_1080p>;
+	qcom,dsi-default-panel = <&dsi_ext_bridge_4k_vid>;
 
 	ports {
 		#address-cells = <1>;
