@@ -246,11 +246,11 @@
 
 		/* CV2X UART1 Instance */
 		qupv3_se4_2uart: qcom,qup_uart@990000 {
-			compatible = "qcom,geni-debug-uart";
+			compatible = "qcom,msm-geni-serial-hs";
 			reg = <0x990000 0x4000>;
 			reg-names = "se_phys";
 			interrupts = <GIC_SPI 341 IRQ_TYPE_LEVEL_HIGH>;
-			clock-names = "se";
+			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S4_CLK>;
 			interconnect-names = "qup-core", "qup-config", "qup-memory";
 			interconnects =
@@ -381,11 +381,11 @@
 
 		/* CV2X UART2 Instance */
 		qupv3_se8_2uart: qcom,qup_uart@9a0000 {
-			compatible = "qcom,geni-debug-uart";
+			compatible = "qcom,msm-geni-serial-hs";
 			reg = <0x9a0000 0x4000>;
 			reg-names = "se_phys";
 			interrupts = <GIC_SPI 382 IRQ_TYPE_LEVEL_HIGH>;
-			clock-names = "se";
+			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S8_CLK>;
 			interconnect-names = "qup-core", "qup-config", "qup-memory";
 			interconnects =
