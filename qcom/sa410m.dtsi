@@ -1472,16 +1472,8 @@
 		thermal-sensors = <&tsens0 7>;
 	};
 
-	/delete-node/ wlan;
-	/delete-node/ cpuss-0;
-	/delete-node/ cpuss-1;
-	/delete-node/ mdm-0;
-	/delete-node/ mdm-1;
 	/delete-node/ gpu;
 	/delete-node/ camera;
-	/delete-node/ video;
-	/delete-node/ hm-center;
-	/delete-node/ mapss;
 };
 
 #include "sa410m-pmic.dtsi"
