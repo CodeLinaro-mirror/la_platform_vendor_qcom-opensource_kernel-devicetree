@@ -962,6 +962,7 @@
 };
 
 #include "sdxbaagha-pinctrl.dtsi"
+#include "sdxbaagha-debug.dtsi"
 #include "sdxbaagha-dma-heaps.dtsi"
 #include "msm-arm-smmu-sdxbaagha.dtsi"
 #include "sdxbaagha-pcie.dtsi"
