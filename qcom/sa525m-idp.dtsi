@@ -21,3 +21,21 @@
 &usb {
 	extcon = <&pmx75_vbus_detect>;
 };
+
+&sdhc_2 {
+	status = "ok";
+
+	vdd-supply = <&vreg_sdc2_sd_vdd>;
+	qcom,vdd-voltage-level = <2950000 2950000>;
+	qcom,vdd-current-level = <0 800000>;
+
+	vdd-io-supply = <&vreg_sdc2_sd_ls_vccb>;
+	qcom,vdd-io-voltage-level = <2850000 2850000>;
+	qcom,vdd-io-current-level = <0 22000>;
+
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&sdc2_on>;
+	pinctrl-1 = <&sdc2_off>;
+
+	cd-gpios = <&tlmm 103 GPIO_ACTIVE_LOW>;
+};
