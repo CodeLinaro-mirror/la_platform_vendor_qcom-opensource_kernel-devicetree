@@ -29,7 +29,6 @@
 		regulator-name = "sdc1_emmc_sd_vdd";
 		regulator-min-microvolt = <2950000>;
 		regulator-max-microvolt = <2950000>;
-		parent-supply = <&vreg_sdc1_sd_ls_vccb>;
 	};
 
 	vreg_sdc2_sd_ls_vccb: sdc2-sd-ls-gpio-regulator {
@@ -43,7 +42,6 @@
 			 <2850000 1>;
 		startup-delay-us = <5000>;
 		enable-active-high;
-		status = "disabled";
 	};
 
 	vreg_sdc2_sd_vdd: sdc2-sd-fixed-regulator {
@@ -52,7 +50,6 @@
 		regulator-min-microvolt = <2950000>;
 		regulator-max-microvolt = <2950000>;
 		parent-supply = <&vreg_sdc2_sd_ls_vccb>;
-		status = "disabled";
 	};
 };
 
