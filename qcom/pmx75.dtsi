@@ -35,6 +35,37 @@
 			#gpio-cells = <2>;
 			interrupt-controller;
 			#interrupt-cells = <2>;
+
+			pmx75_1_gpios {
+				tlv_reset_sleep: tlv_reset_sleep {
+					pins = "gpio1";
+					function = "normal";
+					output-enable;
+					bias-pull-up;
+					power-source = <0>;
+				};
+
+				tlv_reset_active: tlv_reset_active {
+					pins = "gpio1";
+					function = "normal";
+					output-enable;
+					output-high;
+					bias-pull-up;
+					power-source = <0>;
+				};
+			};
+
+			pmx75_5_gpios {
+				tlv_cdc_power: tlv_cdc_power {
+					pins = "gpio5";
+					function = "normal";
+					output-enable;
+					output-high;
+					bias-pull-up;
+					power-source = <0>;
+				};
+			};
+
 		};
 
 		pmx75_pwm: pwms@e800 {
