@@ -88,3 +88,15 @@
 	compatible = "qcom,dummycc";
 	clock-output-names = "rpmhcc_clocks";
 };
+
+&A7_SPC {
+	status = "nok";
+};
+
+&A7_PC {
+	status = "nok";
+};
+
+&CX_MIN {
+	status = "nok";
+};
