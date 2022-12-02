@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxbaagha-128m.dtsi"
+#include "sdxbaagha-128m-cdp.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXBAAGHA CDP 128M";
+	compatible = "qcom,sdxbaagha-cdp",
+		"qcom,sdxbaagha", "qcom,cdp";
+	qcom,board-id = <0x10001 0x700>, <0x10001 0x100>;
+};

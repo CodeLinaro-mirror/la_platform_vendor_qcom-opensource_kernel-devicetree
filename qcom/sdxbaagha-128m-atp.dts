@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxbaagha-128m.dtsi"
+#include "sdxbaagha-128m-atp.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXBAAGHA ATP 128M";
+	compatible = "qcom,sdxbaagha-atp",
+		"qcom,sdxbaagha", "qcom,atp";
+	qcom,board-id = <0x10021 0x700>, <0x10021 0x200>;
+};
