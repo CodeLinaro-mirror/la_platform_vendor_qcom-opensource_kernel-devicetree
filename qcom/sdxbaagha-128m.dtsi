@@ -1,0 +1,6 @@
+#include "sdxbaagha.dtsi"
+/ {
+};
+
+&soc {
+};

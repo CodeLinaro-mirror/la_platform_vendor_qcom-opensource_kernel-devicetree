@@ -305,9 +305,17 @@ endif
 endif
 
 sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
-	sdxbaagha-mtp.dtb \
-	sdxbaagha-cdp.dtb
-dtb-y += $(sdxbaagha-dtb-y)
+	sdxbaagha-idp.dtb \
+	sdxbaagha-idp-rome.dtb \
+	sdxbaagha-idp-pcie.dtb \
+	sdxbaagha-atp.dtb
+sdxbaagha-128m-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-128m-rumi.dtb \
+	sdxbaagha-128m-mtp.dtb \
+	sdxbaagha-128m-cdp.dtb \
+	sdxbaagha-128m-idp.dtb \
+	sdxbaagha-128m-atp.dtb \
+	sdxbaagha-128m-rcm.dtb
+dtb-y += $(sdxbaagha-dtb-y) $(sdxbaagha-128m-dtb-y)
 
 always-y        := $(dtb-y)
 subdir-y        := $(dts-dirs)
