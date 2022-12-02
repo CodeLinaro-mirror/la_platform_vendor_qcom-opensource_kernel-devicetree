@@ -1,6 +1,12 @@
 #include "sdxpinn.dtsi"
 #include "sa525m-pmic-overlay.dtsi"
 
+/ {
+	aliases {
+		spi6 = &qupv3_se6_spi;
+	};
+};
+
 &qnand_1 {
 	status = "ok";
 };
@@ -54,5 +60,14 @@
 		gpio-hog;
 		gpios = <102 0>;
 		output-high;
+	};
+};
+
+&qupv3_se6_spi {
+	status = "okay";
+	spidev0: spidev@0 {
+		compatible = "qcom,spi-msm-codec-slave";
+		reg =<0>;
+		spi-max-frequency = <50000000>;
 	};
 };
