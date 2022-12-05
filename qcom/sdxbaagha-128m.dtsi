@@ -4,3 +4,12 @@
 
 &soc {
 };
+
+/delete-node/ &mpss_audio_mem;
+/delete-node/ &audio_heap_mem;
+&reserved_memory {
+	mpss_audio_mem: mpss_audio_region@82e00000 {
+		no-map;
+		reg = <0x82e00000 0x5000000>;
+	};
+};

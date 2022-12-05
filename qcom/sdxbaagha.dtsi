@@ -116,12 +116,12 @@
 
 		mpss_audio_mem: mpss_audio_region@82e00000 {
 			no-map;
-			reg = <0x82e00000 0x4600000>;
+			reg = <0x82e00000 0x6400000>;
 		};
 
-		audio_heap_mem: audio_heap_region@88000000 {
+		audio_heap_mem: audio_heap_region@89e00000 {
 			no-map;
-			reg = <0x88000000 0x400000>;
+			reg = <0x89e00000 0x400000>;
 		};
 
 		/* global autoconfigured region for contiguous allocations */
