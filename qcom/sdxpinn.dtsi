@@ -1917,9 +1917,9 @@
 		qcom,interconnect,num-paths = <3>;
 		qcom,max_num_smmu_cb = <6>;
 
-		//interconnects = <&system_noc MASTER_IPA &mem_noc SLAVE_LLCC>,
-		//<&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>,
-		//<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_IPA_CFG>;
+		interconnects = <&system_noc MASTER_IPA &gem_noc SLAVE_LLCC>,
+		<&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>,
+		<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_IPA_CFG>;
 
 		interconnect-names = "ipa_to_llcc", "llcc_to_ebi1", "appss_to_ipa";
 		/* No vote */
