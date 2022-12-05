@@ -56,15 +56,40 @@
 			qcom,iommu-dma-addr-pool = <0x90000000 0x60000000>;
 
 			interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-			snps,disable-clk-gating;
 			snps,has-lpm-erratum;
 			snps,hird-threshold = /bits/ 8 <0x0>;
 			snps,is-utmi-l1-suspend;
 			snps,dis-u1-entry-quirk;
 			snps,dis-u2-entry-quirk;
+			snps,dis_u2_susphy_quirk;
+			snps,dis_u3_susphy_quirk;
+			imod-interval-ns = <1000000>;
+			//tx-fifo-resize;
 			maximum-speed = "high-speed";
 			dr_mode = "otg";
 			usb-role-switch;
 		};
+	};
+
+	/* USB port related High Speed PHY */
+	usb2_phy0: hsphy@ff4000 {
+		compatible = "qcom,usb-hsphy-snps-femto";
+		reg = <0xff4000 0x120>,
+			<0xff2000 0x4>;
+		reg-names = "hsusb_phy_base",
+				"eud_enable_reg";
+
+		vdd-supply = <&L3A>;
+		vdda18-supply = <&L5A>;
+		vdda33-supply = <&L10A>;
+		qcom,vdd-voltage-level = <0 880000 950000>;
+
+		clocks = <&rpmhcc RPMH_CXO_CLK>,
+			<&gcc GCC_USB2_CLKREF_EN>,
+			<&gcc GCC_USB_PHY_CFG_AHB2PHY_CLK>;
+		clock-names = "ref_clk_src", "ref_clk", "cfg_ahb_clk";
+
+		resets = <&gcc GCC_QUSB2PHY_BCR>;
+		reset-names = "phy_reset";
 	};
 };
