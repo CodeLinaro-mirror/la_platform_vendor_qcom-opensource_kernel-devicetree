@@ -545,6 +545,8 @@
 		polling-delay-passive = <1000>;
 		polling-delay = <5000>;
 		thermal-governor = "step_wise";
+		thermal-sensors = <&tsens0 15>, <&pm8150l_adc_tm ADC5_AMUX_THM2_100K_PU>;
+		sensor-aggregation = <AGGREGATE_MAX_VALUE>;
 		trips {
 			virt_trip: virt-trip {
 				temperature = <64600>;

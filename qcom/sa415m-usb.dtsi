@@ -53,15 +53,18 @@
 			compatible = "snps,dwc3";
 			reg = <0x0a600000 0xcd00>;
 			interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-			usb-phy = <&usb2_phy>, <&usb_nop_phy>;
+			usb-phy = <&usb2_phy>, <&usb3_qmp_phy>;
 			tx-fifo-resize;
 			linux,sysdev_is_parent;
-			snps,disable-clk-gating;
 			snps,has-lpm-erratum;
+			snps,is-utmi-l1-suspend;
 			snps,ssp-u3-u0-quirk;
-			snps,usb2-gadget-lpm-disable;
+			snps,dis-u1-entry-quirk;
+			snps,dis-u2-entry-quirk;
+			snps,dis_u2_susphy_quirk;
 			snps,hird-threshold = /bits/ 8 <0x0>;
-			maximum-speed = "high-speed";
+			snps,bus-suspend-enable;
+			maximum-speed = "super-speed";
 			dr_mode = "otg";
 		};
 

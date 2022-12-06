@@ -6,24 +6,24 @@
 	qcom,audio-routing =
 		"RX_BIAS", "MCLK",
 		"MADINPUT", "MCLK",
-		"AMIC2", "MIC BIAS2",
-		"MIC BIAS2", "Headset Mic",
-		"AMIC3", "MIC BIAS2",
-		"MIC BIAS2", "ANCRight Headset Mic",
-		"AMIC4", "MIC BIAS2",
-		"MIC BIAS2", "ANCLeft Headset Mic",
-		"AMIC5", "MIC BIAS3",
-		"MIC BIAS3", "Handset Mic",
+		"AMIC2", "Headset Mic",
+		"Headset Mic", "MIC BIAS2",
+		"AMIC3", "ANCRight Headset Mic",
+		"ANCRight Headset Mic", "MIC BIAS2",
+		"AMIC4", "ANCLeft Headset Mic",
+		"ANCLeft Headset Mic", "MIC BIAS2",
+		"AMIC5", "Handset Mic",
+		"Handset Mic", "MIC BIAS3",
+		"DMIC1", "Digital Mic1",
 		"DMIC1", "MIC BIAS1",
-		"MIC BIAS1", "Digital Mic1",
+		"DMIC2", "Digital Mic2",
 		"DMIC2", "MIC BIAS3",
-		"MIC BIAS3", "Digital Mic2",
+		"DMIC3", "Digital Mic3",
 		"DMIC3", "MIC BIAS3",
-		"MIC BIAS3", "Digital Mic3",
+		"DMIC4", "Digital Mic4",
 		"DMIC4", "MIC BIAS4",
-		"MIC BIAS4", "Digital Mic4",
+		"DMIC5", "Digital Mic5",
 		"DMIC5", "MIC BIAS4",
-		"MIC BIAS4", "Digital Mic5",
 		"SpkrRight IN", "SPK2 OUT";
 
 	qcom,msm-mbhc-hphl-swh = <1>;
@@ -58,8 +58,10 @@
 
 	clock_audio_up: audio_ext_clk_up {
 		compatible = "qcom,audio-ref-clk";
-		qcom,audio-ref-clk-gpio = <&tlmm 62 0>;
-		qcom,codec-mclk-clk-freq = <9600000>;
+		qcom,codec-ext-clk-src = <AUDIO_LPASS_MCLK_3>;
+		qcom,codec-lpass-clk-id = <770>;
+		qcom,codec-lpass-ext-clk-freq = <9600000>;
+		qcom,use-pinctrl = <1>;
 		pinctrl-names = "sleep", "active";
 		pinctrl-0 = <&i2s_mclk_sleep>;
 		pinctrl-1 = <&i2s_mclk_active>;
@@ -76,6 +78,7 @@
 };
 
 &i2c_3 {
+	status = "ok";
 	wcd934x_cdc: tavil_codec {
 		compatible = "qcom,tavil-i2c";
 		reg = <0x0d>;
@@ -88,7 +91,7 @@
 		qcom,wcd-rst-gpio-node = <&wcd_rst_gpio>;
 
 		clock-names = "wcd_clk";
-		clocks = <&clock_audio_up AUDIO_LPASS_MCLK>;
+		clocks = <&clock_audio_up 0>;
 
 		cdc-vdd-buck-supply = <&pmxpoorwills_l6>;
 		qcom,cdc-vdd-buck-voltage = <1800000 1800000>;

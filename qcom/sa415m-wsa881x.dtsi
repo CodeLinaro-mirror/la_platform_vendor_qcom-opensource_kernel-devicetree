@@ -30,6 +30,7 @@
 				compatible = "qcom,wsa881x";
 				reg = <0x00 0x21170214>;
 				qcom,spkr-sd-n-node = <&wsa_spkr_wcd_sd2>;
+				qcom,wsa-prefix = "SpkrRight";
 			};
 		};
 	};

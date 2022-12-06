@@ -437,6 +437,22 @@
 			size = <0x0 0x400000>;
 		};
 
+		mdsp_mem: mdsp_region {
+			compatible = "shared-dma-pool";
+			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+			reusable;
+			alignment = <0x0 0x400000>;
+			size = <0x0 0x1000000>;
+		};
+
+		audio_cma_mem: audio_cma_region {
+			compatible = "shared-dma-pool";
+			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+			reusable;
+			alignment = <0x0 0x400000>;
+			size = <0x0 0x1000000>;
+		};
+
 		user_contig_mem: user_contig_region {
 			compatible = "shared-dma-pool";
 			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
@@ -1976,6 +1992,11 @@
 		memory-region = <&adsp_mem>;
 	};
 
+	qcom,msm-mdsprpc-mem {
+		compatible = "qcom,msm-mdsprpc-mem-region";
+		memory-region = <&mdsp_mem>;
+	};
+
 	msm_fastrpc: qcom,msm_fastrpc {
 		compatible = "qcom,msm-fastrpc-compute";
 		qcom,fastrpc-adsp-audio-pdr;
@@ -2737,13 +2758,15 @@
 				<&cdsp_smp2p_in 0 0>,
 				<&cdsp_smp2p_in 2 0>,
 				<&cdsp_smp2p_in 1 0>,
-				<&cdsp_smp2p_in 3 0>;
+				<&cdsp_smp2p_in 3 0>,
+				<&cdsp_smp2p_in 7 0>;
 
 		interrupt-names = "qcom,wdog",
 				"qcom,err-fatal",
 				"qcom,proxy-unvote",
 				"qcom,err-ready",
-				"qcom,stop-ack";
+				"qcom,stop-ack",
+				"qcom,shutdown-ack";
 
 		/* Outputs to turing */
 		qcom,smem-states = <&cdsp_smp2p_out 0>;

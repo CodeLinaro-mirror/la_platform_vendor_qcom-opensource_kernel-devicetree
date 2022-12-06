@@ -19,7 +19,7 @@
 		};
 	};
 
-	pm6150l_tz {
+	pm6150l_tz1: pm6150l_tz {
 		cooling-maps {
 			trip0_cpu0 {
 				trip = <&pm6150l_trip0>;

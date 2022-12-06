@@ -474,12 +474,14 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 		qcs610-iot-overlay.dtbo \
 		qcs610-ipc-overlay.dtbo \
 		prairie-iot-idp-overlay.dtbo \
+		prairie-410-iot-idp-overlay.dtbo \
 		qcs610-opk-overlay.dtbo \
 		qcs410-opk-overlay.dtbo
 
 qcs610-iot-overlay.dtbo-base := qcs610.dtb
 qcs610-ipc-overlay.dtbo-base := qcs610.dtb
 prairie-iot-idp-overlay.dtbo-base := qcs610.dtb
+prairie-410-iot-idp-overlay.dtbo-base := qcs410.dtb
 qcs610-opk-overlay.dtbo-base := qcs610.dtb
 qcs410-opk-overlay.dtbo-base := qcs410.dtb
 
@@ -488,6 +490,7 @@ dtb-$(CONFIG_ARCH_SM6150) += \
 	qcs610-iot.dtb \
 	qcs610-ipc.dtb \
 	prairie-iot-idp.dtb \
+	prairie-410-iot-idp.dtb \
 	qcs610-opk.dtb \
 	qcs410-opk.dtb
 endif

@@ -1,119 +1,112 @@
+#include "sa415m-pinctrl.dtsi"
+#include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
+#include <dt-bindings/clock/qcom,gcc-sdxpoorwills.h>
+#include "sdxpoorwills-regulator.dtsi"
+
+&tlmm {
+	sdx_ext_ipc_gpio_default: sdx_ext_ipc_gpio_default {
+		mux {
+			pins = "gpio95", "gpio36", "gpio88",
+					"gpio87", "gpio22";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio95", "gpio36", "gpio88",
+					"gpio87", "gpio22";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+};
+
 &soc {
-	/* PWR_CTR1_VDD_1P8 supply */
-	vreg_conn_1p8: vreg_conn_1p8 {
+	codec_vreg: regulator-codec-tlv320aic3x {
 		compatible = "regulator-fixed";
-		regulator-name = "vreg_conn_1p8";
-		startup-delay-us = <4000>;
+		regulator-name = "codec_vreg";
+		startup-delay-us = <100>;
+		gpio = <&tlmm 23 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
-		gpio = <&pm6155_1_gpios 1 0>;
 	};
 
-	/* PWR_CTR2_VDD_PA supply */
-	vreg_conn_pa: vreg_conn_pa {
+	wlan_ctrl1: wlan_ctrl1 {
 		compatible = "regulator-fixed";
-		regulator-name = "vreg_conn_pa";
+		regulator-name = "wlan_ctrl1";
 		startup-delay-us = <4000>;
+		gpio = <&tlmm 91 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
-		gpio = <&pm6155_1_gpios 6 0>;
 	};
 
-	vreg_wlan: vreg_wlan {
-		compatible = "qcom,stub-regulator";
-		regulator-name = "vreg_wlan";
+	wlan_ctrl2: wlan_ctrl2 {
+		compatible = "regulator-fixed";
+		regulator-name = "wlan_ctrl2";
+		startup-delay-us = <4000>;
+		gpio = <&tlmm 81 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
 	};
 
-	bluetooth_ext: bt-qca-auto-converged {
-		compatible = "qcom,qca-auto-converged";
-		pinctrl-names = "default";
-		pinctrl-0 = <&bt_en_active>;
-		/* BT_EN */
-		qcom,bt-reset-gpio = <&tlmm 85 0>;
-		/* PWR_CTR1_VDD_PA */
-		qcom,bt-vdd-ctrl1-supply = <&vreg_conn_pa>;
-		/* PWR_CTR2_VDD_1P8 */
-		qcom,bt-vdd-ctrl2-supply = <&vreg_conn_1p8>;
-		qcom,bt-vdd-rfa1-supply = <&pm6155_1_s6>;
-		qcom,bt-vdd-rfa2-supply = <&pm6155_1_s5>;
-		qcom,bt-vdd-rfa3-supply = <&pm6155_1_l15>;
-
-		/* <vol_min, vol_max, load_curr, is_retention_supp> */
-		qcom,bt-vdd-rfa1-config = <1350000 1350000 0 0>;
-		qcom,bt-vdd-rfa2-config = <2040000 2040000 0 0>;
-		qcom,bt-vdd-rfa3-config = <1904000 1904000 450000 0>;
-	};
-
-	cnss_pcie: qcom,cnss-qca-converged {
+	cnss_pcie_converged: qcom,cnss-qca-converged {
 		compatible = "qcom,cnss-qca-converged";
-
 		qcom,converged-dt;
 		qcom,wlan-rc-num = <0>;
 		qcom,bus-type=<0>;
 		qcom,notify-modem-status;
-		qcom,msm-bus,name = "msm-cnss";
-		qcom,msm-bus,num-cases = <4>;
-		qcom,msm-bus,num-paths = <2>;
-		qcom,msm-bus,vectors-KBps =
-			<45 512 0 0>, <1 512 0 0>,
-			/* Upto 200 Mbps */
-			<45 512 41421 655360>, <1 512 41421 655360>,
-			/* Upto 400 Mbps */
-			<45 512 98572 655360>, <1 512 98572 1600000>,
-			/* Upto 800 Mbps */
-			<45 512 207108 1146880>, <1 512 207108 3124992>;
 
 		#address-cells=<1>;
 		#size-cells=<1>;
-		ranges = <0x10000000 0x10000000 0x10000000>,
-		      <0x20000000 0x20000000 0x10000>,
-		      <0xa0000000 0xa0000000 0x10000000>,
-		      <0xb0000000 0xb0000000 0x10000>;
+		ranges = <0xb0000000 0xb0000000 0x10000>;
 
-		vdd-wlan-ctrl1-supply = <&vreg_conn_pa>;
-		vdd-wlan-ctrl2-supply = <&vreg_conn_1p8>;
-		vdd-wlan-supply = <&vreg_wlan>;
-		vdd-wlan-rfa1-supply = <&pm6155_1_s6>;
-		vdd-wlan-rfa2-supply = <&pm6155_1_s5>;
-		vdd-wlan-rfa3-supply = <&pm6155_1_l15>;
+		vdd-wlan-ctrl1-supply = <&wlan_ctrl1>;
+		vdd-wlan-ctrl2-supply = <&wlan_ctrl2>;
 
-		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-ctrl2";
+		vdd-wlan-aon-supply = <&pmxpoorwills_l6>;
+		vdd-wlan-rfa1-supply = <&pmxpoorwills_l6>;
+		vdd-wlan-rfa2-supply = <&pmxpoorwills_l6>;
+		vdd-wlan-rfa3-supply = <&pmxpoorwills_l6>;
+
+		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-ctrl2", "vdd-wlan-aon", "vdd-wlan-rfa1", "vdd-wlan-rfa3";
 		qcom,vdd-wlan-ctrl1-config = <0 0 0 0 0>;
 		qcom,vdd-wlan-ctrl2-config = <0 0 0 0 0>;
-
-		wlan-en-gpio = <&tlmm 98 0>;
-		pinctrl-names = "wlan_en_active", "wlan_en_sleep", "default";
+		qcom,vdd-wlan-aon-config = <1800000 1800000 0 0 0>;
+		qcom,vdd-wlan-rfa1-config = <1800000 1800000 0 0 0>;
+		qcom,vdd-wlan-rfa2-config = <1800000 1800000 0 0 0>;
+		qcom,vdd-wlan-rfa3-config = <1800000 1800000 0 0 0>;
+		wlan-en-gpio = <&tlmm 52 0>;
+		pinctrl-names = "wlan_en_active", "wlan_en_sleep";
 		pinctrl-0 = <&cnss_wlan_en_active>;
 		pinctrl-1 = <&cnss_wlan_en_sleep>;
-		pinctrl-2 = <&cnss_wlan_en_sleep>;
+
+		status = "okay";
 
 		chip_cfg@0 {
 			reg = <0xb0000000 0x10000>;
 			reg-names = "smmu_iova_ipa";
-
 			supported-ids = <0x003e>;
 			wlan_vregs = "vdd-wlan";
-			qcom,vdd-wlan-config = <0 0 0 10 1>;
+			qcom,vdd-wlan-config = <0 0 0 10 0>;
 
+			qcom,smmu-s1-enable;
 			qcom,wlan-ramdump-dynamic = <0x200000>;
 		};
 
 		chip_cfg@1 {
-			reg = <0xa0000000 0x10000000>,
-			    <0xb0000000 0x10000>;
-			reg-names = "smmu_iova_base", "smmu_iova_ipa";
+			reg = <0xb0000000 0x10000>;
+			reg-names = "smmu_iova_ipa";
 
 			supported-ids = <0x1101>;
-			wlan_vregs = "vdd-wlan-rfa1", "vdd-wlan-rfa2",
-				   "vdd-wlan-rfa3";
-			qcom,vdd-wlan-rfa1-config = <1350000 1350000 0 0 0>;
-			qcom,vdd-wlan-rfa2-config = <2040000 2040000 0 0 0>;
-			qcom,vdd-wlan-rfa3-config = <1904000 1904000 0 0 0>;
+			wlan_vregs = "vdd-wlan-aon", "vdd-wlan-rfa1",
+				"vdd-wlan-rfa3";
+			qcom,vdd-wlan-aon-config = <0 0 0 0 0>;
+			qcom,vdd-wlan-rfa1-config = <0 0 0 0 0>;
+			qcom,vdd-wlan-rfa3-config = <0 0 0 0 0>;
 
 			qcom,wlan-ramdump-dynamic = <0x400000>;
 			mhi,max-channels = <30>;
 			mhi,timeout = <10000>;
-			mhi,buffer-len = <0x8000>;
-
+			qcom,smmu-s1-enable;
 			mhi_channels {
+				#address-cells = <1>;
+				#size-cells = <0>;
 				mhi_chan@0 {
 					reg = <0>;
 					label = "LOOPBACK";
@@ -206,27 +199,25 @@
 
 		chip_cfg@2 {
 			reg = <0xa0000000 0x10000000>,
-			    <0xb0000000 0x10000>;
+				<0xb0000000 0x10000>;
 			reg-names = "smmu_iova_base", "smmu_iova_ipa";
-
+			qcom,smmu-s1-enable;
 			supported-ids = <0x1102>;
-			wlan_vregs = "vdd-wlan-rfa1", "vdd-wlan-rfa2",
-				   "vdd-wlan-rfa3";
-			qcom,vdd-wlan-rfa1-config = <1350000 1350000 0 0 0>;
-			qcom,vdd-wlan-rfa2-config = <2040000 2040000 0 0 0>;
-			qcom,vdd-wlan-rfa3-config = <1904000 1904000 0 0 0>;
+			wlan_vregs = "vdd-wlan-aon", "vdd-wlan-rfa1",
+				"vdd-wlan-rfa2", "vdd-wlan-rfa3";
+			qcom,vdd-wlan-aon-config = <0 0 0 0 0>;
+			qcom,vdd-wlan-rfa1-config = <0 0 0 0 0>;
+			qcom,vdd-wlan-rfa2-config = <0 0 0 0 0>;
+			qcom,vdd-wlan-rfa3-config = <0 0 0 0 0>;
 
 			qcom,wlan-ramdump-dynamic = <0x300000>;
 			mhi,max-channels = <30>;
 			mhi,timeout = <10000>;
-			mhi,buffer-len = <0x8000>;
 			mhi,ee = <0x3>, <0x4>;
 			mhi,ee-names = "SBL", "RDDM";
 			mhi,bhie-offset = <0x0324>;
 
 			mhi_channels {
-				#address-cells = <1>;
-				#size-cells = <0>;
 				mhi_chan@0 {
 					reg = <0>;
 					label = "LOOPBACK";
@@ -317,6 +308,7 @@
 			};
 		};
 	};
+
 };
 
 &pcie_rc0 {
@@ -331,9 +323,7 @@
 
 		cnss_pci_iommu_group: cnss_pci_iommu_group {
 			qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
-			qcom,iommu-dma = "fastmap";
-			qcom,iommu-faults = "stall-disable", "no-CFRE",
-						"non-fatal";
+			qcom,iommu-dma = "atomic";
 		};
 	};
 };
