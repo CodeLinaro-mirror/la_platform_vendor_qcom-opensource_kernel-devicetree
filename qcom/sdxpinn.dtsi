@@ -1985,6 +1985,16 @@
 		status = "disabled";
 	};
 
+	ipa_eth_group1: ipa_eth_group1 {
+		qcom,iommu-dma-addr-pool = <0x80000000 0x07f00000>;
+		qcom,iommu-dma = "atomic";
+	};
+
+	ipa_eth_group2: ipa_eth_group2 {
+		qcom,iommu-dma-addr-pool = <0x87f10000 0x07f00000>;
+		qcom,iommu-dma = "atomic";
+	};
+
 	ipa_hw: qcom,ipa@03e00000 {
 		compatible = "qcom,ipa";
 		mboxes = <&qmp_aop 0>;
@@ -2029,6 +2039,7 @@
 		qcom,interconnect,num-cases = <5>;
 		qcom,interconnect,num-paths = <3>;
 		qcom,max_num_smmu_cb = <6>;
+		qcom,ipa-iemac;
 
 		interconnects = <&system_noc MASTER_IPA &gem_noc SLAVE_LLCC>,
 		<&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>,
@@ -2096,14 +2107,14 @@
 			compatible = "qcom,ipa-smmu-eth-cb";
 			iommus = <&apps_smmu 0x425 0x0>;
 			qcom,shared-cb;
-		//	qcom,iommu-group = <&ipa_eth_group1>;
+			qcom,iommu-group = <&ipa_eth_group1>;
 		};
 
 		ipa_smmu_eth1: ipa_smmu_eth1 {
 			compatible = "qcom,ipa-smmu-eth1-cb";
 			iommus = <&apps_smmu 0x426 0x0>;
 			qcom,shared-cb;
-		//	qcom,iommu-group = <&ipa_eth_group2>;
+			qcom,iommu-group = <&ipa_eth_group2>;
 		};
 
 		/* smp2p information */
