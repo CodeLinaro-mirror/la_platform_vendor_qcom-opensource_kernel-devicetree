@@ -1,0 +1,9 @@
+/dts-v1/;
+
+#include "sa525m-televm.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA525M TELEVM";
+	compatible = "qcom,sa525m","qcom,sdxpinn", "qcom,sa525m-televm";
+	qcom,board-id = <0 0>;
+};
