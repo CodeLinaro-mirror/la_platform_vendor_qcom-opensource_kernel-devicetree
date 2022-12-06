@@ -52,6 +52,7 @@
 			snps,hird-threshold = /bits/ 8 <0x10>;
 			tx-fifo-resize;
 			maximum-speed = "super-speed-plus";
+			usb-role-switch;
 			dr_mode = "otg";
 		};
 
