@@ -35,6 +35,7 @@
 			qcom,init-voltage-level =
 				<RPMH_REGULATOR_LEVEL_RETENTION>;
 		};
+	};
 
 	rpmh-regulator-mxlvl {
 		compatible = "qcom,rpmh-arc-regulator";
@@ -253,7 +254,7 @@
 		qcom,mode-threshold-currents = <0 10000>;
 		qcom,disable-mode = <RPMH_REGULATOR_MODE_LPM>;
 
-		L10a: pmx35_l10: regulator-pmx35-l10 {
+		L10A: pmx35_l10: regulator-pmx35-l10 {
 			regulator-name = "pmx35_l10";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
 			regulator-min-microvolt = <2970000>;
