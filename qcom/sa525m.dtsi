@@ -30,3 +30,5 @@
 &tlmm {
 	qcom,gpios-reserved = <>;
 };
+
+#include "sa525-gvms.dtsi"
