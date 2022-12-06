@@ -50,6 +50,14 @@
 	};
 };
 
+&ufs2phy_mem {
+	status = "okay";
+};
+
+&ufshc2_mem {
+	status = "okay";
+};
+
 &usb0 {
 	status = "okay";
 };
