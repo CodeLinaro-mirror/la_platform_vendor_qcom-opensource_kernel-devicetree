@@ -30,6 +30,7 @@
 		serial0 = &qupv3_se4_2uart;
 		qpic_nand1 = &qnand_1;
 		mmc0 = &sdhc_1; /*SDC1 eMMC slot*/
+		pci-domain0 = &pcie0;
 	};
 
 	firmware: firmware {};
@@ -211,6 +212,7 @@
 	};
 
 	chosen {
+		bootargs = "pcie_ports=compat";
 	};
 
 	soc: soc { };
@@ -1483,6 +1485,7 @@
 #include "monaco-gdsc.dtsi"
 #include "sa410m-qupv3.dtsi"
 #include "sa410m-usb.dtsi"
+#include "sa410m-pcie.dtsi"
 
 &gcc_emac0_gdsc {
 	status = "ok";
