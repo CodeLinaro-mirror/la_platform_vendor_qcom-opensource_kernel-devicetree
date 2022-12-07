@@ -78,17 +78,17 @@
 };
 
 &qupv3_0 {
-	iommus = <&apps_smmu 0x56C 0x0>;
+	iommus = <&apps_smmu 0x0579 0x0>;
 	status = "disabled";
 
 };
 
 &qupv3_1 {
-	iommus = <&apps_smmu 0x8C 0x0>;
+	iommus = <&apps_smmu 0x0099 0x0>;
 	status = "disabled";
 };
 
 &qupv3_2 {
-	iommus = <&apps_smmu 0xAC 0x0>;
+	iommus = <&apps_smmu 0x00B9 0x0>;
 	status = "disabled";
 };
