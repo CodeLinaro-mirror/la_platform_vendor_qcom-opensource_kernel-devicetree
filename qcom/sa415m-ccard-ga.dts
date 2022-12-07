@@ -10,3 +10,6 @@
 
 };
 
+&ipa_hw {
+	qcom,ipa-wdi2_over_gsi;
+};
