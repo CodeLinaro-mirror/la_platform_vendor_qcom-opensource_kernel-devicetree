@@ -1535,6 +1535,7 @@
 #include "sa410m-qupv3.dtsi"
 #include "sa410m-usb.dtsi"
 #include "sa410m-pcie.dtsi"
+#include "sa410m-cnss.dtsi"
 
 &gcc_emac0_gdsc {
 	status = "ok";

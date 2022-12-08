@@ -904,6 +904,19 @@
 		};
 	};
 
+	conn_power_3p3_active: conn_power_3p3_active {
+			mux {
+				pins = "gpio23";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio23";
+				drive-strength = <2>; /* 2 mA */
+				bias-pull-down; /* pull down */
+			};
+	};
+
 	pcie0 {
 		pcie0_clkreq_default: pcie0_clkreq_default {
 			mux {
