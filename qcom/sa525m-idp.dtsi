@@ -1,7 +1,5 @@
 #include <dt-bindings/gpio/gpio.h>
 
-#include "sa525m-pmic-overlay.dtsi"
-
 &soc {
 	vreg_emac_phy: vreg_emac_phy {
 		compatible = "qti-regulator-fixed";

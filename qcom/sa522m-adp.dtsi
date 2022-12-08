@@ -1,4 +1,3 @@
-#include "sa525m-pmic-overlay.dtsi"
 
 &soc {
 };
