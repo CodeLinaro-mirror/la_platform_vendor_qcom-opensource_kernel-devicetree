@@ -1,6 +1,5 @@
 &soc {
 	pcie0: qcom,pcie@1bf0000 {
-		status = "disabled";
 		reg = <0x01bf0000 0x4000>,
 			<0x01bf6000 0x2000>,
 			<0x48000000 0xf1d>,
@@ -9,6 +8,7 @@
 			<0x48100000 0x100000>,
 			<0x1bf4000 0x1000>,
 			<0x1bf5000 0x1000>;
+		status = "ok";
 		reg-names = "parf", "phy", "dm_core", "elbi", "iatu",
 				"conf", "mhi", "rumi";
 		qcom,target-link-speed = <0x1>;
