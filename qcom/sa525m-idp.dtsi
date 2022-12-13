@@ -1,5 +1,180 @@
 #include <dt-bindings/gpio/gpio.h>
 
+
+&tlmm {
+	emac {
+		emac0_pin_rgmii_txc: emac0_pin_rgmii_txc {
+			mux {
+				pins = "gpio82";
+				function = "RGMII_TXC";
+			};
+
+			config {
+				pins = "gpio82";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				output-high;
+			};
+		};
+
+		emac0_pin_rgmii_txd0: emac0_pin_rgmii_txd0 {
+			mux {
+				pins = "gpio83";
+				function = "RGMII_TXD0";
+			};
+
+			config {
+				pins = "gpio83";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				output-high;
+			};
+		};
+
+		emac0_pin_rgmii_txd1: emac0_pin_rgmii_txd1 {
+			mux {
+				pins = "gpio84";
+				function = "RGMII_TXD1";
+			};
+
+			config {
+				pins = "gpio84";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				output-high;
+			};
+		};
+
+		emac0_pin_rgmii_txd2: emac0_pin_rgmii_txd2 {
+			mux {
+				pins = "gpio85";
+				function = "RGMII_TXD2";
+			};
+
+			config {
+				pins = "gpio85";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				output-high;
+			};
+		};
+
+		emac0_pin_rgmii_txd3: emac0_pin_rgmii_txd3 {
+			mux {
+				pins = "gpio86";
+				function = "RGMII_TXD3";
+			};
+
+			config {
+				pins = "gpio86";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				output-high;
+			};
+		};
+
+		emac0_pin_rgmii_tx_ctl: emac0_pin_rgmii_tx_ctl {
+			mux {
+				pins = "gpio87";
+				function = "RGMII_TX_CTL";
+			};
+
+			config {
+				pins = "gpio87";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				output-high;
+			};
+		};
+
+		emac0_pin_rgmii_rxc: emac0_pin_rgmii_rxc {
+			mux {
+				pins = "gpio88";
+				function = "RGMII_RXC";
+			};
+
+			config {
+				pins = "gpio88";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				input-enable;
+			};
+		};
+
+		emac0_pin_rgmii_rxd0: emac0_pin_rgmii_rxd0 {
+			mux {
+				pins = "gpio89";
+				function = "RGMII_RXD0";
+			};
+
+			config {
+				pins = "gpio89";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				input-enable;
+			};
+		};
+
+		emac0_pin_rgmii_rxd1: emac0_pin_rgmii_rxd1 {
+			mux {
+				pins = "gpio90";
+				function = "RGMII_RXD1";
+			};
+
+			config {
+				pins = "gpio90";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				input-enable;
+			};
+		};
+
+		emac0_pin_rgmii_rxd2: emac0_pin_rgmii_rxd2 {
+			mux {
+				pins = "gpio91";
+				function = "RGMII_RXD2";
+			};
+
+			config {
+				pins = "gpio91";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				input-enable;
+			};
+		};
+
+		emac0_pin_rgmii_rxd3: emac0_pin_rgmii_rxd3 {
+			mux {
+				pins = "gpio92";
+				function = "RGMII_RXD3";
+			};
+
+			config {
+				pins = "gpio92";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				input-enable;
+			};
+		};
+
+		emac0_pin_rgmii_rx_ctl: emac0_pin_rgmii_rx_ctl {
+			mux {
+				pins = "gpio93";
+				function = "RGMII_RX_CTL";
+			};
+
+			config {
+				pins = "gpio93";
+				drive-strength = <8>; /* 8 mA */
+				bias-disable; /* NO PULL*/
+				input-enable;
+			};
+		};
+
+	};
+};
+
+
 &soc {
 	vreg_emac_phy: vreg_emac_phy {
 		compatible = "qti-regulator-fixed";
@@ -10,6 +185,76 @@
 		enable-active-high;
 		regulator-enable-ramp-delay = <10000>;
 	};
+
+	mtl_rx_setup: rx-queues-config {
+		snps,rx-queues-to-use = <2>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x0>;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+		};
+	};
+
+	mtl_tx_setup: tx-queues-config {
+		snps,tx-queues-to-use = <2>;
+		snps,tx-sched-sp;
+		queue0 {
+			snps,dcb-algorithm;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+	};
+};
+
+&ethqos_hw1 {
+		pinctrl-names = "dev-emac0_pin_rgmii_txc",
+			"dev-emac0_pin_rgmii_txd0", "dev-emac0_pin_rgmii_txd1",
+			"dev-emac0_pin_rgmii_txd2", "dev-emac0_pin_rgmii_txd3",
+			"dev-emac0_pin_rgmii_tx_ctl","dev-emac0_pin_rgmii_rxc",
+			"dev-emac0_pin_rgmii_rxd0", "dev-emac0_pin_rgmii_rxd1",
+			"dev-emac0_pin_rgmii_rxd2", "dev-emac0_pin_rgmii_rxd3",
+			"dev-emac0_pin_rgmii_rx_ctl", "dev-emac0_mdc",
+			"dev-emac0_mdio";
+
+		pinctrl-0 = <&emac0_pin_rgmii_txc>;
+		pinctrl-1 = <&emac0_pin_rgmii_txd0>;
+		pinctrl-2 = <&emac0_pin_rgmii_txd1>;
+		pinctrl-3 = <&emac0_pin_rgmii_txd2>;
+		pinctrl-4 = <&emac0_pin_rgmii_txd3>;
+		pinctrl-5 = <&emac0_pin_rgmii_tx_ctl>;
+		pinctrl-6 = <&emac0_pin_rgmii_rxc>;
+		pinctrl-7 = <&emac0_pin_rgmii_rxd0>;
+		pinctrl-8 = <&emac0_pin_rgmii_rxd1>;
+		pinctrl-9 = <&emac0_pin_rgmii_rxd2>;
+		pinctrl-10 = <&emac0_pin_rgmii_rxd3>;
+		pinctrl-11 = <&emac0_pin_rgmii_rx_ctl>;
+		pinctrl-12 = <&emac0_mdc>;
+		pinctrl-13 = <&emac0_mdio>;
+
+		vreg_emac_phy-supply = <&vreg_emac_phy>;
+		snps,reset-gpio = <&tlmm 75 GPIO_ACTIVE_LOW>;
+		snps,phy_aqr_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
+
+		snps,mtl-rx-config = <&mtl_rx_setup>;
+		snps,mtl-tx-config = <&mtl_tx_setup>;
+
+		snps,reset-active-low;
+		snps,reset-delays-us = <1000 10000 1000>;
+		phy-mode = "rgmii-rxid";
+		mac-mode = "rgmii-rxid";
+		managed = "auto";
+		/delete-property/qcom,phy-intr-redirect;
+		interrupts = <0 360 4>, <0 74 4>;
+		interrupt-names = "macirq", "eth_lpi";
+
 };
 
 &qupv3_se0_spi {

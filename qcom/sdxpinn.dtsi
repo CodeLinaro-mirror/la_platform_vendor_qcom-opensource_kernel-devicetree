@@ -1308,7 +1308,82 @@
 		#mbox-cells = <2>;
 	};
 
-	 qcom,chd {
+	ethqos_hw1: qcom,emac0@23040000 {
+		compatible = "qcom,stmmac-ethqos", "snps,dwxgmac";
+		qcom,arm-smmu;
+		reg = <0x23040000 0x14000>,
+			<0x230BF000 0x1000>,
+			<0x23054000 0x5100>,
+			<0x00FFA000 0xE10>;
+		reg-names = "stmmaceth", "rgmii","xpcs","serdes";
+		clocks =<&gcc GCC_EEE_EMAC0_CLK>,
+			<&gcc GCC_EMAC0_AXI_CLK>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_RX_CLK>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_TX_CLK>,
+			<&gcc GCC_EMAC0_PHY_AUX_CLK>,
+			<&gcc GCC_EMAC0_RGMII_CLK>,
+			<&gcc GCC_EMAC0_RPCS_RX_CLK>,
+			<&gcc GCC_EMAC0_RPCS_TX_CLK>,
+			<&gcc GCC_EMAC0_SLV_AHB_CLK>,
+			<&gcc GCC_EMAC0_XGXS_RX_CLK>,
+			<&gcc GCC_EMAC0_XGXS_TX_CLK>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_RX_CLK_SRC>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_TX_CLK_SRC>,
+			<&gcc GCC_EMAC0_SGMIIPHY_MAC_RCLK_SRC>,
+			<&gcc GCC_EMAC0_SGMIIPHY_MAC_TCLK_SRC>,
+			<&emac0_sgmiiphy_rclk>,
+			<&emac0_sgmiiphy_tclk>,
+			<&emac0_sgmiiphy_mac_rclk>,
+			<&emac0_sgmiiphy_mac_tclk>,
+			<&gcc GCC_EMAC_0_CLKREF_EN>;
+		clock-names = "eee", "stmmaceth", "sgmii_rx",
+		"sgmii_tx", "phyaux", "rgmii",
+		"pcs_rx", "pcs_tx", "pclk", "xgxs_rx",
+		"xgxs_tx", "sgmii_rclk_src", "sgmii_tclk_src",
+		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
+		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
+
+		interrupts-extended = <&intc GIC_SPI 360 IRQ_TYPE_LEVEL_HIGH>,
+		<&intc GIC_SPI 74 IRQ_TYPE_LEVEL_HIGH>, <&tlmm 97 IRQ_TYPE_LEVEL_LOW>,
+		<&intc GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-names = "macirq", "eth_lpi", "phy-intr","pcs_intr";
+
+		gdsc_emac-supply = <&gcc_emac0_gdsc>;
+		pinctrl-names = "dev-emac0_mdc","dev-emac0_mdio","dev-emac0_pin_phy_intr",
+		"dev-emac0_phy_reset_state";
+
+		pinctrl-0 = <&emac0_mdc>;
+		pinctrl-1 = <&emac0_mdio>;
+		pinctrl-2 = <&emac0_pin_phy_intr>;
+		pinctrl-3 = <&emac0_phy_reset_state>;
+
+		qcom,phy-intr-redirect = <&tlmm 97 1>;
+		snps,reset = <&tlmm 96 1>;
+		snps,crc_strip;
+
+		interconnect-names = "axi_icc_path", "apb_icc_path";
+		interconnects = <&system_noc MASTER_EMAC_0 &mc_virt SLAVE_EBI1>,
+				<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_ETH0_CFG>;
+
+		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
+		reset-names = "emac0_rgmii_clk_ares";
+
+
+		snps,tso;
+		snps,pbl = <32>;
+		rx-fifo-depth = <20480>;
+		tx-fifo-depth = <24576>;
+		snps,reset-active-low;
+
+		ethqos_emb_smmu: ethqos_emb_smmu {
+			compatible = "qcom,emac-smmu-embedded";
+			qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
+			iommus = <&apps_smmu 0x40 0xf>;
+			qcom,iommu-dma = "bypass";
+		};
+	};
+
+	qcom,chd {
 		compatible = "qcom,core-hang-detect";
 		label = "core";
 		qcom,threshold-arr = <0x17800058 0x17810058 0x17820058 0x17830058>;
