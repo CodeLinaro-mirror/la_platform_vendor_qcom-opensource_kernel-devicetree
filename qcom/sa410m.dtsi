@@ -720,6 +720,13 @@
 		qcom,vm-nav-path;
 	};
 
+	qcom,qrtr_gunyah_televm {
+		compatible = "qcom,qrtr-gunyah";
+		qcom,master;
+		gunyah-label = <3>;
+		peer-name = <2>;
+	};
+
 	clocks {
 		xo_board: xo-board {
 			compatible = "fixed-clock";
