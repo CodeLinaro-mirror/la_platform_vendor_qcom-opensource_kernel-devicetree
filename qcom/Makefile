@@ -229,8 +229,7 @@ SA525_BASE_DTB += sa525m.dtb
 
 SA525_BOARDS += sa525m-rumi-overlay.dtbo \
 		sa525m-idp-overlay.dtbo \
-		sa525m-adp-overlay.dtbo \
-		sdxpinn-idp-mbb-overlay.dtbo
+		sa525m-adp-overlay.dtbo
 
 sa525-dtb-$(CONFIG_ARCH_SA525) += \
 		$(call add-overlays, $(SA525_BOARDS) ,$(SA525_BASE_DTB))
