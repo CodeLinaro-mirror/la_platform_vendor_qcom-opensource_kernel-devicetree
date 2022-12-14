@@ -51,6 +51,17 @@
 		regulator-max-microvolt = <2950000>;
 		parent-supply = <&vreg_sdc2_sd_ls_vccb>;
 	};
+
+	vreg_conn_pa: vreg_conn_pa {
+		compatible = "regulator-fixed";
+		regulator-name = "vreg_conn_pa";
+		pinctrl-names = "default";
+		pinctrl-0 = <&cnss_vreg_en_default>;
+		startup-delay-us = <4000>;
+		enable-active-high;
+		gpio = <&pmx75_gpios 14 GPIO_ACTIVE_HIGH>;
+	};
+
 };
 
 &pmk8550_vadc {

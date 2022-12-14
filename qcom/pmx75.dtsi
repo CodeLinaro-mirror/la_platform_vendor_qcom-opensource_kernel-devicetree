@@ -66,6 +66,17 @@
 				};
 			};
 
+			pmx75_14_gpios {
+				cnss_vreg_en_default: cnss_vreg_en_default {
+					pins = "gpio14";
+					function = "normal";
+					output-low;
+					bias-pull-down;
+					qcom,drive-strength = <2>;
+					power-source = <1>;
+				};
+			};
+
 		};
 
 		pmx75_pwm: pwms@e800 {
