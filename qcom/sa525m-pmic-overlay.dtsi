@@ -4,6 +4,43 @@
 #include "pmk8550.dtsi"
 #include "pmx75.dtsi"
 
+&pmk8550_gpios {
+	pinctrl-0 = <&alt_sleep_clk_default>;
+	pinctrl-names = "default";
+
+	alt_sleep_clk {
+		alt_sleep_clk_default: alt_sleep_clk_default {
+			pins = "gpio5";
+			function = "func1";
+			input-disable;
+			output-enable;
+			bias-disable;
+			power-source = <0>;
+		};
+	};
+
+	wlan_en {
+		wlan_en_active: wlan_en_active {
+			pins = "gpio3";
+			function = "normal";
+			output-high;
+			bias-pull-up;
+			qcom,drive-strength = <2>;
+			power-source = <0>;
+		};
+
+		wlan_en_sleep: wlan_en_sleep {
+			pins = "gpio3";
+			function = "normal";
+			output-low;
+			bias-pull-down;
+			qcom,drive-strength = <2>;
+			power-source = <0>;
+		};
+
+	};
+};
+
 &soc {
 	reboot_reason {
 		compatible = "qcom,reboot-reason";
