@@ -1,5 +1,4 @@
 #include "sdxpinn.dtsi"
-#include "sa525m-cnss.dtsi"
 #include "sa525m-pmic-overlay.dtsi"
 
 &qnand_1 {
