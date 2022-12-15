@@ -61,6 +61,25 @@
 	usb-repeater = <&pm7550ba_eusb2_repeater>;
 };
 
+&usb {
+	usb-role-switch;
+	port {
+		usb_port: endpoint {
+			remote-endpoint = <&usb_port_connector>;
+		};
+	};
+};
+
+&ucsi {
+	connector {
+		port {
+			usb_port_connector: endpoint {
+				remote-endpoint = <&usb_port>;
+			};
+		};
+	};
+};
+
 &modem_pas {
 	qcom,pmic_glink_rpmsg {
 		qcom,glink-channels = "PMIC_RTR_ADSP_APPS";

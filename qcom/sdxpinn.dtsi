@@ -1455,7 +1455,7 @@
 		qcom,subsys-name = "mpss";
 		status = "disabled";
 
-		qcom,ucsi {
+		ucsi: qcom,ucsi {
 			compatible = "qcom,ucsi-glink";
 		};
 
