@@ -27,6 +27,7 @@
 		resets = <&gcc GCC_USB30_BCR>;
 		reset-names = "core_reset";
 
+		qcom,sleep-clk-bcr;
 		qcom,core-clk-rate = <200000000>;
 		qcom,core-clk-rate-hs = <66666667>;
 		qcom,default-bus-vote = <2>; /* use svs bus voting */
