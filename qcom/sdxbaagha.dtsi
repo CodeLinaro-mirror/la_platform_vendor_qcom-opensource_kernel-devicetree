@@ -168,6 +168,7 @@
 			cpu-idle-states = <&A7_SPC &A7_PC>;
 			power-domains = <&CPU_PD0>;
 			power-domain-names = "psci";
+			#cooling-cells = <2>;
 		};
 	};
 
@@ -1270,3 +1271,5 @@
 &qupv3_se3_2uart {
 	status = "ok";
 };
+
+#include "sdxbaagha-thermal.dtsi"

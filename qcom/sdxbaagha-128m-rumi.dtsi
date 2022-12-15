@@ -96,3 +96,8 @@
 &CX_MIN {
 	status = "nok";
 };
+
+&tsens0 {
+	status = "disabled";
+};
+
