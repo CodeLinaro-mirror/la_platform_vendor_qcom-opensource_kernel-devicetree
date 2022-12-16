@@ -26,15 +26,15 @@
 			actual-dev = "vda", "vdb", "vdc",
 					"vdd", "vde", "vdf",
 					"vdg", "vdh", "vdi",
-					"vdj", "vdk", "vdl";
-			rename-dev = "system", "userdata", "vendor",
-					"persist", "modem", "bluetooth",
-					"misc", "vbmeta", "boot", "dtbo",
-					"dsp";
-			rename-dev-ab = "super", "userdata", "metadata",
-					"persist", "modem_a", "bluetooth_a",
+					"vdj", "vdk", "vdl",
+					"vdm", "vdn", "vdo",
+					"vdp", "vdq";
+			rename-dev = "super", "userdata", "metadata",
+					"persist", "modem_a","bluetooth_a",
 					"misc", "vbmeta_a", "vbmeta_b",
-					"boot_a", "dtbo_a", "dsp_a";
+					"boot_a", "dtbo_a","dsp_a",
+					"modem_b", "bluetooth_b", "boot_b",
+					"dtbo_b", "dsp_b";
 		};
 
 		rename_net: rename_net {
