@@ -1,6 +1,7 @@
 #include <dt-bindings/gpio/gpio.h>
 
 #include "sdxpinn-pmic-overlay.dtsi"
+#include "sdxpinn-qcn9224.dtsi"
 
 &soc {
 	aqr_vreg: aqr_vreg {
