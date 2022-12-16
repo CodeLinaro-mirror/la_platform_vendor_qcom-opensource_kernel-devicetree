@@ -227,7 +227,8 @@ sdxpinn-cpe-wkk-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-idp-cpe.dtb \
 		sdxpinn-idp-cpe-v2.dtb
 dtb-y += $(sdxpinn-dtb-y)
 
-SA525_BASE_DTB += sa525m.dtb
+SA525_BASE_DTB += sa525m.dtb \
+		sa522m.dtb
 
 SA525_BOARDS += sa525m-rumi-overlay.dtbo \
 		sa525m-idp-overlay.dtbo \
