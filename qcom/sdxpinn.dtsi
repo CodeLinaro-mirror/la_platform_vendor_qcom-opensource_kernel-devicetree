@@ -2030,10 +2030,10 @@
 			qcom,additional-mapping =
 				/* modem tables in IMEM */
 				<0x14688000 0x14688000 0x2000>;
-			qcom,iommu-geometry = <0x0 0xA0000000>; // Verify if needed !!!
-			qcom,iommu-dma = "bypass";
-			//dma-coherent;
-			qcom,ipa-q6-smem-size = <36864>;
+			qcom,iommu-geometry = <0x0 0xA0000000>;
+			qcom,iommu-dma = "fastmap";
+			dma-coherent;
+			qcom,ipa-q6-smem-size = <45056>;
 		};
 
 		ipa_smmu_wlan: ipa_smmu_wlan {
