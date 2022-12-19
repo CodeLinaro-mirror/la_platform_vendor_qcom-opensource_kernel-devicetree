@@ -1235,9 +1235,6 @@
 	qcom_tzlog: tz-log@14693720 {
 		compatible = "qcom,tz-log";
 		reg = <0x14693720 0x3000>;
-		qcom,hyplog-enabled;
-		hyplog-address-offset = <0x410>;
-		hyplog-size-offset = <0x414>;
 	};
 };
 
@@ -1249,10 +1246,13 @@
 
 	qtee_shmbridge {
 		compatible = "qcom,tee-shared-memory-bridge";
+		qcom,disable-shmbridge-support;
+		qcom,custom-bridge-size = <256>;
 	};
 
 	qcom_smcinvoke {
 		compatible = "qcom,smcinvoke";
+		qcom,support-legacy_smc;
 	};
 };
 
