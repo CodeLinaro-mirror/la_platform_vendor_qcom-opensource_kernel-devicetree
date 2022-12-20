@@ -8,6 +8,7 @@
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/spmi/spmi.h>
+#include <dt-bindings/soc/qcom,ipcc.h>
 
 / {
 	#address-cells = <1>;
@@ -1257,6 +1258,7 @@
 	};
 };
 
+#include "ipcc-test-sdxbaagha.dtsi"
 #include "sdxbaagha-pinctrl.dtsi"
 #include "sdxbaagha-debug.dtsi"
 #include "sdxbaagha-dma-heaps.dtsi"
