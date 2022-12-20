@@ -38,6 +38,12 @@
 			0x240 /* GSI_RING_BASE_ADDR_L */
 			0x25c /* GSI_RING_BASE_ADDR_H */
 			0x1a4>; /* GSI_IF_STS */
+
+		interconnect-names = "usb-ddr", "usb-ipa", "ddr-usb";
+		interconnects = <&system_noc MASTER_USB3_0 &mc_virt SLAVE_EBI1>,
+				<&system_noc MASTER_USB3_0 &system_noc SLAVE_IPA_CFG>,
+				<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_USB3>;
+
 		dwc3@a600000 {
 			compatible = "snps,dwc3";
 			reg = <0x0a600000 0xd93c>;
