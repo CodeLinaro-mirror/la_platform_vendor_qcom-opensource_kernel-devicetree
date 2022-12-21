@@ -1257,6 +1257,7 @@
 			"phy-intr",	"ptp_pps_irq_0", "ptp_pps_irq_1";
 
 		snps,tso;
+		snps,force_thresh_dma_mode_q0;
 		rx-fifo-depth = <16384>;
 		tx-fifo-depth = <16384>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
