@@ -35,6 +35,7 @@
 	qcom,qrtr_gunyah_televm {
 		compatible = "qcom,qrtr-gunyah";
 		qcom,master;
+		qcom,net-id = <0>;
 		gunyah-label = <3>;
 		peer-name = <5>;
 	};
