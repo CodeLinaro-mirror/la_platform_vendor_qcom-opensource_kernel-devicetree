@@ -1146,7 +1146,7 @@
 				<0x14688000 0x14688000 0x3000>;
 			qcom,ipa-q6-smem-size = <36864>;
 			qcom,iommu-dma = "fastmap";
-			qcom,geometry-mapping = <0x0 0xF0000000>;
+			qcom,iommu-geometry = <0x0 0xF0000000>;
 		};
 
 		ipa_smmu_wlan: ipa_smmu_wlan {
