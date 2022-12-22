@@ -1366,10 +1366,6 @@
 		interconnects = <&system_noc MASTER_EMAC_0 &mc_virt SLAVE_EBI1>,
 				<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_ETH0_CFG>;
 
-		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
-		reset-names = "emac0_rgmii_clk_ares";
-
-
 		snps,tso;
 		snps,pbl = <32>;
 		rx-fifo-depth = <20480>;
