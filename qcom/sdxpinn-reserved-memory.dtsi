@@ -109,15 +109,15 @@
 		reg = <0x0 0x88300000 0x0 0x500000>;
 	};
 
-	audio_heap_mem: audio_heap_region@88800000 {
-		compatible = "shared-dma-pool";
+	qdss_mem: qdss_region@88800000 {
 		no-map;
-		reg = <0x0 0x88800000 0x0 0x400000>;
+		reg = <0x0 0x88800000 0x0 0x300000>;
 	};
 
-	qdss_mem: qdss_region@88c00000 {
+	audio_heap_mem: audio_heap_region@88b00000 {
+		compatible = "shared-dma-pool";
 		no-map;
-		reg = <0x0 0x88c00000 0x0 0x300000>;
+		reg = <0x0 0x88b00000 0x0 0x400000>;
 	};
 
 	mpss_dsmharq_mem: mpss_dsmharq_region@88f00000 {
