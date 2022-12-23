@@ -223,6 +223,8 @@ sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb \
 		sdxpinn-idp-lga-v2.dtb \
 		sdxpinn-rcm-mbb.dtb \
 		sdxpinn-rcm-mbb-v2.dtb
+sdxpinn-cpe-wkk-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-idp-cpe.dtb \
+		sdxpinn-idp-cpe-v2.dtb
 dtb-y += $(sdxpinn-dtb-y)
 
 SA525_BASE_DTB += sa525m.dtb
