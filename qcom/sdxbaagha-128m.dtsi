@@ -5,6 +5,7 @@
 &soc {
 };
 
+/delete-node/ &qcom_audio;
 /delete-node/ &mpss_audio_mem;
 /delete-node/ &audio_heap_mem;
 &reserved_memory {
