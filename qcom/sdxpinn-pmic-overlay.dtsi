@@ -155,7 +155,7 @@
 
 	pmx75_vref_1p25 {
 		reg = <PMX75_ADC5_GEN3_1P25VREF>;
-		label = "pmx75_vref_1p135";
+		label = "pmx75_vref_1p25";
 		qcom,pre-scaling = <1 1>;
 	};
 
