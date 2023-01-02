@@ -1392,7 +1392,7 @@
 		clock-names = "stmmaceth", "pclk", "ptp_ref", "rgmii";
 
 		snps,ptp-ref-clk-rate = <230400000>;
-		snps,ptp-req-clk-rate = <57600000>;
+		snps,ptp-req-clk-rate = <125000000>;
 
 		pinctrl-names = "dev-emac-mdc",
 			"dev-emac-mdio",
