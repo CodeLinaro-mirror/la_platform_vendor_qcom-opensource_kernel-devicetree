@@ -1270,6 +1270,8 @@
 			<&tlmm 84 2>;
 		interrupt-names = "macirq", "eth_lpi",
 			"phy-intr";
+		pinctrl-names = "dev-emac_pin_pps_0";
+		pinctrl-0 = <&emac_pin_pps_0>;
 
 		vreg_emac_phy-supply =  <&vreg_emac_phy>;
 		vreg_rgmii_io_pads-supply = <&vreg_rgmii_io_pads>;
