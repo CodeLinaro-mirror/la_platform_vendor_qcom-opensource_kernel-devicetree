@@ -1461,8 +1461,8 @@
 		pinctrl-12 = <&emac_rgmii_rxc>;
 		pinctrl-13 = <&emac_rgmii_rx_ctl>;
 
-		rx-fifo-depth = <4096>;
-		tx-fifo-depth = <4096>;
+		rx-fifo-depth = <16384>;
+		tx-fifo-depth = <16384>;
 
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
