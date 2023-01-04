@@ -143,7 +143,6 @@
 		interconnect-names = "icc_path";
 		interconnects = <&sys_noc MASTER_PCIE &bimc_noc SLAVE_EBI_CH0>;
 
-		dma-coherent;
 		qcom,no-l0s-supported;
 		qcom,no-l1-supported;
 		qcom,no-l1ss-supported;
