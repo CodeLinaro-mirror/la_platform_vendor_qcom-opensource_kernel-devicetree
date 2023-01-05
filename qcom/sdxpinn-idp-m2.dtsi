@@ -21,3 +21,35 @@
 	dummy-supply = <&pmx75_eusb2_repeater>;
 	usb-repeater = <&pmx75_eusb2_repeater>;
 };
+
+&ipa_hw {
+	qcom,use-ipa-in-mhi-mode;
+	ipa_smmu_ap {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_wlan {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_uc {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_11ad {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_eth {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_eth1 {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_wlan1 {
+		qcom,iommu-dma = "bypass";
+	};
+
+};
