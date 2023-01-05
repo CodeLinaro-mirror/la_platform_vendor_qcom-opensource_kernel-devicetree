@@ -268,6 +268,22 @@
 	status = "ok";
 };
 
+&pmic_glink_debug {
+	i2c@103 {
+		reg = <0x103>; /* I2C instance 3 in ADSP for SE2 */
+		#address-cells = <1>;
+		#size-cells = <0>;
+		qcom,bus-type = "i2c";
+
+		qcom,smb1394@34 {
+			compatible = "qcom,i2c-pmic";
+			reg = <0x34>;
+			qcom,can-sleep;
+		};
+
+	};
+};
+
 &pmk8550_vadc {
 	/* PM8550BA Channel nodes */
 	pm7550ba_offset_ref {
