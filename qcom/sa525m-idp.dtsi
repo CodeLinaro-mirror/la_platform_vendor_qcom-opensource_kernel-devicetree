@@ -180,8 +180,8 @@
 		compatible = "qti-regulator-fixed";
 		regulator-name = "vreg_emac_phy";
 		gpio = <&tlmm 105 GPIO_ACTIVE_HIGH>;
-		regulator-min-microvolt = <2500000>;
-		regulator-max-microvolt = <2500000>;
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
 		enable-active-high;
 		regulator-enable-ramp-delay = <10000>;
 	};
@@ -240,23 +240,23 @@
 		pinctrl-13 = <&emac0_mdio>;
 
 		vreg_emac_phy-supply = <&vreg_emac_phy>;
+		/delete-property/ snps,reset-gpio;
 		snps,reset-gpio = <&tlmm 75 GPIO_ACTIVE_LOW>;
-		snps,phy_aqr_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
-
+		snps,reset-delays-us = <1000 10000 1000>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 
 		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
 		reset-names = "emac0_rgmii_clk_ares";
-
-		snps,reset-active-low;
-		snps,reset-delays-us = <1000 10000 1000>;
 		phy-mode = "rgmii-rxid";
 		mac-mode = "rgmii-rxid";
 		managed = "auto";
 		/delete-property/qcom,phy-intr-redirect;
 		interrupts = <0 360 4>, <0 74 4>;
 		interrupt-names = "macirq", "eth_lpi";
+
+		snps,phy1_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
+		snps,phy1-reset-delays-us = <1000 221000 1000>;
 
 };
 
