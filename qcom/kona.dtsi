@@ -2418,6 +2418,28 @@
 			clock-output-names = "chip_sleep_clk";
 			#clock-cells = <1>;
 		};
+
+		pcie_0_pipe_clk: pcie_0_pipe_clk {
+			compatible = "fixed-clock";
+			clock-frequency = <1000>;
+			clock-output-names = "pcie_0_pipe_clk";
+			#clock-cells = <0>;
+		};
+
+		pcie_1_pipe_clk: pcie_1_pipe_clk {
+			compatible = "fixed-clock";
+			clock-frequency = <1000>;
+			clock-output-names = "pcie_1_pipe_clk";
+			#clock-cells = <0>;
+		};
+
+		pcie_2_pipe_clk: pcie_2_pipe_clk {
+			compatible = "fixed-clock";
+			clock-frequency = <1000>;
+			clock-output-names = "pcie_2_pipe_clk";
+			#clock-cells = <0>;
+		};
+
 	};
 
 	clock_aop: qcom,aopclk {
@@ -2434,8 +2456,16 @@
 		vdd_cx-supply = <&VDD_CX_LEVEL>;
 		vdd_cx_ao-supply = <&VDD_CX_LEVEL_AO>;
 		vdd_mm-supply = <&VDD_MMCX_LEVEL>;
-		clocks = <&clock_rpmh RPMH_CXO_CLK>, <&clock_rpmh RPMH_CXO_CLK_A>;
-		clock-names = "bi_tcxo", "bi_tcxo_ao";
+		clocks = <&clock_rpmh RPMH_CXO_CLK>,
+			<&clock_rpmh RPMH_CXO_CLK_A>,
+			<&pcie_0_pipe_clk>,
+			<&pcie_1_pipe_clk>,
+			<&pcie_2_pipe_clk>;
+		clock-names = "bi_tcxo",
+			      "bi_tcxo_ao",
+			      "pcie_0_pipe_clk",
+			      "pcie_1_pipe_clk",
+			      "pcie_2_pipe_clk";
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 	};
