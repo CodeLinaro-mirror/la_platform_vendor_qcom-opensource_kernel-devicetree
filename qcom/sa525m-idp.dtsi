@@ -256,7 +256,7 @@
 		interrupt-names = "macirq", "eth_lpi";
 
 		snps,phy1_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
-		snps,phy1-reset-delays-us = <1000 221000 1000>;
+		snps,phy1-reset-delays-us = <1000 100000 221000>;
 
 };
 
