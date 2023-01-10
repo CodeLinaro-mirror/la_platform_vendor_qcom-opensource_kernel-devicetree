@@ -1839,6 +1839,11 @@
 		qcom,mhi-ifc-id = <0x030917cb>;
 		qcom,mhi-interrupt;
 		qcom,no-m0-timeout;
+		qcom,mhi-has-smmu;
+		iommus = <&apps_smmu 0x800 0x0>;
+		qcom,iommu-dma = "bypass";
+		dma-coherent;
+
 		status = "disabled";
 	};
 

@@ -31,6 +31,8 @@ Optional property:
 		MHI driver on the host. This property is required if iatu
 		property qcom,mhi-config-iatu is present.
   - qcom,enable-m2: If property is present M2 autonomous is enabled.
+  - qcom,mhi-has-smmu: If property is present use mapped address to route the
+		doorbell addresses to IPA.
 
 MSM MHI DEV NET
 
