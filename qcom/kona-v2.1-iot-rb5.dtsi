@@ -13,6 +13,9 @@
 &qupv3_se6_4uart {
 	status = "ok";
 };
+&ipa_hw {
+	status = "disabled";
+};
 
 &qupv3_se13_4uart {
 	status = "ok";
