@@ -153,6 +153,8 @@
 	pinctrl-1 = <&sdc1_sd_off>;
 
 	cd-gpios = <&tlmm 103 GPIO_ACTIVE_LOW>;
+
+	operating-points-v2 = <&sdhc2_opp_table>;
 };
 
 &pm7550ba_eusb2_repeater {
