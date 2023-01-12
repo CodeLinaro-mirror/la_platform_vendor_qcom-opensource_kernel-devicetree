@@ -902,6 +902,33 @@
 				drive-strength = <16>;
 			};
 		};
+
+		emac_phy_vreg: emac_phy_vreg {
+			mux {
+				pins = "gpio115";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio115";
+				bias-disable;   /* NO pull */
+				drive-strength = <16>;
+			};
+		};
+
+		emac_rgmii_vreg: emac_rgmii_vreg {
+			mux {
+				pins = "gpio116";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio116";
+				bias-disable;  /* NO pull */
+				drive-strength = <16>;
+			};
+		};
+
 	};
 
 	conn_power_3p3_active: conn_power_3p3_active {
