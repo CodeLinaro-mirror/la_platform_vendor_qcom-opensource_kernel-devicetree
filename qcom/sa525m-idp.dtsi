@@ -252,8 +252,8 @@
 		mac-mode = "rgmii-rxid";
 		managed = "auto";
 		/delete-property/qcom,phy-intr-redirect;
-		interrupts = <0 360 4>, <0 74 4>;
-		interrupt-names = "macirq", "eth_lpi";
+		interrupts = <0 360 4>;
+		interrupt-names = "macirq";
 
 		snps,phy1_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
 		snps,phy1-reset-delays-us = <1000 100000 221000>;
