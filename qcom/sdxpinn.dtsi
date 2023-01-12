@@ -2051,24 +2051,24 @@
 			qcom,iommu-dma = "atomic";
 		};
 
+		ipa_smmu_wlan1: ipa_smmu_wlan1 {
+			compatible = "qcom,ipa-smmu-wlan1-cb";
+			iommus = <&apps_smmu 0x423 0x0>;
+			qcom,iommu-dma = "atomic";
+		};
+
 		ipa_smmu_eth: ipa_smmu_eth {
 			compatible = "qcom,ipa-smmu-eth-cb";
-			iommus = <&apps_smmu 0x423 0x0>;
+			iommus = <&apps_smmu 0x425 0x0>;
 			qcom,shared-cb;
 		//	qcom,iommu-group = <&ipa_eth_group1>;
 		};
 
 		ipa_smmu_eth1: ipa_smmu_eth1 {
 			compatible = "qcom,ipa-smmu-eth1-cb";
-			iommus = <&apps_smmu 0x424 0x0>;
+			iommus = <&apps_smmu 0x426 0x0>;
 			qcom,shared-cb;
 		//	qcom,iommu-group = <&ipa_eth_group2>;
-		};
-
-		ipa_smmu_wlan1: ipa_smmu_wlan1 {
-			compatible = "qcom,ipa-smmu-wlan1-cb";
-			iommus = <&apps_smmu 0x425 0x0>;
-			qcom,iommu-dma = "atomic";
 		};
 
 		/* smp2p information */
