@@ -104,7 +104,21 @@
 					qcom,iova-width = <36>;
 				};
 
-
+				anoc_pcie: anoc_pcie_tbu@0xC789000 {
+					compatible = "qcom,qsmmuv500-tbu";
+					reg = <0xC789000 0x1000>,
+						<0xC782210 0x8>;
+					reg-names = "base", "status-reg";
+					qcom,stream-id-range = <0x400 0x47F>;
+					interconnects = <&sys_noc MASTER_PCIE
+						&bimc_noc SLAVE_EBI_CH0>,
+						<&bimc_noc MASTER_AMPSS_M0
+						&config_noc SLAVE_TCU>;
+					qcom,iova-width = <32>;
+					interrupts = <GIC_SPI 156 IRQ_TYPE_LEVEL_HIGH>;
+					qcom,active-only;
+					status = "ok";
+				};
 	};
 
 	dma_dev@0x0 {
