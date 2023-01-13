@@ -47,3 +47,9 @@
 		status = "okay";
 	};
 };
+
+&usb {
+	dwc3@a600000 {
+		normal-eps-in-gsi-mode;
+	};
+};
