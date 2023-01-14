@@ -78,3 +78,7 @@
 	dummy-supply = <&pmx75_eusb2_repeater>;
 	usb-repeater = <&pmx75_eusb2_repeater>;
 };
+
+&usb {
+	extcon = <&pmx75_vbus_detect>;
+};

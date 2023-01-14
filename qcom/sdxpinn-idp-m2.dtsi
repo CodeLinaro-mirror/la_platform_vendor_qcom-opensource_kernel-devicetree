@@ -22,6 +22,10 @@
 	usb-repeater = <&pmx75_eusb2_repeater>;
 };
 
+&usb {
+	extcon = <&pmx75_vbus_detect>;
+};
+
 &ipa_hw {
 	qcom,use-ipa-in-mhi-mode;
 	ipa_smmu_ap {
