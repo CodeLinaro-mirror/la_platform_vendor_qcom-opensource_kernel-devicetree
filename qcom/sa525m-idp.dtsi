@@ -255,6 +255,15 @@
 		snps,phy1_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
 		snps,phy1-reset-delays-us = <1000 100000 221000>;
 
+		rgmii-io-macro-info-hsr {
+			rgmii-io-macro-config = <0x40c04c03>;
+			rgmii-io-macro-config2 = <0x2200a0>;
+			sdcc-hc-reg-dll-config = <0xd642c>;
+			sdcc-hc-reg-ddr-config = <0x80040868>;
+			sdcc-hc-reg-dll-config2 = <0xa001>;
+			sdcc-usr-ctl = <0x90106c0>;
+			sdcc-test-ctl = <0x01400000>;
+		};
 };
 
 &qupv3_se0_spi {
