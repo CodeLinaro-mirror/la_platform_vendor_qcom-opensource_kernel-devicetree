@@ -79,6 +79,11 @@
 			reg = <0x7100>;
 			#address-cells = <1>;
 			#size-cells = <1>;
+
+			restart_reason: restart@48 {
+				reg = <0x48 0x1>;
+				bits = <1 7>;
+			};
 		};
 
 		pmx35_vadc: qcom,pmx35_vadc {
