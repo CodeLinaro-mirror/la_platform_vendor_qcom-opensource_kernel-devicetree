@@ -6,8 +6,6 @@
 	rpmh-regulator-mxlvl {
 		compatible = "qcom,rpmh-arc-regulator";
 		qcom,resource-name = "mx.lvl";
-		//pm8150a_s3_mmcx_sup_level-parent-supply =
-		//				<&VDD_CX_MMCX_SUPPLY_LEVEL>;
 
 		VDD_MX_LEVEL: S3C_LEVEL:
 		pm8150a_s3_level: regulator-pm8150a-s3-level {
@@ -36,6 +34,7 @@
 		VDD_MX_MMCX_SUPPLY_LEVEL: regulator-pm8150a-s3-mmcx-sup-level {
 			regulator-name = "pm8150a_s3_mmcx_sup_level";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
+			vin-supply = <&VDD_CX_MMCX_SUPPLY_LEVEL>;
 			regulator-min-microvolt =
 				<RPMH_REGULATOR_LEVEL_RETENTION>;
 			regulator-max-microvolt =
@@ -49,14 +48,13 @@
 	rpmh-regulator-cxlvl {
 		compatible = "qcom,rpmh-arc-regulator";
 		qcom,resource-name = "cx.lvl";
-		pm8150_s3_level-parent-supply = <&VDD_MX_LEVEL>;
-		pm8150_s3_level_ao-parent-supply = <&VDD_MX_LEVEL_AO>;
 		proxy-supply = <&VDD_CX_MMCX_SUPPLY_LEVEL>;
 
 		VDD_CX_LEVEL: S3A_LEVEL:
 		pm8150_s3_level: regulator-pm8150-s3-level {
 			regulator-name = "pm8150_s3_level";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
+			pm8150_s3_level-parent-supply = <&VDD_MX_LEVEL>;
 			regulator-min-microvolt =
 				<RPMH_REGULATOR_LEVEL_RETENTION>;
 			regulator-max-microvolt =
@@ -70,6 +68,7 @@
 		pm8150_s3_level_ao: regulator-pm8150-s3-level-ao {
 			regulator-name = "pm8150_s3_level_ao";
 			qcom,set = <RPMH_REGULATOR_SET_ACTIVE>;
+			vin-supply = <&VDD_MX_LEVEL_AO>;
 			regulator-min-microvolt =
 				<RPMH_REGULATOR_LEVEL_RETENTION>;
 			regulator-max-microvolt =
@@ -483,14 +482,13 @@
 	rpmh-regulator-mmcxlvl {
 		compatible = "qcom,rpmh-arc-regulator";
 		qcom,resource-name = "mmcx.lvl";
-		pm8150a_s4_level-parent-supply = <&VDD_MX_MMCX_SUPPLY_LEVEL>;
-		pm8150a_s4_level_ao-parent-supply = <&VDD_MX_LEVEL_AO>;
 		proxy-supply = <&VDD_MMCX_LEVEL>;
 
 		VDD_MMCX_LEVEL: S4C_LEVEL:
 		pm8150a_s4_level: regulator-pm8150a-s4-level {
 			regulator-name = "pm8150a_s4_level";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
+			pm8150a_s4_level-parent-supply = <&VDD_MX_MMCX_SUPPLY_LEVEL>;
 			regulator-min-microvolt
 				= <RPMH_REGULATOR_LEVEL_LOW_SVS>;
 			regulator-max-microvolt
@@ -508,6 +506,7 @@
 		pm8150a_s4_level_ao: regulator-pm8150a-s4-level-ao {
 			regulator-name = "pm8150a_s4_level_ao";
 			qcom,set = <RPMH_REGULATOR_SET_ACTIVE>;
+			vin-supply = <&VDD_MX_LEVEL_AO>;
 			regulator-min-microvolt
 				= <RPMH_REGULATOR_LEVEL_LOW_SVS>;
 			regulator-max-microvolt
