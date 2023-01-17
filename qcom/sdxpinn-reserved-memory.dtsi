@@ -53,6 +53,11 @@
 		reg = <0x0 0x87d40000 0x0 0x40000>;
 	};
 
+	modem_efs_shared_mem: modem_efs_shared_region@87d80000 {
+		no-map;
+		reg = <0x0 0x87d80000 0x0 0x10000>;
+	};
+
 	aop_image_mem: aop_image_region@87e00000 {
 		no-map;
 		reg = <0x0 0x87e00000 0x0 0x20000>;
