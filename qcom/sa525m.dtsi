@@ -26,3 +26,7 @@
 	qcom,ipa-wdi2_over_gsi;
 	qcom,msm-bus,name = "ipa";
 };
+
+&tlmm {
+	qcom,gpios-reserved = <>;
+};
