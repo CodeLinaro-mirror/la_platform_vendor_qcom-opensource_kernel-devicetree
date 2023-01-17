@@ -564,6 +564,11 @@
 		status="disabled";
 	};
 
+	qcom,msm-rtb {
+		compatible = "qcom,msm-rtb";
+		qcom,rtb-size = <0x100000>;
+	};
+
 	restart@440b000 {
 		compatible = "qcom,pshold";
 		reg = <0x440b000 0x4>;
