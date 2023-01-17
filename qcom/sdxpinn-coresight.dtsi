@@ -193,7 +193,7 @@
 		atid = <78>;
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
-
+		status = "disabled";
 		out-ports {
 			port {
 				tpdm_ddr_out_funnel_ddr0: endpoint {
