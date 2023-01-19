@@ -1715,7 +1715,7 @@
 };
 
 &sdhc_2 {
-	status = "disabled";
+	status = "ok";
 
 	vdd-supply = <&L21A>;
 	qcom,vdd-voltage-level = <3075000 3075000>;
