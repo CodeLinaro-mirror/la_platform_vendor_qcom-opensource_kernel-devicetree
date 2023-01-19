@@ -84,6 +84,11 @@ properties:
       - const: usb-ddr
       - const: apps-usb
 
+  qcom,sleep-clk-bcr:
+    description:
+      Additional delay is required for specific targets during
+      usb bcr deassert due to change in sleep demat clks.
+
   interrupts:
     items:
       - description: The interrupt that is asserted
@@ -165,6 +170,8 @@ examples:
             power-domains = <&gcc USB30_PRIM_GDSC>;
 
             resets = <&gcc GCC_USB30_PRIM_BCR>;
+
+            qcom,sleep-clk-bcr;
 
             usb@a600000 {
                 compatible = "snps,dwc3";
