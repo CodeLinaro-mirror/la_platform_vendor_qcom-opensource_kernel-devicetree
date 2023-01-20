@@ -163,6 +163,59 @@
 		method = "smc";
 	};
 
+	apps_rsc: rsc@17830000 {
+		label = "apps_rsc";
+		compatible = "qcom,rpmh-rsc";
+		reg = <0x17830000 0x10000>,
+		      <0x17840000 0x10000>;
+		reg-names = "drv-0", "drv-1";
+		interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
+			     <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+		qcom,tcs-offset = <0xd00>;
+		qcom,drv-id = <1>;
+		qcom,tcs-config = <ACTIVE_TCS  2>,
+				  <SLEEP_TCS   2>,
+				  <WAKE_TCS    2>,
+				  <CONTROL_TCS 1>;
+
+		apps_bcm_voter: bcm_voter {
+			compatible = "qcom,bcm-voter";
+		};
+
+		rpmhcc: qcom,rpmh {
+			compatible = "qcom,sdx55-rpmh-clk";
+			clocks = <&xo_board>;
+			clock-names = "xo";
+			#clock-cells = <1>;
+		};
+
+		system_pm {
+			compatible = "qcom,system-pm";
+		};
+	};
+
+	intc: interrupt-controller@17800000 {
+		compatible = "qcom,msm-qgic2";
+		interrupt-controller;
+		interrupt-parent = <&intc>;
+		#interrupt-cells = <3>;
+		reg = <0x17800000 0x1000>,
+		      <0x17802000 0x1000>;
+	};
+
+	pdc: interrupt-controller@b210000 {
+		compatible = "qcom,sa515m-pdc";
+		reg = <0xb210000 0x30000>,
+		      <0xb204900 0x700>;
+		reg-names = "base", "mux-base";
+		qcom,pdc-ranges = <0 147 52>;
+		qcom,pdc-mux-ranges = <20 28 0>, <21 32 1>, <22 35 2>,
+				      <23 57 3>, <24 49 4>, <25 58 5>;
+		#interrupt-cells = <2>;
+		interrupt-parent = <&intc>;
+		interrupt-controller;
+	};
+
 	msm_cpufreq: qcom,msm-cpufreq {
 		compatible = "qcom,msm-cpufreq";
 		clocks = <&apsscc APCS_MUX_CLK>;
@@ -214,59 +267,6 @@
 		compatible = "qcom,mpm2-sleep-counter";
 		reg = <0xc221000 0x1000>;
 		clock-frequency = <32768>;
-	};
-
-	apps_rsc: rsc@17830000 {
-		label = "apps_rsc";
-		compatible = "qcom,rpmh-rsc";
-		reg = <0x17830000 0x10000>,
-		      <0x17840000 0x10000>;
-		reg-names = "drv-0", "drv-1";
-		interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
-			     <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
-		qcom,tcs-offset = <0xd00>;
-		qcom,drv-id = <1>;
-		qcom,tcs-config = <ACTIVE_TCS  2>,
-				  <SLEEP_TCS   2>,
-				  <WAKE_TCS    2>,
-				  <CONTROL_TCS 1>;
-
-		rpmhcc: qcom,rpmh {
-			compatible = "qcom,sdx55-rpmh-clk";
-			clocks = <&xo_board>;
-			clock-names = "xo";
-			#clock-cells = <1>;
-		};
-
-		apps_bcm_voter: bcm_voter {
-			compatible = "qcom,bcm-voter";
-		};
-
-		system_pm {
-			compatible = "qcom,system-pm";
-		};
-	};
-
-	intc: interrupt-controller@17800000 {
-		compatible = "qcom,msm-qgic2";
-		interrupt-controller;
-		interrupt-parent = <&intc>;
-		#interrupt-cells = <3>;
-		reg = <0x17800000 0x1000>,
-		      <0x17802000 0x1000>;
-	};
-
-	pdc: interrupt-controller@b210000 {
-		compatible = "qcom,sa515m-pdc";
-		reg = <0xb210000 0x30000>,
-		      <0xb204900 0x700>;
-		reg-names = "base", "mux-base";
-		qcom,pdc-ranges = <0 147 52>;
-		qcom,pdc-mux-ranges = <20 28 0>, <21 32 1>, <22 35 2>,
-				      <23 57 3>, <24 49 4>, <25 58 5>;
-		#interrupt-cells = <2>;
-		interrupt-parent = <&intc>;
-		interrupt-controller;
 	};
 
 	clocks {
@@ -1306,8 +1306,8 @@
 };
 
 #include "sa515m-pinctrl.dtsi"
-#include "sa515m-blsp.dtsi"
 #include "sdx55-regulator.dtsi"
+#include "sa515m-blsp.dtsi"
 #include "sa515m-ion.dtsi"
 #include "msm-arm-smmu-sa515m.dtsi"
 #include "sa515m-usb.dtsi"
