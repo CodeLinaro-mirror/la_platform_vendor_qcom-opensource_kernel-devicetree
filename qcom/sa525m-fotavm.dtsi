@@ -98,6 +98,20 @@
 				qcom,label = <0x1>;
 			};
 
+			swiotlb-shm {
+				vdevice-type = "shm";
+				generate = "/swiotlb";
+				push-compatible = "swiotlb";
+				peer-default;
+				dma_base = <0x0 0x10000>;
+				memory {
+					qcom,label = <0x21>;
+					#address-cells = <0x2>;
+					base = <0x0 0xFF200000>; /* 2MB aligned*/
+
+				};
+			};
+
 			virtio-mmio@0 {
 				vdevice-type = "virtio-mmio";
 				generate = "/virtio-mmio";
@@ -107,7 +121,7 @@
 				dma-coherent;
 				dma_base = <0x0 0x0>;
 				memory {
-					qcom,label = <0x21>;	//for system.img
+					qcom,label = <0x22>;	//for system.img
 					#address-cells = <0x2>;
 					base = <0x0 0xFF1F0000>;
 				};
@@ -125,20 +139,6 @@
 					qcom,label = <0x23>;
 					#address-cells = <0x2>;
 					base = <0x0 0xFF1F4000>;
-				};
-			};
-
-			swiotlb-shm {
-				vdevice-type = "shm";
-				generate = "/swiotlb";
-				push-compatible = "swiotlb";
-				peer-default;
-				dma_base = <0x0 0x10000>;
-				memory {
-					qcom,label = <0x22>;
-					#address-cells = <0x2>;
-					base = <0x0 0xFF200000>; /*2MB aligned*/
-
 				};
 			};
 
