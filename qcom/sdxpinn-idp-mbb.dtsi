@@ -120,6 +120,7 @@
 		snps,reset-delays-us = <0 11000 70000>;
 		phy-mode = "sgmii";
 		managed = "auto";
+		eth-c22-mdio-probe;
 
 		ethqos_emb_smmu2: ethqos_emb_smmu2 {
 			compatible = "qcom,emac-smmu-embedded";
