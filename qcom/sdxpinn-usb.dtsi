@@ -32,6 +32,8 @@
 		resets = <&gcc GCC_USB30_BCR>;
 		reset-names = "core_reset";
 
+		extcon = <&eud>;
+
 		qcom,sleep-clk-bcr;
 		qcom,core-clk-rate = <200000000>;
 		qcom,core-clk-rate-hs = <66666667>;
