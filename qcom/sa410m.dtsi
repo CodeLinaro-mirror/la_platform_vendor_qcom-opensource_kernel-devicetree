@@ -1184,7 +1184,7 @@
 		//reset-names = "core_reset";
 
 		iommus = <&apps_smmu 0xC0 0x0>;
-		qcom,iommu-dma = "bypass";
+		qcom,iommu-dma = "fastmap";
 
 		qos0 {
 			mask = <0x0f>;
@@ -1218,7 +1218,7 @@
 
 
 		iommus = <&apps_smmu 0xA0 0x0>;
-		qcom,iommu-dma = "bypass";
+		qcom,iommu-dma = "fastmap";
 
 		qos0 {
 			mask = <0x0f>;
