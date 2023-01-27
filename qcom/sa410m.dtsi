@@ -730,7 +730,7 @@
 		qcom,master;
 		qcom,net-id = <0>;
 		gunyah-label = <3>;
-		peer-name = <2>;
+		peer-name = <5>;
 	};
 
 	clocks {
