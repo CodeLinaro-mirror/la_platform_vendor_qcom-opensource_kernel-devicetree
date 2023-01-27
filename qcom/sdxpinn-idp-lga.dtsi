@@ -45,6 +45,8 @@
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&sdc1_emmc_on>;
 	pinctrl-1 = <&sdc1_emmc_off>;
+
+	operating-points-v2 = <&sdhc1_opp_table>;
 };
 
 &pmx75_eusb2_repeater {
