@@ -251,6 +251,7 @@
 		phy-mode = "rgmii-rxid";
 		mac-mode = "rgmii-rxid";
 		managed = "auto";
+		eth-c22-mdio-probe;
 
 		snps,phy1_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
 		snps,phy1-reset-delays-us = <1000 100000 221000>;
