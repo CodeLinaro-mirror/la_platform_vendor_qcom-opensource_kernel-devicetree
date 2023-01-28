@@ -87,10 +87,9 @@
 		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
 		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
 
-		interrupts-extended = <&intc GIC_SPI 445 IRQ_TYPE_LEVEL_HIGH>, <&intc GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>,
-		<&intc GIC_SPI 418 IRQ_TYPE_LEVEL_HIGH>, <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
+		interrupts-extended = <&intc GIC_SPI 445 IRQ_TYPE_LEVEL_HIGH>, <&intc GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>, <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
 
-		interrupt-names = "macirq", "eth_lpi", "pcs_intr", "phy-intr";
+		interrupt-names = "macirq", "eth_lpi", "phy-intr";
 
 		gdsc_emac-supply = <&gcc_emac1_gdsc>;
 		pinctrl-names = "dev-emac1_mdc","dev-emac1_mdio","dev-emac1_pin_phy_intr",
@@ -129,6 +128,17 @@
 			qcom,iommu-dma = "bypass";
 		};
 	};
+};
+
+&ethqos_hw1 {
+	vreg_emac_phy-supply = <&aqr_vreg>;
+	snps,mtl-rx-config = <&mtl_rx_setup>;
+	snps,mtl-tx-config = <&mtl_tx_setup>;
+
+	snps,reset-delays-us = <1000 100000 221000>;
+	phy-mode = "usxgmii";
+	managed = "auto";
+	eth-c45-mdio-probe;
 };
 
 &qnand_1 {

@@ -1382,9 +1382,8 @@
 		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
 
 		interrupts-extended = <&intc GIC_SPI 360 IRQ_TYPE_LEVEL_HIGH>,
-		<&tlmm 97 IRQ_TYPE_EDGE_FALLING>,
-		<&intc GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
-		interrupt-names = "macirq", "phy-intr","pcs_intr";
+		<&tlmm 97 IRQ_TYPE_EDGE_FALLING>;
+		interrupt-names = "macirq", "phy-intr";
 
 		gdsc_emac-supply = <&gcc_emac0_gdsc>;
 		pinctrl-names = "dev-emac0_mdc","dev-emac0_mdio","dev-emac0_pin_phy_intr",
@@ -1395,7 +1394,7 @@
 		pinctrl-2 = <&emac0_pin_phy_intr>;
 		pinctrl-3 = <&emac0_phy_reset_state>;
 
-		snps,reset = <&tlmm 96 1>;
+		snps,reset-gpio = <&tlmm 96 1>;
 		snps,crc_strip;
 
 		interconnect-names = "axi_icc_path", "apb_icc_path";
