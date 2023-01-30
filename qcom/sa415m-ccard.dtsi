@@ -1,5 +1,6 @@
 #include "sa415m-ttp.dtsi"
 #include "sa415m-v2.dtsi"
+#include "sa415m-ccard-cnss.dtsi"
 
 &soc {
 	codec_vreg: regulator-codec-tlv320aic3x {

@@ -1338,7 +1338,6 @@
 	status = "ok";
 };
 #include "sa415m-pcie.dtsi"
-#include "sa415m-ccard-cnss.dtsi"
 
 &sdhc_1 {
 	vdd-supply = <&vreg_sd_mmc>;
