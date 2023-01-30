@@ -17,6 +17,14 @@
 	status = "disabled";
 };
 
+&dai_mi2s3_rx {
+	qcom,msm-mi2s-lines = <0>;
+};
+
+&dai_mi2s3_tx {
+	qcom,msm-mi2s-lines = <1>;
+};
+
 &qupv3_se13_4uart {
 	status = "ok";
 	qrc:qrc@100 {
