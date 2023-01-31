@@ -73,3 +73,7 @@
 &pcie2 {
 	status = "disabled";
 };
+
+&pcie_ep {
+	qcom,override-disable-sriov;
+};
