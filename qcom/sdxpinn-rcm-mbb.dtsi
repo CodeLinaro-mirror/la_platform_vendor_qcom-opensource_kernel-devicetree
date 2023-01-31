@@ -23,6 +23,10 @@
 		enable-active-high;
 		regulator-enable-ramp-delay = <80000>;
 	};
+
+	ethqos_hw2 {
+		status = "disabled";
+	};
 };
 
 &qnand_1 {
@@ -130,6 +134,10 @@
 	pm7550ba_ichg_fb {
 		status = "ok";
 	};
+};
+
+&ethqos_hw1 {
+	status = "disabled";
 };
 
 &pm7550ba_tz {
