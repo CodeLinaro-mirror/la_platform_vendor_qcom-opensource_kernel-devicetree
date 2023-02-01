@@ -400,7 +400,7 @@
 		atid = <78>;
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
-
+		status = "disabled";
 		out-ports {
 			port {
 				tpdm_apss_out_funnel_cpu: endpoint {
@@ -637,7 +637,7 @@
 		};
 	};
 
-	tpdm_modem_4: tpdm@24803000 {
+	tpdm_modem_4: tpdm@24804000 {
 		compatible = "qcom,coresight-dummy";
 		qcom,dummy-source;
 		atid = <67>;
