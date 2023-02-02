@@ -1,0 +1,9 @@
+/dts-v1/;
+
+#include "sa525m-fotavm.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA525M FOTAVM";
+	compatible = "qcom,sa525m", "qcom,sdxpinn", "qcom,sa525m-fotavm";
+	qcom,board-id = <0 0>;
+};

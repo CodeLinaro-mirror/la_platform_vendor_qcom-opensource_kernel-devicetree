@@ -315,6 +315,15 @@ dtb-y += $(sa410m_fotavm-dtb-y)
 endif
 endif
 
+ifeq ($(CONFIG_ARCH_SA525), y)
+ifeq ($(CONFIG_ARCH_QTI_VM), y)
+sa525m_televm-dtb-$(CONFIG_ARCH_QTI_VM) += sa525m-televm.dtb
+sa525m_fotavm-dtb-$(CONFIG_ARCH_QTI_VM) += sa525m-fotavm.dtb
+dtb-y += $(sa525m_televm-dtb-y)
+dtb-y += $(sa525m_fotavm-dtb-y)
+endif
+endif
+
 sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
 	sdxbaagha-idp.dtb \
 	sdxbaagha-idp-rome.dtb \
