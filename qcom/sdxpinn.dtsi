@@ -1168,6 +1168,7 @@
 		interconnects = <&system_noc MASTER_SDCC_1 &mc_virt SLAVE_EBI1>,
 			<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_SDCC_1>;
 		interconnect-names = "sdhc-ddr","cpu-sdhc";
+		operating-points-v2 = <&sdhc1_opp_table>;
 
 		qos0 {
 			mask = <0x0f>;
@@ -1215,7 +1216,13 @@
 					0x090106C0 0x80040868>;
 
 		iommus = <&apps_smmu 0x00C0 0x0>;
-		qcom,iommu-dma = "bypass";
+		dma-coherent;
+		qcom,iommu-dma = "fastmap";
+
+		interconnects = <&system_noc MASTER_SDCC_4 &mc_virt SLAVE_EBI1>,
+			<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_SDCC_4>;
+		interconnect-names = "sdhc-ddr","cpu-sdhc";
+		operating-points-v2 = <&sdhc2_opp_table>;
 
 		qos0 {
 			mask = <0x0f>;
