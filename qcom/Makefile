@@ -143,7 +143,9 @@ cinder-dtb-$(CONFIG_ARCH_CINDER) += cinder-ru-rumi.dtb \
 	cinder-v2-ru-idp.dtb \
 	cinder-v2-ru-idp-2gb.dtb \
 	cinder-v2-du-idp.dtb \
-	cinder-v2-du-x100.dtb
+	cinder-v2-du-x100.dtb \
+	cinder-v2-ru-rumi.dtb \
+	cinder-v2-du-rumi.dtb
 dtb-y += $(cinder-dtb-y)
 
 
@@ -315,15 +317,24 @@ dtb-y += $(sa410m_fotavm-dtb-y)
 endif
 endif
 
+ifeq ($(CONFIG_ARCH_SA525), y)
+ifeq ($(CONFIG_ARCH_QTI_VM), y)
+sa525m_televm-dtb-$(CONFIG_ARCH_QTI_VM) += sa525m-televm.dtb
+sa525m_fotavm-dtb-$(CONFIG_ARCH_QTI_VM) += sa525m-fotavm.dtb
+dtb-y += $(sa525m_televm-dtb-y)
+dtb-y += $(sa525m_fotavm-dtb-y)
+endif
+endif
+
 sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
-	sdxbaagha-idp.dtb \
-	sdxbaagha-idp-rome.dtb \
-	sdxbaagha-idp-pcie.dtb \
+	sdxbaagha-qmp.dtb \
+	sdxbaagha-qmp-rome.dtb \
+	sdxbaagha-qmp-pcie.dtb \
 	sdxbaagha-atp.dtb
 sdxbaagha-128m-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-128m-rumi.dtb \
 	sdxbaagha-128m-mtp.dtb \
 	sdxbaagha-128m-cdp.dtb \
-	sdxbaagha-128m-idp.dtb \
+	sdxbaagha-128m-qmp.dtb \
 	sdxbaagha-128m-atp.dtb \
 	sdxbaagha-128m-rcm.dtb
 dtb-y += $(sdxbaagha-dtb-y) $(sdxbaagha-128m-dtb-y)
