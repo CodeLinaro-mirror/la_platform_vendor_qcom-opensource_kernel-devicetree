@@ -24,7 +24,6 @@
 		qcom,ev-factor = <2>;
 		qcom,iommu-dma-addr-pool = <0x100000 0x100000>;
 		qcom,gpi-ee-offset = <0x10000>;
-		dma-coherent;
 		status = "ok";
 	};
 
@@ -37,13 +36,10 @@
 		clock-names = "m-ahb", "s-ahb";
 		clocks = <&gcc GCC_QUPV3_WRAP_0_M_AHB_CLK>,
 			<&gcc GCC_QUPV3_WRAP_0_S_AHB_CLK>;
-		/*
-		 * iommus = <&apps_smmu 0x143 0x0>;
-		 * qcom,iommu-dma-addr-pool = <0x40000000 0x10000000>;
-		 * qcom,iommu-geometry = <0x40000000 0x10000000>;
-		 * qcom,iommu-dma = "fastmap";
-		 * dma-coherent;
-		 */
+		iommus = <&apps_smmu 0x143 0x0>;
+		qcom,iommu-dma-addr-pool = <0x40000000 0x10000000>;
+		qcom,iommu-geometry = <0x40000000 0x10000000>;
+		qcom,iommu-dma = "fastmap";
 		ranges;
 		status = "ok";
 
@@ -55,13 +51,11 @@
 			interrupts = <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S3_CLK>;
-			/*
-			 * interconnect-names = "qup-core", "qup-config", "qup-memory";
-			 * interconnects =
-			 * <&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
-			 * <&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
-			 * <&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
-			 */
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
+			<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
+			<&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
 			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <&qupv3_se3_2uart_tx_active>, <&qupv3_se3_2uart_rx_active>;
 			pinctrl-1 = <&qupv3_se3_2uart_sleep>;
@@ -76,13 +70,11 @@
 			interrupts = <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S0_CLK>;
-			/*
-			 * interconnect-names = "qup-core", "qup-config", "qup-memory";
-			 * interconnects =
-			 * <&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
-			 * <&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
-			 * <&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
-			 */
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
+			<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
+			<&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
 			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <&qupv3_se0_2uart_tx_active>, <&qupv3_se0_2uart_rx_active>;
 			pinctrl-1 = <&qupv3_se0_2uart_sleep>;
@@ -98,13 +90,11 @@
 					<&tlmm 64 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S1_CLK>;
-			/*
-			 * interconnect-names = "qup-core", "qup-config", "qup-memory";
-			 * interconnects =
-			 * <&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
-			 * <&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
-			 * <&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
-			 */
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
+			<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
+			<&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
 			pinctrl-names = "default", "active", "sleep", "shutdown";
 			pinctrl-0 = <&qupv3_se1_default_cts>, <&qupv3_se1_default_rts>,
 			<&qupv3_se1_default_tx>, <&qupv3_se1_default_rx>;
@@ -126,13 +116,11 @@
 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S2_CLK>;
-			/*
-			 * interconnect-names = "qup-core", "qup-config", "qup-memory";
-			 * interconnects =
-			 * <&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
-			 * <&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
-			 * <&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
-			 */
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
+			<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
+			<&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
 			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <&qupv3_se2_i2c_sda_active>, <&qupv3_se2_i2c_scl_active>;
 			pinctrl-1 = <&qupv3_se2_i2c_sleep>;
@@ -151,13 +139,11 @@
 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S2_CLK>;
-			/*
-			 * interconnect-names = "qup-core", "qup-config", "qup-memory";
-			 * interconnects =
-			 * <&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
-			 * <&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
-			 * <&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
-			 */
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
+			<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
+			<&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
 			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <&qupv3_se2_spi_mosi_active>, <&qupv3_se2_spi_miso_active>,
 				<&qupv3_se2_spi_clk_active>, <&qupv3_se2_spi_cs_active>;
@@ -177,13 +163,11 @@
 			interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S4_CLK>;
-			/*
-			 * interconnect-names = "qup-core", "qup-config", "qup-memory";
-			 * interconnects =
-			 * <&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
-			 * <&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
-			 * <&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
-			 */
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
+			<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
+			<&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
 			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <&qupv3_se4_i2c_sda_active>, <&qupv3_se4_i2c_scl_active>;
 			pinctrl-1 = <&qupv3_se4_i2c_sleep>;
@@ -203,13 +187,11 @@
 			interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP0_S4_CLK>;
-			/*
-			 * interconnect-names = "qup-core", "qup-config", "qup-memory";
-			 * interconnects =
-			 * <&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
-			 * <&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
-			 * <&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
-			 */
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_0 &clk_virt SLAVE_QUP_CORE_0>,
+			<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_QUP_0>,
+			<&aggre_noc MASTER_QUP_0 &mc_virt SLAVE_EBI1>;
 			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <&qupv3_se4_spi_mosi_active>, <&qupv3_se4_spi_miso_active>,
 				<&qupv3_se4_spi_clk_active>, <&qupv3_se4_spi_cs_active>;
