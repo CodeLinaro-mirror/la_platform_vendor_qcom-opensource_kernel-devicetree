@@ -723,6 +723,7 @@
 	qcom,qrtr_gunyah_televm {
 		compatible = "qcom,qrtr-gunyah";
 		qcom,master;
+		qcom,net-id = <0>;
 		gunyah-label = <3>;
 		peer-name = <2>;
 	};
@@ -1097,6 +1098,7 @@
 
 			qcom,modem_qrtr {
 				qcom,glink-channels = "IPCRTR";
+				qcom,net-id = <2>;
 				qcom,low-latency;
 				qcom,intents = <0x800  5
 						0x2000 3
