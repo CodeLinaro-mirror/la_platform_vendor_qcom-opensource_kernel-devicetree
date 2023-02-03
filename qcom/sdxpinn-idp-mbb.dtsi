@@ -139,6 +139,12 @@
 	phy-mode = "usxgmii";
 	managed = "auto";
 	eth-c45-mdio-probe;
+	/* Valid values for usxgmii-mode:
+	 * 10000: 10G mode
+	 * 5000: 5G mode
+	 * 2500: 2.5G mode
+	 */
+	usxgmii-mode = <10000>;
 };
 
 &qnand_1 {
