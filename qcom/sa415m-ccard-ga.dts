@@ -8,6 +8,21 @@
 			"qcom,sa415m", "qcom,ccard";
 	qcom,board-id = <0x10119 0>;
 
+	qcom_gadget {
+		compatible = "qcom,usb-gadget";
+		qcom,vid = <0x05c6>;
+
+		composition1 {
+			qcom,pid = <0x90dc>;
+			qcom,composition = "diag.diag,cser.dun.0,gsi.rmnet,gsi.dpl,qdss.qdss";
+		};
+
+		composition2 {
+			qcom,pid = <0x90b7>;
+			qcom,composition = "diag.diag,cser.dun.0,gsi.rmnet,gsi.dpl";
+		};
+	};
+
 };
 
 &ipa_hw {
