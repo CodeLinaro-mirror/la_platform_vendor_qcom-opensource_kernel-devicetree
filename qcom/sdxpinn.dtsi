@@ -1880,7 +1880,6 @@
 		qcom,mhi-has-smmu;
 		iommus = <&apps_smmu 0x800 0x0>;
 		qcom,iommu-dma = "bypass";
-		dma-coherent;
 
 		status = "disabled";
 	};
