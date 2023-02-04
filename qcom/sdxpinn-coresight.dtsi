@@ -2492,7 +2492,7 @@
 
 	apss_cti2: cti@26900000 {
 		compatible = "arm,coresight-cti", "arm,primecell";
-		reg = <0x16900000 0x1000>;
+		reg = <0x26900000 0x1000>;
 
 		arm,primecell-periphid = <0x000bb922>;
 		coresight-name = "coresight-cti-apss_cti2";
