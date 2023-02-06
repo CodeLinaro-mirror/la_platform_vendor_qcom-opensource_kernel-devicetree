@@ -368,6 +368,18 @@
 		interrupts = <GIC_PPI 8 IRQ_TYPE_LEVEL_HIGH>;
 	};
 
+	eud: qcom,msm-eud@ff0000 {
+		compatible = "qcom,msm-eud";
+		interrupt-names = "eud_irq";
+		interrupt-parent = <&pdc>;
+		interrupts = <6 IRQ_TYPE_LEVEL_HIGH>;
+		reg = <0xff0000 0x2000>,
+			<0xff2000 0x1000>;
+		reg-names = "eud_base", "eud_mode_mgr2";
+		qcom,secure-eud-en;
+		status = "disabled";
+	};
+
 	qcom,smp2p-modem {
 		compatible = "qcom,smp2p";
 		qcom,smem = <435>, <428>;
