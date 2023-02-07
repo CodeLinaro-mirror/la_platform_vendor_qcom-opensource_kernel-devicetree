@@ -239,6 +239,7 @@ endif
 
 SA525_BOARDS += sa525m-rumi-overlay.dtbo \
 		sa525m-idp-overlay.dtbo \
+		sa522m-idp-overlay.dtbo \
 		sa525m-adp-overlay.dtbo
 
 sa525-dtb-$(CONFIG_ARCH_SA525) += \
