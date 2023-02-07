@@ -39,6 +39,14 @@
 		gunyah-label = <3>;
 		peer-name = <5>;
 	};
+
+	qcom,qrtr_gunyah_fotavm {
+		compatible = "qcom,qrtr-gunyah";
+		qcom,master;
+		qcom,net-id = <4>;
+		gunyah-label = <9>;
+		peer-name = <6>;
+	};
 };
 
 #include "sa525-gvms.dtsi"
