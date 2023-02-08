@@ -49,6 +49,8 @@
 				0x144 /* GSI_RING_BASE_ADDR_H */
 				0x1a4>; /* GSI_IF_STS */
 
+		extcon = <&usb2_phy0>, <&eud>;
+
 		dwc3@a600000 {
 			compatible = "snps,dwc3";
 			reg = <0xa600000 0xd93c>;
@@ -81,6 +83,8 @@
 			<0xff2000 0x4>;
 		reg-names = "hsusb_phy_base",
 				"eud_enable_reg";
+
+		extcon = <&pmx35_vbus_detect>;
 
 		vdd-supply = <&L3A>;
 		vdda18-supply = <&L5A>;
