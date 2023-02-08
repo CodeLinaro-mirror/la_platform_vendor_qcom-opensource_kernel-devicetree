@@ -87,6 +87,10 @@
 		max-clock-frequency-hz = <0>, <0>, <19200000>, <0>, <0>, <0>,
 					<0>, <0>, <0>, <0>, <100000000>, <0>;
 
+		clock-suppressible = <0>, <0>, <0>, <0>, <0>, <1>, <0>, <0>,
+				<0>, <1>, <1>, <1>, <0>, <0>, <0>, <0>, <0>,
+				<0>, <0>, <0>, <0>;
+
 		resets = <&clock_gcc GCC_PCIE_0_BCR>,
 			<&clock_gcc GCC_PCIE_0_PHY_BCR>;
 		reset-names = "pcie_0_core_reset",
@@ -107,6 +111,7 @@
 		qcom,slv-addr-space-size = <0x4000000>;
 		qcom,ep-latency = <10>;
 		qcom,gdsc-clk-drv-ss-nonvotable;
+		qcom,clkreq-gpio = <80>;
 
 		qcom,config-recovery;
 
