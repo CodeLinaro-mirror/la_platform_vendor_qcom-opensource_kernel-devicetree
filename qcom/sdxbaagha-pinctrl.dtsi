@@ -514,6 +514,35 @@
 				};
 			};
 		};
+
+		emac {
+			emac_mdc: emac_mdc {
+				mux {
+					pins = "gpio98";
+					function = "emac_mdc";
+				};
+
+				config {
+					pins = "gpio98";
+					bias-pull-up;
+					drive-strength = <16>;
+				};
+			};
+
+			emac_mdio: emac_mdio {
+				mux {
+						pins = "gpio99";
+						function = "emac_mdio";
+				};
+
+				config {
+					pins = "gpio99";
+					bias-pull-up;
+					drive-strength = <16>;
+				};
+			};
+		};
+
 		wcd9xxx_intr {
 			wcd_intr_default: wcd_intr_default {
 				mux {

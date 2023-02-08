@@ -4,6 +4,7 @@ Required properties:
 - compatible: Should be "qcom,stmmac-ethqos",
 	For backwards compatibility: "st,spear600-gmac" is also supported.
 	For xgmac support you need to enable "qcom,stmmac-ethqos", "snps,dwxgmac".
+	For phy support you need to enable "qti-regulator-fixed".
 - reg: Address and length of the register set for the device
 - interrupt-parent: Should be the phandle for the interrupt controller
   that services interrupts for this device
