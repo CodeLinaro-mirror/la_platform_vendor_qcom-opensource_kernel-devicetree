@@ -142,18 +142,18 @@
 
 		qseecom_mem: qseecom_region {
 			compatible = "shared-dma-pool";
-			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+			alloc-ranges = <0x00000000 0xffffffff>;
 			reusable;
-			alignment = <0x0 0x400000>;
-			size = <0x0 0x800000>;
+			alignment = <0x400000>;
+			size = <0x800000>;
 		};
 
 		qseecom_ta_mem: qseecom_ta_region {
 			compatible = "shared-dma-pool";
-			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+			alloc-ranges = <0x00000000 0xffffffff>;
 			reusable;
-			alignment = <0x0 0x400000>;
-			size = <0x0 0x400000>;
+			alignment = <0x400000>;
+			size = <0x400000>;
 		};
 	};
 
@@ -1419,8 +1419,6 @@
 
 	qtee_shmbridge {
 		compatible = "qcom,tee-shared-memory-bridge";
-		qcom,disable-shmbridge-support;
-		qcom,custom-bridge-size = <256>;
 	};
 
 	qcom_smcinvoke {
