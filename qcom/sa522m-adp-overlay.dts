@@ -15,11 +15,11 @@
 };
 
 &pcie0 {
-	status = "disabled";
+	status = "ok";
 };
 
 &pcie0_msi {
-	status = "disabled";
+	status = "ok";
 };
 
 &pcie1 {
@@ -27,5 +27,9 @@
 };
 
 &pcie2 {
-	status = "disabled";
+	status = "ok";
+};
+
+&pcie2_msi {
+	status = "ok";
 };
