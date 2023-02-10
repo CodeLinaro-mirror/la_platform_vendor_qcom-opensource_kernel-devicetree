@@ -377,7 +377,7 @@
 			<0xff2000 0x1000>;
 		reg-names = "eud_base", "eud_mode_mgr2";
 		qcom,secure-eud-en;
-		status = "disabled";
+		status = "ok";
 	};
 
 	qcom,smp2p-modem {
