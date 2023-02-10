@@ -223,7 +223,7 @@
 
 &kona_snd {
 	qcom,model = "kona-mtp-snd-card";
-	qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>, <1>;
+	qcom,msm-mi2s-master = <1>, <1>, <1>, <0>, <1>, <1>;
 	qcom,wcn-bt = <1>;
 	qcom,ext-disp-audio-rx = <1>;
 	qcom,audio-routing =
@@ -317,6 +317,7 @@
 	qcom,cdc-dmic01-gpios = <&cdc_dmic01_gpios>;
 	qcom,cdc-dmic23-gpios = <&cdc_dmic23_gpios>;
 	qcom,cdc-dmic45-gpios = <&cdc_dmic45_gpios>;
+	qcom,quat-mi2s-gpios = <&cdc_quat_mi2s_gpios>;
 	asoc-codec  = <&stub_codec>, <&bolero>,
 			<&wsa881x_0213>, <&wsa881x_0214>;
 	asoc-codec-names = "msm-stub-codec.1", "bolero_codec",
@@ -353,6 +354,16 @@
 		qcom,lpi-gpios;
 		qcom,tlmm-pins = <158>;
 		#gpio-cells = <0>;
+	};
+
+	cdc_quat_mi2s_gpios: msm_cdc_pinctrl_quat {
+		compatible = "qcom,msm-cdc-pinctrl";
+		pinctrl-names = "aud_active", "aud_sleep";
+		pinctrl-0 = <&quat_mi2s_sck_active &quat_mi2s_ws_active
+			&quat_mi2s_sd0_active &quat_mi2s_sd1_active>;
+		pinctrl-1 = <&quat_mi2s_sck_sleep &quat_mi2s_ws_sleep
+			&quat_mi2s_sd0_sleep &quat_mi2s_sd1_sleep>;
+		qcom,lpi-gpios;
 	};
 
 	wsa_swr_gpios: wsa_swr_clk_data_pinctrl {

@@ -8,5 +8,21 @@
 	compatible = "qcom,sa415m-ccard",
 			"qcom,sa415m", "qcom,ccard";
 	qcom,board-id = <30 0x101>;
+
+	qcom_gadget {
+		compatible = "qcom,usb-gadget";
+		qcom,vid = <0x05c6>;
+
+		composition1 {
+			qcom,pid = <0x9105>;
+			qcom,composition = "diag.diag,gsi.dpl";
+		};
+	};
+
 };
 
+&ipa_hw {
+	qcom,use-ipa-in-mhi-mode;
+	qcom,ipa-config-is-auto;
+	qcom,mhi-event-ring-id-limits = <7 11>; /* start and end */
+};

@@ -327,3 +327,38 @@
 		};
 	};
 };
+
+&pmxpoorwills_gpios {
+
+	bt_en {
+		bt_en_default: bt_en_default {
+			pins = "gpio4";
+			output-low;
+			bias-pull-down;
+		};
+	};
+};
+
+&soc {
+
+	/delete-node/ bt_qca6174;
+	bluetooth: bt-qca-auto-converged {
+		compatible = "qcom,qca-auto-converged";
+		pinctrl-names = "default";
+		pinctrl-0 = <&bt_en_default>;
+		qcom,bt-reset-gpio = <&pmxpoorwills_gpios 4 0>;
+		qcom,wl-reset-gpio = <&tlmm 52 0>;
+
+		qcom,bt-vdd-ctrl1-supply = <&wlan_ctrl1>;
+		qcom,bt-vdd-ctrl2-supply = <&wlan_ctrl2>;
+		qcom,bt-vdd-aon-supply   = <&L6A>;
+
+		qcom,bt-vdd-ctrl1-config  = <0 0 0 0>;
+		qcom,bt-vdd-ctrl2-config  = <0 0 0 0>;
+		qcom,bt-vdd-aon-config    = <1800000 1800000 0 0>;
+	};
+};
+
+&blsp1_uart2b_hs {
+	status = "okay";
+};

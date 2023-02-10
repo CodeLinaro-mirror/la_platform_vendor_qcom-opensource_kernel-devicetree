@@ -106,6 +106,7 @@
 		qcom,l1-2-th-value = <70>;
 		qcom,slv-addr-space-size = <0x4000000>;
 		qcom,ep-latency = <10>;
+		qcom,gdsc-clk-drv-ss-nonvotable;
 
 		qcom,config-recovery;
 
@@ -356,6 +357,7 @@
 		qcom,no-l0s-supported;
 		qcom,slv-addr-space-size = <0x20000000>;
 		qcom,ep-latency = <10>;
+		qcom,gdsc-clk-drv-ss-nonvotable;
 
 		qcom,pcie-phy-ver = <1102>;
 		qcom,phy-status-offset = <0xa14>;
@@ -641,6 +643,7 @@
 		qcom,no-l0s-supported;
 		qcom,slv-addr-space-size = <0x4000000>;
 		qcom,ep-latency = <10>;
+		qcom,gdsc-clk-drv-ss-nonvotable;
 
 		qcom,pcie-phy-ver = <1102>;
 		qcom,phy-status-offset = <0xa14>;

@@ -95,29 +95,26 @@ Properties:
   Value type:	<string>
   Definition:	The nvmem cell name of the SDAM module where the closed-loop
 		brake calibration settings can be stored. It must be
-		"hap_cl_brake". Not applicable for PM5100.
+		"hap_cl_brake".
 
 - nvmem-cells:
   Usage:	optional
   Value type:	<phandle>
   Definition:	Phandle of the nvmem cell to store the closed-loop brake
 		calibration settings. Please refer to nvmem bindings as
-		described in bindings/nvmem/nvmem.txt. Not applicable
-		for PM5100.
+		described in bindings/nvmem/nvmem.txt.
 
 - nvmem-names:
   Usage:	optional
   Value type:	<string>
   Definition:	The nvmem device name of the SDAM module used for haptics
-		configuration. It must be "hap_cfg_sdam". Not applicable for
-		PM5100.
+		configuration. It must be "hap_cfg_sdam".
 
 - nvmem:
   Usage:	optional
   Value type:	<phandle>
   Definition:	Phandle of the nvmem device used for haptics configuration.
 		Please refer to nvmem bindings as described in bindings/nvmem/nvmem.txt.
-		Not applicable for PM5100.
 
 - qcom,pbs-client:
   Usage:	optional

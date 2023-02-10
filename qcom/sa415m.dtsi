@@ -6,6 +6,7 @@
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/clock/qcom,apsscc-sdxlemur.h>
 #include <dt-bindings/clock/qcom,aop-qmp.h>
+#include <dt-bindings/gpio/gpio.h>
 
 #define MHZ_TO_MBPS(mhz, w) ((mhz * 1000000 * w) / (1024 * 1024))
 #define BW_OPP_ENTRY(mhz, w) opp-mhz {opp-hz = /bits/ 64 <MHZ_TO_MBPS(mhz, w)>;}
@@ -773,6 +774,7 @@
 		ipa_smmu_wlan: ipa_smmu_wlan {
 			compatible = "qcom,ipa-smmu-wlan-cb";
 			iommus = <&apps_smmu 0x5E1 0x0>;
+			qcom,iommu-dma = "atomic";
 			qcom,iommu-dma-addr-pool = <0x60000000 0x10000000>;
 			qcom,additional-mapping =
 				/* ipa-uc ram */
@@ -782,6 +784,7 @@
 		ipa_smmu_uc: ipa_smmu_uc {
 			compatible = "qcom,ipa-smmu-uc-cb";
 			iommus = <&apps_smmu 0x5E2 0x0>;
+			qcom,iommu-dma = "atomic";
 			qcom,iommu-dma-addr-pool = <0x40000000 0x20000000>;
 		};
 
@@ -1068,17 +1071,19 @@
 		qcom,reg-adjustment-offset = <0x4000>;
 		qcom,qpic-clk-rpmh;
 
-		interrupts = <0 135 0>;
+		interrupts = <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "bam_irq";
 
+		interconnects = <&system_noc MASTER_QPIC &mc_virt SLAVE_EBI1>;
+		interconnect-names = "nand-ddr";
 		qcom,msm-bus,name = "qpic_nand";
 		qcom,msm-bus,num-cases = <2>;
 		qcom,msm-bus,num-paths = <1>;
 
 		qcom,msm-bus,vectors-KBps =
-					<91 512 0 0>,
+					<0 0>,
 					/* Voting for max b/w on PNOC bus for now */
-					<91 512 400000 400000>;
+					<400000 400000>;
 
 		clock-names = "core_clk";
 		clocks = <&rpmhcc RPMH_QPIC_CLK>;
@@ -1192,6 +1197,122 @@
 			bits = <7 1>;
 		};
 	};
+
+	mtl_rx_setup: rx-queues-config {
+		snps,rx-queues-to-use = <4>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x0>;
+			snps,route-up;
+			snps,priority = <0x1>;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,route-ptp;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x2>;
+			snps,route-avcp;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x3>;
+			snps,priority = <0xC>;
+		};
+	};
+
+	mtl_tx_setup: tx-queues-config {
+		snps,tx-queues-to-use = <4>;
+		snps,tx-sched-sp;
+		queue0 {
+			snps,dcb-algorithm;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+	};
+
+	ethqos_hw: qcom,ethernet@00020000 {
+		compatible = "qcom,stmmac-ethqos";
+		qcom,arm-smmu;
+		reg = <0x20000 0x10000>,
+			<0x36000 0x100>,
+			<0x3900000 0x300000>;
+		reg-names = "stmmaceth", "rgmii","tlmm-central-base";
+		clocks = <&gcc GCC_ETH_AXI_CLK>,
+			<&gcc GCC_ETH_SLAVE_AHB_CLK>,
+			<&gcc GCC_ETH_PTP_CLK>,
+			<&gcc GCC_ETH_RGMII_CLK>;
+		clock-names = "stmmaceth", "pclk", "ptp_ref", "rgmii";
+		interrupts-extended = <&intc 0 62 4>, <&intc 0 60 4>,
+			<&tlmm 84 2>;
+		interrupt-names = "macirq", "eth_lpi",
+			"phy-intr";
+		pinctrl-names = "dev-emac_pin_pps_0";
+		pinctrl-0 = <&emac_pin_pps_0>;
+
+		vreg_emac_phy-supply =  <&vreg_emac_phy>;
+		vreg_rgmii_io_pads-supply = <&vreg_rgmii_io_pads>;
+		gdsc_emac-supply = <&gdsc_emac>;
+		qcom,phy-intr-redirect = <&tlmm 84 GPIO_ACTIVE_LOW>;
+		snps,reset-gpios = <&tlmm 85 GPIO_ACTIVE_HIGH>;
+		snps,reset-delays-us = <0 10000 100000>;
+		phy-mode = "rgmii";
+		snps,tso;
+		snps,crc_strip;
+		emac-core-version = <0x20020000>;
+		rx-fifo-depth = <16384>;
+		tx-fifo-depth = <16384>;
+		snps,mtl-rx-config = <&mtl_rx_setup>;
+		snps,mtl-tx-config = <&mtl_tx_setup>;
+
+		ethqos_emb_smmu: ethqos_emb_smmu {
+			compatible = "qcom,emac-smmu-embedded";
+			iommus = <&apps_smmu 0x220 0xf>;
+			qcom,iommu-dma = "fastmap";
+			qcom,iommu-dma-addr-pool = <0x80000000 0x0FE40000>;
+		};
+
+		rgmii-io-macro-info {
+			config-cdr-en = <0>;
+			mclk-gating-en = <1>;
+			cdr-fine-phase = <1>;
+			loopback-en = <0>;
+			rx-prog-swap = <1>;
+			tx-clk-phase-shift-en = <1>;
+			dll-clock-dis = <1>;
+			ddr-traffic-init-sel = <0>;
+			ddr-traffic-init-sw = <0>;
+			rgmii-tx-drv = <1>;
+			tcx0-cycles-cnt = <0>;
+			mclk-freq-calc = <0>;
+			data-divide-clk-sel = <1>;
+		};
+	};
 };
 
 #include "pmxpoorwills.dtsi"
@@ -1217,7 +1338,6 @@
 	status = "ok";
 };
 #include "sa415m-pcie.dtsi"
-#include "sa415m-ccard-cnss.dtsi"
 
 &sdhc_1 {
 	vdd-supply = <&vreg_sd_mmc>;

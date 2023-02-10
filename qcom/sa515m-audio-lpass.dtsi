@@ -169,7 +169,7 @@
 	cpu-pmu {
 		compatible = "arm,cortex-a7-pmu";
 		qcom,irq-is-percpu;
-		interrupts = <1 8 0x100>;
+		interrupts = <1 8 IRQ_TYPE_LEVEL_HIGH>;
 	};
 
 	dai_pri_auxpcm: qcom,msm-pri-auxpcm {

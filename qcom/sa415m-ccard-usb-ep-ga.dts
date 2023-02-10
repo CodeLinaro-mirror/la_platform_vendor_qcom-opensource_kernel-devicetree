@@ -9,3 +9,7 @@
 	qcom,board-id = <0x10119 2>;
 };
 
+&ipa_hw {
+	qcom,ipa-config-is-auto;
+	qcom,ipa-wdi2_over_gsi;
+};
