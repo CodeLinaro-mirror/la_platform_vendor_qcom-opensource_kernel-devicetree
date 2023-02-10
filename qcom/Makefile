@@ -325,14 +325,14 @@ endif
 endif
 
 sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
-	sdxbaagha-idp.dtb \
-	sdxbaagha-idp-rome.dtb \
-	sdxbaagha-idp-pcie.dtb \
+	sdxbaagha-qmp.dtb \
+	sdxbaagha-qmp-rome.dtb \
+	sdxbaagha-qmp-pcie.dtb \
 	sdxbaagha-atp.dtb
 sdxbaagha-128m-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-128m-rumi.dtb \
 	sdxbaagha-128m-mtp.dtb \
 	sdxbaagha-128m-cdp.dtb \
-	sdxbaagha-128m-idp.dtb \
+	sdxbaagha-128m-qmp.dtb \
 	sdxbaagha-128m-atp.dtb \
 	sdxbaagha-128m-rcm.dtb
 dtb-y += $(sdxbaagha-dtb-y) $(sdxbaagha-128m-dtb-y)

@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxbaagha-128m.dtsi"
+#include "sdxbaagha-128m-qmp.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXBAAGHA QMP 128M";
+	compatible = "qcom,sdxbaagha-qmp",
+		"qcom,sdxbaagha", "qcom,qmp";
+	qcom,board-id = <0x10022 0x703>, <0x10022 0x103>, <0x10022 0x203>;
+};
