@@ -95,7 +95,7 @@
 		cnss_pci_iommu_group0: cnss_pci_iommu_group0 {
 			qcom,iommu-msi-size = <0x1000>;
 			qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
-			qcom,iommu-dma = "bypass";
+			qcom,iommu-dma = "fastmap";
 			qcom,iommu-pagetable = "coherent";
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
 					    "non-fatal";
@@ -124,7 +124,7 @@
 		cnss_pci_iommu_group1: cnss_pci_iommu_group1 {
 			qcom,iommu-msi-size = <0x1000>;
 			qcom,iommu-dma-addr-pool = <0xb0000000 0x10000000>;
-			qcom,iommu-dma = "bypass";
+			qcom,iommu-dma = "fastmap";
 			qcom,iommu-pagetable = "coherent";
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
 					    "non-fatal";
@@ -153,7 +153,7 @@
 		cnss_pci_iommu_group2: cnss_pci_iommu_group2 {
 			qcom,iommu-msi-size = <0x1000>;
 			qcom,iommu-dma-addr-pool = <0xc0000000 0x10000000>;
-			qcom,iommu-dma = "bypass";
+			qcom,iommu-dma = "fastmap";
 			qcom,iommu-pagetable = "coherent";
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
 					    "non-fatal";
