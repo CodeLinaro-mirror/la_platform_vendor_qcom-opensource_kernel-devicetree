@@ -1,0 +1,12 @@
+/dts-v1/;
+
+#include "sdxbaagha.dtsi"
+#include "sdxbaagha-qmp.dtsi"
+#include "sdxbaagha-qmp-usb.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXBAAGHA QMP 256M USB";
+	compatible = "qcom,sdxbaagha-qmp",
+		"qcom,sdxbaagha", "qcom,qmp";
+	qcom,board-id = <0x20022 0x102>;
+};
