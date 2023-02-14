@@ -187,7 +187,7 @@
 		};
 
 		rgmii-io-macro-info {
-			config-cdr-en = <1>;
+			config-cdr-en = <0>;
 			mclk-gating-en = <1>;
 			cdr-fine-phase = <1>;
 			skip-calc-traffic = <1>;
@@ -196,15 +196,15 @@
 			loopback-en = <1>;
 			rx-prog-swap = <1>;
 			tx-clk-phase-shift-en = <1>;
-			dll-clock-dis = <0>;
-			mclk-freq-calc = <0x1A>;
+			dll-clock-dis = <1>;
+			mclk-freq-calc = <0>;
 			ddr-traffic-init-sel = <0>;
 			ddr-traffic-init-sw = <0>;
-			ddr-cal-en = <0>;
+			ddr-cal-en = <1>;
 			tcx0-cycles-dly-line = <64>;
 			tcx0-cycles-cnt = <4>;
-			test-ctl = <0xC1800000>;
-			usr-ctl = <0x2C010800>;
+			test-ctl = <0>;
+			usr-ctl = <0x4010800>;
 			pps-create = <1>;
 			l3-master-dev = <1>;
 			ipv6-wq = <1>;
