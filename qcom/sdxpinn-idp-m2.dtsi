@@ -76,4 +76,9 @@
 
 &pcie_ep {
 	qcom,override-disable-sriov;
+	nvmem-cells = <&boot_config>;
+	nvmem-cell-names = "boot_conf";
+	qcom,fast-boot-mask = <0x1e>;
+	qcom,host-bypass-mask = <0x20>;
+	qcom,fast-boot-values = <0x5 0x7>;
 };
