@@ -2681,6 +2681,7 @@
 		clocks = <&clock_gcc GCC_DISP_AHB_CLK>;
 		parent-supply = <&VDD_MMCX_LEVEL>;
 		vdd_parent-supply = <&VDD_MMCX_LEVEL>;
+		qcom,no-status-check-on-disable;
 		qcom,support-hw-trigger;
 		qcom,retain-regs;
 		proxy-supply = <&mdss_core_gdsc>;
