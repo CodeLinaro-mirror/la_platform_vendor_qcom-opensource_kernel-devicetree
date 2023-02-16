@@ -1,0 +1,12 @@
+/dts-v1/;
+
+#include "sdxbaagha.dtsi"
+#include "sdxbaagha-qmp.dtsi"
+#include "sdxbaagha-qmp-rome.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXBAAGHA QMP 256M ROME";
+	compatible = "qcom,sdxbaagha-qmp",
+		"qcom,sdxbaagha", "qcom,qmp";
+	qcom,board-id = <0x10022 0x101>, <0x10022 0x201>;
+};
