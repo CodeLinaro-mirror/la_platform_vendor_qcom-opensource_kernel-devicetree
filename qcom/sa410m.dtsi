@@ -1470,10 +1470,8 @@
 			<0x5016000 0x100>,
 			<0x500000 0x100000>;
 		reg-names = "stmmaceth", "rgmii", "tlmm-central-base";
-		interrupts-extended = <&intc 0 271 4>, <&intc 0 419 4>,
-			<&tlmm 137 2>;
-		interrupt-names = "macirq", "eth_lpi",
-			"phy-intr";
+		interrupts-extended = <&intc 0 271 4>, <&tlmm 137 2>;
+		interrupt-names = "macirq", "phy-intr";
 
 		vreg_emac_phy-supply =  <&vreg_emac_phy>;
 		vreg_rgmii_io_pads-supply = <&vreg_rgmii_io_pads>;
