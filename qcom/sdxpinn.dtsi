@@ -1414,8 +1414,8 @@
 
 		snps,tso;
 		snps,pbl = <32>;
-		rx-fifo-depth = <20480>;
-		tx-fifo-depth = <24576>;
+		rx-fifo-depth = <32768>;
+		tx-fifo-depth = <65536>;
 		snps,reset-active-low;
 
 		ethqos_emb_smmu: ethqos_emb_smmu {
