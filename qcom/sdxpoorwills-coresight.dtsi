@@ -28,7 +28,7 @@
 
 	tmc_etr: tmc@6048000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b961>;
+		arm,primecell-periphid = <0x000bb961>;
 
 		reg = <0x6048000 0x1000>,
 		      <0x6064000 0x15000>;
@@ -38,7 +38,7 @@
 		arm,sg-enable;
 
 		coresight-name = "coresight-tmc-etr";
-		coresight-ctis = <&cti0 &cti8>;
+		coresight-ctis = <&cti0>;
 		coresight-csr = <&csr>;
 
 		clocks = <&clock_aop QDSS_CLK>;
@@ -57,7 +57,7 @@
 
 	replicator_qdss: replicator@6046000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b909>;
+		arm,primecell-periphid = <0x000bb909>;
 
 		reg = <0x6046000 0x1000>;
 		reg-names = "replicator-base";
@@ -92,13 +92,13 @@
 
 	tmc_etf: tmc@6047000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b961>;
+		arm,primecell-periphid = <0x000bb961>;
 
 		reg = <0x6047000 0x1000>;
 		reg-names = "tmc-base";
 
 		coresight-name = "coresight-tmc-etf";
-		coresight-ctis = <&cti0 &cti8>;
+		coresight-ctis = <&cti0>;
 		coresight-csr = <&csr>;
 		arm,default-sink;
 
@@ -130,7 +130,7 @@
 
 	funnel_merg: funnel@6045000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6045000 0x1000>;
 		reg-names = "funnel-base";
@@ -174,7 +174,7 @@
 
 	funnel_in0: funnel@6041000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6041000 0x1000>;
 		reg-names = "funnel-base";
@@ -217,7 +217,7 @@
 
 	stm: stm@6002000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b962>;
+		arm,primecell-periphid = <0x000bb962>;
 
 		reg = <0x6002000 0x1000>,
 		      <0x16280000 0x180000>;
@@ -238,7 +238,7 @@
 
 	funnel_qatb: funnel@6005000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6005000 0x1000>;
 		reg-names = "funnel-base";
@@ -342,7 +342,7 @@
 
 	funnel_ddr_0: funnel@69e2000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x69e2000 0x1000>;
 		reg-names = "funnel-base";
@@ -433,7 +433,7 @@
 
 	funnel_in1: funnel@6042000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6042000 0x1000>;
 		reg-names = "funnel-base";
@@ -495,7 +495,7 @@
 
 	etm0: etm@7002000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b956>;
+		arm,primecell-periphid = <0x000bb956>;
 
 		reg = <0x7002000 0x1000>;
 		cpu = <&CPU0>;
@@ -528,7 +528,7 @@
 
 	funnel_swao:funnel@6b08000 {
 		compatible = "arm,primecell";
-		arm,primecell-periphid = <0x0003b908>;
+		arm,primecell-periphid = <0x000bb908>;
 
 		reg = <0x6b08000 0x1000>;
 		reg-names = "funnel-base";
