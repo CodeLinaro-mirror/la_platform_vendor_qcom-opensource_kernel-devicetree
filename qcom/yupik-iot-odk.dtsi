@@ -339,6 +339,35 @@
 			};
 
 		};
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port@0 {
+				reg = <0>;
+				lt9611_in: endpoint {
+					remote-endpoint = <&ext_dsi_out>;
+				};
+
+			};
+
+		};
+	};
+
+};
+
+&sde_dsi {
+	qcom,dsi-default-panel = <&dsi_ext_bridge_1080p>;
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		port@0 {
+			reg = <0>;
+			ext_dsi_out: endpoint {
+				remote-endpoint = <&lt9611_in>;
+			};
+		};
 	};
 
 };
