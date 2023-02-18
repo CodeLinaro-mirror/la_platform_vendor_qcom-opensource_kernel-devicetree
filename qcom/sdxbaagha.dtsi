@@ -1337,6 +1337,7 @@
 		qcom,mhi-event-ring-id-limits = <9 11>; /* start and end */
 		qcom,modem-cfg-emb-pipe-flt;
 		qcom,use-xbl-boot;
+		qcom,ipa-wdi3-over-gsi;
 		qcom,wan-rx-ring-size = <96>;
 		qcom,lan-rx-ring-size = <96>;
 		qcom,arm-smmu;
