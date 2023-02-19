@@ -24,6 +24,35 @@
 		regulator-enable-ramp-delay = <80000>;
 	};
 
+	ioss: qcom,ioss {
+		compatible = "qcom,ioss-v2";
+		qcom,max-ddr-bandwidth = <2500>;
+	};
+
+	ioss_eth1_rx: iemac_rx@eth1 {
+		qcom,dir-rx;
+		qcom,rx-filter-be;
+
+		qcom,ring-size = <127>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth1_tx: iemac_tx@eth1 {
+		qcom,dir-tx;
+		qcom,ring-size = <127>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
 	mtl_rx_setup: rx-queues-config {
 		snps,rx-queues-to-use = <2>;
 		snps,rx-sched-sp;
@@ -52,8 +81,17 @@
 	};
 
 	ethqos_hw2: qcom,emac1@22FC0000 {
-		compatible = "qcom,stmmac-ethqos", "snps,dwxgmac";
+		compatible = "qcom,stmmac-ethqos", "snps,dwxgmac", "qcom,ioss-v2-device";
 		qcom,arm-smmu;
+		qcom,ioss = <&ioss>;
+		qcom,ioss_instance = <1>;
+		qcom,iommu-group = <&ipa_eth_group2>;
+		iommus = <&apps_smmu 0x60 0xf>;
+
+		qcom,ioss_channels =
+			<&ioss_eth1_rx>,
+			<&ioss_eth1_tx>;
+
 		reg = <0x22FC0000 0x14000>,
 			<0x2303F000 0x1000>,
 			<0x22FD4000 0x5100>,
@@ -120,13 +158,6 @@
 		phy-mode = "sgmii";
 		managed = "auto";
 		eth-c22-mdio-probe;
-
-		ethqos_emb_smmu2: ethqos_emb_smmu2 {
-			compatible = "qcom,emac-smmu-embedded";
-			qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
-			iommus = <&apps_smmu 0x60 0xf>;
-			qcom,iommu-dma = "fastmap";
-		};
 	};
 };
 
