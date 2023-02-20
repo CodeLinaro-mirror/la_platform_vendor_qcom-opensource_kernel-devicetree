@@ -387,6 +387,7 @@
 
 &yupik_snd {
 	/delete-property/ fsa4480-i2c-handle;
+	qcom,model = "lahaina-yupikiot-snd-card";
 	qcom,wcn-bt = <0>;
 	asoc-codec  = <&stub_codec>, <&bolero>,
 		      <&wcd938x_codec>,
