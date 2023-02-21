@@ -775,12 +775,12 @@
 
 	llcc_bw_opp_table: llcc-bw-opp-table {
 		compatible = "operating-points-v2";
-		BW_OPP_ENTRY( 150, 16); /*  2288 MB/s */
-		BW_OPP_ENTRY( 200, 16); /*  3051 MB/s */
-		BW_OPP_ENTRY( 403, 16); /*  6149 MB/s */
-		BW_OPP_ENTRY( 533, 16); /*  8132 MB/s */
-		BW_OPP_ENTRY( 666, 16); /* 10162 MB/s */
-		BW_OPP_ENTRY( 777, 16); /* 11856 MB/s */
+		BW_OPP_ENTRY( 300, 16); /*  4577 MB/s */
+		BW_OPP_ENTRY( 466, 16); /*  7110 MB/s */
+		BW_OPP_ENTRY( 600, 16); /*  9155 MB/s */
+		BW_OPP_ENTRY( 806, 16); /* 12298 MB/s */
+		BW_OPP_ENTRY( 933, 16); /* 14236 MB/s */
+		BW_OPP_ENTRY(1000, 16); /* 15258 MB/s */
 	};
 
 	cpu_cpu_llcc_bw: qcom,cpu-cpu-llcc-bw {
