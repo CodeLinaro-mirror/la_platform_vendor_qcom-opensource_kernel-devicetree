@@ -1049,4 +1049,17 @@
 			drive-strength = <2>;
 		};
 	};
+
+	pinctrl_pps: ppsgrp {
+		mux {
+			pins = "gpio98";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio98";
+			bias-pull-down;
+		};
+	};
+
 };
