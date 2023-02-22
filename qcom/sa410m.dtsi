@@ -1573,6 +1573,7 @@
 #include "sa410m-regulators.dtsi"
 #include "scuba-thermal.dtsi"
 #include "sa410m_auto-coresight.dtsi"
+#include "sa410m_auto-debug.dtsi"
 
 &thermal_zones {
 	wlan {
