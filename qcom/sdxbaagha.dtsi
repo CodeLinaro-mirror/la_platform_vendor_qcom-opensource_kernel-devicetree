@@ -1016,7 +1016,6 @@
 	clk_virt: interconnect@0 {
 		compatible = "qcom,sdxbaagha-clk_virt";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
@@ -1024,7 +1023,6 @@
 	mc_virt: interconnect@1 {
 		compatible = "qcom,sdxbaagha-mc_virt";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
@@ -1033,7 +1031,6 @@
 		reg = <0x1640000 0x33400>;
 		compatible = "qcom,sdxbaagha-aggre_noc";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
@@ -1042,7 +1039,6 @@
 		reg = <0x01580000 0x19200>;
 		compatible = "qcom,sdxbaagha-cnoc_main";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
@@ -1051,7 +1047,6 @@
 		reg = <0x190E0000 0x5080>;
 		compatible = "qcom,sdxbaagha-dc_noc";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
@@ -1060,7 +1055,6 @@
 		reg = <0x19100000 0x2D080>;
 		compatible = "qcom,sdxbaagha-mem_noc";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
@@ -1069,7 +1063,6 @@
 		reg = <0x16C0000 0x16400>;
 		compatible = "qcom,sdxbaagha-pcie_anoc";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
@@ -1078,7 +1071,6 @@
 		reg = <0x15C0000 0x14080>;
 		compatible = "qcom,sdxbaagha-system_noc";
 		#interconnect-cells = <1>;
-		qcom,skip-qos;
 		qcom,bcm-voter-names = "hlos";
 		qcom,bcm-voters = <&apps_bcm_voter>;
 	};
