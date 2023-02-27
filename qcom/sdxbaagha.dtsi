@@ -1326,7 +1326,7 @@
 		qcom,ee = <0>;
 		qcom,entire-ipa-block-size = <0x200000>;
 		qcom,use-ipa-tethering-bridge;
-		qcom,mhi-event-ring-id-limits = <9 11>; /* start and end */
+		qcom,mhi-event-ring-id-limits = <9 15>; /* start and end */
 		qcom,modem-cfg-emb-pipe-flt;
 		qcom,use-xbl-boot;
 		qcom,ipa-wdi3-over-gsi;
