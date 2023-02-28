@@ -1428,7 +1428,6 @@
 		coresight-name = "coresight-etm0";
 		qcom,skip-power-up;
 
-		status = "disabled";
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		atid = <1>;
@@ -1452,7 +1451,6 @@
 
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
-		status = "disabled";
 		atid = <2>;
 		out-ports {
 			port {
@@ -1474,7 +1472,6 @@
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		atid = <3>;
-		status = "disabled";
 		out-ports {
 			port {
 				ete2_out_funnel_ete: endpoint {
@@ -1495,7 +1492,6 @@
 		clocks = <&aoss_qmp>;
 		clock-names = "apb_pclk";
 		atid = <4>;
-		status = "disabled";
 		out-ports {
 			port {
 				ete3_out_funnel_ete: endpoint {
