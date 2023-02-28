@@ -1,2 +1,22 @@
 &soc {
 };
+
+&ipa_hw {
+	qcom,use-ipa-in-mhi-mode;
+	ipa_smmu_ap {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_wlan {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_uc {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_11ad {
+		qcom,iommu-dma = "bypass";
+	};
+
+};
