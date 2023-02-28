@@ -2003,4 +2003,33 @@
 			bias-pull-down;
 		};
 	};
+
+	qcom_125_clk_pins: qcom_125_clk_pins {
+		qcom_125_clk_active: qcom_125_clk_active {
+			mux {
+				pins = "gpio25";
+				function = "gcc_125_clk";
+			};
+
+			config {
+			pins = "gpio25";
+				drive-strength = <16>; /* 16mA */
+				bias-disable;
+			};
+		};
+
+		qcom_125_clk_sleep: qcom_125_clk_sleep {
+			mux {
+				pins = "gpio25";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio25";
+				drive-strength = <2>; /* 2mA */
+				bias-pull-down;
+			};
+		};
+	};
 };
+
