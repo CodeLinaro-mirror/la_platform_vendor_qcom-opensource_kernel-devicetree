@@ -1462,8 +1462,8 @@
 
 		snps,tso;
 		snps,pbl = <32>;
-		rx-fifo-depth = <32768>;
-		tx-fifo-depth = <65536>;
+		rx-fifo-depth = <20480>;
+		tx-fifo-depth = <24576>;
 		snps,reset-active-low;
 	};
 
