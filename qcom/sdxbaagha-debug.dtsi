@@ -1,19 +1,5 @@
 #include <dt-bindings/soc/qcom,dcc_v2.h>
 
-&reserved_memory {
-	#address-cells = <1>;
-	#size-cells = <1>;
-	ranges;
-
-	dump_mem: mem_dump_region {
-		compatible = "shared-dma-pool";
-		alloc-ranges = <0x00000000 0xffffffff>;
-		reusable;
-		alignment = <0x400000>;
-		size = <0x2400000>;
-	};
-};
-
 &soc {
 	dcc: dcc_v2@100ff000 {
 		compatible = "qcom,dcc-v2";
@@ -27,41 +13,16 @@
 
 	mem_dump {
 		compatible = "qcom,mem-dump";
-		memory-region = <&dump_mem>;
+		memory-region = <&system_cma>;
 
 		c0_context {
 			qcom,dump-size = <0x800>;
 			qcom,dump-id = <0x0>;
 		};
 
-		cpuss_reg {
-			qcom,dump-size = <0x30000>;
-			qcom,dump-id = <0xef>;
-		};
-
-		l1_icache0 {
-			qcom,dump-size = <0x21200>;
-			qcom,dump-id = <0x60>;
-		};
-
-		l1_dcache0 {
-			qcom,dump-size = <0x12200>;
-			qcom,dump-id = <0x80>;
-		};
-
-		l2_tlb0 {
-			qcom,dump-size = <0x5b00>;
-			qcom,dump-id = <0x120>;
-		};
-
 		rpmh {
-			qcom,dump-size = <0x2000000>;
+			qcom,dump-size = <0x400000>;
 			qcom,dump-id = <0xec>;
-		};
-
-		rpm_sw {
-			qcom,dump-size = <0x28000>;
-			qcom,dump-id = <0xea>;
 		};
 
 		pmic {
@@ -69,13 +30,8 @@
 			qcom,dump-id = <0xe4>;
 		};
 
-		fcm {
-			qcom,dump-size = <0x8400>;
-			qcom,dump-id = <0xee>;
-		};
-
 		etf_swao {
-			qcom,dump-size = <0x10000>;
+			qcom,dump-size = <0x1000>;
 			qcom,dump-id = <0xf1>;
 		};
 
@@ -107,11 +63,6 @@
 		pcu_reg {
 			qcom,dump-size = <0x400>;
 			qcom,dump-id = <0x164>;
-		};
-
-		fsm_data {
-			qcom,dump-size = <0x400>;
-			qcom,dump-id = <0x165>;
 		};
 	};
 };
