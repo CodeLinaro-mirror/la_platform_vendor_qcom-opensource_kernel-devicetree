@@ -194,6 +194,7 @@
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x0>;
 			snps,route-up;
+			snps,threshold_byte = <64>;
 		};
 
 		queue1 {
