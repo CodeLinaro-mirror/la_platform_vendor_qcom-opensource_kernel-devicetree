@@ -4,9 +4,9 @@
 #include "sdxpinn-qcn9224.dtsi"
 
 &soc {
-	aqr_vreg: aqr_vreg {
+	phy0_vreg: phy0_vreg {
 		compatible = "qti-regulator-fixed";
-		regulator-name = "aqr_vreg";
+		regulator-name = "phy0_vreg";
 		gpio = <&tlmm 86 GPIO_ACTIVE_HIGH>;
 		regulator-min-microvolt = <700000>;
 		regulator-max-microvolt = <700000>;
@@ -14,14 +14,43 @@
 		regulator-enable-ramp-delay = <10000>;
 	};
 
-	napa_vreg: napa_vreg {
+	phy1_vreg: phy1_vreg {
 		compatible = "qti-regulator-fixed";
-		regulator-name = "napa_vreg";
+		regulator-name = "phy1_vreg";
 		gpio = <&tlmm 88 GPIO_ACTIVE_HIGH>;
 		regulator-min-microvolt = <1050000>;
 		regulator-max-microvolt = <1050000>;
 		enable-active-high;
 		regulator-enable-ramp-delay = <80000>;
+	};
+
+	ioss: qcom,ioss {
+		compatible = "qcom,ioss-v2";
+		qcom,max-ddr-bandwidth = <5000>;
+	};
+
+	ioss_eth1_rx: iemac_rx@eth1 {
+		qcom,dir-rx;
+		qcom,rx-filter-be;
+
+		qcom,ring-size = <1023>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth1_tx: iemac_tx@eth1 {
+		qcom,dir-tx;
+		qcom,ring-size = <1023>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
 	};
 
 	mtl_rx_setup: rx-queues-config {
@@ -52,8 +81,17 @@
 	};
 
 	ethqos_hw2: qcom,emac1@22FC0000 {
-		compatible = "qcom,stmmac-ethqos", "snps,dwxgmac";
+		compatible = "qcom,stmmac-ethqos", "snps,dwxgmac","qcom,ioss-v2-device";
 		qcom,arm-smmu;
+		qcom,ioss = <&ioss>;
+		qcom,ioss_instance = <1>;
+		qcom,iommu-group = <&ipa_eth_group2>;
+		iommus = <&apps_smmu 0x60 0xf>;
+
+		qcom,ioss_channels =
+			<&ioss_eth1_rx>,
+			<&ioss_eth1_tx>;
+
 		reg = <0x22FC0000 0x14000>,
 			<0x2303F000 0x1000>,
 			<0x22FD4000 0x5100>,
@@ -64,8 +102,6 @@
 			<&gcc GCC_EMAC1_CC_SGMIIPHY_RX_CLK>,
 			<&gcc GCC_EMAC1_CC_SGMIIPHY_TX_CLK>,
 			<&gcc GCC_EMAC1_PHY_AUX_CLK>,
-			<&gcc GCC_EMAC1_PTP_CLK>,
-			<&gcc GCC_EMAC1_RGMII_CLK>,
 			<&gcc GCC_EMAC1_RPCS_RX_CLK>,
 			<&gcc GCC_EMAC1_RPCS_TX_CLK>,
 			<&gcc GCC_EMAC1_SLV_AHB_CLK>,
@@ -81,7 +117,7 @@
 			<&emac1_sgmiiphy_mac_tclk>,
 			<&gcc GCC_EMAC_1_CLKREF_EN>;
 		clock-names = "eee", "stmmaceth", "sgmii_rx",
-		"sgmii_tx", "phyaux", "ptp_ref", "rgmii",
+		"sgmii_tx", "phyaux",
 		"pcs_rx", "pcs_tx", "pclk", "xgxs_rx",
 		"xgxs_tx", "sgmii_rclk_src", "sgmii_tclk_src",
 		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
@@ -99,7 +135,7 @@
 		pinctrl-2 = <&emac1_pin_phy_intr>;
 		pinctrl-3 = <&emac1_phy_reset_state>;
 
-		vreg_emac_phy-supply = <&napa_vreg>;
+		vreg_emac_phy-supply = <&phy1_vreg>;
 		qcom,phy-intr-redirect = <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
 		snps,reset-gpio = <&tlmm 108 1>;
 		snps,crc_strip;
@@ -110,8 +146,8 @@
 
 		snps,tso;
 		snps,pbl = <32>;
-		rx-fifo-depth = <8192>;
-		tx-fifo-depth = <8192>;
+		rx-fifo-depth = <20480>;
+		tx-fifo-depth = <24576>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 
@@ -121,12 +157,13 @@
 		managed = "auto";
 		eth-c45-mdio-probe;
 
-		ethqos_emb_smmu2: ethqos_emb_smmu2 {
-			compatible = "qcom,emac-smmu-embedded";
-			qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
-			iommus = <&apps_smmu 0x60 0xf>;
-			qcom,iommu-dma = "fastmap";
-		};
+		/* Valid values for usxgmii-mode:
+		 * 10000: 10G mode
+		 * 5000: 5G mode
+		 * 2500: 2.5G mode
+		 */
+		usxgmii-mode = <10000>;
+
 	};
 };
 
@@ -135,7 +172,7 @@
 };
 
 &ethqos_hw1 {
-	vreg_emac_phy-supply = <&aqr_vreg>;
+	vreg_emac_phy-supply = <&phy0_vreg>;
 	snps,mtl-rx-config = <&mtl_rx_setup>;
 	snps,mtl-tx-config = <&mtl_tx_setup>;
 
@@ -143,6 +180,13 @@
 	phy-mode = "usxgmii";
 	managed = "auto";
 	eth-c45-mdio-probe;
+
+	/* Valid values for usxgmii-mode:
+	 * 10000: 10G mode
+	 * 5000: 5G mode
+	 * 2500: 2.5G mode
+	 */
+	usxgmii-mode = <10000>;
 };
 
 &sdhc_1 {
