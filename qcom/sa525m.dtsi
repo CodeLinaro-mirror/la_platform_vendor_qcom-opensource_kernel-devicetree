@@ -48,5 +48,3 @@
 		peer-name = <6>;
 	};
 };
-
-#include "sa525-gvms.dtsi"
