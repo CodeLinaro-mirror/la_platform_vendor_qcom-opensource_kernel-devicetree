@@ -90,6 +90,7 @@
 	qcom,fast-boot-mask = <0x1e>;
 	qcom,host-bypass-mask = <0x20>;
 	qcom,fast-boot-values = <0x5 0x7>;
+	status = "ok";
 };
 
 &mhi_device {
