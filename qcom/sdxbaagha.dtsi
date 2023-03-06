@@ -491,42 +491,29 @@
 	qcom_pmu: qcom,pmu {
 		compatible = "qcom,pmu";
 		qcom,pmu-events-tbl =
-			< 0x0008 0x0F 0xFF 0xFF >,
-			< 0x0011 0x0F 0xFF 0xFF >,
-			< 0x0017 0x0F 0xFF 0xFF >,
-			< 0x002A 0xFF 0xFF 0xFF >;
+			< 0x0008 0x01 0xFF 0xFF >,
+			< 0x0011 0x01 0xFF 0xFF >,
+			< 0x0017 0x01 0xFF 0xFF >;
 	};
 
 	ddr_freq_table: ddr-freq-table {
+		ddr2 {
+			qcom,ddr-type = <2>;
+			qcom,freq-tbl =
+				<  211200 >,
+				<  451200 >,
+				<  499200 >,
+				<  531500 >;
+		};
+
 		ddr4 {
 			qcom,ddr-type = <7>;
 			qcom,freq-tbl =
-				<  200000 >,
+				<  211200 >,
 				<  451200 >,
-				<  547200 >,
+				<  556800 >,
 				<  681600 >,
-				<  768000 >,
-				< 1017600 >,
-				< 1353600 >,
-				< 1555200 >,
-				< 1708800 >,
-				< 2092800 >,
-				< 2133000 >;
-		};
-
-		ddr5 {
-			qcom,ddr-type = <8>;
-			qcom,freq-tbl =
-				<  200000 >,
-				<  451200 >,
-				<  547200 >,
-				<  681600 >,
-				<  768000 >,
-				< 1555200 >,
-				< 1708800 >,
-				< 2092800 >,
-				< 2736000 >,
-				< 3196800 >;
+				<  768000 >;
 		};
 	};
 
@@ -563,24 +550,23 @@
 				compatible = "qcom,memlat-mon";
 				qcom,cpulist = <&CPU0>;
 				qcom,sampling-enabled;
+				ddr2-tbl {
+					qcom,ddr-type = <2>;
+					qcom,cpufreq-memfreq-tbl =
+						<  288000  211200 >,
+						<  672000  451200 >,
+						< 1248000  499200 >,
+						< 1708800  531500 >;
+				};
+
 				ddr4-tbl {
 					qcom,ddr-type = <7>;
 					qcom,cpufreq-memfreq-tbl =
-						<  691200  547200 >,
-						<  806400  768000 >,
-						< 1017600 1353600 >,
-						< 1440000 1555200 >,
-						< 1747200 2092800 >;
-				};
-
-				ddr5-tbl {
-					qcom,ddr-type = <8>;
-					qcom,cpufreq-memfreq-tbl =
-						<  691200  547200 >,
-						<  806400  768000 >,
-						< 1017600 1708800 >,
-						< 1440000 2092800 >,
-						< 1747200 3196800 >;
+						<  288000  211200 >,
+						<  364800  451200 >,
+						<  672000  556800 >,
+						< 1248000  681600 >,
+						< 1708800  768000 >;
 				};
 			};
 
@@ -588,18 +574,19 @@
 				compatible = "qcom,memlat-mon";
 				qcom,cpulist = <&CPU0>;
 				qcom,sampling-enabled;
+				qcom,compute-mon;
+				ddr2-tbl {
+					qcom,ddr-type = <2>;
+					qcom,cpufreq-memfreq-tbl =
+						< 1248000  211200 >,
+						< 1708800  531500 >;
+				};
+
 				ddr4-tbl {
 					qcom,ddr-type = <7>;
 					qcom,cpufreq-memfreq-tbl =
-						< 1440000  547200 >,
-						< 1747200 1353600 >;
-				};
-
-				ddr5-tbl {
-					qcom,ddr-type = <8>;
-					qcom,cpufreq-memfreq-tbl =
-						< 1440000  547200 >,
-						< 1747200 3196800 >;
+						< 1248000  211200 >,
+						< 1708800  768000 >;
 				};
 			};
 		};
