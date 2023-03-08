@@ -1368,6 +1368,18 @@
 		#mbox-cells = <2>;
 	};
 
+	stmmac_axi_setup: stmmac-axi-config {
+		snps,wr_osr_lmt = <8>;
+		snps,rd_osr_lmt = <8>;
+		snps,axi_kbbe;
+		/* If FB is disabled, the AXI master chooses
+		 * a burst length of any value less than the
+		 * maximum enabled burst length
+		 * (all lesser burst length enables are redundant).
+		 */
+		snps,blen = <0 0 0 0 0 0 0>;
+	};
+
 	ioss: qcom,ioss {
 		compatible = "qcom,ioss-v2";
 		qcom,max-ddr-bandwidth = <5000>;
@@ -1463,8 +1475,9 @@
 		snps,tso;
 		snps,pbl = <32>;
 		rx-fifo-depth = <20480>;
-		tx-fifo-depth = <24576>;
+		tx-fifo-depth = <16384>;
 		snps,reset-active-low;
+		snps,axi-config = <&stmmac_axi_setup>;
 	};
 
 	qcom,chd {

@@ -53,6 +53,18 @@
 		qcom,mod-usecs-max = <60>;
 	};
 
+	stmmac_axi_setup: stmmac-axi-config {
+		snps,wr_osr_lmt = <8>;
+		snps,rd_osr_lmt = <8>;
+		snps,axi_kbbe;
+		/* If FB is disabled, the AXI master chooses
+		 * a burst length of any value less than the
+		 * maximum enabled burst length
+		 * (all lesser burst length enables are redundant).
+		 */
+		snps,blen = <0 0 0 0 0 0 0>;
+	};
+
 	mtl_rx_setup: rx-queues-config {
 		snps,rx-queues-to-use = <2>;
 		snps,rx-sched-sp;
@@ -147,7 +159,7 @@
 		snps,tso;
 		snps,pbl = <32>;
 		rx-fifo-depth = <20480>;
-		tx-fifo-depth = <24576>;
+		tx-fifo-depth = <16384>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 
@@ -156,6 +168,7 @@
 		phy-mode = "usxgmii";
 		managed = "auto";
 		eth-c45-mdio-probe;
+		snps,axi-config = <&stmmac_axi_setup>;
 
 		/* Valid values for usxgmii-mode:
 		 * 10000: 10G mode

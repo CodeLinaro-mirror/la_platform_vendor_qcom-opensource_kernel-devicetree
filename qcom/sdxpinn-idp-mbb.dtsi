@@ -24,6 +24,18 @@
 		regulator-enable-ramp-delay = <80000>;
 	};
 
+	stmmac_axi_setup: stmmac-axi-config {
+		snps,wr_osr_lmt = <8>;
+		snps,rd_osr_lmt = <8>;
+		snps,axi_kbbe;
+		/* If FB is disabled, the AXI master chooses
+		 * a burst length of any value less than the
+		 * maximum enabled burst length
+		 * (all lesser burst length enables are redundant).
+		 */
+		snps,blen = <0 0 0 0 0 0 0>;
+	};
+
 	ioss: qcom,ioss {
 		compatible = "qcom,ioss-v2";
 		qcom,max-ddr-bandwidth = <2500>;
@@ -158,6 +170,8 @@
 		phy-mode = "sgmii";
 		managed = "auto";
 		eth-c22-mdio-probe;
+		snps,axi-config = <&stmmac_axi_setup>;
+
 	};
 };
 
