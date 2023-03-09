@@ -1,10 +1,10 @@
 /dts-v1/;
 
-#include "yupik-iot-odk.dtsi"
+#include "yupik-iot-odk-hdmi.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Yupik IoT Open Dev Kit";
+	model = "Qualcomm Technologies, Inc. Yupik IoT Open Dev Kit + HDMI";
 	compatible = "qcom,yupik-iot-idp", "qcom,yupik-iot", "qcom,idp";
-	qcom,msm-id = <497 0x10000>;
-	qcom,board-id = <32 0>;
+	qcom,msm-id = <497 0x10000>, <498 0x10000>;
+	qcom,board-id = <0x010020 0>;
 };

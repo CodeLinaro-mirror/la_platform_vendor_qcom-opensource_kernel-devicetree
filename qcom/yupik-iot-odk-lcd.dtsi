@@ -1,0 +1,85 @@
+/dts-v1/;
+
+#include "yupik-iot-odk.dtsi"
+
+/*==============================*/
+/*     Display Related Start    */
+/*==============================*/
+&soc {
+	lcd_bl_vreg: lcd_bl_regulator {
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_bl_vreg";
+		enable-active-high;
+		regulator-always-on;
+		regulator-boot-on;
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&tca64_23 11 GPIO_ACTIVE_HIGH>;
+		states = <1800000 0>,
+			 <3300000 1>;
+	};
+
+	lcd_1v8_vreg: lcd_1v8_regulator {
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_1v8_vreg";
+		enable-active-high;
+		regulator-always-on;
+		regulator-boot-on;
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&tca64_23 15 GPIO_ACTIVE_HIGH>;
+		states = <1800000 0>,
+			 <1800000 1>;
+	};
+
+	lcd_tp_vreg: lcd_tp_regulator {
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_tp_vreg";
+		enable-active-high;
+		regulator-always-on;
+		regulator-boot-on;
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&tca64_23 14 GPIO_ACTIVE_HIGH>;
+		states = <1800000 0>,
+			 <2800000 1>;
+	};
+
+	lcd_5v5_p_vreg: lcd_5v5_p_regulator {
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_5v5_p_vreg";
+		enable-active-high;
+		regulator-always-on;
+		regulator-boot-on;
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&tca64_23 12 GPIO_ACTIVE_HIGH>;
+		states = <1800000 0>,
+			 <3300000 1>;
+	};
+
+	lcd_5v5_n_vreg: lcd_5v5_n_regulator {
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_5v5_n_vreg";
+		enable-active-high;
+		regulator-always-on;
+		regulator-boot-on;
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&tca64_23 13 GPIO_ACTIVE_HIGH>;
+		states = <1800000 0>,
+			 <3300000 1>;
+	};
+};
+
+&sde_dsi {
+	pinctrl-names = "panel_active", "panel_suspend", "pwm_pin";
+	pinctrl-0 = <&sde_dsi_active &sde_te_active &disp_lcd_bias_en_default>;
+	pinctrl-2 = <&lcd_backlight_ctrl_default>;
+
+	qcom,dsi-default-panel = <&dsi_ili9881p_720p_video>;
+};
+
+/*==============================*/
+/*     Display Related End      */
+/*==============================*/

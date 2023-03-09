@@ -256,6 +256,7 @@ dtb-$(CONFIG_ARCH_YUPIK) += yupik-rumi.dtb \
 	yupik-iot-qrd.dtb \
 	yupik-iot-hsp.dtb \
 	yupik-iot-odk.dtb \
+	yupik-iot-odk-lcd.dtb \
 	yupik-iot-idps-amoled.dtb \
 	yupikp-iot-idp.dtb \
 	yupikp-iot-qrd.dtb \
