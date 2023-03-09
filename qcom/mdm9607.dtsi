@@ -23,25 +23,25 @@
 		#size-cells = <1>;
 		ranges;
 
-		modem_adsp_mem: modem_adsp_region@0 {
+		modem_adsp_mem: modem_adsp_region@82400000 {
 			no-map;
-			reg = <0x82c00000 0x5000000>;
+			reg = <0x82400000 0x5800000>;
 			label = "modem_adsp_mem";
 		};
 
-		cnss_debug_mem: cnss_debug_region@0 {
+		cnss_debug_mem: cnss_debug_region@82200000 {
 			no-map;
-			reg = <0x82a00000 0x200000>;
+			reg = <0x82200000 0x200000>;
 			label = "cnss_debug_mem";
 		};
 
-		external_image_mem: external_image_region@0 {
+		external_image_mem: external_image_region@87c00000 {
 			no-map;
 			reg = <0x87c00000 0x400000>;
 			label = "external_image_mem";
 		};
 
-		tz_apps_mem: tz_apps_region@0 {
+		tz_apps_mem: tz_apps_region@88000000 {
 			no-map;
 			reg = <0x88000000 0x500000>;
 			label = "tz_apps_mem";
@@ -175,5 +175,40 @@
 	qcom,msm-rtb {
 		compatible = "qcom,msm-rtb";
 		qcom,rtb-size = <0x100000>;
+	};
+
+	qcom,msm-imem@8600000 {
+		compatible = "qcom,msm-imem";
+		reg = <0x08600000 0x1000>; /* Address and size of IMEM */
+		ranges = <0x0 0x08600000 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		mem_dump_table@10 {
+			compatible = "qcom,msm-imem-mem_dump_table";
+			reg = <0x10 0x8>;
+		};
+
+		restart_reason@65c {
+			compatible = "qcom,msm-imem-restart_reason";
+			reg = <0x65c 0x4>;
+		};
+
+		boot_stats@6b0 {
+			compatible = "qcom,msm-imem-boot_stats";
+			reg = <0x6b0 0x20>;
+		};
+
+		pil@94c {
+			compatible = "qcom,msm-imem-pil";
+			reg = <0x94c 0xc8>;
+		};
+	};
+
+	restart@4ab000 {
+		compatible = "qcom,pshold";
+		reg = <0x4ab000 0x4>,
+		    <0x193d100 0x4>;
+		reg-names = "pshold-base", "tcsr-boot-misc-detect";
 	};
 };
