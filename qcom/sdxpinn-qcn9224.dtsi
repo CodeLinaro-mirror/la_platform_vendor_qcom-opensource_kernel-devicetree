@@ -39,7 +39,7 @@
 			qrtr_node_id = <0x30>;
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
-			board_id = <0x01>;
+			board_id = <0x02>;
 			wlan-en-gpio = <&tlmm 82 0>;
 			pinctrl-names = "wlan_en_active";
 			pinctrl-0 = <&cnss_wlan_en_active>;
@@ -56,7 +56,7 @@
 			qrtr_node_id = <0x31>;
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
-			board_id = <0x01>;
+			board_id = <0x04>;
 			wlan-en-gpio = <&tlmm 17 0>;
 			pinctrl-names = "wlan_en_active";
 			pinctrl-0 = <&cnss_wlan1_en_active>;
