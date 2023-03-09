@@ -94,6 +94,7 @@
 };
 
 #include "mdm9x07-pinctrl.dtsi"
+#include "mdm9x07-ion.dtsi"
 
 &soc {
 	#address-cells = <1>;
