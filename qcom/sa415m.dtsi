@@ -325,7 +325,7 @@
 		compatible = "qcom,msm-watchdog";
 		reg = <0x17817000 0x1000>;
 		reg-names = "wdt-base";
-		interrupts = <1 3 0>, <1 2 0>;
+		interrupts = <1 3 IRQ_TYPE_LEVEL_HIGH>, <1 2 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,bark-time = <11000>;
 		qcom,pet-time = <9360>;
 		qcom,wakeup-enable;
@@ -362,7 +362,7 @@
 		reg = <0x1de0000 0x20000>,
 			<0x1dc4000 0x24000>;
 		reg-names = "crypto-base","crypto-bam-base";
-		interrupts = <0 252 0>;
+		interrupts = <0 252 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,bam-pipe-pair = <3>;
 		qcom,ce-hw-instance = <0>;
 		qcom,ce-device = <0>;
@@ -387,7 +387,7 @@
 		reg = <0x1de0000 0x20000>,
 			<0x1dc4000 0x24000>;
 		reg-names = "crypto-base","crypto-bam-base";
-		interrupts = <0 252 0>;
+		interrupts = <0 252 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,bam-pipe-pair = <2>;
 		qcom,ce-hw-instance = <0>;
 		qcom,ce-device = <0>;
@@ -701,8 +701,8 @@
 			<0x1e04000 0x28000>;
 		reg-names = "ipa-base", "gsi-base";
 		interrupts =
-			<0 241 0>,
-			<0 47 0>;
+			<0 241 IRQ_TYPE_LEVEL_HIGH>,
+			<0 47 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "ipa-irq", "gsi-irq";
 		qcom,ipa-hw-ver = <14>; /* IPA core version = IPAv4.0 */
 		qcom,ipa-hw-mode = <0>;
@@ -805,7 +805,7 @@
 	serial_uart: serial@831000 {
 		compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 		reg = <0x831000 0x200>;
-		interrupts = <0 26 0>;
+		interrupts = <0 26 IRQ_TYPE_LEVEL_HIGH>;
 		clocks = <&gcc GCC_BLSP1_UART3_APPS_CLK>,
 			<&gcc GCC_BLSP1_AHB_CLK>;
 		clock-names = "core", "iface";
