@@ -1514,7 +1514,7 @@
 
 		qcom,signal-aop;
 		qcom,qmp = <&aoss_qmp>;
-		memory-region = <&mpssadsp_mem>;
+		memory-region = <&mpssadsp_mem &q6_mpss_dtb_mem &system_cma>;
 
 		/* Inputs from mss */
 		interrupts-extended = <&intc GIC_SPI 250 IRQ_TYPE_EDGE_RISING>,
