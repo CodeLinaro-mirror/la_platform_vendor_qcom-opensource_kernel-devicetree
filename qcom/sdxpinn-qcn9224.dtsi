@@ -77,6 +77,7 @@
 			wlan-en-gpio = <&tlmm 76 0>;
 			pinctrl-names = "wlan_en_active";
 			pinctrl-0 = <&cnss_wlan2_en_active>;
+			qcom,wlan-rc-num = <0x2>;
 			status = "disabled";
 	};
 };
