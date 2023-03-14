@@ -123,4 +123,11 @@
 		msgq-label = <0x24>;
 	};
 */
+
+	tlmm-vm-mem-access {
+		compatible = "qcom,tlmm-vm-mem-access";
+		qcom,master;
+		vm-enum = <5>; /*5 => Televm */
+		tlmm-vm-gpio-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0>;
+	};
 };
