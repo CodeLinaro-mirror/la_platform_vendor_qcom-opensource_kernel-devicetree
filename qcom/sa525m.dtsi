@@ -47,4 +47,13 @@
 		gunyah-label = <9>;
 		peer-name = <6>;
 	};
+
+	qmi-tmd-devices {
+		modem {
+			modem_v2x: modem_v2x {
+				qcom,qmi-dev-name = "modem_v2x";
+				#cooling-cells = <2>;
+			};
+		};
+	};
 };
