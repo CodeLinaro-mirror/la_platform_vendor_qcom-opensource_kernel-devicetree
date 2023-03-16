@@ -48,3 +48,11 @@
 		peer-name = <6>;
 	};
 };
+
+&tlmm {
+	hsm-rst-hog {
+		gpio-hog;
+		gpios = <102 0>;
+		output-high;
+	};
+};
