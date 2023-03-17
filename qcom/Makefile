@@ -560,6 +560,17 @@ dtb-$(CONFIG_ARCH_SA415M) += sa415m-ccard.dtb \
 	sa415m-v2-mtp.dtb \
 	sa415m-atp.dts
 
+dtb-$(CONFIG_ARCH_MDM9607) += mdm9607-rumi.dtb \
+	mdm9607-cdp.dtb \
+	mdm9607-mtp.dtb \
+	mdm9607-rcm.dtb \
+	mdm9607-mtp-sdcard.dtb \
+	mdm9607-ttp.dtb \
+	mdm9206-mtp.dtb \
+	mdm9206-mtp-sdcard.dtb \
+	mdm9206-cdp.dtb \
+	mdm9206-rcm.dtb
+
 ifeq ($(CONFIG_ARCH_SHIMA), y)
 ifeq ($(CONFIG_ARCH_QTI_VM), y)
 dtb-$(CONFIG_ARCH_QTI_VM) += shima-vm-rumi.dtb \

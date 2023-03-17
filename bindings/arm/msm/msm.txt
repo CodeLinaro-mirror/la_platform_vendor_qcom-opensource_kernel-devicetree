@@ -127,6 +127,9 @@ Generic board variants:
 - CDP device:
   compatible = "qcom,cdp"
 
+- TTP device:
+  compatible = "qcom,ttp"
+
 - IDP device:
   compatible = "qcom,idp"
 
@@ -355,3 +358,8 @@ compatible = "qcom,sa415m-cdp"
 compatible = "qcom,sa415m-atp"
 compatible = "qcom,sa415m-ttp"
 compatible = "qcom,sa415m"
+compatible = "qcom,mdm9607-cdp"
+compatible = "qcom,mdm9607-rumi"
+compatible = "qcom,mdm9607-mtp"
+compatible = "qcom,mdm9607-ttp"
+compatible = "qcom,mdm9607"
