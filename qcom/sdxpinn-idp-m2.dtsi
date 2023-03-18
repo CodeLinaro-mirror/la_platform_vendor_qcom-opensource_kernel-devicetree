@@ -39,6 +39,7 @@
 	qcom,use-ipa-in-mhi-mode;
 	ipa_smmu_ap {
 		qcom,iommu-dma = "bypass";
+		/delete-property/ dma-coherent;
 	};
 
 	ipa_smmu_wlan {
