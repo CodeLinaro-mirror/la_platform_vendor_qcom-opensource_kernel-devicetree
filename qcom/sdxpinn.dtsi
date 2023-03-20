@@ -1985,6 +1985,7 @@
 		reg-names = "llcc_base";
 		interrupts = <GIC_SPI 399 IRQ_TYPE_LEVEL_HIGH>;
 		cap-based-alloc-and-pwr-collapse;
+		memory-region = <&llcc_tcm_mem>;
 	};
 
 	clk_virt: interconnect@0 {

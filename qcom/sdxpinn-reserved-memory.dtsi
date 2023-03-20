@@ -3,6 +3,11 @@
 	#size-cells = <2>;
 	ranges;
 
+	llcc_tcm_mem: llcc_tcm_region@15800000 {
+		no-map;
+		reg = <0x0 0x15800000 0x0 0x800000>;
+	};
+
 	gunyah_hyp_mem: gunyah_hyp_region@80000000 {
 		no-map;
 		reg = <0x0 0x80000000 0x0 0x800000>;
