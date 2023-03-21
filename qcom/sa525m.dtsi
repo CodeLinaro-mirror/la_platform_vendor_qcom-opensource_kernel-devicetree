@@ -80,3 +80,7 @@
 		spi-max-frequency = <50000000>;
 	};
 };
+
+&stm {
+	status = "disabled";
+};
