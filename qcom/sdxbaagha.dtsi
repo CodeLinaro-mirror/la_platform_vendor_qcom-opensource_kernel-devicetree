@@ -26,9 +26,7 @@
 		hsuart0 = &qupv3_se1_4uart; /* HST BT HCI UART Instance */
 	};
 
-	chosen {
-		bootargs = "pcie_ports=compat cpufreq.default_governor=performance";
-	};
+	chosen: chosen { };
 
 	firmware: firmware { };
 
@@ -207,6 +205,9 @@
 	soc: soc { };
 };
 
+&chosen {
+	bootargs = "pcie_ports=compat cpufreq.default_governor=performance";
+};
 
 &soc {
 	#address-cells = <1>;
