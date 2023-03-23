@@ -2107,6 +2107,13 @@
 		qcom,max_num_smmu_cb = <7>;
 		qcom,ipa-iemac;
 
+		/* Boot Config Information */
+		nvmem-cells = <&boot_config>;
+		nvmem-cell-names = "boot_conf";
+		qcom,fast-boot-mask = <0x1e>;
+		qcom,host-bypass-mask = <0x40>;
+		qcom,fast-boot-values = <0x5 0x7>;
+
 		interconnects = <&system_noc MASTER_IPA &gem_noc SLAVE_LLCC>,
 		<&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>,
 		<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_IPA_CFG>;
