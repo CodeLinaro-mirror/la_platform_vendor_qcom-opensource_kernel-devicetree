@@ -21,8 +21,26 @@
 	};
 };
 
+&soc {
+	tsens0: tsens@c222000 {
+		reg = <0xc222000 0x20>,
+			<0xc263000 0x1ff>;
+		ltvr-resume-trigger;
+		ltvr-sensor-id = <0>;
+		ltvr-status-support;
+	};
+};
+
 /* delete pm8150b nodes */
 &thermal_zones {
+	aoss0-usr {
+		trips {
+			active-config0 {
+				hysteresis = <5000>;
+			};
+		};
+	};
+
 	/delete-node/ pm8150b-wp-therm;
 	/delete-node/ pm8150b_tz;
 	/delete-node/ pm8150b-ibat-lvl0;
