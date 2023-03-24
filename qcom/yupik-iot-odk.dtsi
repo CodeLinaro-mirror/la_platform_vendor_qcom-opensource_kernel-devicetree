@@ -401,6 +401,16 @@
 		regulator-boot-on;
 		gpios = <&tca64_23 7 GPIO_ACTIVE_HIGH>;
 	};
+
+	tca64_usb0_vbus_vreg: tca64_usb0_vbus_regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "tca64_usb0_vbus_vreg";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+		enable-active-high;
+		regulator-always-on;
+		gpios = <&tca64_23 8 GPIO_ACTIVE_HIGH>;
+	};
 };
 
 &usb1 {
