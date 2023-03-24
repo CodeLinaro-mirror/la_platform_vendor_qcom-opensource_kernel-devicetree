@@ -66,6 +66,7 @@
 			snps,has-lpm-erratum;
 			snps,dis-u1-entry-quirk;
 			snps,dis-u2-entry-quirk;
+			snps,dis_u2_susphy_quirk;
 			snps,hird-threshold = /bits/ 8 <0x10>;
 			tx-fifo-resize;
 			maximum-speed = "super-speed-plus";
