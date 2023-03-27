@@ -9,7 +9,3 @@
 &cnss_debug_mem {
 	status = "disabled";
 };
-
-&external_image_mem {
-	reg = <0x87900000 0x700000>;
-};

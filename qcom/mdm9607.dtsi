@@ -35,10 +35,22 @@
 			label = "cnss_debug_mem";
 		};
 
-		external_image_mem: external_image_region@87c00000 {
+		sbl_region: sbl_region@87c00000 {
 			no-map;
-			reg = <0x87c00000 0x400000>;
-			label = "external_image_mem";
+			reg = <0x87c00000 0x10000>;
+			label = "sbl_mem";
+		};
+
+		smem_mem: smem_region@87d00000 {
+			no-map;
+			reg = <0x87d00000 0x10000>;
+			label = "smem_mem";
+		};
+
+		tz_mem: tz_region@87e00000 {
+			no-map;
+			reg = <0x87e00000 0x20000>;
+			label = "tz_mem";
 		};
 
 		tz_apps_mem: tz_apps_region@88000000 {
