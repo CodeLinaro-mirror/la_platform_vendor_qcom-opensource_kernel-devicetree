@@ -22,7 +22,7 @@
 };
 
 &soc {
-	tsens0: tsens@c222000 {
+	tsens@c222000 {
 		reg = <0xc222000 0x20>,
 			<0xc263000 0x1ff>;
 		ltvr-resume-trigger;
