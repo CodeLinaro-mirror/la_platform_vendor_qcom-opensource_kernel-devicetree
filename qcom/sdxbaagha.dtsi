@@ -623,6 +623,12 @@
 		power-domains = <&CLUSTER_PD>;
 	};
 
+	qcom,power-state {
+		compatible = "qcom,power-state";
+		qcom,subsys-name = "modem";
+		qcom,rproc-handle = <&modem_pas>;
+	};
+
 	soc-sleep-stats@c370000 {
 		compatible = "qcom,rpmh-sleep-stats";
 		reg = <0xc370000 0x400>;
