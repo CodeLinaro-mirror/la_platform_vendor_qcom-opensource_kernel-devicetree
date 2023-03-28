@@ -105,4 +105,8 @@
 	iommus = <&apps_smmu 0x00BB 0x0>;
 };
 
+&emac1_hw {
+	status = "disabled";
+};
+
 #include "direwolf-vm-gnss.dtsi"
