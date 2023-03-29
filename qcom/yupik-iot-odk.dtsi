@@ -334,6 +334,9 @@
 		compatible = "onnn,redriver";
 		reg = <0x1c>;
 
+		pinctrl-names = "default";
+		gpios = <&tlmm 140 0>;
+
 		set-aux = <1>;
 
 		eq = /bits/ 8 <
