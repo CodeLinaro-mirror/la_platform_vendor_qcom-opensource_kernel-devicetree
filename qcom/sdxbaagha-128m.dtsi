@@ -9,10 +9,16 @@
 /delete-node/ &mpss_audio_mem;
 /delete-node/ &audio_heap_mem;
 /delete-node/ &system_cma;
+/delete-node/ &trusted_apps_mem;
 &reserved_memory {
 	mpss_audio_mem: mpss_audio_region@82e00000 {
 		no-map;
-		reg = <0x82e00000 0x3c00000>;
+		reg = <0x82e00000 0x3200000>;
+	};
+
+	trusted_apps_mem: trusted_apps_region@82700000 {
+		no-map;
+		reg = <0x82700000 0x29a000>;
 	};
 
 	system_cma: linux,cma {

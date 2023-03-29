@@ -100,11 +100,6 @@
 			reg = <0x82400000 0x80000>;
 		};
 
-		xbl_sc_mem: xbl_sc_region@82480000 {
-			no-map;
-			reg = <0x82480000 0x40000>;
-		};
-
 		xbl_dt_log_mem: xbl_dt_log_region@824c0000 {
 			no-map;
 			reg = <0x824c0000 0x20000>;
@@ -112,7 +107,7 @@
 
 		qtee_tz_mem: qtee_tz_region@82500000 {
 			no-map;
-			reg = <0x82500000 0x200000>;
+			reg = <0x82500000 0x180000>;
 		};
 
 		trusted_apps_mem: trusted_apps_region@82700000 {
