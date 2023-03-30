@@ -2104,7 +2104,7 @@
 		clocks = <&rpmhcc RPMH_IPA_CLK>;
 		qcom,interconnect,num-cases = <5>;
 		qcom,interconnect,num-paths = <3>;
-		qcom,max_num_smmu_cb = <6>;
+		qcom,max_num_smmu_cb = <7>;
 		qcom,ipa-iemac;
 
 		interconnects = <&system_noc MASTER_IPA &gem_noc SLAVE_LLCC>,
@@ -2166,6 +2166,12 @@
 		ipa_smmu_wlan1: ipa_smmu_wlan1 {
 			compatible = "qcom,ipa-smmu-wlan1-cb";
 			iommus = <&apps_smmu 0x423 0x0>;
+			qcom,iommu-dma = "atomic";
+		};
+
+		ipa_smmu_wlan2: ipa_smmu_wlan2 {
+			compatible = "qcom,ipa-smmu-wlan2-cb";
+			iommus = <&apps_smmu 0x424 0x0>;
 			qcom,iommu-dma = "atomic";
 		};
 
