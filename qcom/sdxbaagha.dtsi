@@ -927,6 +927,25 @@
 		compatible = "qcom,dload-mode";
 	};
 
+	qfprom: qfprom@221c8000 {
+		compatible = "qcom,qfprom";
+		reg = <0x221c8000 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+		read-only;
+		ranges;
+
+		boot_config: boot_config@600 {
+			reg = <0x600 0x1>;
+		};
+	};
+
+	qfprom_sys: qfprom@0 {
+		compatible = "qcom,qfprom-sys";
+		nvmem-cells = <&boot_config>;
+		nvmem-cell-names = "boot_config";
+	};
+
 	wdog: qcom,wdt@17017000 {
 		compatible ="qcom,msm-watchdog";
 		reg = <0x17017000 0x1000>;
