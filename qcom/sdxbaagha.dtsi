@@ -1170,6 +1170,11 @@
 		qcom,pcie-cesta-clkreq-offset = <0x30b8>;
 		qcom,aoss-rst-clr;
 		qcom,aux-clk = <0x13>;
+		nvmem-cells = <&boot_config>;
+		nvmem-cell-names = "boot_conf";
+		qcom,fast-boot-mask = <0x1e>;
+		qcom,host-bypass-mask = <0x40>;
+		qcom,fast-boot-values = <0x3>;
 		qcom,phy-init = <0x0240 0x01 0x0
 				0x0094 0x00 0x0
 				0x0154 0x31 0x0
