@@ -190,6 +190,8 @@
 	 * 2500: 2.5G mode
 	 */
 	usxgmii-mode = <10000>;
+
+	qcom,llcc_enabled;
 };
 
 &qnand_1 {

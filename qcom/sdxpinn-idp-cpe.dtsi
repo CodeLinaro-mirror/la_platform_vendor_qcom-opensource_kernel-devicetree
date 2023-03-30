@@ -97,6 +97,7 @@
 		qcom,arm-smmu;
 		qcom,ioss = <&ioss>;
 		qcom,ioss_instance = <1>;
+		qcom,llcc_enabled;
 		qcom,iommu-group = <&ipa_eth_group2>;
 		iommus = <&apps_smmu 0x60 0xf>;
 
