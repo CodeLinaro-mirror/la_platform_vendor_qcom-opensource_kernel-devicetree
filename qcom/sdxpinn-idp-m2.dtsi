@@ -89,7 +89,7 @@
 	nvmem-cells = <&boot_config>;
 	nvmem-cell-names = "boot_conf";
 	qcom,fast-boot-mask = <0x1e>;
-	qcom,host-bypass-mask = <0x20>;
+	qcom,host-bypass-mask = <0x40>;
 	qcom,fast-boot-values = <0x5 0x7>;
 	status = "ok";
 };
