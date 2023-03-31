@@ -24,7 +24,6 @@
 
 &usb {
 	extcon = <&pmx75_vbus_detect>, <&eud>;
-	qcom,iommu-dma = "bypass";
 };
 
 &ipa_eth_group1 {
