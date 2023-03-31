@@ -28,6 +28,7 @@
 };
 
 &pcie_ep {
+	qcom,override-disable-sriov;
 	status = "ok";
 };
 
