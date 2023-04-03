@@ -1103,7 +1103,7 @@
 		      <0x01bf6000 0x2000>,
 		      <0x01bf4000 0x1000>,
 		      <0x01fcb000 0x1000>,
-		      <0xc2f1000 0x4>;
+		      <0xc2fa000 0x4>;
 		reg-names = "msi", "dm_core", "elbi", "iatu", "parf", "phy",
 				"mmio", "tcsr_pcie_perst_en", "aoss_cc_reset";
 
