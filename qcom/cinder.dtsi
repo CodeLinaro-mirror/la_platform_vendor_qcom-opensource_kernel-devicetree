@@ -920,6 +920,10 @@
 		qcom,vmid = <3>;
 	};
 
+	qcom,mem-buf-msgq {
+		compatible = "qcom,mem-buf-msgq";
+	};
+
 	clocks {
 		xo_board: xo_board {
 			compatible = "fixed-clock";
