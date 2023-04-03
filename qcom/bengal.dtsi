@@ -37,7 +37,7 @@
 		granule = <512>;
 	};
 
-	aliases {
+	aliases: aliases {
 		hsuart0 = &qupv3_se3_4uart;
 		sdhc0 = &sdhc_1; /* SDC1 eMMC slot */
 		sdhc1 = &sdhc_2; /* SDC2 SD Card slot */

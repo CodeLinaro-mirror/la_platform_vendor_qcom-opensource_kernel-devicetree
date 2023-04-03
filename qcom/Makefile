@@ -333,7 +333,8 @@ ifneq ($(CONFIG_ARCH_SA410M),y)
 	dtb-$(CONFIG_ARCH_SCUBA) += \
 				qrb2210-rb1.dtb \
 				qrb2210-rb1-v2.dtb \
-				qrb2210-rb1-v3.dtb
+				qrb2210-rb1-v3.dtb \
+				qrb2210-rb1-v4.dtb
 else
 ifneq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtb-$(CONFIG_ARCH_SA410M) += \
@@ -352,7 +353,8 @@ endif
 dtb-$(CONFIG_ARCH_BENGAL) += \
 				qrb4210-rb2.dtb \
 				qrb4210-rb2-v2.dtb \
-				qrb4210-rb2-v3.dtb
+				qrb4210-rb2-v3.dtb \
+				qrb4210-rb2-v4.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 ifeq ($(CONFIG_AUTO_LXC_OVERLAY), y)
