@@ -527,6 +527,7 @@
 
 &pcie0 {
 	status = "ok";
+	/delete-property/ qcom,drv-supported;
 };
 
 &pcie0_msi {
