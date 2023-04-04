@@ -4,6 +4,8 @@
 / {
 	aliases {
 		spi6 = &qupv3_se6_spi;
+		hsuart1 = &qupv3_se4_2uart;
+		hsuart2 = &qupv3_se8_2uart;
 	};
 };
 
@@ -25,6 +27,14 @@
 		qcom,asm330_hrtimer;
 	};
 };
+&qupv3_se4_2uart {
+	status = "ok";
+};
+
+&qupv3_se8_2uart {
+	status = "ok";
+};
+
 
 &ipa_hw {
 	qcom,ipa-config-is-auto;
