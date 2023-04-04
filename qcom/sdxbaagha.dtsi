@@ -3,6 +3,7 @@
 #include <dt-bindings/clock/qcom,gcc-sdxbaagha.h>
 #include <dt-bindings/soc/qcom,ipcc.h>
 #include <dt-bindings/interconnect/qcom,icc.h>
+#include <dt-bindings/soc/qcom,power-state.h>
 #include <dt-bindings/interconnect/qcom,sdxbaagha.h>
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/soc/qcom,rpmh-rsc.h>
@@ -623,8 +624,9 @@
 
 	qcom,power-state {
 		compatible = "qcom,power-state";
-		qcom,subsys-name = "modem";
+		qcom,subsys-name = "mpss";
 		qcom,rproc-handle = <&modem_pas>;
+		qcom,rproc-state = <RPROC_SUSPEND>;
 	};
 
 	soc-sleep-stats@c370000 {
