@@ -2181,6 +2181,7 @@
 			compatible = "qcom,ipa-smmu-wlan-cb";
 			iommus = <&apps_smmu 0x421 0x0>;
 			qcom,iommu-dma = "atomic";
+			dma-coherent;
 		};
 
 		ipa_smmu_uc: ipa_smmu_uc {
@@ -2188,18 +2189,21 @@
 			iommus = <&apps_smmu 0x422 0x0>;
 			qcom,iommu-dma-addr-pool = <0x20000000 0x20000000>;
 			qcom,iommu-dma = "atomic";
+			dma-coherent;
 		};
 
 		ipa_smmu_wlan1: ipa_smmu_wlan1 {
 			compatible = "qcom,ipa-smmu-wlan1-cb";
 			iommus = <&apps_smmu 0x423 0x0>;
 			qcom,iommu-dma = "atomic";
+			dma-coherent;
 		};
 
 		ipa_smmu_wlan2: ipa_smmu_wlan2 {
 			compatible = "qcom,ipa-smmu-wlan2-cb";
 			iommus = <&apps_smmu 0x424 0x0>;
 			qcom,iommu-dma = "atomic";
+			dma-coherent;
 		};
 
 		ipa_smmu_eth: ipa_smmu_eth {
