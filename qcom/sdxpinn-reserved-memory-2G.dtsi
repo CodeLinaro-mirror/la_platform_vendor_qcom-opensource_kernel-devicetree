@@ -1,0 +1,9 @@
+&access_control_db_mem {
+	no-map;
+	reg = <0x0 0x81380000 0x0 0x100000>;
+};
+
+&mpssadsp_mem {
+	no-map;
+	reg = <0x0 0x8e000000 0x0 0x11400000>;
+};
