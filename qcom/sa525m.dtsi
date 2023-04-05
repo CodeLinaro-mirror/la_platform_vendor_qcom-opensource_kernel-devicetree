@@ -61,6 +61,16 @@
 			};
 		};
 	};
+
+	pps {
+		compatible = "pps-gpio";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_pps>;
+		gpios = <&tlmm 35 GPIO_ACTIVE_HIGH>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <35 IRQ_TYPE_EDGE_RISING>;
+		status = "okay";
+	};
 };
 
 &tlmm {

@@ -1991,4 +1991,16 @@
 			};
 		};
 	};
+
+	pinctrl_pps: ppsgrp {
+		mux {
+			pins = "gpio35";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio35";
+			bias-pull-down;
+		};
+	};
 };
