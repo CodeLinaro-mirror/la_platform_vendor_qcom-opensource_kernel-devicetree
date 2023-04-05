@@ -317,11 +317,14 @@
 		managed = "auto";
 		eth-c22-mdio-probe;
 
-		mac2mac = <0>;
-		mac2mac-speed = <1000>;
-
 		snps,phy1_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
 		snps,phy1-reset-delays-us = <1000 100000 221000>;
+
+		fixed-link {
+			status = "disabled";
+			speed = <2500>;
+			full-duplex;
+		};
 
 		rgmii-io-macro-info-hsr {
 			rgmii-io-macro-config = <0x40c04c03>;
