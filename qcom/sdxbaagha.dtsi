@@ -1544,6 +1544,8 @@
 		eth-c22-mdio-probe;
 		snps,crc_strip;
 		pcs-v3;
+		sw-dma-tx-desc-cnt = <128>;
+		sw-dma-rx-desc-cnt = <128>;
 
 		interconnect-names = "axi_icc_path", "apb_icc_path";
 		interconnects = <&aggre_noc MASTER_EMAC &mc_virt SLAVE_EBI1>,
