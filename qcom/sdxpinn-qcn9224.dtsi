@@ -21,7 +21,7 @@
 
 	qcn9224_2_mem: qcn9224_2_mem {
 		compatible = "shared-dma-pool";
-		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+		alloc-ranges = <0x1 0x00000000 0xfffffffe 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
 		size = <0x0 0x6000000>;
@@ -66,7 +66,7 @@
 
 	wifi2: qcom,cnss-qcn9224@c0000000 {
 			compatible  = "qcom,cnss-qcn9224";
-			reg = <0xc0000000 0x10000>;
+			reg = <0xd0000000 0x10000>;
 			reg-names = "smmu_iova_ipa";
 			memory-region = <&qcn9224_2_mem>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
@@ -77,7 +77,8 @@
 			wlan-en-gpio = <&tlmm 76 0>;
 			pinctrl-names = "wlan_en_active";
 			pinctrl-0 = <&cnss_wlan2_en_active>;
-			status = "disabled";
+			qcom,wlan-rc-num = <0x2>;
+			status = "ok";
 	};
 };
 
