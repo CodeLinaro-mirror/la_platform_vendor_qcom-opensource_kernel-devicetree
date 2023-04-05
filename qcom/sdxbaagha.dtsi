@@ -1425,6 +1425,137 @@
 			qcom,iommu-group = <>;
 		};
 	};
+
+	napa_vreg: napa_vreg {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "napa_vreg";
+		gpio = <&tlmm 108 GPIO_ACTIVE_HIGH>;
+		regulator-min-microvolt = <1050000>;
+		regulator-max-microvolt = <1050000>;
+		enable-active-high;
+		regulator-enable-ramp-delay = <80000>;
+	};
+
+	mtl_rx_setup: rx-queues-config {
+		snps,rx-queues-to-use = <2>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x0>;
+			snps,route-up;
+			snps,priority = <0x1>;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,route-ptp;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x2>;
+			snps,route-avcp;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x3>;
+			snps,priority = <0xC>;
+		};
+	};
+
+	mtl_tx_setup: tx-queues-config {
+		snps,tx-queues-to-use = <2>;
+		snps,tx-sched-sp;
+		queue0 {
+			snps,dcb-algorithm;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+
+	};
+
+	ethqos_hw: qcom,ethernet@23040000 {
+		compatible = "qcom,stmmac-ethqos", "snps,dwmac-4.20a";
+		qcom,arm-smmu;
+		reg = <0x23040000 0x10000>,
+				<0x23056000 0x100>,
+				<0x00FF6000 0xE10>;
+
+		reg-names = "stmmaceth", "rgmii", "serdes";
+		clocks = <&gcc GCC_EMAC0_AXI_CLK>,
+				<&gcc GCC_EMAC0_SLV_AHB_CLK>,
+				<&gcc GCC_EMAC0_PTP_CLK>,
+				<&gcc GCC_EMAC0_PHY_AUX_CLK>,
+				<&gcc GCC_EMAC_0_CLKREF_EN>,
+				<&gcc GCC_EMAC0_RGMII_CLK>;
+		clock-names = "stmmaceth", "pclk", "ptp_ref", "phyaux", "sgmi_ref", "rgmii";
+		snps,ptp-ref-clk-rate = <250000000>;
+		snps,ptp-req-clk-rate = <96000000>;
+		interrupts-extended = <&intc GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>;
+
+		interrupt-names = "macirq";
+
+		snps,tso;
+		snps,pbl = <32>;
+		snps,rxpbl = <16>;
+		rx-fifo-depth = <8192>;
+		tx-fifo-depth = <8192>;
+
+		snps,mtl-rx-config = <&mtl_rx_setup>;
+		snps,mtl-tx-config = <&mtl_tx_setup>;
+
+		vreg_emac_phy-supply = <&napa_vreg>;
+
+		gdsc_emac-supply = <&gcc_emac0_gdsc>;
+
+		phy-mode = "sgmii";
+		snps,reset-gpio = <&tlmm 97 1>;
+		snps,reset-active-low;
+		snps,reset-delays-us = <0 11000 70000>;
+		pinctrl-names = "dev-emac-mdc",
+				"dev-emac-mdio";
+
+		pinctrl-0 = <&emac_mdc>;
+		pinctrl-1 = <&emac_mdio>;
+
+		snps,ps-speed = <1000>;
+		managed = "auto";
+		eth-c22-mdio-probe;
+		snps,crc_strip;
+		pcs-v3;
+
+		interconnect-names = "axi_icc_path", "apb_icc_path";
+		interconnects = <&aggre_noc MASTER_EMAC &mc_virt SLAVE_EBI1>,
+				<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_EMAC_CFG>;
+
+		ethqos_emb_smmu: ethqos_emb_smmu {
+			compatible = "qcom,emac-smmu-embedded";
+			iommus = <&apps_smmu 0x100 0xf>;
+			qcom,iommu-dma = "fastmap";
+			qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
+		};
+	};
 };
 
 &firmware {
