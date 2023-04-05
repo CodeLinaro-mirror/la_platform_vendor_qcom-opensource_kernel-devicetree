@@ -19,7 +19,7 @@
 
 
 	chosen: chosen {
-			bootargs = "cpufreq.default_governor=performance msm_rtb.filter=0x237 ftrace_dump_on_oops";
+			bootargs = "cpufreq.default_governor=performance msm_rtb.filter=0x237 ftrace_dump_on_oops lpm_levels.sleep_disabled=1";
 	};
 
 	aliases {
@@ -509,6 +509,7 @@
 		#gpio-cells = <2>;
 		interrupt-controller;
 		#interrupt-cells = <2>;
+		qcom,gpios-reserved = <28 29>;
 	};
 
 	eud: qcom,msm-eud@88e0000 {
