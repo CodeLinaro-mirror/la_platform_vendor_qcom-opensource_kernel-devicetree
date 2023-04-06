@@ -47,6 +47,14 @@
 			cpu-idle-states = <&SILVER_OFF &SILVER_RAIL_OFF>;
 		};
 
+		CPU1: cpu@1 {
+			compatible = "arm,armv8";
+			reg = <0x0 0x100>;
+			device_type = "cpu";
+			enable-method = "psci";
+			cpu-idle-states = <&SILVER_OFF &SILVER_RAIL_OFF>;
+		};
+
 	};
 
 	idle-states {
@@ -104,8 +112,8 @@
 
 		vcpus {
 			config = "/cpus";
-			affinity = "static";
-			affinity-map = <0x0>;
+			affinity = "proxy";
+			affinity-map = <0x0 0x1>;
 			sched-priority = <0>;       /* relative to PVM */
 			sched-timeslice = <2000>;   /* in ms */
 		};
