@@ -159,8 +159,8 @@
 
 		snps,tso;
 		snps,pbl = <32>;
-		rx-fifo-depth = <20480>;
-		tx-fifo-depth = <16384>;
+		rx-fifo-depth = <8192>;
+		tx-fifo-depth = <8192>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 
