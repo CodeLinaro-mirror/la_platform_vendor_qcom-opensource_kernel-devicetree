@@ -39,3 +39,11 @@
 &mhi_net_device {
 	status = "ok";
 };
+
+&pcie0 {
+	status = "disabled";
+};
+
+&pcie0_msi {
+	status = "disabled";
+};
