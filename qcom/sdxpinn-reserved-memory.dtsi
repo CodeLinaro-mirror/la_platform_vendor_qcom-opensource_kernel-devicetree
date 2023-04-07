@@ -23,6 +23,31 @@
 		reg = <0x0 0x81380000 0x0 0x80000>;
 	};
 
+	qteetz_mem: qteetz_region@814e0000 {
+		no-map;
+		reg = <0x0 0x814e0000 0x0 0x2a0000>;
+	};
+
+	trusted_apps_mem: trusted_apps_region@81780000 {
+		no-map;
+		reg = <0x0 0x81780000 0x0 0xa00000>;
+	};
+
+	uefi_ext_mem: uefi_ext_region@87100000 {
+		no-map;
+		reg = <0x0 0x87100000 0x0 0x400000>;
+	};
+
+	uefi_apps_mem: uefi_apps_region@87500000 {
+		no-map;
+		reg = <0x0 0x87500000 0x0 0x400000>;
+	};
+
+	abl_mem: abl_region@87900000 {
+		no-map;
+		reg = <0x0 0x87900000 0x0 0x100000>;
+	};
+
 	xbl_ramdump_mem: xbl_ramdump_region@87a00000 {
 		no-map;
 		reg = <0x0 0x87a00000 0x0 0x1c0000>;
@@ -94,16 +119,6 @@
 		reg = <0x0 0x87f75000 0x0 0x10000>;
 	};
 
-	qteetz_mem: qteetz_region@88080000 {
-		no-map;
-		reg = <0x0 0x88080000 0x0 0x280000>;
-	};
-
-	trusted_apps_mem: trusted_apps_region@88300000 {
-		no-map;
-		reg = <0x0 0x88300000 0x0 0x500000>;
-	};
-
 	qdss_mem: qdss_region@88800000 {
 		no-map;
 		reg = <0x0 0x88800000 0x0 0x300000>;
@@ -127,7 +142,7 @@
 
 	mpssadsp_mem: mpssadsp_region@8e000000 {
 		no-map;
-		reg = <0x0 0x8e000000 0x0 0x10e00000>;
+		reg = <0x0 0x8e000000 0x0 0xf400000>;
 	};
 
 	gunyah_trace_buffer_mem: gunyah_trace_buffer_region@bdb00000 {
