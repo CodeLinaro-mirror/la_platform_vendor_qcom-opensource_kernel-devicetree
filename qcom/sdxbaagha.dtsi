@@ -346,13 +346,11 @@
 		iommus = <&apps_smmu 0x00A0 0x0>,
 			<&apps_smmu 0x00A1 0x0>;
 		qcom,iommu-dma = "atomic";
-		dma-coherent;
 
 		qcom_cedev_ns_cb {
 			compatible = "qcom,qcedev,context-bank";
 			label = "ns_context";
 			iommus = <&apps_smmu 0x00A1 0x0>;
-			dma-coherent;
 		};
 	};
 
