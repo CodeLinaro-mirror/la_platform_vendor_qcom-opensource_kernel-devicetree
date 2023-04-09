@@ -1,10 +1,10 @@
-#include "katmai.dtsi"
+#include "katmai-fp2.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. KATMAIP SoC";
+	model = "Qualcomm Technologies, Inc. KATMAIP-FP2 SoC";
 	compatible = "qcom,yupikp-iot";
 	qcom,msm-id = <575 0x10000>;
-	qcom,softsku-id = <1>;
+	qcom,softsku-id = <2>;
 };
 
 &soc {
