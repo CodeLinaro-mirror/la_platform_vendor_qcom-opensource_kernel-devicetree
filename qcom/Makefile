@@ -304,7 +304,11 @@ dtb-$(CONFIG_ARCH_YUPIK) += yupik-rumi.dtb \
 	katmaip-hsp.dtb \
 	katmai-hsp-pm7250b.dtb \
 	katmaip-hsp-pm7250b.dtb \
-	katmaip-idps-amoled.dtb
+	katmaip-idps-amoled.dtb \
+	katmai-iot-odk-lcd.dtb \
+	katmai-iot-odk-hdmi.dtb \
+	katmai-fp2-iot-odk-lcd.dtb \
+	katmai-fp2-iot-odk-hdmi.dtb
 endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
