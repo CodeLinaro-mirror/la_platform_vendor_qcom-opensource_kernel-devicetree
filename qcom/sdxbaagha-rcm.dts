@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxbaagha.dtsi"
+#include "sdxbaagha-rcm.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXBAAGHA RCM";
+	compatible = "qcom,sdxbaagha-rcm",
+		"qcom,sdxbaagha", "qcom,rcm";
+	qcom,board-id = <0x10015 0x202>, <0x10015 0x102>;
+};

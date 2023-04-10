@@ -334,6 +334,7 @@ endif
 
 sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
 	sdxbaagha-qmp.dtb \
+	sdxbaagha-rcm.dtb \
 	sdxbaagha-qmp-rome.dtb \
 	sdxbaagha-qmp-pcie.dtb \
 	sdxbaagha-qmp-usb.dtb \
