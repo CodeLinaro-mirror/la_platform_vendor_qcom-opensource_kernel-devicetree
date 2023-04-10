@@ -210,17 +210,20 @@ dtbo-$(CONFIG_ARCH_YUPIK) +=    \
 	yupikp-idps-digital-mics-overlay.dtbo \
 	yupikp-idps-amoled-overlay.dtbo \
 	yupik-iot-idp-overlay.dtbo \
-	yupik-iot-idp-pm7250b-overlay.dtbo \
-	yupik-iot-hsp-pm7250b-overlay.dtbo \
 	yupik-iot-qrd-overlay.dtbo \
 	yupik-iot-hsp-overlay.dtbo \
+	yupik-iot-idp-pm7250b-overlay.dtbo \
+	yupik-iot-hsp-pm7250b-overlay.dtbo \
 	yupik-iot-idps-amoled-overlay.dtbo \
 	yupikp-iot-idp-overlay.dtbo \
 	yupikp-iot-idp-pm7250b-overlay.dtbo \
 	yupikp-iot-hsp-pm7250b-overlay.dtbo \
 	yupikp-iot-qrd-overlay.dtbo \
 	yupikp-iot-hsp-overlay.dtbo \
-	yupikp-iot-idps-amoled-overlay.dtbo
+	katmai-hsp-overlay.dtbo \
+	katmaip-hsp-overlay.dtbo \
+	katmai-hsp-pm7250b-overlay.dtbo \
+	katmaip-hsp-pm7250b-overlay.dtbo
 
 
 yupik-rumi-overlay.dtbo-base := yupik.dtb
@@ -239,14 +242,18 @@ yupikp-idp-hsp-overlay.dtbo-base := yupikp-hsp.dtb
 yupik-iot-idp-overlay.dtbo-base := yupik-iot.dtb katmai.dtb
 yupik-iot-idp-pm7250b-overlay.dtbo-base := yupik-iot.dtb katmai.dtb
 yupik-iot-qrd-overlay.dtbo-base := yupik-iot.dtb katmai.dtb
-yupik-iot-hsp-overlay.dtbo-base := yupik-iot.dtb katmai.dtb
-yupik-iot-hsp-pm7250b-overlay.dtbo-base := yupik-iot.dtb katmai.dtb
-yupik-iot-idps-amoled-overlay.dtbo-base := yupik-iot.dtb katmai.dtb
+yupik-iot-hsp-overlay.dtbo-base := yupik-iot.dtb
+katmai-hsp-overlay.dtbo-base :=  katmai.dtb
+yupik-iot-hsp-pm7250b-overlay.dtbo-base := yupik-iot.dtb
+katmai-hsp-pm7250b-overlay.dtbo-base :=  katmai.dtb
+yupik-iot-idps-amoled-overlay.dtbo-base := katmai.dtb
 yupikp-iot-idp-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb
 yupikp-iot-idp-pm7250b-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb
 yupikp-iot-qrd-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb
-yupikp-iot-hsp-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb
-yupikp-iot-hsp-pm7250b-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb
+yupikp-iot-hsp-overlay.dtbo-base := yupikp-iot.dtb
+katmaip-hsp-overlay.dtbo-base := katmaip.dtb
+yupikp-iot-hsp-pm7250b-overlay.dtbo-base := yupikp-iot.dtb
+katmaip-hsp-pm7250b-overlay.dtbo-base := katmaip.dtb
 yupikp-iot-idps-amoled-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb
 else
 dtb-$(CONFIG_ARCH_YUPIK) += yupik-rumi.dtb \
