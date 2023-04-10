@@ -210,10 +210,14 @@ dtbo-$(CONFIG_ARCH_YUPIK) +=    \
 	yupikp-idps-digital-mics-overlay.dtbo \
 	yupikp-idps-amoled-overlay.dtbo \
 	yupik-iot-idp-overlay.dtbo \
+	yupik-iot-idp-pm7250b-overlay.dtbo \
+	yupik-iot-hsp-pm7250b-overlay.dtbo \
 	yupik-iot-qrd-overlay.dtbo \
 	yupik-iot-hsp-overlay.dtbo \
 	yupik-iot-idps-amoled-overlay.dtbo \
 	yupikp-iot-idp-overlay.dtbo \
+	yupikp-iot-idp-pm7250b-overlay.dtbo \
+	yupikp-iot-hsp-pm7250b-overlay.dtbo \
 	yupikp-iot-qrd-overlay.dtbo \
 	yupikp-iot-hsp-overlay.dtbo \
 	yupikp-iot-idps-amoled-overlay.dtbo
@@ -232,10 +236,14 @@ yupikp-qrd-overlay.dtbo-base := yupikp.dtb
 yupikp-idps-digital-mics-overlay.dtbo-base := yupikp.dtb
 yupikp-idps-amoled-overlay.dtbo-base := yupikp.dtb
 yupik-iot-idp-overlay.dtbo-base := yupik-iot.dtb
+yupik-iot-idp-pm7250b-overlay.dtbo-base := yupik-iot.dtb
+yupik-iot-hsp-pm7250b-overlay.dtbo-base := yupik-iot.dtb
 yupik-iot-qrd-overlay.dtbo-base := yupik-iot.dtb
 yupik-iot-hsp-overlay.dtbo-base := yupik-iot.dtb
 yupik-iot-idps-amoled-overlay.dtbo-base := yupik-iot.dtb
 yupikp-iot-idp-overlay.dtbo-base := yupikp-iot.dtb
+yupikp-iot-idp-pm7250b-overlay.dtbo-base := yupikp-iot.dtb
+yupikp-iot-hsp-pm7250b-overlay.dtbo-base := yupikp-iot.dtb
 yupikp-iot-qrd-overlay.dtbo-base := yupikp-iot.dtb
 yupikp-iot-hsp-overlay.dtbo-base := yupikp-iot.dtb
 yupikp-iot-idps-amoled-overlay.dtbo-base := yupikp-iot.dtb
@@ -253,12 +261,16 @@ dtb-$(CONFIG_ARCH_YUPIK) += yupik-rumi.dtb \
 	yupikp-idps-digital-mics.dtb \
 	yupikp-idps-amoled.dtb \
 	yupik-iot-idp.dtb \
+	yupik-iot-idp-pm7250b.dtb \
+	yupik-iot-hsp-pm7250b.dtb \
 	yupik-iot-qrd.dtb \
 	yupik-iot-hsp.dtb \
 	yupik-iot-odk.dtb \
 	yupik-iot-odk-lcd.dtb \
 	yupik-iot-idps-amoled.dtb \
 	yupikp-iot-idp.dtb \
+	yupikp-iot-idp-pm7250b.dtb \
+	yupikp-iot-hsp-pm7250b.dtb \
 	yupikp-iot-qrd.dtb \
 	yupikp-iot-hsp.dtb \
 	yupikp-iot-idps-amoled.dtb
