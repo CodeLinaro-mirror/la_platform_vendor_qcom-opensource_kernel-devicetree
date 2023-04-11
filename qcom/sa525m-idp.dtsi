@@ -192,9 +192,10 @@
 
 		queue0 {
 			snps,dcb-algorithm;
-			snps,map-to-dma-channel = <0x0>;
 			snps,route-up;
 			snps,threshold_byte = <64>;
+			qcom,ipa_offload;
+			snps,map-to-dma-channel = <0x1>;
 		};
 
 		queue1 {
@@ -222,6 +223,7 @@
 
 		queue0 {
 			snps,dcb-algorithm;
+			qcom,ipa_offload;
 		};
 
 		queue1 {
