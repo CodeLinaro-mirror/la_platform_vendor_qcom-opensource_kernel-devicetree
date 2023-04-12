@@ -11,6 +11,11 @@
 		interrupt-names = "uplow","critical";
 		#thermal-sensor-cells = <1>;
 	};
+
+	qcom,cpufreq-cdev {
+		compatible = "qcom,cpufreq-cdev";
+		qcom,cpus = <&CPU0>;
+	};
 };
 
 #include "sdxbaagha-thermal-modem.dtsi"
@@ -84,10 +89,45 @@
 				type = "passive";
 			};
 
+			cpuss_0_config0: active-config0 {
+				temperature = <95000>;
+				hysteresis = <2000>;
+				type = "passive";
+			};
+
+			cpuss_0_config1: active-config1 {
+				temperature = <97000>;
+				hysteresis = <3000>;
+				type = "passive";
+			};
+
+			cpuss_0_config2: active-config2 {
+				temperature = <99000>;
+				hysteresis = <3000>;
+				type = "passive";
+			};
+
 			reset-mon-cfg {
 				temperature = <115000>;
 				hysteresis = <5000>;
 				type = "passive";
+			};
+		};
+
+		cooling-maps {
+			cpu_cdev0 {
+				trip = <&cpuss_0_config0>;
+				cooling-device = <&CPU0 1 1>;
+			};
+
+			cpu_cdev1 {
+				trip = <&cpuss_0_config1>;
+				cooling-device = <&CPU0 2 2>;
+			};
+
+			cpu_cdev2 {
+				trip = <&cpuss_0_config2>;
+				cooling-device = <&CPU0 3 3>;
 			};
 		};
 	};
