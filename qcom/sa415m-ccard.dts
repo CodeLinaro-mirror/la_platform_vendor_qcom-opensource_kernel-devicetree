@@ -21,6 +21,11 @@
 			qcom,pid = <0x90b7>;
 			qcom,composition = "diag.diag,cser.dun.0,gsi.rmnet,gsi.dpl";
 		};
+
+		composition3 {
+			qcom,pid = <0x9057>;
+			qcom,composition = "gsi.rndis|gsi.ecm";
+		};
 	};
 };
 
