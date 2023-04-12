@@ -104,7 +104,7 @@
 		reg = <0x0 0x87f71000 0x0 0x4000>;
 	};
 
-	uefi_log_mem: uefi_log_region@87f75000 {
+	uefi_log: uefi_log@87f75000 {
 		no-map;
 		reg = <0x0 0x87f75000 0x0 0x10000>;
 	};
