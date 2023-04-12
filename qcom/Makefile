@@ -543,7 +543,8 @@ dtb-$(CONFIG_ARCH_SA515M) += sa515m-ccard.dtb \
 	sa515m-v2-ttp-usb-ep.dtb \
 	sa515m-v2-ttp.dtb \
 	sa515m-v2-cdp-usb-ep.dtb \
-	sa515m-v2-dsda-cdp.dtb
+	sa515m-v2-dsda-cdp.dtb \
+	sa515m-v2-dsda-dual-nand-recovery-cdp.dtb
 
 dtb-$(CONFIG_ARCH_SA415M) += sa415m-ccard.dtb \
 	sa415m-ccard-usb-ep.dtb \
