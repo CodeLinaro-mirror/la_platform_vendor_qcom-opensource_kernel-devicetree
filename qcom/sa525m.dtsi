@@ -9,6 +9,14 @@
 	};
 };
 
+&qseecom_user_contig_heap {
+	status = "disabled";
+};
+
+&user_contig_mem {
+	status = "disabled";
+};
+
 &qnand_1 {
 	status = "ok";
 };
