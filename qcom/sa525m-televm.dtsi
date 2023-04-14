@@ -240,3 +240,4 @@
 };
 
 #include "msm-arm-smmu-sdxpinn-vm.dtsi"
+#include "sdxpinn-vm-dma-heaps.dtsi"
