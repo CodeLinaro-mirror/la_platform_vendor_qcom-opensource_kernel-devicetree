@@ -73,6 +73,10 @@
 	};
 };
 
+&tmc_etr {
+	sw_usb_buf_size = <0x400000>;
+};
+
 &tlmm {
 	hsm-rst-hog {
 		gpio-hog;
