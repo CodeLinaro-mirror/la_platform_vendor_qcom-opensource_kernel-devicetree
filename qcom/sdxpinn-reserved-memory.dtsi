@@ -23,21 +23,6 @@
 		reg = <0x0 0x81380000 0x0 0x80000>;
 	};
 
-	uefi_ext_mem: uefi_ext_region@87100000 {
-		no-map;
-		reg = <0x0 0x87100000 0x0 0x400000>;
-	};
-
-	uefi_apps_mem: uefi_apps_region@87500000 {
-		no-map;
-		reg = <0x0 0x87500000 0x0 0x400000>;
-	};
-
-	abl_mem: abl_region@87900000 {
-		no-map;
-		reg = <0x0 0x87900000 0x0 0x100000>;
-	};
-
 	xbl_ramdump_mem: xbl_ramdump_region@87a00000 {
 		no-map;
 		reg = <0x0 0x87a00000 0x0 0x1c0000>;
