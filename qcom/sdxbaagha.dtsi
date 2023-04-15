@@ -1515,9 +1515,8 @@
 				<&gcc GCC_EMAC0_SLV_AHB_CLK>,
 				<&gcc GCC_EMAC0_PTP_CLK>,
 				<&gcc GCC_EMAC0_PHY_AUX_CLK>,
-				<&gcc GCC_EMAC_0_CLKREF_EN>,
-				<&gcc GCC_EMAC0_RGMII_CLK>;
-		clock-names = "stmmaceth", "pclk", "ptp_ref", "phyaux", "sgmi_ref", "rgmii";
+				<&gcc GCC_EMAC_0_CLKREF_EN>;
+		clock-names = "stmmaceth", "pclk", "ptp_ref", "phyaux", "sgmi_ref";
 		snps,ptp-ref-clk-rate = <250000000>;
 		snps,ptp-req-clk-rate = <96000000>;
 		interrupts-extended = <&intc GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>;
