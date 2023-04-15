@@ -106,7 +106,7 @@
 		usecase4_apps_secure {
 			compatible = "qcom,iommu-debug-usecase";
 			iommus = <&apps_smmu 0x3e0 0x0>;
-			qcom,iommu-vmid = <0xa>; /* VMID_CP_PIXEL */
+			qcom,iommu-vmid = <0x2d>; /* VMID_TUIVM */
 		};
 	};
 };
