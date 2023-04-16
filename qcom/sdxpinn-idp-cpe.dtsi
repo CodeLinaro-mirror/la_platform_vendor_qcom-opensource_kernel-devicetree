@@ -140,6 +140,8 @@
 
 		interrupt-names = "macirq", "eth_lpi", "phy-intr";
 
+		vreg_a_sgmii_1p2-supply = <&L1B>;
+		vreg_a_sgmii_0p9-supply = <&L4B>;
 		gdsc_emac-supply = <&gcc_emac1_gdsc>;
 		pinctrl-names = "dev-emac1_mdc","dev-emac1_mdio","dev-emac1_pin_phy_intr",
 		"dev-emac1_phy_reset_state";
