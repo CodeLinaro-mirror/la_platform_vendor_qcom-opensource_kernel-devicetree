@@ -322,6 +322,8 @@
 		snps,phy1_reset-gpio = <&tlmm 96 GPIO_ACTIVE_LOW>;
 		snps,phy1-reset-delays-us = <1000 100000 221000>;
 
+
+		qcom,ioss_auto_resume_disabled;
 		fixed-link {
 			status = "disabled";
 			speed = <2500>;
