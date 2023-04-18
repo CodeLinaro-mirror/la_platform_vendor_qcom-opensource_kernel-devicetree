@@ -124,6 +124,12 @@
 		interrupts = <35 IRQ_TYPE_EDGE_RISING>;
 		status = "okay";
 	};
+
+	mini_dump_mode {
+		compatible = "qcom,minidump";
+		status = "ok";
+	};
+
 };
 
 &tmc_etr {
