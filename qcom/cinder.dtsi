@@ -1269,6 +1269,27 @@
 			<GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
 	};
 
+	qfprom: qfprom@221c8000 {
+		compatible = "qcom,qfprom";
+		reg = <0x221c8000 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+		read-only;
+		ranges;
+
+		pbl_ver: pbl_ver@0cf8 {
+			reg = <0x0cf8 0x4>;
+		};
+	};
+
+	qfprom_sys: qfprom@0 {
+		compatible = "qcom,qfprom-sys";
+
+		nvmem-cells = <&pbl_ver>;
+		nvmem-cell-names = "pbl_ver";
+	};
+
+
 	pcie_ep: qcom,pcie@48020000 {
 		compatible = "qcom,pcie-ep";
 			reg = <0x48020000 0x100>,
