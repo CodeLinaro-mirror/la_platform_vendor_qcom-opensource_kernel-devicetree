@@ -571,7 +571,6 @@
 	status = "ok";
 	qcom,boot-option = <0x0>;
 	qcom,ep-gpio = <&tlmm 138 0>;
-	qcom,no-l1ss-supported;
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&pcie1_perst_default
 			&pcie1_clkreq_default
