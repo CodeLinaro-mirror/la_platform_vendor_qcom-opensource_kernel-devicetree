@@ -171,12 +171,14 @@
 		eth-c45-mdio-probe;
 		snps,axi-config = <&stmmac_axi_setup>;
 
-		/* Valid values for usxgmii-mode:
-		 * 10000: 10G mode
-		 * 5000: 5G mode
-		 * 2500: 2.5G mode
-		 */
-		usxgmii-mode = <10000>;
+		serdes-config {
+			/* Valid values for usxgmii-mode:
+			 * 10000: 10G mode
+			 * 5000: 5G mode
+			 * 2500: 2.5G mode
+			 */
+			usxgmii-mode = <10000>;
+		};
 
 	};
 };
@@ -194,13 +196,6 @@
 	phy-mode = "usxgmii";
 	managed = "auto";
 	eth-c45-mdio-probe;
-
-	/* Valid values for usxgmii-mode:
-	 * 10000: 10G mode
-	 * 5000: 5G mode
-	 * 2500: 2.5G mode
-	 */
-	usxgmii-mode = <10000>;
 };
 
 &sdhc_1 {
