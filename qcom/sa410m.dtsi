@@ -234,6 +234,11 @@
 		reg = <0x0 0x45d00000 0x0 0x200000>;
 	};
 
+	uefi_log: uefi_log@45ff7000 {
+		no-map;
+		reg = <0x0 0x45ff7000 0x0 0x8000>;
+	};
+
 	sec_apps_mem: sec_apps_region@45fff000 {
 		no-map;
 		reg = <0x0 0x45fff000 0x0 0x1000>;
