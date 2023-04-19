@@ -28,5 +28,10 @@
 		size = <0x0 0x400000>;
 	};
 
+	trusted_apps_mem: trusted_apps_region@81780000 {
+		no-map;
+		reg = <0x0 0x81780000 0x0 0xc00000>;
+	};
+
 };
 
