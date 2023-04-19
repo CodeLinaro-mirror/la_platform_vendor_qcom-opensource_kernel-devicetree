@@ -149,6 +149,8 @@
 		pinctrl-2 = <&emac1_pin_phy_intr>;
 		pinctrl-3 = <&emac1_phy_reset_state>;
 
+		vreg_a_sgmii_1p2-supply = <&L1B>;
+		vreg_a_sgmii_0p9-supply = <&L4B>;
 		vreg_emac_phy-supply = <&napa_vreg>;
 		qcom,phy-intr-redirect = <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
 		snps,reset= <&tlmm 108 1>;

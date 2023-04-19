@@ -1457,6 +1457,8 @@
 		<&tlmm 97 IRQ_TYPE_EDGE_FALLING>;
 		interrupt-names = "macirq", "phy-intr";
 
+		vreg_a_sgmii_1p2-supply = <&L1B>;
+		vreg_a_sgmii_0p9-supply = <&L4B>;
 		gdsc_emac-supply = <&gcc_emac0_gdsc>;
 		pinctrl-names = "dev-emac0_mdc","dev-emac0_mdio","dev-emac0_pin_phy_intr",
 		"dev-emac0_phy_reset_state";
