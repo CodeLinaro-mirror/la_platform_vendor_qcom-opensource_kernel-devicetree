@@ -1,7 +1,7 @@
 &reserved_memory {
 	mpssadsp_mem: mpssadsp_region@8e000000 {
 		no-map;
-		reg = <0x0 0x8e000000 0x0 0x12200000>;
+		reg = <0x0 0x8e000000 0x0 0x10800000>;
 	};
 
 	user_contig_mem: user_contig_region {
