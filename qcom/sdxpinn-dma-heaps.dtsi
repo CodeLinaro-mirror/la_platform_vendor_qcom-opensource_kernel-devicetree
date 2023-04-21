@@ -4,7 +4,7 @@
 	qcom,dma-heaps {
 		compatible = "qcom,dma-heaps";
 
-		qcom,user_contig {
+		qseecom_user_contig_heap: qcom,user_contig {
 			qcom,dma-heap-name = "qcom,user-contig";
 			qcom,dma-heap-type = <HEAP_TYPE_CMA>;
 			memory-region = <&user_contig_mem>;
