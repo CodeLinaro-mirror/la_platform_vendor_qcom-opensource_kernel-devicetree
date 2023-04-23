@@ -794,7 +794,7 @@
 			<1057800 725760>;
 
 		iommus = <&apps_smmu 0x160 0x3>;
-		qcom,iommu-dma = "bypass";
+		qcom,iommu-dma = "atomic";
 
 		status = "disabled";
 	};
