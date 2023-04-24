@@ -324,7 +324,7 @@
 			qcom,vdd-wlan-rfa1-info = <1370000 1370000 0 0>;
 			qcom,vdd-wlan-rfa3-info = <1904000 1904000 450000 0>;
 
-			qcom,wlan-ramdump-dynamic = <0x400000>;
+			qcom,wlan-ramdump-dynamic = <0x480000>;
 			mhi,max-channels = <30>;
 			mhi,buffer-len = <0x8000>;
 			mhi,timeout = <10000>;
