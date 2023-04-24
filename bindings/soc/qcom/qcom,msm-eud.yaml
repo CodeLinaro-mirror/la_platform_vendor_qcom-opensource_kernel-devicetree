@@ -17,8 +17,9 @@ description: |+
 properties:
   compatible:
     Usage: required
-    Value type: <string>
-    Definition: Must be "qcom,msm-eud"
+    enum:
+      - qcom,msm-eud
+      - qcom,msm-eud-sdxpinn
 
   reg:
     Usage: required
