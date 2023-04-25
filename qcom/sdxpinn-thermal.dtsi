@@ -72,6 +72,22 @@
 		compatible = "qcom,cpufreq-cdev";
 		qcom,cpus = <&CPU0>;
 	};
+
+	userspace_cdev: qcom,userspace-cdev {
+		compatible = "qcom,userspace-cooling-devices";
+
+		ethernet_usxgmii: ethernet-usxgmii {
+			/* Levels: USXGMII 10G, SGMII 2.5G, SGMII 1G */
+			qcom,max-level = <2>;
+			#cooling-cells = <2>;
+		};
+
+		ethernet_sgmii: ethernet-sgmii {
+			/* Levels: SGMII 2.5G, SGMII 1G */
+			qcom,max-level = <1>;
+			#cooling-cells = <2>;
+		};
+	};
 };
 
 #include "sdxpinn-thermal-modem.dtsi"
@@ -271,6 +287,41 @@
 				temperature = <115000>;
 				hysteresis = <5000>;
 				type = "passive";
+			};
+
+			eth_usxgmii1: eth-config1 {
+				temperature = <130000>;
+				hysteresis = <1000>;
+				type = "passive";
+			};
+
+			eth_usxgmii2: eth-config2 {
+				temperature = <130000>;
+				hysteresis = <1000>;
+				type = "passive";
+			};
+
+			eth_sgmii: eth-config3 {
+				temperature = <130000>;
+				hysteresis = <1000>;
+				type = "passive";
+			};
+		};
+
+		cooling-maps {
+			eth_cdev_1 {
+				trip = <&eth_usxgmii1>;
+				cooling-device = <&ethernet_usxgmii 1 1>;
+			};
+
+			eth_cdev_2 {
+				trip = <&eth_usxgmii2>;
+				cooling-device = <&ethernet_usxgmii 2 2>;
+			};
+
+			eth_cdev_3 {
+				trip = <&eth_sgmii>;
+				cooling-device = <&ethernet_sgmii 1 1>;
 			};
 		};
 	};
