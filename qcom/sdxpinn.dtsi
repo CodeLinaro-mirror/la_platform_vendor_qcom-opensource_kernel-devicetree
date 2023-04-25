@@ -1308,7 +1308,7 @@
 	};
 
 	eud: qcom,msm-eud@ff0000 {
-		compatible = "qcom,msm-eud";
+		compatible = "qcom,msm-eud-sdxpinn";
 		interrupt-names = "eud_irq";
 		interrupt-parent = <&pdc>;
 		interrupts = <6 IRQ_TYPE_LEVEL_HIGH>;
