@@ -115,3 +115,7 @@
 &stm {
 	status = "disabled";
 };
+
+&gcc {
+	/delete-property/ protected-clocks;
+};
