@@ -33,7 +33,7 @@
 		qcom,dir-rx;
 		qcom,rx-filter-be;
 
-		qcom,ring-size = <1023>;
+		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
 
 		qcom,mod-count-min = <64>;
@@ -44,7 +44,7 @@
 
 	ioss_eth1_tx: iemac_tx@eth1 {
 		qcom,dir-tx;
-		qcom,ring-size = <1023>;
+		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
 
 		qcom,mod-count-min = <64>;
