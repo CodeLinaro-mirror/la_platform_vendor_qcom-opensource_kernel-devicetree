@@ -71,7 +71,8 @@
 
 		queue0 {
 			snps,dcb-algorithm;
-			snps,map-to-dma-channel = <0x0>;
+			snps,map-to-dma-channel = <0x1>;
+			qcom,ipa_offload;
 		};
 
 		queue1 {
@@ -85,6 +86,7 @@
 		snps,tx-sched-sp;
 		queue0 {
 			snps,dcb-algorithm;
+			qcom,ipa_offload;
 		};
 
 		queue1 {
