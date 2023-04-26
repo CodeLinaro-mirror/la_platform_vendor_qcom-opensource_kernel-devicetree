@@ -1462,33 +1462,51 @@
 		regulator-enable-ramp-delay = <80000>;
 	};
 
+	ioss: qcom,ioss {
+		compatible = "qcom,ioss-v2";
+		qcom,max-ddr-bandwidth = <1000>;
+	};
+
+	ioss_eth_rx: iemac_rx@eth {
+		qcom,dir-rx;
+		qcom,rx-filter-be;
+
+		qcom,ring-size = <256>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth_tx: iemac_tx@eth {
+		qcom,dir-tx;
+		qcom,ring-size = <256>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
 	mtl_rx_setup: rx-queues-config {
 		snps,rx-queues-to-use = <2>;
 		snps,rx-sched-sp;
 
 		queue0 {
 			snps,dcb-algorithm;
-			snps,map-to-dma-channel = <0x0>;
 			snps,route-up;
 			snps,priority = <0x1>;
+			qcom,ipa_offload;
+			snps,map-to-dma-channel = <0x1>;
 		};
 
 		queue1 {
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x1>;
 			snps,route-ptp;
-		};
-
-		queue2 {
-			snps,avb-algorithm;
-			snps,map-to-dma-channel = <0x2>;
-			snps,route-avcp;
-		};
-
-		queue3 {
-			snps,avb-algorithm;
-			snps,map-to-dma-channel = <0x3>;
-			snps,priority = <0xC>;
 		};
 	};
 
@@ -1497,33 +1515,26 @@
 		snps,tx-sched-sp;
 		queue0 {
 			snps,dcb-algorithm;
+			qcom,ipa_offload;
 		};
 
 		queue1 {
 			snps,dcb-algorithm;
 		};
-
-		queue2 {
-			snps,avb-algorithm;
-			snps,send_slope = <0x1000>;
-			snps,idle_slope = <0x1000>;
-			snps,high_credit = <0x3E800>;
-			snps,low_credit = <0xFFC18000>;
-		};
-
-		queue3 {
-			snps,avb-algorithm;
-			snps,send_slope = <0x1000>;
-			snps,idle_slope = <0x1000>;
-			snps,high_credit = <0x3E800>;
-			snps,low_credit = <0xFFC18000>;
-		};
-
 	};
 
 	ethqos_hw: qcom,ethernet@23040000 {
-		compatible = "qcom,stmmac-ethqos", "snps,dwmac-4.20a";
+		compatible = "qcom,stmmac-ethqos", "snps,dwmac-4.20a", "qcom,ioss-v2-device";
 		qcom,arm-smmu;
+		qcom,ioss = <&ioss>;
+		qcom,ioss_instance = <0>;
+		qcom,iommu-group = <&ipa_eth_group1>;
+		iommus = <&apps_smmu 0x100 0xf>;
+
+		qcom,ioss_channels =
+			<&ioss_eth_rx>,
+			<&ioss_eth_tx>;
+
 		reg = <0x23040000 0x10000>,
 				<0x23056000 0x100>,
 				<0x00FF6000 0xE10>;
@@ -1575,14 +1586,6 @@
 		interconnect-names = "axi_icc_path", "apb_icc_path";
 		interconnects = <&aggre_noc MASTER_EMAC &mc_virt SLAVE_EBI1>,
 				<&mem_noc MASTER_APPSS_PROC &cnoc_main SLAVE_EMAC_CFG>;
-
-		ethqos_emb_smmu: ethqos_emb_smmu {
-			compatible = "qcom,emac-smmu-embedded";
-			iommus = <&apps_smmu 0x100 0xf>;
-			qcom,iommu-dma = "fastmap";
-			qcom,iommu-dma-addr-pool = <0x80000000 0x0FE40000>;
-			qcom,iommu-geometry = <0x80000000 0x0FE40000>;
-		};
 	};
 };
 
