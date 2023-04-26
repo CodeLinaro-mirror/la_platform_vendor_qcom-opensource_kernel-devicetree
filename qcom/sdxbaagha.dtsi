@@ -110,9 +110,9 @@
 			reg = <0x82500000 0x180000>;
 		};
 
-		trusted_apps_mem: trusted_apps_region@82700000 {
+		trusted_apps_mem: trusted_apps_region@82680000 {
 			no-map;
-			reg = <0x82700000 0x400000>;
+			reg = <0x82680000 0x600000>;
 		};
 
 		mpss_audio_mem: mpss_audio_region@82e00000 {
