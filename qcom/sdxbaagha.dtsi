@@ -82,12 +82,17 @@
 
 		access_control_db_mem: access_control_db_region@82384000 {
 			no-map;
-			reg = <0x82384000 0x20000>;
+			reg = <0x82384000 0x40000>;
 		};
 
-		secdata_mem: secdata_region@823a4000 {
+		secdata_mem: secdata_region@823c4000 {
 			no-map;
-			reg = <0x823a4000 0x1000>;
+			reg = <0x823c4000 0x1000>;
+		};
+
+		modem_efs_mem: modem_efs_region@823c5000 {
+			no-map;
+			reg = <0x823c5000 0x10000>;
 		};
 
 		cpucp_fw_mem: cpucp_fw_region@82400000 {
@@ -115,20 +120,15 @@
 			reg = <0x82700000 0x400000>;
 		};
 
-		qdss_mem: qdss_region@82b00000 {
-			no-map;
-			reg = <0x82b00000 0x300000>;
-		};
-
 		mpss_audio_mem: mpss_audio_region@82e00000 {
 			no-map;
-			reg = <0x82e00000 0x6400000>;
+			reg = <0x82e00000 0x5000000>;
 		};
 
-		audio_heap_mem: audio_heap_region@89e00000 {
+		audio_heap_mem: audio_heap_region@88000000 {
 			compatible = "shared-dma-pool";
 			no-map;
-			reg = <0x89e00000 0x400000>;
+			reg = <0x88000000 0x400000>;
 		};
 
 		/* global autoconfigured region for contiguous allocations */
