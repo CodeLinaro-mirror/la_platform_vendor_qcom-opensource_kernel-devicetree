@@ -1,4 +1,6 @@
 #include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/clock/qcom,gcc-sdxpinn.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
 
 / {
 	#address-cells = <0x2>;
@@ -8,6 +10,10 @@
 
 	chosen {
 		 bootargs = "nokaslr log_buf_len=256K root=/dev/ram rw init=/init console=hvc0 loglevel=8";
+	};
+
+	aliases {
+		spi6 = &qupv3_se6_spi;
 	};
 
 	reserved_memory: reserved-memory {
@@ -73,6 +79,10 @@
 		qcom,pasid = <0x0 0x1c>;
 		qcom,qtee-config-info = "p=57,77,78,7C,8F,97,159,199,47E,7F1;";
 
+		iomemory-ranges = <0x0 0x928000 0x0 0x928000 0x0 0x4000 0x0
+				   0x0 0x998000 0x0 0x998000 0x0 0x4000 0x0>;
+
+		gic-irq-ranges = <383 383>; /* PVM->SVM IRQ transfer */
 		memory {
 			#address-cells = <0x2>;
 			#size-cells = <0x0>;
@@ -176,6 +186,18 @@
 					allocate-base;
 				};
 			};
+
+			gpiomem0 {
+				vdevice-type = "iomem";
+				patch = "/soc/tlmm-vm-mem-access";
+				push-compatible = "qcom,tlmm-vm-mem-access";
+				peer-default;
+				memory {
+					qcom,label = <0x8>;
+					qcom,mem-info-tag = <0x3>;
+					allocate-base;
+				};
+			};
 		};
 	};
 
@@ -197,6 +219,13 @@
 	psci {
 		compatible = "arm,psci-1.0";
 		method = "smc";
+	};
+
+	gcc: clock-controller@80000 {
+		compatible = "qcom,dummycc";
+		clock-output-names = "gcc_clocks";
+		#clock-cells = <1>;
+		#reset-cells = <1>;
 	};
 
 	vgic: interrupt-controller@17200000 {
@@ -244,7 +273,168 @@
 		qcom,custom-bridge-size = <64>;
 		qcom,support-hypervisor;
 	};
+	qup_iommu_group: qup_common_iommu_group {
+		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+	};
 
+	 /* GPI Instance */
+	gpi_dma0: qcom,gpi-dma@900000  {
+		compatible = "qcom,gpi-dma";
+		#dma-cells = <5>;
+		reg = <0x900000  0x60000>;
+		reg-names = "gpi-top";
+		iommus = <&apps_smmu 0xf8 0x0>;
+		qcom,max-num-gpii = <12>;
+		interrupts = <GIC_SPI 345 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 346 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 347 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 348 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 349 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 350 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 351 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 352 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 353 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 354 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 355 IRQ_TYPE_LEVEL_HIGH>,
+			<GIC_SPI 356 IRQ_TYPE_LEVEL_HIGH>;
+		qcom,gpii-mask = <0x40>;
+		qcom,iommu-group = <&qup_iommu_group>;
+		qcom,ev-factor = <2>;
+		qcom,gpi-ee-offset = <0x10000>;
+		dma-coherent;
+		status = "ok";
+	};
+
+	/* QUPv3_0 wrapper instance */
+	qupv3_0: qcom,qupv3_0_geni_se@9c0000 {
+		compatible = "qcom,geni-se-qup";
+		reg = <0x9c0000 0x2000>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+		clock-names = "m-ahb", "s-ahb";
+		clocks = <&gcc GCC_QUPV3_WRAP_0_M_AHB_CLK>,
+			<&gcc GCC_QUPV3_WRAP_0_S_AHB_CLK>;
+		iommus = <&apps_smmu 0xf8 0x0>;
+		qcom,iommu-group = <&qup_iommu_group>;
+		dma-coherent;
+		ranges;
+		status = "ok";
+
+		qupv3_se6_spi: spi@998000 {
+			compatible = "qcom,spi-geni";
+			reg = <0x998000 0x4000>;
+			reg-names = "se_phys";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			dmas = <&gpi_dma0 0 6 1 64 0>,
+				<&gpi_dma0 1 6 1 64 0>;
+			dma-names = "tx", "rx";
+			spi-max-frequency = <50000000>;
+			qcom,le-vm;
+			status = "disabled";
+		};
+
+	};
+
+	pinctrl@f000000 {
+		qupv3_se6_spi_pins: qupv3_se6_spi_pins {
+			qupv3_se6_spi_miso_active: qupv3_se6_spi_miso_active {
+				mux {
+					pins = "gpio112";
+					function = "qup_se6_l0";
+				};
+
+				config {
+					pins = "gpio112";
+					drive-strength = <6>;
+					bias-pull-down;
+				};
+			};
+
+			qupv3_se6_spi_mosi_active: qupv3_se6_spi_mosi_active {
+				mux {
+					pins = "gpio113";
+					function = "qup_se6_l1";
+				};
+
+				config {
+					pins = "gpio113";
+					drive-strength = <6>;
+					bias-pull-down;
+				};
+			};
+
+			qupv3_se6_spi_clk_active: qupv3_se6_spi_clk_active {
+				mux {
+					pins = "gpio114";
+					function = "qup_se6_l2";
+				};
+
+				config {
+					pins = "gpio114";
+					drive-strength = <6>;
+					bias-pull-down;
+				};
+			};
+
+			qupv3_se6_spi_cs_active: qupv3_se6_spi_cs_active {
+				mux {
+					pins = "gpio115";
+					function = "qup_se6_l3";
+				};
+
+				config {
+					pins = "gpio115";
+					drive-strength = <6>;
+					bias-pull-down;
+				};
+			};
+
+			qupv3_se6_spi_sleep: qupv3_se6_spi_sleep {
+				mux {
+					pins = "gpio112", "gpio113",
+						"gpio114", "gpio115";
+					function = "gpio";
+				};
+
+				config {
+					pins = "gpio112", "gpio113",
+						"gpio114", "gpio115";
+					drive-strength = <2>;
+					bias-pull-down;
+				};
+			};
+		};
+	};
+
+
+	vm_tlmm_irq: vm-tlmm-irq@0 {
+		compatible = "qcom,tlmm-vm-irq";
+		reg = <0x0 0x0>;
+		interrupt-controller;
+		#interrupt-cells = <2>;
+	};
+
+	tlmm: pinctrl@f000000 {
+		compatible = "qcom,sdxpinn-vm-pinctrl";
+		reg = <0x0F000000 0x1000000>;
+		interrupts-extended = <&vm_tlmm_irq 1 IRQ_TYPE_LEVEL_HIGH>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		interrupt-controller;
+		#interrupt-cells = <2>;
+		/* Valid pins */
+		gpios = /bits/ 16 <102 112 113 114 115>;
+	};
+};
+
+&qupv3_se6_spi {
+	status = "ok";
+	spidev0: spidev@0 {
+		compatible = "qcom,spi-msm-codec-slave";
+		reg =<0>;
+		spi-max-frequency = <50000000>;
+	};
 };
 
 #include "msm-arm-smmu-sdxpinn-vm.dtsi"
