@@ -1529,8 +1529,9 @@
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 
 		vreg_emac_phy-supply = <&napa_vreg>;
-
 		gdsc_emac-supply = <&gcc_emac0_gdsc>;
+		vreg_a_sgmii_1p2-supply = <&L14A>;
+		vreg_a_sgmii_0p9-supply = <&L3A>;
 
 		phy-mode = "sgmii";
 		snps,reset-gpio = <&tlmm 97 1>;
