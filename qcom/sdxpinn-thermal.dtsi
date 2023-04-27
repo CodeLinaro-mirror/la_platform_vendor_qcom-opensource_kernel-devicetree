@@ -121,24 +121,6 @@
 				type = "passive";
 			};
 
-			cpuss_0_config0: active-config0 {
-				temperature = <95000>;
-				hysteresis = <2000>;
-				type = "passive";
-			};
-
-			cpuss_0_config1: active-config1 {
-				temperature = <97000>;
-				hysteresis = <3000>;
-				type = "passive";
-			};
-
-			cpuss_0_config2: active-config2 {
-				temperature = <99000>;
-				hysteresis = <3000>;
-				type = "passive";
-			};
-
 			cpuss_0_emerg: cpuss-0-emerg-cfg {
 				temperature = <110000>;
 				hysteresis = <10000>;
@@ -160,26 +142,11 @@
 
 		cooling-maps {
 			cpu_cdev0 {
-				trip = <&cpuss_0_config0>;
-				cooling-device = <&CPU0 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_0_config1>;
-				cooling-device = <&CPU0 2 2>;
-			};
-
-			cpu_cdev2 {
-				trip = <&cpuss_0_config2>;
-				cooling-device = <&CPU0 3 THERMAL_NO_LIMIT>;
-			};
-
-			cpu_cdev3 {
 				trip = <&cpuss_0_emerg>;
 				cooling-device = <&cpu0_pause 1 1>;
 			};
 
-			cpu_cdev4 {
+			cpu_cdev1 {
 				trip = <&cpuss_0_emerg1>;
 				cooling-device = <&cpu0_hotplug 1 1>;
 			};
@@ -194,24 +161,6 @@
 			thermal-engine-config {
 				temperature = <125000>;
 				hysteresis = <1000>;
-				type = "passive";
-			};
-
-			cpuss_1_config0: active-config0 {
-				temperature = <95000>;
-				hysteresis = <2000>;
-				type = "passive";
-			};
-
-			cpuss_1_config1: active-config1 {
-				temperature = <97000>;
-				hysteresis = <3000>;
-				type = "passive";
-			};
-
-			cpuss_1_config2: active-config2 {
-				temperature = <99000>;
-				hysteresis = <3000>;
 				type = "passive";
 			};
 
@@ -236,26 +185,11 @@
 
 		cooling-maps {
 			cpu_cdev0 {
-				trip = <&cpuss_1_config0>;
-				cooling-device = <&CPU0 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_1_config1>;
-				cooling-device = <&CPU0 2 2>;
-			};
-
-			cpu_cdev2 {
-				trip = <&cpuss_1_config2>;
-				cooling-device = <&CPU0 3 THERMAL_NO_LIMIT>;
-			};
-
-			cpu_cdev3 {
 				trip = <&cpuss_1_emerg>;
 				cooling-device = <&cpu1_pause 1 1>;
 			};
 
-			cpu_cdev4 {
+			cpu_cdev1 {
 				trip = <&cpuss_1_emerg1>;
 				cooling-device = <&cpu1_hotplug 1 1>;
 			};
@@ -270,24 +204,6 @@
 			thermal-engine-config {
 				temperature = <125000>;
 				hysteresis = <1000>;
-				type = "passive";
-			};
-
-			cpuss_2_config0: active-config0 {
-				temperature = <95000>;
-				hysteresis = <2000>;
-				type = "passive";
-			};
-
-			cpuss_2_config1: active-config1 {
-				temperature = <97000>;
-				hysteresis = <3000>;
-				type = "passive";
-			};
-
-			cpuss_2_config2: active-config2 {
-				temperature = <99000>;
-				hysteresis = <3000>;
 				type = "passive";
 			};
 
@@ -312,26 +228,11 @@
 
 		cooling-maps {
 			cpu_cdev0 {
-				trip = <&cpuss_2_config0>;
-				cooling-device = <&CPU0 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_2_config1>;
-				cooling-device = <&CPU0 2 2>;
-			};
-
-			cpu_cdev2 {
-				trip = <&cpuss_2_config2>;
-				cooling-device = <&CPU0 3 THERMAL_NO_LIMIT>;
-			};
-
-			cpu_cdev3 {
 				trip = <&cpuss_2_emerg>;
 				cooling-device = <&cpu2_pause 1 1>;
 			};
 
-			cpu_cdev4 {
+			cpu_cdev1 {
 				trip = <&cpuss_2_emerg1>;
 				cooling-device = <&cpu2_hotplug 1 1>;
 			};
@@ -348,25 +249,6 @@
 				hysteresis = <1000>;
 				type = "passive";
 			};
-
-			cpuss_3_config0: active-config0 {
-				temperature = <95000>;
-				hysteresis = <2000>;
-				type = "passive";
-			};
-
-			cpuss_3_config1: active-config1 {
-				temperature = <97000>;
-				hysteresis = <3000>;
-				type = "passive";
-			};
-
-			cpuss_3_config2: active-config2 {
-				temperature = <99000>;
-				hysteresis = <3000>;
-				type = "passive";
-			};
-
 
 			cpuss_3_emerg: cpuss-3-emerg-cfg {
 				temperature = <110000>;
@@ -389,26 +271,11 @@
 
 		cooling-maps {
 			cpu_cdev0 {
-				trip = <&cpuss_3_config0>;
-				cooling-device = <&CPU0 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_3_config1>;
-				cooling-device = <&CPU0 2 2>;
-			};
-
-			cpu_cdev2 {
-				trip = <&cpuss_3_config2>;
-				cooling-device = <&CPU0 3 THERMAL_NO_LIMIT>;
-			};
-
-			cpu_cdev3 {
 				trip = <&cpuss_3_emerg>;
 				cooling-device = <&cpu3_pause 1 1>;
 			};
 
-			cpu_cdev4 {
+			cpu_cdev1 {
 				trip = <&cpuss_3_emerg1>;
 				cooling-device = <&cpu3_hotplug 1 1>;
 			};
