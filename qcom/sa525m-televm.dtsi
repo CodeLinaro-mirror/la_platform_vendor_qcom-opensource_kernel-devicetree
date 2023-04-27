@@ -96,13 +96,17 @@
 		qcom,primary-vm-index = <0>;
 
 		iomemory-ranges = <0x0 0x928000 0x0 0x928000 0x0 0x4000 0x0
-				   0x0 0x998000 0x0 0x998000 0x0 0x4000 0x0>;
+				   0x0 0x998000 0x0 0x998000 0x0 0x4000 0x0
+				   0x0 0x23052000 0x0 0x23052000 0x0 0x1000 0x0
+				   0x0 0x2304C000 0x0 0x2304C000 0x0 0x1000 0x0>;
 
 		gic-irq-ranges = <383 383 // 351 QUPV3 GSI IRQ /* PVM->SVM IRQ transfer */
 				432 432 // 400 MVM
 				433 433 // 401 MVM
 				436 436 // 404 MVM
-				439 439>; // 407 MVM
+				439 439 // 407 MVM
+				483 483>;
+
 		memory {
 			#address-cells = <0x2>;
 			#size-cells = <0x0>;
@@ -194,6 +198,15 @@
 				queue-depth = <0x8>;
 				peer-default;
 				qcom,label = <0x14>;
+			};
+
+			eth-msgq {
+				vdevice-type = "message-queue-pair";
+				generate = "/hypervisor/geth-msgq-pair";
+				message-size = <0xf0>;
+				queue-depth = <0x8>;
+				peer-default;
+				qcom,label = <0x44>;
 			};
 
 			qrtr-shm {
@@ -456,6 +469,49 @@
 		pinctrl-0 = <&qupv3_se6_spi_mosi_active>, <&qupv3_se6_spi_miso_active>,
 			<&qupv3_se6_spi_clk_active>, <&qupv3_se6_spi_cs_active>;
 		pinctrl-1 = <&qupv3_se6_spi_sleep>;
+	};
+
+	mtl_rx_setup: rx-queues-config {
+		snps,rx-queues-to-use = <1>;
+		snps,rx-sched-sp;
+
+		queue {
+			snps,dcb-algorithm;
+			snps,priority = <0x1>;
+		};
+	};
+
+	mtl_tx_setup: tx-queues-config {
+		snps,tx-queues-to-use = <1>;
+		snps,tx-sched-sp;
+
+		queue {
+			snps,dcb-algorithm;
+		};
+	};
+
+	emac1_hw: qcom,ethernet@23040000 {
+		compatible = "qcom,stmmac-ethqos-emac1";
+
+		reg = <0x23040000 0x14000>;
+		reg-names = "stmmaceth";
+
+		interrupts-extended = <&vgic 0 451 1>;
+		interrupt-names = "tx_rx_ch4_intr";
+
+		iommus = <&apps_smmu 0x45 0x0>,
+			<&apps_smmu 0x4D 0x0>;
+		qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
+
+		snps,tso;
+		snps,pbl = <32>;
+		rx-fifo-depth = <4096>;
+		tx-fifo-depth = <4096>;
+		snps,mtl-rx-config = <&mtl_rx_setup>;
+		snps,mtl-tx-config = <&mtl_tx_setup>;
+		queue = <4>;
+
+		msgq-label = <0x44>;
 	};
 };
 
