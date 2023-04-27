@@ -99,7 +99,6 @@
 	pmx75_temp_alarm: pmx75_tz {
 		polling-delay-passive = <100>;
 		polling-delay = <0>;
-		thermal-governor = "step_wise";
 		thermal-sensors = <&pmx75_tz>;
 
 		trips {

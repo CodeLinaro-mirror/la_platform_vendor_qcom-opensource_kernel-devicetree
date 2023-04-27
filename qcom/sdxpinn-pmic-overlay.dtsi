@@ -368,7 +368,6 @@
 	pmg1110_temp_alarm: pmg1110_tz {
 		polling-delay-passive = <100>;
 		polling-delay = <0>;
-		thermal-governor = "step_wise";
 		thermal-sensors = <&pmg1110_tz>;
 
 		trips {
@@ -388,6 +387,35 @@
 				temperature = <145000>;
 				hysteresis = <0>;
 				type = "critical";
+			};
+		};
+	};
+
+	pmx75_tz {
+		cooling-maps {
+			pmx75_cpu1 {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&cpu1_pause 1 1>;
+			};
+
+			pmx75_cpu2 {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&cpu2_pause 1 1>;
+			};
+
+			pmx75_cpu3 {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&cpu3_pause 1 1>;
+			};
+
+			pmx75_lte {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&modem_lte_dsc 255 255>;
+			};
+
+			pmx75_nr {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&modem_nr_dsc 255 255>;
 			};
 		};
 	};
