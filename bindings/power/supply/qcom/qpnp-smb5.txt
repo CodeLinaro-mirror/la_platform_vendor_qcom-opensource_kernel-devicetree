@@ -402,6 +402,13 @@ Charger specific properties:
   Definition: Boolean flag which indicates if JETIA ARB handling when
 		Vjeita > Vbatt is enabled.
 
+- qcom,use-init-work
+  Usage:      optional
+  Value type: bool
+  Definition: Boolean flag which when present enables charger probe
+		optimization by moving initial status determination
+		and interrupt registration to a workqueue.
+
 =============================================
 Second Level Nodes - SMB5 Charger Peripherals
 =============================================
