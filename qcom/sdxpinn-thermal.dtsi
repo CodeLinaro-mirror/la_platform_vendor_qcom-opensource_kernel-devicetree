@@ -15,11 +15,6 @@
 	qcom,cpu-pause {
 		compatible = "qcom,thermal-pause";
 
-		cpu0_pause: cpu0-pause {
-			qcom,cpus = <&CPU0>;
-			#cooling-cells = <2>;
-		};
-
 		cpu1_pause: cpu1-pause {
 			qcom,cpus = <&CPU1>;
 			#cooling-cells = <2>;
@@ -36,11 +31,6 @@
 		};
 
 		/* Thermal-engine cooling devices */
-
-		pause-cpu0 {
-			qcom,cpus = <&CPU0>;
-			qcom,cdev-alias = "pause-cpu0";
-		};
 
 		pause-cpu1 {
 			qcom,cpus = <&CPU1>;
@@ -60,11 +50,6 @@
 
 	qcom,cpu-hotplug {
 		compatible = "qcom,cpu-hotplug";
-
-		cpu0_hotplug: cpu0-hotplug {
-			qcom,cpu = <&CPU0>;
-			#cooling-cells = <2>;
-		};
 
 		cpu1_hotplug: cpu1-hotplug {
 			qcom,cpu = <&CPU1>;
@@ -137,18 +122,6 @@
 				temperature = <115000>;
 				hysteresis = <5000>;
 				type = "passive";
-			};
-		};
-
-		cooling-maps {
-			cpu_cdev0 {
-				trip = <&cpuss_0_emerg>;
-				cooling-device = <&cpu0_pause 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_0_emerg1>;
-				cooling-device = <&cpu0_hotplug 1 1>;
 			};
 		};
 	};
