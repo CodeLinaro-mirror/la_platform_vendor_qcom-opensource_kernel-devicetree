@@ -2299,6 +2299,7 @@
 #include "msm-arm-smmu-sdxpinn.dtsi"
 #include "sdxpinn-dma-heaps.dtsi"
 #include "sdxpinn-thermal.dtsi"
+#include "sdxpinn-mhi.dtsi"
 
 &qupv3_se1_2uart {
 	status = "ok";
