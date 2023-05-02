@@ -6,3 +6,7 @@
 &wifi0 {
 	 board_id = <0x1010>;
 };
+
+&wifi2 {
+	status = "disabled";
+};
