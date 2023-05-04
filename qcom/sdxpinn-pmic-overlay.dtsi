@@ -232,7 +232,7 @@
 };
 
 &thermal_zones {
-	pa-therm1 {
+	sys-therm-1 {
 		polling-delay-passive = <0>;
 		polling-delay = <0>;
 		thermal-sensors = <&pmk8550_vadc PMX75_ADC5_GEN3_AMUX_THM1_100K_PU>;
@@ -251,7 +251,7 @@
 		};
 	};
 
-	pa-therm2 {
+	sys-therm-2 {
 		polling-delay-passive = <0>;
 		polling-delay = <0>;
 		thermal-sensors = <&pmk8550_vadc PMX75_ADC5_GEN3_AMUX_THM2_100K_PU>;
@@ -270,7 +270,7 @@
 		};
 	};
 
-	sdx-case-therm {
+	sys-therm-3 {
 		polling-delay-passive = <0>;
 		polling-delay = <0>;
 		thermal-sensors = <&pmk8550_vadc PMX75_ADC5_GEN3_AMUX_THM3_100K_PU>;
@@ -289,7 +289,7 @@
 		};
 	};
 
-	ambient-therm {
+	sys-therm-4 {
 		polling-delay-passive = <0>;
 		polling-delay = <0>;
 		thermal-sensors = <&pmk8550_vadc PMX75_ADC5_GEN3_AMUX_THM4_100K_PU>;
@@ -308,7 +308,7 @@
 		};
 	};
 
-	qtm-therm {
+	sys-therm-5 {
 		polling-delay-passive = <0>;
 		polling-delay = <0>;
 		thermal-sensors = <&pmk8550_vadc PMX75_ADC5_GEN3_AMUX_THM5_100K_PU>;
@@ -327,7 +327,7 @@
 		};
 	};
 
-	sdr-skin-therm {
+	sys-therm-6 {
 		polling-delay-passive = <0>;
 		polling-delay = <0>;
 		thermal-sensors = <&pmk8550_vadc PMX75_ADC5_GEN3_AMUX_THM6_100K_PU>;
@@ -368,7 +368,6 @@
 	pmg1110_temp_alarm: pmg1110_tz {
 		polling-delay-passive = <100>;
 		polling-delay = <0>;
-		thermal-governor = "step_wise";
 		thermal-sensors = <&pmg1110_tz>;
 
 		trips {
@@ -388,6 +387,35 @@
 				temperature = <145000>;
 				hysteresis = <0>;
 				type = "critical";
+			};
+		};
+	};
+
+	pmx75_tz {
+		cooling-maps {
+			pmx75_cpu1 {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&cpu1_pause 1 1>;
+			};
+
+			pmx75_cpu2 {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&cpu2_pause 1 1>;
+			};
+
+			pmx75_cpu3 {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&cpu3_pause 1 1>;
+			};
+
+			pmx75_lte {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&modem_lte_dsc 255 255>;
+			};
+
+			pmx75_nr {
+				trip = <&pmx75_trip0>;
+				cooling-device = <&modem_nr_dsc 255 255>;
 			};
 		};
 	};
