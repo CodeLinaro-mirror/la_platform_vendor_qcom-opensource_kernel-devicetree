@@ -22,6 +22,7 @@ properties:
       - st,ism330dlc
       - st,lsm6dso
       - st,asm330lhh
+      - st,asm330lhhx
       - st,lsm6dsox
       - st,lsm6dsr
       - st,lsm6ds3tr-c
