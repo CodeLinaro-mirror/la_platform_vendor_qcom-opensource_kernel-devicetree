@@ -2056,6 +2056,8 @@
 	qcom,rmnet-ipa {
 		compatible = "qcom,rmnet-ipa3";
 		qcom,rmnet-ipa-ssr;
+		qcom,ipa-advertise-sg-support;
+		qcom,ipa-napi-enable;
 	};
 
 	qcom,ipa_fws {
@@ -2114,6 +2116,7 @@
 		qcom,register-collection-on-crash;
 		qcom,testbus-collection-on-crash;
 		qcom,non-tn-collection-on-crash;
+		qcom,wan-use-skb-page;
 		clock-names = "core_clk";
 		clocks = <&rpmhcc RPMH_IPA_CLK>;
 		qcom,interconnect,num-cases = <5>;
@@ -2121,6 +2124,8 @@
 		qcom,max_num_smmu_cb = <7>;
 		qcom,ipa-iemac;
 		qcom,lan-rx-napi;
+		qcom,tx-napi;
+		qcom,tx-poll;
 
 		/* Boot Config Information */
 		nvmem-cells = <&boot_config>;
