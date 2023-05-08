@@ -2,6 +2,7 @@
 	#address-cells = <2>;
 	#size-cells = <2>;
 	ranges;
+	removes_carveout_region;
 
 	llcc_tcm_mem: llcc_tcm_region@15800000 {
 		no-map;
