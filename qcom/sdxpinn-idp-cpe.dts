@@ -2,6 +2,7 @@
 
 #include "sdxpinn.dtsi"
 #include "sdxpinn-idp-cpe.dtsi"
+#include "sdxpinn-reserved-memory-2G.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SDXPINN IDP CPE";
