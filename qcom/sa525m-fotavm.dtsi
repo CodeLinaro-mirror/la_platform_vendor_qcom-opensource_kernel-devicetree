@@ -121,7 +121,7 @@
 				dma-coherent;
 				dma_base = <0x0 0x0>;
 				memory {
-					qcom,label = <0x22>;	//for system.img
+					qcom,label = <0x22>;	//for systemrw.img
 					#address-cells = <0x2>;
 					base = <0x0 0xFF1F0000>;
 				};
@@ -136,19 +136,25 @@
 				dma-coherent;
 				dma_base = <0x0 0x4000>;
 				memory {
-					qcom,label = <0x23>;
+					qcom,label = <0x23>;	//for net
 					#address-cells = <0x2>;
 					base = <0x0 0xFF1F4000>;
 				};
 			};
 
-			vsock-msgq {
-				vdevice-type = "message-queue-pair";
-				generate = "/hypervisor/gvsock-msgq-pair";
-				message-size = <0xf0>;
-				queue-depth = <0x8>;
+			virtio-mmio@2 {
+				vdevice-type = "virtio-mmio";
+				generate = "/virtio-mmio";
 				peer-default;
-				qcom,label = <0x24>;
+				vqs-num = <0x2>;
+				push-compatible = "virtio,mmio";
+				dma-coherent;
+				dma_base = <0x0 0x210000>;
+				memory {
+					qcom,label = <0x24>;	//for system.img
+					#address-cells = <0x2>;
+					base = <0x0 0xFF400000>;
+				};
 			};
 
 			qrtr-shm {
@@ -208,11 +214,6 @@
 
 	qcom,mem-buf-msgq {
 		compatible = "qcom,mem-buf-msgq";
-	};
-
-	vsock-gunyah {
-		compatible = "qcom,gunyah-vsock";
-		msgq-lable = <0x24>;
 	};
 
 	qrtr-gunyah {
