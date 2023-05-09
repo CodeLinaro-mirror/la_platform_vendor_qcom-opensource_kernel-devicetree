@@ -1387,6 +1387,7 @@
 		ltvr-resume-trigger;
 		ltvr-sensor-id = <0>;
 		ltvr-status-support;
+		tm-disable-on-suspend;
 	};
 };
 
