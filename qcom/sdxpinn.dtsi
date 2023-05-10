@@ -2168,7 +2168,7 @@
 		qcom,bus-vector-names = "MIN", "SVS2", "SVS", "NOMINAL",
 		"TURBO";
 		qcom,throughput-threshold = <2000 2500 10000>;
-		qcom,scaling-exceptions = <>;
+		qcom,scaling-exceptions = "wdi", "1400", "4800", "10000";
 
 		ipa_smmu_ap: ipa_smmu_ap {
 			compatible = "qcom,ipa-smmu-ap-cb";
