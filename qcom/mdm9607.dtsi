@@ -384,4 +384,10 @@
 			#interrupt-cells = <2>;
 		};
 	};
+
+	thermal_zones: thermal-zones {};
 };
+
+#include "pm8019-rpm-regulator.dtsi"
+#include "mdm9607-regulator.dtsi"
+#include "mdm9607-thermal.dtsi"
