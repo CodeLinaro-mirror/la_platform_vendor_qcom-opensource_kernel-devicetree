@@ -1,2 +1,7 @@
 &soc {
 };
+
+
+&chosen {
+	bootargs = "pcie_ports=compat cpufreq.default_governor=performance reboot=w";
+};

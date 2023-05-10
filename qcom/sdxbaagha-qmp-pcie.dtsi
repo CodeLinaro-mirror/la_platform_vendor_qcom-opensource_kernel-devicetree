@@ -1,6 +1,10 @@
 &soc {
 };
 
+&chosen {
+	bootargs = "pcie_ports=compat cpufreq.default_governor=performance reboot=w";
+};
+
 &ipa_hw {
 	qcom,use-ipa-in-mhi-mode;
 	ipa_smmu_ap {
