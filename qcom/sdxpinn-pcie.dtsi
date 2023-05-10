@@ -108,6 +108,7 @@
 		reset-names = "pcie_0_core_reset",
 				"pcie_0_phy_reset";
 
+		dma-coherent;
 		qcom,smmu-sid-base = <0x0800>;
 		iommu-map = <0x0 &apps_smmu 0x0800 0x1>,
 				<0x100 &apps_smmu 0x0801 0x1>;
