@@ -1994,12 +1994,12 @@
 
 	pinctrl_pps: ppsgrp {
 		mux {
-			pins = "gpio35";
+			pins = "gpio104";
 			function = "gpio";
 		};
 
 		config {
-			pins = "gpio35";
+			pins = "gpio104";
 			bias-pull-down;
 		};
 	};
