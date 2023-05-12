@@ -132,8 +132,10 @@
 
 	qcom,ext_clk {
 		compatible = "qcom,clk-led-pwm";
-		clocks = <&gcc GCC_TLMM_125_CLK>;
-		clock-names = "core";
+		clocks = <&gcc GCC_TLMM_125_CLK>,
+			<&rpmhcc RPMH_RF_CLK5>;
+		clock-names = "core",
+			"rf_clk5";
 		assigned-clocks = <&gcc GCC_TLMM_125_CLK>;
 		assigned-clock-rates = <125000000>;
 		qcom,max_duty = <50>;
