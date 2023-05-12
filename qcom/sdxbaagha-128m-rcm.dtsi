@@ -1,6 +1,10 @@
 &soc {
 };
 
+&ethqos_hw {
+	status = "disabled";
+};
+
 &qnand_1 {
 	status = "ok";
 };
