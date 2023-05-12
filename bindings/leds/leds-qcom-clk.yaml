@@ -1,0 +1,78 @@
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/leds/leds-qcom-clk.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+
+title: Qualcomm Technologies, Inc. Clock controller based on PWM driver
+
+maintainers:
+  - Lei Sun <leisun@qti.qualcomm.com>
+
+description:
+  Provides clock controller to be connected to LED to generate PWM.
+  This driver can configure duty-cycle of clock to get the required brightness.
+  The complete clock duty-cycle is 100 and brightness is denoted by the period
+  in which signal is active or high.
+
+properties:
+  compatible:
+    const: qcom,clk-led-pwm
+
+  qcom,label:
+    description: Label for the sysfs node
+    $ref: /schemas/types.yaml#/definitions/string
+
+  qcom,default-clk-trigger:
+    description: Defining the trigger assigned to the LED
+    $ref: /schemas/types.yaml#/definitions/string
+
+  qcom,max_duty:
+    description: Max duty cycle of the clock
+    allOf:
+      - $ref: /schemas/types.yaml#/definitions/uint32
+    minimum: 0
+    maximum: 100
+    default: 50
+
+  clocks:
+    maxItems: 1
+
+  clock-names:
+    items:
+      - const: core
+
+  assigned-clocks:
+    items:
+      - description: Phandle and clock specifier
+
+  assigned-clock-rates:
+    description: Desired frequency of the source clock
+    allOf:
+      - $ref: /schemas/types.yaml#/definitions/uint32
+
+required:
+  - compatible
+  - qcom,max_duty
+  - clocks
+  - clock-names
+  - assigned-clock-rates
+
+additionalProperties: false
+
+examples:
+  - |
+
+qcom_clk_led {
+	compatible = "qcom,clk-led-pwm";
+	qcom,label = "led_clk_pwm";
+	qcom,default-clk-trigger = "led_clk_pwm";
+	qcom,max_duty = <80>;
+	clocks = <&clock_gcc GCC_GP2_CLK>;
+	clock-names = "core";
+	assigned-clocks = <&clock_gcc GCC_GP2_CLK>;
+	assigned-clock-rates = <80000>;
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&qcom_clk_led_gp2_active>;
+	pinctrl-1 = <&qcom_clk_led_gp2_sleep>;
+};
+
