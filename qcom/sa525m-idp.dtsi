@@ -324,6 +324,7 @@
 
 
 		qcom,ioss_auto_resume_disabled;
+		emac-phy-off-suspend = <4>;
 		fixed-link {
 			status = "disabled";
 			speed = <2500>;
