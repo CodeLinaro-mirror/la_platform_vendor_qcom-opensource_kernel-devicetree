@@ -202,6 +202,7 @@
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x1>;
 			snps,route-ptp;
+			snps,route-multi-broad;
 		};
 
 		queue2 {
