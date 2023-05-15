@@ -166,6 +166,12 @@ interconnects:
 	Definition: List of clock frequencies for each PCIe clock. Only need to
 		specify the ones that needs to be changed
 
+- clock-suppressible:
+	Usage: optional
+	Value type: <u32 array>
+	Definition: Whether the clock is suppressible or not in list of clocks
+		defined in driver for each PCIe instance.
+
 - resets:
 	Usage: required
 	Value type: <prop-encoded-array>

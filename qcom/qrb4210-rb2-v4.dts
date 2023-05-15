@@ -1,0 +1,10 @@
+/dts-v1/;
+
+#include "bengal.dtsi"
+#include "bengal-qrd-v4.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. BENGAL QRD V4";
+	compatible = "qcom,bengal";
+	qcom,board-id = <0x0601000B 0x0>;
+};

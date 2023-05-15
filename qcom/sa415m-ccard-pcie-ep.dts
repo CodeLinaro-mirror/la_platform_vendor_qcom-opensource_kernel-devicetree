@@ -25,3 +25,9 @@
 	qcom,ipa-config-is-auto;
 	qcom,mhi-event-ring-id-limits = <7 11>; /* start and end */
 };
+
+&usb {
+	dwc3@a600000 {
+		normal-eps-in-gsi-mode;
+	};
+};

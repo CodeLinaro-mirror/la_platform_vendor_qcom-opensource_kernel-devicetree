@@ -222,6 +222,8 @@
 		clock-names = "iface_clk", "core_clk";
 		clocks = <&gcc GCC_BLSP1_AHB_CLK>,
 			<&gcc GCC_BLSP1_QUP1_SPI_APPS_CLK>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -248,6 +250,8 @@
 		clock-names = "iface_clk", "core_clk";
 		clocks = <&gcc GCC_BLSP1_AHB_CLK>,
 			<&gcc GCC_BLSP1_QUP2_SPI_APPS_CLK>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -274,6 +278,8 @@
 		clock-names = "iface_clk", "core_clk";
 		clocks = <&gcc GCC_BLSP1_AHB_CLK>,
 			<&gcc GCC_BLSP1_QUP3_SPI_APPS_CLK>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 
@@ -300,6 +306,8 @@
 		clock-names = "iface_clk", "core_clk";
 		clocks = <&gcc GCC_BLSP1_AHB_CLK>,
 			<&gcc GCC_BLSP1_QUP4_SPI_APPS_CLK>;
+		interconnect-names ="blsp-ddr";
+		interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
 		status = "disabled";
 	};
 

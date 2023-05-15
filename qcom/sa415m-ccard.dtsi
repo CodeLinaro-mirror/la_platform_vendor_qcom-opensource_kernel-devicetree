@@ -178,3 +178,30 @@
 	qcom,no-l1-supported;
 	qcom,no-l1ss-supported;
 };
+
+&tlmm {
+	wakeup_gpio_default: wakeup_gpio_default {
+		mux {
+			pins = "gpio22";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio22";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+};
+
+&soc {
+	sdx_ext_ipc: qcom,sdx_ext_ipc {
+		compatible = "qcom,sdx-ext-ipc";
+		qcom,status-in-gpio = <&tlmm 95 0x00>;
+		qcom,status-out-gpio = <&tlmm 36 0x00>;
+		qcom,status-out2-gpio = <&tlmm 88 0x00>;
+		qcom,wakeup-gpio-in = <&tlmm 87 0x00>;
+		qcom,wakeup-gpio-out = <&tlmm 22 0x00>;
+		status = "disabled";
+	};
+};

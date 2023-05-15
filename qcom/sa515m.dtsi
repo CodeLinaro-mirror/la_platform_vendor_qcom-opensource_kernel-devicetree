@@ -194,6 +194,20 @@
 		};
 	};
 
+	eud: qcom,msm-eud@ff0000 {
+		compatible = "qcom,msm-eud";
+		interrupt-names = "eud_irq";
+		interrupts = <GIC_SPI 166 IRQ_TYPE_LEVEL_HIGH>;
+		reg =   <0xff0000 0x2000>,
+			<0xff2000 0x1000>;
+		reg-names = "eud_base", "eud_mode_mgr2";
+		qcom,secure-eud-en;
+		qcom,eud-clock-vote-req;
+		clocks = <&gcc GCC_USB_PHY_CFG_AHB2PHY_CLK>;
+		clock-names = "eud_ahb2phy_clk";
+		status = "ok";
+	};
+
 	intc: interrupt-controller@17800000 {
 		compatible = "qcom,msm-qgic2";
 		interrupt-controller;
@@ -1131,7 +1145,7 @@
 		qcom,turbo =
 		<2000000 2400000 2000000 7219200 1000000 1920000 0 533320 0 600>;
 
-		qcom,throughput-threshold = <310 600 1000>;
+		qcom,throughput-threshold = <600 2500 5000>;
 		qcom,scaling-exceptions = <>;
 
 		/* ipa tz unlock registers */
@@ -1354,7 +1368,25 @@
 
 #include "sdxprairie-thermal.dtsi"
 
+&soc {
+	tsens@c222000 {
+		reg = <0xc222000 0x20>,
+			<0xc263000 0x1ff>;
+		ltvr-resume-trigger;
+		ltvr-sensor-id = <0>;
+		ltvr-status-support;
+	};
+};
+
 &thermal_zones {
+	aoss0-usr {
+		trips {
+			active-config0 {
+				hysteresis = <5000>;
+			};
+		};
+	};
+
 	/delete-node/ pm8150b-wp-therm;
 	/delete-node/ pm8150b_tz;
 	/delete-node/ pm8150b-ibat-lvl0;

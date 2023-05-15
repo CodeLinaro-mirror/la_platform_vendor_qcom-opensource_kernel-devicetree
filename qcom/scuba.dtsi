@@ -42,7 +42,7 @@
 		granule = <512>;
 	};
 
-	aliases {
+	aliases: aliases {
 		serial0 = &qupv3_se4_2uart;
 		hsuart0 = &qupv3_se3_4uart;
 		sdhc0 = &sdhc_1; /*SDC1 eMMC slot*/

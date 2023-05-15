@@ -1,0 +1,15 @@
+/dts-v1/;
+
+#include "katmai-iot-odk-hdmi.dtsi"
+
+&pcie1 {
+	status = "ok";
+};
+
+&pcie1_msi {
+	status = "ok";
+};
+
+&gcc_pcie_1_gdsc {
+	status = "ok";
+};

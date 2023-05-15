@@ -92,3 +92,7 @@
 	iommus = <&apps_smmu 0x00B9 0x0>;
 	status = "disabled";
 };
+
+&emac1_hw {
+	status = "disabled";
+};

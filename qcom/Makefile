@@ -212,11 +212,23 @@ dtbo-$(CONFIG_ARCH_YUPIK) +=    \
 	yupik-iot-idp-overlay.dtbo \
 	yupik-iot-qrd-overlay.dtbo \
 	yupik-iot-hsp-overlay.dtbo \
+	yupik-iot-idp-pm7250b-overlay.dtbo \
+	yupik-iot-hsp-pm7250b-overlay.dtbo \
 	yupik-iot-idps-amoled-overlay.dtbo \
 	yupikp-iot-idp-overlay.dtbo \
+	yupikp-iot-idp-pm7250b-overlay.dtbo \
+	yupikp-iot-hsp-pm7250b-overlay.dtbo \
+	yupikp-iot-idps-amoled-overlay.dtbo \
 	yupikp-iot-qrd-overlay.dtbo \
 	yupikp-iot-hsp-overlay.dtbo \
-	yupikp-iot-idps-amoled-overlay.dtbo
+	katmai-hsp-overlay.dtbo \
+	katmai-hsp-pm7250b-overlay.dtbo \
+	katmai-fp2-hsp-overlay.dtbo \
+	katmai-fp2-hsp-pm7250b-overlay.dtbo \
+	katmaip-hsp-overlay.dtbo \
+	katmaip-hsp-pm7250b-overlay.dtbo \
+	katmaip-fp2-hsp-overlay.dtbo \
+	katmaip-fp2-hsp-pm7250b-overlay.dtbo
 
 
 yupik-rumi-overlay.dtbo-base := yupik.dtb
@@ -231,14 +243,27 @@ yupikp-atp-overlay.dtbo-base := yupikp.dtb
 yupikp-qrd-overlay.dtbo-base := yupikp.dtb
 yupikp-idps-digital-mics-overlay.dtbo-base := yupikp.dtb
 yupikp-idps-amoled-overlay.dtbo-base := yupikp.dtb
-yupik-iot-idp-overlay.dtbo-base := yupik-iot.dtb
-yupik-iot-qrd-overlay.dtbo-base := yupik-iot.dtb
+yupikp-idp-hsp-overlay.dtbo-base := yupikp-hsp.dtb
+yupik-iot-idp-overlay.dtbo-base := yupik-iot.dtb katmai.dtb katmai-fp2.dtb
+yupik-iot-idp-pm7250b-overlay.dtbo-base := yupik-iot.dtb katmai.dtb katmai-fp2.dtb
+yupik-iot-qrd-overlay.dtbo-base := yupik-iot.dtb katmai.dtb katmai-fp2.dtb
 yupik-iot-hsp-overlay.dtbo-base := yupik-iot.dtb
-yupik-iot-idps-amoled-overlay.dtbo-base := yupik-iot.dtb
-yupikp-iot-idp-overlay.dtbo-base := yupikp-iot.dtb
-yupikp-iot-qrd-overlay.dtbo-base := yupikp-iot.dtb
+yupik-iot-hsp-pm7250b-overlay.dtbo-base := yupik-iot.dtb
+katmai-hsp-overlay.dtbo-base :=  katmai.dtb
+katmai-hsp-pm7250b-overlay.dtbo-base :=  katmai.dtb
+katmai-fp2-hsp-overlay.dtbo-base :=  katmai-fp2.dtb
+katmai-fp2-hsp-pm7250b-overlay.dtbo-base :=  katmai-fp2.dtb
+yupik-iot-idps-amoled-overlay.dtbo-base := yupik-iot.dtb katmai.dtb katmai-fp2.dtb
+yupikp-iot-idp-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb katmaip-fp2.dtb
+yupikp-iot-idp-pm7250b-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb katmaip-fp2.dtb
+yupikp-iot-qrd-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb katmaip-fp2.dtb
 yupikp-iot-hsp-overlay.dtbo-base := yupikp-iot.dtb
-yupikp-iot-idps-amoled-overlay.dtbo-base := yupikp-iot.dtb
+yupikp-iot-hsp-pm7250b-overlay.dtbo-base := yupikp-iot.dtb
+katmaip-hsp-overlay.dtbo-base := katmaip.dtb
+katmaip-hsp-pm7250b-overlay.dtbo-base := katmaip.dtb
+katmaip-fp2-hsp-overlay.dtbo-base := katmaip-fp2.dtb
+katmaip-fp2-hsp-pm7250b-overlay.dtbo-base := katmaip-fp2.dtb
+yupikp-iot-idps-amoled-overlay.dtbo-base := yupikp-iot.dtb katmaip.dtb katmaip-fp2.dtb
 else
 dtb-$(CONFIG_ARCH_YUPIK) += yupik-rumi.dtb \
 	yupik-idp.dtb \
@@ -253,13 +278,37 @@ dtb-$(CONFIG_ARCH_YUPIK) += yupik-rumi.dtb \
 	yupikp-idps-digital-mics.dtb \
 	yupikp-idps-amoled.dtb \
 	yupik-iot-idp.dtb \
+	yupik-iot-idp-pm7250b.dtb \
+	yupik-iot-hsp-pm7250b.dtb \
 	yupik-iot-qrd.dtb \
 	yupik-iot-hsp.dtb \
+	yupik-iot-odk.dtb \
+	yupik-iot-odk-lcd.dtb \
 	yupik-iot-idps-amoled.dtb \
 	yupikp-iot-idp.dtb \
+	yupikp-iot-idp-pm7250b.dtb \
+	yupikp-iot-hsp-pm7250b.dtb \
 	yupikp-iot-qrd.dtb \
 	yupikp-iot-hsp.dtb \
-	yupikp-iot-idps-amoled.dtb
+	yupik-iot-hsp-pm7250b.dtb \
+	yupikp-iot-hsp-pm7250b.dtb \
+	yupikp-iot-idps-amoled.dtb \
+	katmai-idp.dtb \
+	katmai-idp-pm7250b.dtb \
+	katmai-qrd.dtb \
+	katmai-hsp.dtb \
+	katmai-idps-amoled.dtb \
+	katmaip-idp.dtb \
+	katmaip-idp-pm7250b.dtb \
+	katmaip-qrd.dtb \
+	katmaip-hsp.dtb \
+	katmai-hsp-pm7250b.dtb \
+	katmaip-hsp-pm7250b.dtb \
+	katmaip-idps-amoled.dtb \
+	katmai-iot-odk-lcd.dtb \
+	katmai-iot-odk-hdmi.dtb \
+	katmai-fp2-iot-odk-lcd.dtb \
+	katmai-fp2-iot-odk-hdmi.dtb
 endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
@@ -330,7 +379,9 @@ endif
 ifneq ($(CONFIG_ARCH_SA410M),y)
 	dtb-$(CONFIG_ARCH_SCUBA) += \
 				qrb2210-rb1.dtb \
-				qrb2210-rb1-v2.dtb
+				qrb2210-rb1-v2.dtb \
+				qrb2210-rb1-v3.dtb \
+				qrb2210-rb1-v4.dtb
 else
 ifneq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtb-$(CONFIG_ARCH_SA410M) += \
@@ -348,7 +399,9 @@ endif
 
 dtb-$(CONFIG_ARCH_BENGAL) += \
 				qrb4210-rb2.dtb \
-				qrb4210-rb2-v2.dtb
+				qrb4210-rb2-v2.dtb \
+				qrb4210-rb2-v3.dtb \
+				qrb4210-rb2-v4.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 ifeq ($(CONFIG_AUTO_LXC_OVERLAY), y)
@@ -467,19 +520,18 @@ dtb-$(CONFIG_ARCH_KONA) += kona-v2-qrd.dtb \
         qrb5165n-v2-iot-rb5.dtb \
 	qrb5165n-iot-rb5.dtb \
 	qrb5165m-iot-rb5-pine.dtb \
-	qrb5165-iot-rb5-pine.dtb
+	qrb5165-iot-rb5-pine.dtb \
+	qrb5165-iot-rb5-camslot5.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_SM6150) += \
 		qcs610-iot-overlay.dtbo \
-		qcs610-ipc-overlay.dtbo \
 		prairie-iot-idp-overlay.dtbo \
 		prairie-410-iot-idp-overlay.dtbo \
 		qcs610-opk-overlay.dtbo \
 		qcs410-opk-overlay.dtbo
 
 qcs610-iot-overlay.dtbo-base := qcs610.dtb
-qcs610-ipc-overlay.dtbo-base := qcs610.dtb
 prairie-iot-idp-overlay.dtbo-base := qcs610.dtb
 prairie-410-iot-idp-overlay.dtbo-base := qcs410.dtb
 qcs610-opk-overlay.dtbo-base := qcs610.dtb
@@ -488,7 +540,6 @@ qcs410-opk-overlay.dtbo-base := qcs410.dtb
 else
 dtb-$(CONFIG_ARCH_SM6150) += \
 	qcs610-iot.dtb \
-	qcs610-ipc.dtb \
 	prairie-iot-idp.dtb \
 	prairie-410-iot-idp.dtb \
 	qcs610-opk.dtb \
@@ -558,6 +609,17 @@ dtb-$(CONFIG_ARCH_SA415M) += sa415m-ccard.dtb \
 	sa415m-v2-cdp.dtb \
 	sa415m-v2-mtp.dtb \
 	sa415m-atp.dts
+
+dtb-$(CONFIG_ARCH_MDM9607) += mdm9607-rumi.dtb \
+	mdm9607-cdp.dtb \
+	mdm9607-mtp.dtb \
+	mdm9607-rcm.dtb \
+	mdm9607-mtp-sdcard.dtb \
+	mdm9607-ttp.dtb \
+	mdm9206-mtp.dtb \
+	mdm9206-mtp-sdcard.dtb \
+	mdm9206-cdp.dtb \
+	mdm9206-rcm.dtb
 
 ifeq ($(CONFIG_ARCH_SHIMA), y)
 ifeq ($(CONFIG_ARCH_QTI_VM), y)

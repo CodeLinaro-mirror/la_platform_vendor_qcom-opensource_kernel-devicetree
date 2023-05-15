@@ -235,3 +235,8 @@
 &usb {
 	extcon = <&vbus_detect>;
 };
+
+&pcie0 {
+	qcom,no-l1-supported;
+	qcom,no-l1ss-supported;
+};

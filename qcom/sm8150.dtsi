@@ -469,6 +469,13 @@
 			size = <0x0 0x1000000>;
 		};
 
+		va_md_mem: va_md_mem_region {
+			compatible = "shared-dma-pool";
+			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+			reusable;
+			size = <0 0x1000000>;
+		};
+
 		sp_mem: sp_region {  /* SPSS-HLOS ION shared mem */
 			compatible = "shared-dma-pool";
 			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
@@ -508,6 +515,12 @@
 		#size-cells = <1>;
 		ranges = <0 0 0 0xffffffff>;
 		compatible = "simple-bus";
+	};
+
+	va_mini_dump {
+		compatible = "qcom,va-minidump";
+		memory-region = <&va_md_mem>;
+		status = "ok";
 	};
 
 	qcom-secure-buffer {
@@ -775,12 +788,12 @@
 
 	llcc_bw_opp_table: llcc-bw-opp-table {
 		compatible = "operating-points-v2";
-		BW_OPP_ENTRY( 150, 16); /*  2288 MB/s */
-		BW_OPP_ENTRY( 200, 16); /*  3051 MB/s */
-		BW_OPP_ENTRY( 403, 16); /*  6149 MB/s */
-		BW_OPP_ENTRY( 533, 16); /*  8132 MB/s */
-		BW_OPP_ENTRY( 666, 16); /* 10162 MB/s */
-		BW_OPP_ENTRY( 777, 16); /* 11856 MB/s */
+		BW_OPP_ENTRY( 300, 16); /*  4577 MB/s */
+		BW_OPP_ENTRY( 466, 16); /*  7110 MB/s */
+		BW_OPP_ENTRY( 600, 16); /*  9155 MB/s */
+		BW_OPP_ENTRY( 806, 16); /* 12298 MB/s */
+		BW_OPP_ENTRY( 933, 16); /* 14236 MB/s */
+		BW_OPP_ENTRY(1000, 16); /* 15258 MB/s */
 	};
 
 	cpu_cpu_llcc_bw: qcom,cpu-cpu-llcc-bw {
@@ -1054,7 +1067,6 @@
 
 	npu_npu_ddr_bw: qcom,npu-npu-ddr-bw {
 		compatible = "qcom,devfreq-icc-ddr";
-		governor = "bw_hwmon";
 		interconnects = <&compute_noc MASTER_NPU &mc_virt SLAVE_EBI1>;
 		operating-points-v2 = <&suspendable_ddr_bw_opp_table>;
 	};
@@ -1777,6 +1789,7 @@
 		phy-names = "ufsphy";
 		#reset-cells = <1>;
 
+		ufs-dev-types = <2>;
 		lanes-per-direction = <2>;
 		dev-ref-clk-freq = <0>; /* 19.2 MHz */
 
@@ -2600,6 +2613,7 @@
 		qcom,pas-id = <1>;
 		qcom,proxy-timeout-ms = <10000>;
 		qcom,smem-id = <423>;
+		qcom,minidump-id = <5>;
 		qcom,sysmon-id = <1>;
 		qcom,ssctl-instance-id = <0x14>;
 		qcom,firmware-name = "adsp";

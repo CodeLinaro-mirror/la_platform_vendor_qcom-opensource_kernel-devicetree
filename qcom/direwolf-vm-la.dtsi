@@ -11,6 +11,14 @@
 		alignment = <0x0 0x400000>;
 		size = <0x0 0x0a000000>;
 	};
+
+	cnss_wlan_mem: cnss_wlan_region {
+		compatible = "shared-dma-pool";
+		alloc-ranges = <0 0x00000000 0 0xffffffff>;
+		reusable;
+		alignment = <0x0 0x400000>;
+		size = <0 0x6000000>;
+	};
 };
 
 / {
@@ -124,6 +132,19 @@
 
 &pcie4_msi_snps {
 	status = "okay";
+};
+
+&pcie4_rp {
+	#address-cells = <5>;
+	#size-cells = <0>;
+
+	cnss_pci: cnss_pci {
+		reg = <0 0 0 0 0>;
+		memory-region = <&cnss_wlan_mem>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+	};
 };
 
 &qcom_rng_ee3 {

@@ -29,3 +29,9 @@
 	qcom,ipa-config-is-auto;
 	qcom,ipa-wdi2_over_gsi;
 };
+
+&usb {
+	dwc3@a600000 {
+		normal-eps-in-gsi-mode;
+	};
+};
