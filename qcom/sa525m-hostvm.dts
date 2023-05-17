@@ -4,6 +4,7 @@
 #include "sa525m-dma-heaps.dtsi"
 #include "sa525m-reserved-memory.dtsi"
 #include "sa525-gvms.dtsi"
+#include "sa525m-hostvm.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA525M HOST VM";
