@@ -20,6 +20,7 @@ properties:
     enum:
       - qcom,msm-eud
       - qcom,msm-eud-sdxpinn
+      - qcom,msm-eud-sdxbaagha
 
   reg:
     Usage: required
