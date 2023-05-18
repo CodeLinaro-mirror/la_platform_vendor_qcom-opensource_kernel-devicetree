@@ -144,6 +144,131 @@
 		pinctrl-1 = <&qcom_125_clk_sleep>;
 		status = "ok";
 	};
+
+	mtl_rx_setup: rx-queues-config {
+		snps,rx-queues-to-use = <4>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,route-up;
+			snps,threshold_byte = <64>;
+			qcom,ipa_offload;
+			snps,map-to-dma-channel = <0x1>;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,route-ptp;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x2>;
+			snps,route-avcp;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,map-to-dma-channel = <0x3>;
+			snps,priority = <0xC>;
+		};
+	};
+
+	mtl_tx_setup: tx-queues-config {
+		snps,tx-queues-to-use = <4>;
+		snps,tx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+			snps,send_slope = <0x1000>;
+			snps,idle_slope = <0x1000>;
+			snps,high_credit = <0x3E800>;
+			snps,low_credit = <0xFFC18000>;
+		};
+	};
+
+};
+
+&ethqos_hw1 {
+		clocks =<&gcc GCC_EEE_EMAC0_CLK>,
+			<&gcc GCC_EMAC0_AXI_CLK>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_RX_CLK>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_TX_CLK>,
+			<&gcc GCC_EMAC0_PHY_AUX_CLK>,
+			<&gcc GCC_EMAC0_PTP_CLK>,
+			<&gcc GCC_EMAC0_RGMII_CLK>,
+			<&gcc GCC_EMAC0_RPCS_RX_CLK>,
+			<&gcc GCC_EMAC0_RPCS_TX_CLK>,
+			<&gcc GCC_EMAC0_SLV_AHB_CLK>,
+			<&gcc GCC_EMAC0_XGXS_RX_CLK>,
+			<&gcc GCC_EMAC0_XGXS_TX_CLK>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_RX_CLK_SRC>,
+			<&gcc GCC_EMAC0_CC_SGMIIPHY_TX_CLK_SRC>,
+			<&gcc GCC_EMAC0_SGMIIPHY_MAC_RCLK_SRC>,
+			<&gcc GCC_EMAC0_SGMIIPHY_MAC_TCLK_SRC>,
+			<&emac0_sgmiiphy_rclk>,
+			<&emac0_sgmiiphy_tclk>,
+			<&emac0_sgmiiphy_mac_rclk>,
+			<&emac0_sgmiiphy_mac_tclk>,
+			<&gcc GCC_EMAC_0_CLKREF_EN>;
+		clock-names = "eee", "stmmaceth", "sgmii_rx",
+		"sgmii_tx", "phyaux","ptp_ref", "rgmii",
+		"pcs_rx", "pcs_tx", "pclk", "xgxs_rx",
+		"xgxs_tx", "sgmii_rclk_src", "sgmii_tclk_src",
+		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
+		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
+
+		snps,ptp-ref-clk-rate = <230400000>;
+		snps,ptp-req-clk-rate = <125000000>;
+		avb-vlan-id = <2>;
+		snps,mtl-rx-config = <&mtl_rx_setup>;
+		snps,mtl-tx-config = <&mtl_tx_setup>;
+
+		phy-mode = "rgmii-rxid";
+		mac-mode = "rgmii-rxid";
+		managed = "auto";
+		eth-c22-mdio-probe;
+
+		qcom,ioss_auto_resume_disabled;
+		emac-phy-off-suspend = <4>;
+
+		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
+		reset-names = "emac0_rgmii_clk_ares";
+
+		fixed-link {
+			status = "disabled";
+			speed = <2500>;
+			full-duplex;
+		};
+
+		rgmii-io-macro-info-hsr {
+			rgmii-io-macro-config = <0x40c04c03>;
+			rgmii-io-macro-config2 = <0x2200a0>;
+			sdcc-hc-reg-dll-config = <0xd642c>;
+			sdcc-hc-reg-ddr-config = <0x80040868>;
+			sdcc-hc-reg-dll-config2 = <0xa001>;
+			sdcc-usr-ctl = <0x90106c0>;
+			sdcc-test-ctl = <0x01400000>;
+		};
 };
 
 &tmc_etr {
