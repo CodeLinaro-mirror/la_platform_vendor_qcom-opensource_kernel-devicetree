@@ -106,9 +106,9 @@
 		reg = <0xff1000 0x400>;
 		reg-names = "hsusb_phy_base";
 
-		vdd-supply = <&pmxpoorwills_l4>;
-		vdda18-supply = <&pmxpoorwills_l5>;
-		vdda33-supply = <&pmxpoorwills_l10>;
+		vdd-supply = <&pmx24_l4>;
+		vdda18-supply = <&pmx24_l5>;
+		vdda33-supply = <&pmx24_l10>;
 		qcom,vdd-voltage-level = <0 872000 872000>;
 		clocks = <&rpmhcc RPMH_CXO_CLK>,
 			 <&gcc GCC_USB_PHY_CFG_AHB2PHY_CLK>;
@@ -135,8 +135,8 @@
 			"vls_clamp_reg",
 			"pcs_clamp_enable_reg";
 
-		vdd-supply = <&pmxpoorwills_l4>;
-		core-supply = <&pmxpoorwills_l1>;
+		vdd-supply = <&pmx24_l4>;
+		core-supply = <&pmx24_l1>;
 		qcom,vdd-voltage-level = <0 872000 872000>;
 		qcom,vbus-valid-override;
 		qcom,qmp-phy-init-seq =

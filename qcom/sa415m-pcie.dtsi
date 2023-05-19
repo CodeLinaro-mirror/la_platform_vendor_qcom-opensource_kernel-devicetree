@@ -114,9 +114,9 @@
 		wake-gpio = <&tlmm 53 0>;
 
 		gdsc-vdd-supply = <&gdsc_pcie>;
-		vreg-1p8-supply = <&pmxpoorwills_l1>;
-		vreg-0p9-supply = <&pmxpoorwills_l4>;
-		vreg-cx-supply = <&pmxpoorwills_s5_level>;
+		vreg-1p8-supply = <&pmx24_l1>;
+		vreg-0p9-supply = <&pmx24_l4>;
+		vreg-cx-supply = <&pmx24_s5_level>;
 
 		qcom,vreg-1p8-voltage-level = <1200000 1200000 24000>;
 		qcom,vreg-0p9-voltage-level = <872000 872000 24000>;

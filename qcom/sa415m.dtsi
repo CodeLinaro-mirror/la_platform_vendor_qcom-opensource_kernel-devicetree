@@ -467,7 +467,7 @@
 		qcom,proxy-clock-names = "xo";
 
 		vdd_cx-supply = <&VDD_CX_LEVEL>;
-		vdd_mss-supply = <&pmxpoorwills_s1_level>;
+		vdd_mss-supply = <&pmx24_s1_level>;
 		qcom,proxy-reg-names = "vdd_cx", "vdd_mss";
 
 		qcom,firmware-name = "modem";
@@ -1343,7 +1343,7 @@
 &sdhc_1 {
 	vdd-supply = <&vreg_sd_mmc>;
 
-	vdd-io-supply = <&pmxpoorwills_l7>;
+	vdd-io-supply = <&pmx24_l7>;
 	qcom,vdd-io-voltage-level = <1800000 2950000>;
 	qcom,vdd-io-current-level = <200 10000>;
 

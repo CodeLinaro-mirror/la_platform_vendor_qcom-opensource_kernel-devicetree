@@ -59,10 +59,10 @@
 		vdd-wlan-ctrl1-supply = <&wlan_ctrl1>;
 		vdd-wlan-ctrl2-supply = <&wlan_ctrl2>;
 
-		vdd-wlan-aon-supply = <&pmxpoorwills_l6>;
-		vdd-wlan-rfa1-supply = <&pmxpoorwills_l6>;
-		vdd-wlan-rfa2-supply = <&pmxpoorwills_l6>;
-		vdd-wlan-rfa3-supply = <&pmxpoorwills_l6>;
+		vdd-wlan-aon-supply = <&pmx24_l6>;
+		vdd-wlan-rfa1-supply = <&pmx24_l6>;
+		vdd-wlan-rfa2-supply = <&pmx24_l6>;
+		vdd-wlan-rfa3-supply = <&pmx24_l6>;
 
 		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-ctrl2", "vdd-wlan-aon", "vdd-wlan-rfa1", "vdd-wlan-rfa3";
 		qcom,vdd-wlan-ctrl1-config = <0 0 0 0 0>;
