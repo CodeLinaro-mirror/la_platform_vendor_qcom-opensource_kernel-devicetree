@@ -339,6 +339,7 @@ sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
 	sdxbaagha-rcm.dtb \
 	sdxbaagha-qmp-rome.dtb \
 	sdxbaagha-qmp-pcie.dtb \
+	sdxbaagha-qmp-lga.dtb \
 	sdxbaagha-qmp-usb.dtb \
 	sdxbaagha-atp.dtb
 sdxbaagha-128m-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-128m-rumi.dtb \
