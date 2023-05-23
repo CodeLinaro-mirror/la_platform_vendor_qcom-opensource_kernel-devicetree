@@ -98,7 +98,11 @@
 		iomemory-ranges = <0x0 0x928000 0x0 0x928000 0x0 0x4000 0x0
 				   0x0 0x998000 0x0 0x998000 0x0 0x4000 0x0>;
 
-		gic-irq-ranges = <383 383>; /* PVM->SVM IRQ transfer */
+		gic-irq-ranges = <383 383 // 351 QUPV3 GSI IRQ /* PVM->SVM IRQ transfer */
+				432 432 // 400 MVM
+				433 433 // 401 MVM
+				436 436 // 404 MVM
+				439 439>; // 407 MVM
 		memory {
 			#address-cells = <0x2>;
 			#size-cells = <0x0>;
