@@ -138,9 +138,9 @@
 		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
 		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
 
-		interrupts-extended = <&intc GIC_SPI 445 IRQ_TYPE_LEVEL_HIGH>, <&intc GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>, <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
+		interrupts-extended = <&intc GIC_SPI 445 IRQ_TYPE_LEVEL_HIGH>, <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
 
-		interrupt-names = "macirq", "eth_lpi", "phy-intr";
+		interrupt-names = "macirq", "phy-intr";
 
 		gdsc_emac-supply = <&gcc_emac1_gdsc>;
 		pinctrl-names = "dev-emac1_mdc","dev-emac1_mdio","dev-emac1_pin_phy_intr",
