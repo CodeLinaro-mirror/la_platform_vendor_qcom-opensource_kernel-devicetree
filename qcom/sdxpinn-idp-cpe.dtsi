@@ -213,6 +213,9 @@
 	mmc-hs400-1_8v;
 	mmc-hs400-enhanced-strobe;
 
+	qcom,devfreq,freq-table = <50000000 200000000>;
+	qcom,scaling-lower-bus-speed-mode = "DDR52";
+
 	bus-width = <8>;
 	no-sd;
 	non-removable;
