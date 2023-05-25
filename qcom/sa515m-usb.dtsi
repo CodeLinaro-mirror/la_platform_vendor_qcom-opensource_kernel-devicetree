@@ -77,8 +77,7 @@
 		qcom,usbbam@a704000 {
 			compatible = "qcom,usb-bam-msm";
 			reg = <0xa704000 0x17000>;
-			interrupts = <0 132 0>;
-
+			interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
 			qcom,usb-bam-fifo-baseaddr = <0x1468b000>;
 			qcom,usb-bam-num-pipes = <4>;
 			qcom,disable-clk-gating;
