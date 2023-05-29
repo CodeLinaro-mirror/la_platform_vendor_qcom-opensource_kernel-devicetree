@@ -1,8 +1,4 @@
 &reserved_memory {
-	/delete-node/ gunyah_trace_buffer_mem;
-	/delete-node/ smmu_debug_buf_mem;
-	/delete-node/ hyp_smmu_s2_pt_mem;
-
 	mpssadsp_mem: mpssadsp_region@8e000000 {
 		no-map;
 		reg = <0x0 0x8e000000 0x0 0x10800000>;
