@@ -3,6 +3,9 @@
 };
 
 &soc {
+	pcie0: qcom,pcie@1bf0000 {
+		status = "disabled";
+	};
 };
 
 /delete-node/ &qcom_audio;
