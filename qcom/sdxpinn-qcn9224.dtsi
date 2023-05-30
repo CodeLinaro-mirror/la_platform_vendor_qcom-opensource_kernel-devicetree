@@ -40,9 +40,6 @@
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x02>;
-			wlan-en-gpio = <&tlmm 82 0>;
-			pinctrl-names = "wlan_en_active";
-			pinctrl-0 = <&cnss_wlan_en_active>;
 			qcom,wlan-rc-num = <0x0>;
 			status = "ok";
 	};
@@ -57,9 +54,6 @@
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x04>;
-			wlan-en-gpio = <&tlmm 17 0>;
-			pinctrl-names = "wlan_en_active";
-			pinctrl-0 = <&cnss_wlan1_en_active>;
 			qcom,wlan-rc-num = <0x1>;
 			status = "ok";
 	};
@@ -74,12 +68,40 @@
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x01>;
-			wlan-en-gpio = <&tlmm 76 0>;
-			pinctrl-names = "wlan_en_active";
-			pinctrl-0 = <&cnss_wlan2_en_active>;
 			qcom,wlan-rc-num = <0x2>;
 			status = "ok";
 	};
+
+	pinn_wkk0_vreg: pinn_wkk0_vreg {
+			compatible = "qti-regulator-fixed";
+			regulator-name = "pinn_wkk0_vreg";
+			gpio = <&tlmm 82 GPIO_ACTIVE_HIGH>;
+			regulator-min-microvolt = <3300000>;
+			regulator-max-microvolt = <3300000>;
+			enable-active-high;
+			regulator-enable-ramp-delay = <200000>;
+	};
+
+	pinn_wkk1_vreg: pinn_wkk1_vreg {
+			compatible = "qti-regulator-fixed";
+			regulator-name = "pinn_wkk1_vreg";
+			gpio = <&tlmm 17 GPIO_ACTIVE_HIGH>;
+			regulator-min-microvolt = <3300000>;
+			regulator-max-microvolt = <3300000>;
+			enable-active-high;
+			regulator-enable-ramp-delay = <200000>;
+	};
+
+	pinn_wkk2_vreg: pinn_wkk2_vreg {
+			compatible = "qti-regulator-fixed";
+			regulator-name = "pinn_wkk2_vreg";
+			gpio = <&tlmm 76 GPIO_ACTIVE_HIGH>;
+			regulator-min-microvolt = <3300000>;
+			regulator-max-microvolt = <3300000>;
+			enable-active-high;
+			regulator-enable-ramp-delay = <200000>;
+	};
+
 };
 
 &pcie0_rp {
@@ -109,6 +131,8 @@
 	qcom,no-l1-supported;
 	qcom,no-l1ss-supported;
 	qcom,no-aux-clk-sync;
+	vreg-3p3-supply = <&pinn_wkk0_vreg>;
+	qcom,boot-option = <0x0>;
 };
 
 &pcie1_rp {
@@ -138,6 +162,8 @@
 	qcom,no-l1-supported;
 	qcom,no-l1ss-supported;
 	qcom,no-aux-clk-sync;
+	vreg-3p3-supply = <&pinn_wkk1_vreg>;
+	qcom,boot-option = <0x0>;
 };
 
 &pcie2_rp {
@@ -167,6 +193,8 @@
 	qcom,no-l1-supported;
 	qcom,no-l1ss-supported;
 	qcom,no-aux-clk-sync;
+	vreg-3p3-supply = <&pinn_wkk2_vreg>;
+	qcom,boot-option = <0x0>;
 };
 
 
