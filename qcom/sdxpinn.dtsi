@@ -2138,6 +2138,7 @@
 		qcom,interconnect,num-cases = <5>;
 		qcom,interconnect,num-paths = <3>;
 		qcom,max_num_smmu_cb = <7>;
+		qcom,filter-start-id = <768>;
 		qcom,ipa-iemac;
 		qcom,lan-rx-napi;
 		qcom,tx-napi;
