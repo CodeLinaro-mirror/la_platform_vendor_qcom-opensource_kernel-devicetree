@@ -302,7 +302,7 @@
 };
 
 &stm {
-	status = "disabled";
+	status = "okay";
 };
 
 &gcc {
