@@ -33,3 +33,29 @@
 		linux,cma-default;
 	};
 };
+
+&mtl_rx_setup {
+	snps,rx-queues-to-use = <1>;
+	snps,rx-sched-sp;
+
+	queue0 {
+		snps,dcb-algorithm;
+		snps,map-to-dma-channel = <0x0>;
+		snps,route-up;
+		snps,priority = <0x1>;
+	};
+};
+
+&mtl_tx_setup {
+	snps,tx-queues-to-use = <1>;
+	snps,tx-sched-sp;
+
+	queue0 {
+		snps,dcb-algorithm;
+	};
+};
+
+&ethqos_hw {
+	snps,mtl-rx-config = <&mtl_rx_setup>;
+	snps,mtl-tx-config = <&mtl_tx_setup>;
+};
