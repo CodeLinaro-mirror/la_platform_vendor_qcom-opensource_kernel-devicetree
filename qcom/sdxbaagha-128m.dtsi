@@ -2,6 +2,11 @@
 / {
 };
 
+&chosen {
+	bootargs = "pcie_ports=compat cpufreq.default_governor=performance";
+	linux,initrd-start = <0x87700000>;
+};
+
 &soc {
 };
 
