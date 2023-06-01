@@ -48,6 +48,15 @@
 	};
 };
 
+&qupv3_se2_i2c {
+	status = "ok" ;
+	eeprom@52 {
+		compatible = "atmel,24c128";
+		reg = <0x52>;
+		pagesize = <32>;
+	};
+};
+
 &qupv3_se4_2uart {
 	status = "ok";
 };
