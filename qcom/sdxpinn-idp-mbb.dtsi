@@ -2,6 +2,7 @@
 
 #include "sdxpinn-pmic-overlay.dtsi"
 #include "pm7550ba.dtsi"
+#include "sdxpinn-qpic-display.dtsi"
 
 &soc {
 	aqr_vreg: aqr_vreg {
