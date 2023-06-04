@@ -164,7 +164,7 @@
 
 		msi-parent = <&pcie0_msi>;
 
-		qcom,boot-option = <0x0>;
+		qcom,boot-option = <0x1>;
 
 		linux,pci-domain = <0>;
 
