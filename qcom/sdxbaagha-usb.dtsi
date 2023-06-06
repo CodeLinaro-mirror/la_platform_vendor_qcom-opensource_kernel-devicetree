@@ -38,7 +38,7 @@
 		qcom,pm-qos-latency = <2>;
 		qcom,core-clk-rate = <60000000>;
 		qcom,sleep-clk-bcr;
-		qcom,default-bus-vote = <2>; /* use svs bus voting */
+		qcom,default-bus-vote = <3>; /* use low svs bus voting */
 
 		qcom,num-gsi-evt-buffs = <0x3>;
 		qcom,gsi-reg-offset =
