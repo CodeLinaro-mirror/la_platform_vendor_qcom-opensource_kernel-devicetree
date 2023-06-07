@@ -1,2 +1,14 @@
 &soc {
 };
+
+&ipa_hw {
+	qcom,use-wrapper-pm-support;
+
+	ipa_smmu_wlan {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_uc {
+		qcom,iommu-dma = "bypass";
+	};
+};
