@@ -5,32 +5,6 @@
 	bootargs = "pcie_ports=compat cpufreq.default_governor=performance reboot=w";
 };
 
-&ipa_hw {
-	qcom,use-ipa-in-mhi-mode;
-	ipa_smmu_ap {
-		qcom,iommu-dma = "bypass";
-	};
-
-	ipa_smmu_wlan {
-		qcom,iommu-dma = "bypass";
-	};
-
-	ipa_smmu_uc {
-		qcom,iommu-dma = "bypass";
-	};
-
-	ipa_smmu_11ad {
-		qcom,iommu-dma = "bypass";
-	};
-
-};
-
-&usb0 {
-	dwc3@a600000 {
-		qcom,iommu-dma = "bypass";
-	};
-};
-
 &pcie_ep {
 	qcom,override-disable-sriov;
 	status = "ok";
