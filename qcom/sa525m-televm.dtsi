@@ -528,13 +528,13 @@
 					<GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>,
 					<GIC_SPI 220 IRQ_TYPE_LEVEL_HIGH>;
 		/* Valid pins */
-		gpios = /bits/ 16 <102 112 113 114 115>;
+		gpios = /bits/ 16 <102 112 113 114 115 69>;
 	};
 
 	tlmm-vm-mem-access {
 		compatible = "qcom,tlmm-vm-mem-access";
 		peer-name = <5>; /* 5 => Televm */
-		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0>;
+		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0 &tlmm 69 0>;
 	};
 
 	mtl_rx_setup: rx-queues-config {
@@ -665,6 +665,10 @@
 		gpios = <102 0>;
 		output-high;
 	};
+};
+
+&tlmm {
+	qcom,dirconn-list = <69 0>;
 };
 
 #include "msm-arm-smmu-sdxpinn-vm.dtsi"
