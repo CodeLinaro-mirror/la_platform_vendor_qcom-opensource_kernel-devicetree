@@ -97,10 +97,13 @@
 
 		iomemory-ranges = <0x0 0x928000 0x0 0x928000 0x0 0x4000 0x0
 				   0x0 0x998000 0x0 0x998000 0x0 0x4000 0x0
+				   0x0 0x3e00000 0x0 0x3e00000 0x0 0x200000 0x0
 				   0x0 0x23052000 0x0 0x23052000 0x0 0x1000 0x0
 				   0x0 0x2304C000 0x0 0x2304C000 0x0 0x1000 0x0>;
 
-		gic-irq-ranges = <383 383 // 351 QUPV3 GSI IRQ /* PVM->SVM IRQ transfer */
+		gic-irq-ranges = <344 344 // 312 IPA /* PVM->SVM IRQ transfer */
+				350 350 // 318 IPA
+				383 383 // 351 QUPV3 GSI IRQ
 				432 432 // 400 MVM
 				433 433 // 401 MVM
 				436 436 // 404 MVM
@@ -236,6 +239,15 @@
 					qcom,mem-info-tag = <0x3>;
 					allocate-base;
 				};
+			};
+
+			ipa-msgq {
+				vdevice-type = "message-queue-pair";
+				generate = "/hypervisor/ipa-msgq-pair";
+				message-size = <0xf0>;
+				queue-depth = <0x8>;
+				peer-default;
+				qcom,label = <10>;
 			};
 		};
 	};
@@ -513,6 +525,70 @@
 		queue = <4>;
 
 		msgq-label = <0x44>;
+	};
+
+	qcom,msm_gsi {
+		compatible = "qcom,msm_gsi";
+	};
+
+	qcom,rmnet-ipa {
+		compatible = "qcom,rmnet-ipa3";
+		qcom,rmnet-ipa-ssr;
+	};
+
+	ipa_hw: qcom,ipa@03e00000 {
+		compatible = "qcom,ipa";
+		reg =
+			<0x3e00000 0xb0000>,
+			<0x3e00000 0x100000>;
+		reg-names = "ipa-base", "gsi-base";
+		qcom,ipa-cfg-offset = <0x0114000>;
+		interrupts =
+			<0 318 IRQ_TYPE_LEVEL_HIGH>,
+			<0 312 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-names = "ipa-irq", "gsi-irq";
+		qcom,ipa-hw-ver = <25>; /* IPA core version = IPAv6.0 */
+		qcom,ipa-hw-mode = <0>; // IPA_HW_MODE_NORMAL
+		qcom,platform-type = <0>; /* MDM platform */
+		qcom,ee = <4>; /* V2X EE */
+		qcom,entire-ipa-block-size = <0x200000>;
+		qcom,ipa-v2x-vm;
+		qcom,use-ipa-tethering-bridge;
+		qcom,use-tput-estmation-pipe;
+		qcom,mhi-event-ring-id-limits = <9 15>;
+		qcom,modem-cfg-emb-pipe-flt;
+		qcom,use-xbl-boot;
+		qcom,arm-smmu;
+		qcom,smmu-fast-map;
+		qcom,use-64-bit-dma-mask;
+		qcom,ipa-wdi3-over-gsi;
+		qcom,ipa-wdi3-holb-2g = <15>;
+		qcom,ipa-wdi3-holb-5g = <31>;
+		qcom,ipa-endp-delay-wa-v2;
+		qcom,tx-wrapper-cache-max-size = <400>;
+		qcom,ipa-gpi-event-rp-ddr;
+		qcom,ulso-supported;
+		qcom,ulso-ip-id-min-linux-val = <0>;
+		qcom,ulso-ip-id-max-linux-val = <0xffff>;
+		qcom,ulso-ip-id-min-windows-val = <0>;
+		qcom,ulso-ip-id-max-windows-val = <0x7fff>;
+		qcom,register-collection-on-crash;
+		qcom,testbus-collection-on-crash;
+		qcom,non-tn-collection-on-crash;
+		qcom,interconnect,num-cases = <5>;
+		qcom,interconnect,num-paths = <3>;
+		qcom,max_num_smmu_cb = <1>;
+		gunyah-label = <10>;
+		qcom,ipa-config-is-auto;
+
+		ipa_smmu_v2x: ipa_smmu_v2x {
+			compatible = "qcom,ipa-smmu-v2x-cb";
+			iommus = <&apps_smmu 0x424 0x0>;
+			qcom,iommu-dma-addr-pool = <0x20000000 0x20000000>;
+			qcom,iommu-geometry = <0x0 0xA0000000>;
+			qcom,iommu-dma = "fastmap";
+			dma-coherent;
+		};
 	};
 };
 

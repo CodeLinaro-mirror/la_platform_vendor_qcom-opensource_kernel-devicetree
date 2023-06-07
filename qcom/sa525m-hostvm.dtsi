@@ -10,3 +10,12 @@
 		 <&apps_smmu 0x4C 0x0>;
 };
 
+&ipa_hw {
+	gunyah-label = <10>;
+	qcom,max_num_smmu_cb = <6>;
+
+	/* Disable wlan2 on PVM for GVM v2x smmu cb to use peripheral 3 */
+	ipa_smmu_wlan2 {
+		status = "disabled";
+	};
+};
