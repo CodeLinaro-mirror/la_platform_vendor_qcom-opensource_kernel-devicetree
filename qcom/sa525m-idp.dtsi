@@ -211,6 +211,7 @@
 		pinctrl-11 = <&emac0_pin_rgmii_rx_ctl>;
 		pinctrl-12 = <&emac0_mdc>;
 		pinctrl-13 = <&emac0_mdio>;
+		mac_err_rec;
 
 		vreg_emac_phy-supply = <&vreg_emac_phy>;
 		/delete-property/ snps,reset-gpio;
