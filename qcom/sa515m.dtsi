@@ -1284,6 +1284,7 @@
 		tx-fifo-depth = <16384>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
+		skip-ipa-autoresume;
 
 		vreg_rgmii-supply = <&pmx55_vref_rgmii>;
 		vreg_emac_phy-supply =  <&vreg_emac_phy>;
