@@ -1870,6 +1870,7 @@
 		qcom,iommu-dma-addr-pool = <0x0 0xffc00000>;
 		qcom,mem_support;
 		qcom,sw-usb;
+		qcom,qdss-pcie-support;
 		coresight-name = "coresight-tmc-etr";
 
 		coresight-csr = <&csr>;

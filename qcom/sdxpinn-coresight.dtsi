@@ -2388,6 +2388,8 @@
 		byte-cntr-name = "byte-cntr";
 		byte-cntr-class-name = "coresight-tmc-etr-stream";
 
+		qcom,qdss-pcie-support;
+		sw_pcie_buf_size = <0x2000000>;
 		interrupts = <GIC_SPI 334 IRQ_TYPE_EDGE_RISING>;
 		interrupt-names = "byte-cntr-irq";
 
