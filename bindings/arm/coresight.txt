@@ -184,6 +184,8 @@ its hardware characteristcs.
 
 	* qcom,eth_support: boolean. Indicates that TMC-ETR supports QDSS over
 	  ethernet function.
+	* qcom,qdss-pcie-support: boolean. Indicates that TMC-ETR supports QDSS over PCIe.
+	* sw_pcie_buf_size: size of memory buffer for sw path for QDSS over PCIe.
 
 * Required property for Secure ETRs:
 	* qdss,support-remote-etm: must be present. QMI instance id for supported remote ETM.
