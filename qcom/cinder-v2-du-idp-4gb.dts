@@ -2,6 +2,7 @@
 
 #include "cinder-v2-du.dtsi"
 #include "cinder-v2-idp.dtsi"
+#include "cinder-v2-du-hireg-4gb.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Cinder V2 DU IDP 4GB SoC";

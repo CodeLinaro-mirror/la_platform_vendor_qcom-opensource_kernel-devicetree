@@ -29,3 +29,9 @@
 	};
 
 };
+
+&modem_pas {
+	extended-memory-regions = <&harq_buffer_mem>, <&tenx_sp_buffer_mem>,
+						<&fapi_buffer_mem>, <&tenx_purge_area_mem>,
+						<&ipa_buffer_mem>, <&tenx_mem>;
+};

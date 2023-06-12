@@ -13,3 +13,8 @@
 		reg = <0x8 0x0 0x0 0x80000000>;
 	};
 };
+
+&modem_pas {
+	extended-memory-regions = <&tenx_sp_mem>, <&oem_tenx_mem>,
+						<&modem_sample_capture_buffer_mem>;
+};
