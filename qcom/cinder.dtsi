@@ -1280,13 +1280,31 @@
 		pbl_ver: pbl_ver@0cf8 {
 			reg = <0x0cf8 0x4>;
 		};
+
+		mac_fuse: mac_fuse@318 {
+			reg = <0x318 0x10>;
+		};
+
+		mac_fuse_second: mac_fuse_second@320 {
+		reg = <0x320 0x08>;
+		};
+
+		debug_port_fuse: debug_port_fuse@074 {
+		reg = <0x074 0x04>;
+		};
 	};
 
 	qfprom_sys: qfprom@0 {
 		compatible = "qcom,qfprom-sys";
 
-		nvmem-cells = <&pbl_ver>;
-		nvmem-cell-names = "pbl_ver";
+		nvmem-cells = <&pbl_ver>,
+				<&mac_fuse>,
+				<&mac_fuse_second>,
+				<&debug_port_fuse>;
+		nvmem-cell-names = "pbl_ver",
+				"mac_fuse",
+				"mac_fuse_second",
+				"debug_port_fuse";
 	};
 
 
