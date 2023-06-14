@@ -116,7 +116,7 @@
 			regulator-name = "pmx75_s2";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
 			regulator-min-microvolt = <1224000>;
-			regulator-max-microvolt = <1300000>;
+			regulator-max-microvolt = <1350000>;
 			qcom,init-voltage = <1224000>;
 		};
 	};
