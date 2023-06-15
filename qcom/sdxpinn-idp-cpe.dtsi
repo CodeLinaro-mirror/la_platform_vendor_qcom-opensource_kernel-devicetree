@@ -174,7 +174,7 @@
 		managed = "auto";
 		eth-c45-mdio-probe;
 		snps,axi-config = <&stmmac_axi_setup>;
-
+		mac-address = [00 55 7B B5 7D f7];
 		serdes-config {
 			/* Valid values for usxgmii-mode:
 			 * 10000: 10G mode
@@ -200,6 +200,7 @@
 	phy-mode = "usxgmii";
 	managed = "auto";
 	eth-c45-mdio-probe;
+	mac-address = [00 55 7B B5 7D f8];
 };
 
 &sdhc_1 {
