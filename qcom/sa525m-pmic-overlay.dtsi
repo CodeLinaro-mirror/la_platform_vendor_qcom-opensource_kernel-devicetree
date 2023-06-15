@@ -353,17 +353,17 @@
 		cooling-maps {
 			pmx75_cpu1 {
 				trip = <&pmx75_trip0>;
-				cooling-device = <&cpu1_pause 1 1>;
+				cooling-device = <&cpu1_hotplug 1 1>;
 			};
 
 			pmx75_cpu2 {
 				trip = <&pmx75_trip0>;
-				cooling-device = <&cpu2_pause 1 1>;
+				cooling-device = <&cpu2_hotplug 1 1>;
 			};
 
 			pmx75_cpu3 {
 				trip = <&pmx75_trip0>;
-				cooling-device = <&cpu3_pause 1 1>;
+				cooling-device = <&cpu3_hotplug 1 1>;
 			};
 
 			pmx75_lte {

@@ -343,6 +343,10 @@
 	status = "disabled";
 };
 
+&userspace_cdev {
+	status = "disabled";
+};
+
 &thermal_zones {
 	sdr1_pa {
 		polling-delay-passive = <0>;
@@ -370,5 +374,15 @@
 				type = "passive";
 			};
 		};
+	};
+
+	ethphy-0 {
+		trips {
+			/delete-node/ eth-config1;
+			/delete-node/ eth-config2;
+			/delete-node/ eth-config3;
+		};
+
+		/delete-node/ cooling-maps;
 	};
 };

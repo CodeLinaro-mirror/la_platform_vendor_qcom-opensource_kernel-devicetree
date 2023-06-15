@@ -13,42 +13,6 @@
 		#thermal-sensor-cells = <1>;
 	};
 
-	qcom,cpu-pause {
-		compatible = "qcom,thermal-pause";
-
-		cpu1_pause: cpu1-pause {
-			qcom,cpus = <&CPU1>;
-			#cooling-cells = <2>;
-		};
-
-		cpu2_pause: cpu2-pause {
-			qcom,cpus = <&CPU2>;
-			#cooling-cells = <2>;
-		};
-
-		cpu3_pause: cpu3-pause {
-			qcom,cpus = <&CPU3>;
-			#cooling-cells = <2>;
-		};
-
-		/* Thermal-engine cooling devices */
-
-		pause-cpu1 {
-			qcom,cpus = <&CPU1>;
-			qcom,cdev-alias = "pause-cpu1";
-		};
-
-		pause-cpu2 {
-			qcom,cpus = <&CPU2>;
-			qcom,cdev-alias = "pause-cpu2";
-		};
-
-		pause-cpu3 {
-			qcom,cpus = <&CPU3>;
-			qcom,cdev-alias = "pause-cpu3";
-		};
-	};
-
 	qcom,cpu-hotplug {
 		compatible = "qcom,cpu-hotplug";
 
@@ -71,6 +35,22 @@
 	qcom,cpufreq-cdev {
 		compatible = "qcom,cpufreq-cdev";
 		qcom,cpus = <&CPU0>;
+	};
+
+	userspace_cdev: qcom,userspace-cdev {
+		compatible = "qcom,userspace-cooling-devices";
+
+		ethernet_usxgmii: ethernet-usxgmii {
+			/* Levels: USXGMII 10G, SGMII 2.5G, SGMII 1G */
+			qcom,max-level = <2>;
+			#cooling-cells = <2>;
+		};
+
+		ethernet_sgmii: ethernet-sgmii {
+			/* Levels: SGMII 2.5G, SGMII 1G */
+			qcom,max-level = <1>;
+			#cooling-cells = <2>;
+		};
 	};
 };
 
@@ -144,12 +124,6 @@
 				type = "passive";
 			};
 
-			cpuss_1_emerg1: cpuss-1-emerg-cfg1 {
-				temperature = <112000>;
-				hysteresis = <12000>;
-				type = "passive";
-			};
-
 			reset-mon-cfg {
 				temperature = <115000>;
 				hysteresis = <5000>;
@@ -160,11 +134,6 @@
 		cooling-maps {
 			cpu_cdev0 {
 				trip = <&cpuss_1_emerg>;
-				cooling-device = <&cpu1_pause 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_1_emerg1>;
 				cooling-device = <&cpu1_hotplug 1 1>;
 			};
 		};
@@ -187,12 +156,6 @@
 				type = "passive";
 			};
 
-			cpuss_2_emerg1: cpuss-2-emerg-cfg1 {
-				temperature = <112000>;
-				hysteresis = <12000>;
-				type = "passive";
-			};
-
 			reset-mon-cfg {
 				temperature = <115000>;
 				hysteresis = <5000>;
@@ -203,11 +166,6 @@
 		cooling-maps {
 			cpu_cdev0 {
 				trip = <&cpuss_2_emerg>;
-				cooling-device = <&cpu2_pause 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_2_emerg1>;
 				cooling-device = <&cpu2_hotplug 1 1>;
 			};
 		};
@@ -230,12 +188,6 @@
 				type = "passive";
 			};
 
-			cpuss_3_emerg1: cpuss-3-emerg-cfg1 {
-				temperature = <112000>;
-				hysteresis = <12000>;
-				type = "passive";
-			};
-
 			reset-mon-cfg {
 				temperature = <115000>;
 				hysteresis = <5000>;
@@ -246,11 +198,6 @@
 		cooling-maps {
 			cpu_cdev0 {
 				trip = <&cpuss_3_emerg>;
-				cooling-device = <&cpu3_pause 1 1>;
-			};
-
-			cpu_cdev1 {
-				trip = <&cpuss_3_emerg1>;
 				cooling-device = <&cpu3_hotplug 1 1>;
 			};
 		};
@@ -271,6 +218,41 @@
 				temperature = <115000>;
 				hysteresis = <5000>;
 				type = "passive";
+			};
+
+			eth_usxgmii1: eth-config1 {
+				temperature = <130000>;
+				hysteresis = <1000>;
+				type = "passive";
+			};
+
+			eth_usxgmii2: eth-config2 {
+				temperature = <130000>;
+				hysteresis = <1000>;
+				type = "passive";
+			};
+
+			eth_sgmii: eth-config3 {
+				temperature = <130000>;
+				hysteresis = <1000>;
+				type = "passive";
+			};
+		};
+
+		cooling-maps {
+			eth_cdev_1 {
+				trip = <&eth_usxgmii1>;
+				cooling-device = <&ethernet_usxgmii 1 1>;
+			};
+
+			eth_cdev_2 {
+				trip = <&eth_usxgmii2>;
+				cooling-device = <&ethernet_usxgmii 2 2>;
+			};
+
+			eth_cdev_3 {
+				trip = <&eth_sgmii>;
+				cooling-device = <&ethernet_sgmii 1 1>;
 			};
 		};
 	};
