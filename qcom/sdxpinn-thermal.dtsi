@@ -326,19 +326,19 @@
 			};
 
 			mdmss0_config0: mdmss0-config0 {
-				temperature = <101000>;
+				temperature = <111000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};
 
 			mdmss0_config1: mdmss0-config1 {
-				temperature = <105000>;
+				temperature = <115000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};
 
 			reset-mon-cfg {
-				temperature = <115000>;
+				temperature = <120000>;
 				hysteresis = <5000>;
 				type = "passive";
 			};
@@ -352,12 +352,12 @@
 
 			nr_scg_cdev0 {
 				trip = <&mdmss0_config0>;
-				cooling-device = <&modem_nr_scg_dsc 10 10>;
+				cooling-device = <&modem_nr_scg_dsc 12 12>;
 			};
 
 			nr_cdev0 {
 				trip = <&mdmss0_config0>;
-				cooling-device = <&modem_nr_dsc 6 6>;
+				cooling-device = <&modem_nr_dsc 8 8>;
 			};
 
 			lte_cdev1 {
@@ -384,19 +384,19 @@
 			};
 
 			mdmss1_config0: mdmss1-config0 {
-				temperature = <101000>;
+				temperature = <111000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};
 
 			mdmss1_config1: mdmss1-config1 {
-				temperature = <105000>;
+				temperature = <115000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};
 
 			reset-mon-cfg {
-				temperature = <115000>;
+				temperature = <120000>;
 				hysteresis = <5000>;
 				type = "passive";
 			};
@@ -410,12 +410,12 @@
 
 			nr_scg_cdev0 {
 				trip = <&mdmss1_config0>;
-				cooling-device = <&modem_nr_scg_dsc 10 10>;
+				cooling-device = <&modem_nr_scg_dsc 12 12>;
 			};
 
 			nr_cdev0 {
 				trip = <&mdmss1_config0>;
-				cooling-device = <&modem_nr_dsc 6 6>;
+				cooling-device = <&modem_nr_dsc 8 8>;
 			};
 
 			lte_cdev1 {
@@ -442,19 +442,19 @@
 			};
 
 			mdmss2_config0: mdmss2-config0 {
-				temperature = <101000>;
+				temperature = <111000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};
 
 			mdmss2_config1: mdmss2-config1 {
-				temperature = <105000>;
+				temperature = <115000>;
 				hysteresis = <3000>;
 				type = "passive";
 			};
 
 			reset-mon-cfg {
-				temperature = <115000>;
+				temperature = <120000>;
 				hysteresis = <5000>;
 				type = "passive";
 			};
@@ -468,12 +468,12 @@
 
 			nr_scg_cdev0 {
 				trip = <&mdmss2_config0>;
-				cooling-device = <&modem_nr_scg_dsc 10 10>;
+				cooling-device = <&modem_nr_scg_dsc 12 12>;
 			};
 
 			nr_cdev0 {
 				trip = <&mdmss2_config0>;
-				cooling-device = <&modem_nr_dsc 6 6>;
+				cooling-device = <&modem_nr_dsc 8 8>;
 			};
 
 			lte_cdev1 {
