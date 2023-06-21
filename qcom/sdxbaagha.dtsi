@@ -1362,6 +1362,12 @@
 		qcom,tx-wrapper-cache-max-size = <400>;
 		qcom,ipa-gpi-event-rp-ddr;
 		qcom,max_num_smmu_cb = <4>;
+		/* Boot Config Information */
+		nvmem-cells = <&boot_config>;
+		nvmem-cell-names = "boot_conf";
+		qcom,fast-boot-mask = <0x1e>;
+		qcom,host-bypass-mask = <0x40>;
+		qcom,fast-boot-values = <0x3>;
 		clock-names = "core_clk";
 		clocks = <&rpmhcc RPMH_IPA_CLK>;
 		qcom,interconnect,num-cases = <5>;
