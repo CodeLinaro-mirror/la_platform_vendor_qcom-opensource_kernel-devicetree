@@ -26,3 +26,9 @@
 &pcie0_msi {
 	status = "disabled";
 };
+
+&usb0 {
+	dwc3@a600000 {
+		snps,usb2-gadget-lpm-disable;
+	};
+};
