@@ -170,7 +170,21 @@
 				input-enable;
 			};
 		};
+	};
 
+	usb {
+		usb_vbus_boost: usb_vbus_boost {
+			mux {
+				pins = "gpio132";
+				function = "gpio";
+			};
+
+			 config {
+				pins = "gpio132";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
 	};
 };
 
@@ -258,6 +272,10 @@ status = "ok";
 };
 
 &usb {
+	vbus-boost-gpio = <&tlmm 132 GPIO_ACTIVE_HIGH>;
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&usb_vbus_boost>;
+	pinctrl-1 = <&usb_vbus_boost>;
 	extcon = <&pmx75_vbus_detect>;
 };
 
