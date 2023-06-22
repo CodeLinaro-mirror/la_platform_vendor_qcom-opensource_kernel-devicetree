@@ -1354,6 +1354,8 @@
 		qcom,modem-cfg-emb-pipe-flt;
 		qcom,use-xbl-boot;
 		qcom,ipa-wdi3-over-gsi;
+		qcom,ipa-wdi3-holb-2g = <15>;
+		qcom,ipa-wdi3-holb-5g = <31>;
 		qcom,wlan-ce-db-over-pcie;
 		qcom,wan-rx-ring-size = <96>;
 		qcom,lan-rx-ring-size = <96>;
