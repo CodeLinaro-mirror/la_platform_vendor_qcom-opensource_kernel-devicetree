@@ -2052,50 +2052,6 @@
 		};
 	};
 
-	cnss_pins {
-		cnss_wlan_en_active: cnss_wlan_en_active {
-			mux {
-				pins = "gpio82";
-				function = "gpio";
-			};
-
-			config {
-				pins = "gpio82";
-				drive-strength = <16>;
-				output-high;
-				bias-pull-up;
-			};
-		};
-
-		cnss_wlan1_en_active: cnss_wlan1_en_active {
-			mux {
-				pins = "gpio17";
-				function = "gpio";
-			};
-
-			config {
-				pins = "gpio17";
-				drive-strength = <16>;
-				output-high;
-				bias-pull-up;
-			};
-		};
-
-		cnss_wlan2_en_active: cnss_wlan2_en_active {
-			mux {
-				pins = "gpio76";
-				function = "gpio";
-			};
-
-			config {
-				pins = "gpio76";
-				drive-strength = <16>;
-				output-high;
-				bias-pull-up;
-			};
-		};
-	};
-
 	pinctrl_pps: ppsgrp {
 		mux {
 			pins = "gpio104";
