@@ -215,7 +215,7 @@
 				message-size = <0xf0>;
 				queue-depth = <0x8>;
 				peer-default;
-				qcom,label = <0x44>;
+				qcom,label = <0xB>;
 			};
 
 			qrtr-shm {
@@ -523,8 +523,6 @@
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 		queue = <4>;
-
-		msgq-label = <0x44>;
 	};
 
 	qcom,msm_gsi {

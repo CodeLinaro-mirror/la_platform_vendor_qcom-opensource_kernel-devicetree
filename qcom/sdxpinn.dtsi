@@ -1489,8 +1489,6 @@
 		snps,reset-gpio = <&tlmm 96 1>;
 		snps,crc_strip;
 
-		msgq-label = <0x44>;
-
 		interconnect-names = "axi_icc_path", "apb_icc_path";
 		interconnects = <&system_noc MASTER_EMAC_0 &mc_virt SLAVE_EBI1>,
 				<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_ETH0_CFG>;
