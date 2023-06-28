@@ -278,6 +278,7 @@
 		eth-c22-mdio-probe;
 
 		qcom,ioss_auto_resume_disabled;
+		qcom,flow-ctrl-disabled;
 		emac-phy-off-suspend = <4>;
 
 		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
