@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxbaagha-128m.dtsi"
+#include "sdxbaagha-128m-mtp-dp.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXBAAGHA MTP 128M DP";
+	compatible = "qcom,sdxbaagha-mtp",
+		"qcom,sdxbaagha", "qcom,mtp";
+	qcom,board-id = <0x10008 0x702>, <0x10008 0x102>, <0x10008 0x202>;
+};

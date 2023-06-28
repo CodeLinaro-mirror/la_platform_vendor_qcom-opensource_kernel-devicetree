@@ -347,6 +347,7 @@ sdxbaagha-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-rumi.dtb \
 	sdxbaagha-atp.dtb
 sdxbaagha-128m-dtb-$(CONFIG_ARCH_SDXBAAGHA) += sdxbaagha-128m-rumi.dtb \
 	sdxbaagha-128m-mtp.dtb \
+	sdxbaagha-128m-mtp-dp.dtb \
 	sdxbaagha-128m-cdp.dtb \
 	sdxbaagha-128m-qmp.dtb \
 	sdxbaagha-128m-atp.dtb \
