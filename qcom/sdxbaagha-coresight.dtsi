@@ -1871,6 +1871,7 @@
 		qcom,mem_support;
 		qcom,sw-usb;
 		qcom,qdss-pcie-support;
+		sw_usb_buf_size = <0x400000>;
 		coresight-name = "coresight-tmc-etr";
 
 		coresight-csr = <&csr>;
