@@ -239,4 +239,5 @@
 &pcie0 {
 	qcom,no-l1-supported;
 	qcom,no-l1ss-supported;
+	qcom,target-link-speed = <0x1>;
 };
