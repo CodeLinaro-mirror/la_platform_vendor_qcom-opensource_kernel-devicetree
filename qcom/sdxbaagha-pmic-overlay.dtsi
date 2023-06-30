@@ -24,7 +24,7 @@
 
 &qupv3_se4_i2c {
 	status = "ok";
-	smb23x-lbc@12 {
+	smb23x_charger: smb23x-lbc@12 {
 		compatible = "qcom,smb231-lbc";
 		reg = <0x12>;
 		interrupt-parent = <&spmi_bus>;
