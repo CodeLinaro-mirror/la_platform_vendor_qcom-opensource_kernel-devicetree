@@ -541,6 +541,18 @@
 					drive-strength = <16>;
 				};
 			};
+
+			emac_pin_wol_intr: emac_pin_wol_intr {
+				mux {
+					pins = "gpio109";
+				};
+
+				config {
+					pins = "gpio109";
+					drive-strength = <8>; /* 8 mA */
+					bias-pull-up; /* NO PULL*/
+				};
+			};
 		};
 
 		wcd9xxx_intr {
