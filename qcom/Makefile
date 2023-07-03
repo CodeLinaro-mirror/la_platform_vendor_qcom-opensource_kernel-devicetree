@@ -227,8 +227,10 @@ sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb \
 		sdxpinn-idp-lga-v2.dtb \
 		sdxpinn-rcm-mbb.dtb \
 		sdxpinn-rcm-mbb-v2.dtb
+sdxpinn-rdkb-dtb-$(CONFIG_ARCH_SDXPINN) += $(sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN))
 sdxpinn-cpe-wkk-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-idp-cpe.dtb \
 		sdxpinn-idp-cpe-v2.dtb
+
 dtb-y += $(sdxpinn-dtb-y)
 
 ifeq ($(CONFIG_ARCH_SA525_HOSTVM), y)
