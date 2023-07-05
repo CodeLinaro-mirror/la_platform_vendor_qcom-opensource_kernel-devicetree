@@ -94,6 +94,38 @@
 		};
 	};
 
+	mtl_rxrtl_setup: rtlrx-queues-config {
+		snps,rx-queues-to-use = <2>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <7680>;
+			snps,map-to-dma-channel = <0x1>;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,fifo_depth = <512>;
+			snps,threshold_byte = <64>;
+		};
+	};
+
+	mtl_txrtl_setup: rtltx-queues-config {
+		snps,tx-queues-to-use = <2>;
+		snps,tx-sched-sp;
+		queue0 {
+			snps,dcb-algorithm;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+	};
+
 	ethqos_hw2: qcom,emac1@22FC0000 {
 		compatible = "qcom,stmmac-ethqos", "snps,dwxgmac","qcom,ioss-v2-device";
 		qcom,arm-smmu;
@@ -165,8 +197,8 @@
 		snps,pbl = <32>;
 		rx-fifo-depth = <8192>;
 		tx-fifo-depth = <8192>;
-		snps,mtl-rx-config = <&mtl_rx_setup>;
-		snps,mtl-tx-config = <&mtl_tx_setup>;
+		snps,mtl-rx-config = <&mtl_rxrtl_setup>;
+		snps,mtl-tx-config = <&mtl_txrtl_setup>;
 
 		snps,reset-active-low;
 		snps,reset-delays-us = <1000 40 150000>;
