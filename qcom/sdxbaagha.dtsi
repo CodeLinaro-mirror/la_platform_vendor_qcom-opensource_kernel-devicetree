@@ -632,6 +632,18 @@
 		ss-name = "modem", "apss";
 	};
 
+	pcie_crm: crm@501000 {
+		label = "pcie_crm";
+		compatible = "qcom,pcie-crm";
+		reg = <0x501000 0x3000>;
+		reg-names = "base";
+		interrupts = <GIC_SPI 44 IRQ_TYPE_EDGE_RISING>;
+		interrupt-names = "pcie_crm";
+		clocks = <&pcie_pipe_clk>;
+		qcom,hw-drv-ids = <0>;
+		qcom,sw-drv-ids = <0>;
+	};
+
 	subsystem-sleep-stats@c370000 {
 		compatible = "qcom,subsystem-sleep-stats";
 		reg = <0xc370000 0x400>;
