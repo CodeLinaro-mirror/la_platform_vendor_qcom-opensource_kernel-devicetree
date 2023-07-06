@@ -99,9 +99,18 @@
 				   0x0 0x998000 0x0 0x998000 0x0 0x4000 0x0
 				   0x0 0x3e00000 0x0 0x3e00000 0x0 0x200000 0x0
 				   0x0 0x23052000 0x0 0x23052000 0x0 0x1000 0x0
-				   0x0 0x2304C000 0x0 0x2304C000 0x0 0x1000 0x0>;
+				   0x0 0x2304C000 0x0 0x2304C000 0x0 0x1000 0x0
+				   0x0 0x0F1B7000 0x0 0x0F1B7000 0x0 0x2000 0x0>;
 
-		gic-irq-ranges = <344 344 // 312 IPA /* PVM->SVM IRQ transfer */
+		gic-irq-ranges = <245 245 // 213 DIR CONN HMMS /* PVM->SVM IRQ transfer */
+				246 246 // 214 DIR CONN HMMS
+				247 247 // 215 DIR CONN HMMS
+				248 248 // 216 DIR CONN HMMS
+				249 249 // 217 DIR CONN HMMS
+				250 250 // 218 DIR CONN HMMS
+				251 251 // 219 DIR CONN HMMS
+				252 252 // 220 DIR CONN HMMS
+				344 344 // 312 IPA
 				350 350 // 318 IPA
 				383 383 // 351 QUPV3 GSI IRQ
 				432 432 // 400 MVM
@@ -470,6 +479,15 @@
 		#gpio-cells = <2>;
 		interrupt-controller;
 		#interrupt-cells = <2>;
+		interrupts = <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 213 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 214 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 216 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 217 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 218 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>,
+					<GIC_SPI 220 IRQ_TYPE_LEVEL_HIGH>;
 		/* Valid pins */
 		gpios = /bits/ 16 <102 112 113 114 115>;
 	};
@@ -477,7 +495,7 @@
 	tlmm-vm-mem-access {
 		compatible = "qcom,tlmm-vm-mem-access";
 		peer-name = <5>; /* 5 => Televm */
-		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0 >;
+		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0>;
 		pinctrl-names = "active", "sleep";
 		pinctrl-0 = <&qupv3_se6_spi_mosi_active>, <&qupv3_se6_spi_miso_active>,
 			<&qupv3_se6_spi_clk_active>, <&qupv3_se6_spi_cs_active>;
