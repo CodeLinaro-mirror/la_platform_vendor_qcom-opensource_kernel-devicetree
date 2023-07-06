@@ -1333,6 +1333,11 @@
 		qcom,rmnet-ipa-ssr;
 	};
 
+	ipa_eth_group1: ipa_eth_group1 {
+		qcom,iommu-dma-addr-pool = <0x87f10000 0x07f00000>;
+		qcom,iommu-dma = "atomic";
+	};
+
 	ipa_hw: qcom,ipa@3e00000 {
 		compatible = "qcom,ipa";
 		reg =
@@ -1363,6 +1368,7 @@
 		qcom,ipa-endp-delay-wa-v2;
 		qcom,tx-wrapper-cache-max-size = <400>;
 		qcom,ipa-gpi-event-rp-ddr;
+		qcom,ipa-iemac;
 		qcom,max_num_smmu_cb = <4>;
 		/* Boot Config Information */
 		nvmem-cells = <&boot_config>;
@@ -1438,11 +1444,11 @@
 			qcom,iommu-dma = "atomic";
 		};
 
-		ipa_smmu_11ad: ipa_smmu_11ad {
-			compatible = "qcom,ipa-smmu-11ad-cb";
+		ipa_smmu_eth: ipa_smmu_eth {
+			compatible = "qcom,ipa-smmu-eth1-cb";
 			iommus = <&apps_smmu 0x003 0x0>;
 			qcom,shared-cb;
-			qcom,iommu-group = <>;
+			qcom,iommu-group = <&ipa_eth_group1>;
 		};
 	};
 
