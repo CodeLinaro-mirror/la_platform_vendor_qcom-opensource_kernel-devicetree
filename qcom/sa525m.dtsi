@@ -100,7 +100,7 @@
 	qcom,qrtr_gunyah_televm {
 		compatible = "qcom,qrtr-gunyah";
 		qcom,master;
-		qcom,net-id = <0>;
+		qcom,net-id = <8>;
 		gunyah-label = <3>;
 		peer-name = <5>;
 	};
@@ -108,7 +108,7 @@
 	qcom,qrtr_gunyah_fotavm {
 		compatible = "qcom,qrtr-gunyah";
 		qcom,master;
-		qcom,net-id = <4>;
+		qcom,net-id = <10>;
 		gunyah-label = <9>;
 		peer-name = <6>;
 	};

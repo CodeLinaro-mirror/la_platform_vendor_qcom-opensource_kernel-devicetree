@@ -1567,7 +1567,7 @@
 
 			qcom,modem_qrtr {
 				qcom,glink-channels = "IPCRTR";
-				qcom,net-id = <5>;
+				qcom,net-id = <6>;
 				qcom,low-latency;
 				qcom,intents = <0x800  5
 						0x2000 3
