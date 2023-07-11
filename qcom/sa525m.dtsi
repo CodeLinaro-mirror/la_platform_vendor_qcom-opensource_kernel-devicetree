@@ -349,6 +349,85 @@
 };
 
 &thermal_zones {
+	mdmss-0 {
+		trips {
+			mdmss0-config0 {
+				temperature = <117000>;
+			};
+
+			mdmss0-config1 {
+				temperature = <120000>;
+			};
+		};
+
+		cooling-maps {
+			lte_cdev0 {
+				cooling-device = <&modem_lte_dsc 11 11>;
+			};
+
+			nr_scg_cdev0 {
+				cooling-device = <&modem_nr_scg_dsc 11 11>;
+			};
+
+			nr_cdev0 {
+				cooling-device = <&modem_nr_dsc 11 11>;
+			};
+		};
+	};
+
+	mdmss-1 {
+		trips {
+			mdmss1-config0 {
+				temperature = <117000>;
+			};
+
+			mdmss1-config1 {
+				temperature = <120000>;
+			};
+		};
+
+		cooling-maps {
+			lte_cdev0 {
+				cooling-device = <&modem_lte_dsc 11 11>;
+			};
+
+			nr_scg_cdev0 {
+				cooling-device = <&modem_nr_scg_dsc 11 11>;
+			};
+
+			nr_cdev0 {
+				trip = <&mdmss1_config0>;
+				cooling-device = <&modem_nr_dsc 11 11>;
+			};
+		};
+	};
+
+	mdmss-2 {
+		trips {
+			mdmss2-config0 {
+				temperature = <117000>;
+			};
+
+			mdmss2-config1 {
+				temperature = <120000>;
+			};
+		};
+
+		cooling-maps {
+			lte_cdev0 {
+				cooling-device = <&modem_lte_dsc 11 11>;
+			};
+
+			nr_scg_cdev0 {
+				cooling-device = <&modem_nr_scg_dsc 11 11>;
+			};
+
+			nr_cdev0 {
+				cooling-device = <&modem_nr_dsc 11 11>;
+			};
+		};
+	};
+
 	sdr1_pa {
 		polling-delay-passive = <0>;
 		polling-delay = <0>;
