@@ -247,7 +247,13 @@ SA525_BOARDS += sa525m-rumi-overlay.dtbo \
 		sa525m-adp-overlay.dtbo \
 		sa525m-idp-v2-overlay.dtbo \
 		sa522m-idp-v2-overlay.dtbo \
-		sa525m-adp-v2-overlay.dtbo
+		sa525m-adp-v2-overlay.dtbo \
+		sa525m-idp-pci-ep-overlay.dtbo \
+		sa522m-idp-pci-ep-overlay.dtbo \
+		sa525m-adp-pci-ep-overlay.dtbo \
+		sa525m-idp-v2-pci-ep-overlay.dtbo \
+		sa522m-idp-v2-pci-ep-overlay.dtbo \
+		sa525m-adp-v2-pci-ep-overlay.dtbo
 
 sa525-dtb-$(CONFIG_ARCH_SA525) += \
 		$(call add-overlays, $(SA525_BOARDS) ,$(SA525_BASE_DTB))
