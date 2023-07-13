@@ -16,11 +16,11 @@
 };
 
 &pcie0 {
-	status = "ok";
+	status = "disabled";
 };
 
 &pcie0_msi {
-	status = "ok";
+	status = "disabled";
 };
 
 &pcie1 {
@@ -32,6 +32,23 @@
 };
 
 &pcie2_msi {
+	status = "ok";
+};
+
+&pcie_ep {
+	qcom,pcie-device-id = /bits/ 16 <0x030a>;
+	qcom,pcie-use-iatu-msi;
+	qcom,override-disable-sriov;
+	status = "ok";
+};
+
+&mhi_device {
+	qcom,mhi-ifc-id = <0x030a17cb>;
+	status = "ok";
+};
+
+&mhi_net_device {
+	qcom,mhi-ethernet-interface-channel = <46>;
 	status = "ok";
 };
 
