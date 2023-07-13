@@ -116,9 +116,14 @@
 		reg = <0x0 0x88b00000 0x0 0x400000>;
 	};
 
-	mpss_dsmharq_mem: mpss_dsmharq_region@88f00000 {
+	mpss_dsmharq2_mem: mpss_dsmharq2_region@88f00000 {
 		no-map;
-		reg = <0x0 0x88f00000 0x0 0x5080000>;
+		reg = <0x0 0x88f00000 0x0 0x800000>;
+	};
+
+	mpss_dsmharq_mem: mpss_dsmharq_region@89700000 {
+		no-map;
+		reg = <0x0 0x89700000 0x0 0x4880000>;
 	};
 
 	q6_mpss_dtb_mem: q6_mpss_dtb_region@8df80000 {
