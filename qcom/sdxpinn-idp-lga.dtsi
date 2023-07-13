@@ -247,6 +247,7 @@
 };
 
 &modem_pas {
+	mpss_dsm_mem_reg = <&mpss_dsmharq_mem>;
 	qcom,pmic_glink_rpmsg {
 		qcom,glink-channels = "PMIC_RTR_ADSP_APPS";
 	};
