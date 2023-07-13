@@ -175,7 +175,7 @@
 	};
 
 	mtl_rx_setup: rx-queues-config {
-		snps,rx-queues-to-use = <4>;
+		snps,rx-queues-to-use = <5>;
 		snps,rx-sched-sp;
 
 		queue0 {
@@ -203,10 +203,15 @@
 			snps,map-to-dma-channel = <0x3>;
 			snps,priority = <0xC>;
 		};
+
+		queue4 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x4>;
+		};
 	};
 
 	mtl_tx_setup: tx-queues-config {
-		snps,tx-queues-to-use = <4>;
+		snps,tx-queues-to-use = <5>;
 		snps,tx-sched-sp;
 
 		queue0 {
@@ -232,6 +237,10 @@
 			snps,idle_slope = <0x1000>;
 			snps,high_credit = <0x3E800>;
 			snps,low_credit = <0xFFC18000>;
+		};
+
+		queue4 {
+			snps,dcb-algorithm;
 		};
 	};
 
@@ -271,6 +280,7 @@
 		avb-vlan-id = <2>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
+		cv2x-queue = <4>;
 
 		phy-mode = "rgmii-rxid";
 		mac-mode = "rgmii-rxid";
