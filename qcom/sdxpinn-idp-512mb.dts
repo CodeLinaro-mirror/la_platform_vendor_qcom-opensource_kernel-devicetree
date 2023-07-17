@@ -1,0 +1,12 @@
+/dts-v1/;
+
+#include "sdxpinn.dtsi"
+#include "sdxpinn-idp-mbb.dtsi"
+#include "sdxpinn-idp-512mb.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXPINN IDP MIN 512MB";
+	compatible = "qcom,sdxpinn-idp",
+		"qcom,sdxpinn", "qcom,idp";
+	qcom,board-id = <0x4040022 0x204>;
+};
