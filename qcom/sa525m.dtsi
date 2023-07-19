@@ -266,8 +266,8 @@
 		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
 		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
 
-		snps,ptp-ref-clk-rate = <230400000>;
-		snps,ptp-req-clk-rate = <125000000>;
+		snps,ptp-ref-clk-rate = <125000000>;
+		snps,ptp-req-clk-rate = <57600000>;
 		avb-vlan-id = <2>;
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
