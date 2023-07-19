@@ -1,0 +1,48 @@
+%YAML 1.2
+---
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+
+title: The document describes the device tree binding for QCOM AOP Fault Collector Driver
+
+QCOM AOP Fault Collector Driver will be used to collect the fault details like fault id,
+fault time etc and send them over QMI server. This driver monitors ipcc interrupt for
+pmic faults. It reads fault data from MSGRAM on interrupt and send fault information
+to userspace via QMI interface.
+
+Properties:
+- compatible:
+	Usage: required
+	Value type: <string>
+	Definition: must be:
+	"qcom,aop-fc"
+
+- reg:
+	Usage: required
+	Value type: <prop-encoded-array>
+	Definition: the base address and size of the message RAM for this
+		client's communication with the AOP
+
+- interrupts:
+	Usage: required
+	Value type: <prop-encoded-array>
+	Definition: should specify the AOP message IRQ for this client
+
+- mboxes:
+	Usage: required
+	Value type: <prop-encoded-array>
+	Definition: reference to the mailbox representing the outgoing doorbell
+		in APCS for this client, as described in mailbox/mailbox.txt
+
+- examples:
+   -|
+	aop_fc: aop-fault-collector@1350000 {
+		compatible =  "qcom,aop-fc";
+		reg = <0xc350000 0x400>;
+		interrupt-parent = <&ipcc_mproc>;
+		interrupts = <IPCC_CLIENT_AOP
+				IPCC_MPROC_SIGNAL_PING
+				IRQ_TYPE_EDGE_RISING>;
+		mboxes = <&ipcc_mproc IPCC_CLIENT_AOP
+				IPCC_MPROC_SIGNAL_PING>;
+	};
+...
