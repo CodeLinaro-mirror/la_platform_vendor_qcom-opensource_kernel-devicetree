@@ -852,6 +852,11 @@
 		interrupt-controller;
 	};
 
+	pcie_pdc: pdc@b2b0000 {
+		compatible = "qcom,sdxpinn-pcie-pdc", "qcom,pcie-pdc";
+		reg = <0xb2b0000 0x30000>;
+	};
+
 	clocks {
 		xo_board: xo_board {
 			compatible = "fixed-clock";
