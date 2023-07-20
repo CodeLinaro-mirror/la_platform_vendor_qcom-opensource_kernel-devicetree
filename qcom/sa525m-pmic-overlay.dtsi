@@ -101,6 +101,11 @@
 
 };
 
+&pmx75_tz {
+	io-channels = <&pmk8550_vadc PMX75_ADC5_GEN3_DIE_TEMP>;
+	io-channel-names = "thermal";
+};
+
 &pmk8550_vadc {
 	/delete-node/ pm8550_offset_ref;
 	/delete-node/ pm8550_vref_1p25;
