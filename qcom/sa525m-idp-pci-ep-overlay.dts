@@ -52,6 +52,10 @@
 	status = "ok";
 };
 
+&mhi_dev_qrtr {
+	status = "ok";
+};
+
 &sdhc_1 {
 	status = "ok";
 

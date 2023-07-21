@@ -60,6 +60,10 @@
 	status = "ok";
 };
 
+&mhi_dev_qrtr {
+	status = "ok";
+};
+
 &mhi_device {
 	status = "ok";
 };
