@@ -728,6 +728,17 @@
 		#mbox-cells = <1>;
 	};
 
+	aop_fc: aop-fault-collector@c350000 {
+		compatible =  "qcom,aop-fc";
+		reg = <0xc350000 0x400>;
+		interrupt-parent = <&ipcc_mproc>;
+		interrupts = <IPCC_CLIENT_AOP
+				IPCC_MPROC_SIGNAL_PING
+				IRQ_TYPE_EDGE_RISING>;
+		mboxes = <&ipcc_mproc IPCC_CLIENT_AOP
+				IPCC_MPROC_SIGNAL_PING>;
+	};
+
 	qmp_tme: qcom,qmp-tme {
 		compatible = "qcom,qmp-mbox";
 		qcom,remote-pid = <14>;
