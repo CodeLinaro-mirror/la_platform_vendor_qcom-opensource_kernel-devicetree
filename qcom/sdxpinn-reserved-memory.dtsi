@@ -136,19 +136,4 @@
 		reg = <0x0 0x8e000000 0x0 0xf400000>;
 	};
 
-	gunyah_trace_buffer_mem: gunyah_trace_buffer_region@bdb00000 {
-		no-map;
-		reg = <0x0 0xbdb00000 0x0 0x2000000>;
-	};
-
-	smmu_debug_buf_mem: smmu_debug_buf_region@bfb00000 {
-		no-map;
-		reg = <0x0 0xbfb00000 0x0 0x100000>;
-	};
-
-	hyp_smmu_s2_pt_mem: hyp_smmu_s2_pt_region@bfc00000 {
-		no-map;
-		reg = <0x0 0xbfc00000 0x0 0x400000>;
-	};
-
 };
