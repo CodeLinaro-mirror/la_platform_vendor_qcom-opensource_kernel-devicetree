@@ -359,6 +359,38 @@
 };
 
 &thermal_zones {
+	cpuss-0 {
+		trips {
+			cpuss-0-emerg-cfg {
+				temperature = <118000>;
+			};
+		};
+	};
+
+	cpuss-1 {
+		trips {
+			cpuss-1-emerg-cfg {
+				temperature = <118000>;
+			};
+		};
+	};
+
+	cpuss-2 {
+		trips {
+			cpuss-2-emerg-cfg {
+				temperature = <118000>;
+			};
+		};
+	};
+
+	cpuss-3 {
+		trips {
+			cpuss-3-emerg-cfg {
+				temperature = <118000>;
+			};
+		};
+	};
+
 	mdmss-0 {
 		trips {
 			mdmss0-config0 {
