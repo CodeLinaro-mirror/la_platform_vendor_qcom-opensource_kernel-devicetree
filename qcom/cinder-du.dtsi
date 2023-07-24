@@ -182,3 +182,7 @@
 		};
 	};
 };
+
+&aop_fc {
+	status = "disabled";
+};
