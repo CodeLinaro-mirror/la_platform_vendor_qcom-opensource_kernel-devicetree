@@ -2,6 +2,7 @@
 
 #include "sdxbaagha.dtsi"
 #include "sdxbaagha-qmp.dtsi"
+#include "sdxbaagha-qpic-display.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SDXBAAGHA QMP 256M";

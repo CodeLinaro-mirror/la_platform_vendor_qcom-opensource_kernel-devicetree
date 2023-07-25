@@ -57,6 +57,17 @@
 			#gpio-cells = <2>;
 			interrupt-controller;
 			#interrupt-cells = <2>;
+
+			pmx35_5_gpios {
+				display_bl_en: display_bl_en {
+					pins = "gpio5";
+					function = "normal";
+					output-enable;
+					output-high;
+					bias-pull-up;
+					power-source = <0>;
+				};
+			};
 		};
 
 		pmx35_pwm: pwms@e800 {
