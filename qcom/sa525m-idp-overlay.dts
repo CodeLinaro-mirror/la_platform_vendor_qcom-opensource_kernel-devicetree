@@ -38,8 +38,8 @@
 &sdhc_1 {
 	status = "ok";
 
-	reg = <0x08804000 0x1000>, <0x08805000 0x1000>;
-	reg-names = "hc", "cqhci";
+	reg = <0x08804000 0x1000>;
+	reg-names = "hc";
 
 	mmc-ddr-1_8v;
 	mmc-hs200-1_8v;
@@ -49,7 +49,6 @@
 	bus-width = <8>;
 	no-sd;
 	non-removable;
-	supports-cqe;
 	cap-mmc-hw-reset;
 
 	/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
