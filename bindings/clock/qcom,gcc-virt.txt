@@ -1,0 +1,19 @@
+Qualcomm Technologies, Inc. Virtual Global Clock & Reset Controller Binding
+------------------------------------------------
+
+Required properties :
+- compatible : shall contain only one of the following:
+
+			"qcom,sdxpinn-gcc-virt"
+
+- clocks: List of clock provider devices to be associated with this controller.
+  In the below example, scmi_clk refers to the SCMI clock frontend node, see
+  "arm,scmi" binding documentation for detail.
+- #clock-cells : shall contain 1
+
+Example:
+	gcc: clock-controller@80000 {
+		compatible = "qcom,sdxpinn-gcc-virt";
+		clocks = <&scmi_clk 0>;
+		#clock-cells = <1>;
+	};
