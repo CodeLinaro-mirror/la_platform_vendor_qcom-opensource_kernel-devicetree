@@ -1597,9 +1597,10 @@
 				qcom,glink-channels = "IPCRTR";
 				qcom,net-id = <6>;
 				qcom,low-latency;
-				qcom,intents = <0x800  5
+				qcom,intents = <0x4400 1
+						0x800  5
 						0x2000 3
-						0x4400 2>;
+						0x4400 1>;
 			};
 
 			qcom,modem_ds {
