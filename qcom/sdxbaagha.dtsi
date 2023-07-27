@@ -1562,10 +1562,11 @@
 		clock-names = "stmmaceth", "pclk", "ptp_ref", "phyaux", "sgmi_ref";
 		snps,ptp-ref-clk-rate = <250000000>;
 		snps,ptp-req-clk-rate = <96000000>;
-		interrupts-extended = <&intc GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>;
+		interrupts-extended = <&intc GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>,  <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
 
-		interrupt-names = "macirq";
+		interrupt-names = "macirq", "eth_wol_irq";
 
+		enable-wol;
 		snps,tso;
 		snps,pbl = <32>;
 		snps,rxpbl = <16>;
@@ -1585,10 +1586,12 @@
 		snps,reset-active-low;
 		snps,reset-delays-us = <0 11000 70000>;
 		pinctrl-names = "dev-emac-mdc",
-				"dev-emac-mdio";
+				"dev-emac-mdio",
+				"dev-emac_pin_wol_intr";
 
 		pinctrl-0 = <&emac_mdc>;
 		pinctrl-1 = <&emac_mdio>;
+		pinctrl-2 = <&emac_pin_wol_intr>;
 
 		snps,ps-speed = <1000>;
 		managed = "auto";
