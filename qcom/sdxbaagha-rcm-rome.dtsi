@@ -1,0 +1,5 @@
+#include "sdxbaagha-128m-rcm.dtsi"
+
+&ethqos_hw {
+	status = "disabled";
+};
