@@ -125,12 +125,12 @@
 				vdevice-type = "virtio-mmio";
 				generate = "/virtio-mmio";
 				peer-default;
-				vqs-num = <0x1>;
+				vqs-num = <0x2>;
 				push-compatible = "virtio,mmio";
 				dma-coherent;
 				dma_base = <0x0 0x0>;
 				memory {
-					qcom,label = <0x22>;	//for systemrw.img
+					qcom,label = <0x22>;	//for sdcard.img
 					#address-cells = <0x2>;
 					base = <0x0 0xFF1F0000>;
 				};
@@ -160,9 +160,24 @@
 				dma-coherent;
 				dma_base = <0x0 0x210000>;
 				memory {
-					qcom,label = <0x24>;	//for system.img
+					qcom,label = <0x24>;	//for systemrw.img
 					#address-cells = <0x2>;
 					base = <0x0 0xFF400000>;
+				};
+			};
+
+			virtio-mmio@3 {
+				vdevice-type = "virtio-mmio";
+				generate = "/virtio-mmio";
+				peer-default;
+				vqs-num = <0x2>;
+				push-compatible = "virtio,mmio";
+				dma-coherent;
+				dma_base = <0x0 0x214000>;
+				memory {
+					qcom,label = <0x25>;	//for system.img
+					#address-cells = <0x2>;
+					base = <0x0 0xFF404000>;
 				};
 			};
 

@@ -14,7 +14,7 @@
 	tele_vm_vblk0_ring: tele_vm_vblk0_ring@B5A00000 {
 		no-map;
 		reg = <0x0 0xB5A00000 0x0 0x4000>;
-		gunyah-label = <0x12>;			//for systemrw.img
+		gunyah-label = <0x12>;			//for sdcard
 	};
 
 
@@ -27,13 +27,19 @@
 	tele_vm_vblk1_ring: tele_vm_vblk1_ring@B5C10000 {
 		no-map;
 		reg = <0x0 0xB5C10000 0x0 0x4000>;
-		gunyah-label = <0x14>;			//for system.img
+		gunyah-label = <0x14>;			//for systemrw.img
 	};
 
 	tele_vm_vblk2_ring: tele_vm_vblk2_ring@B5C14000 {
 		no-map;
 		reg = <0x0 0xB5C14000 0x0 0x4000>;
 		gunyah-label = <0x9>;			//for vhost scmi
+	};
+
+	tele_vm_vblk3_ring: tele_vm_vblk3_ring@B5C18000 {
+		no-map;
+		reg = <0x0 0xB5C18000 0x0 0x4000>;
+		gunyah-label = <0x15>;			//for system.img
 	};
 
 	/* Size of FotaVM is 60MB */
@@ -51,7 +57,7 @@
 	fota_vm_vblk0_ring: fota_vm_vblk0_ring@B9C00000 {
 		no-map;
 		reg = <0x0 0xB9C00000 0x0 0x4000>;
-		gunyah-label = <0x22>;			//for systemrw.img
+		gunyah-label = <0x22>;			//for sdcard.img
 	};
 
 	fota_vm_vnet0_ring: fota_vm_vnet0_ring@B9C04000 {
@@ -63,7 +69,13 @@
 	fota_vm_vblk1_ring: fota_vm_vblk1_ring@B9E10000 {
 		no-map;
 		reg = <0x0 0xB9E10000 0x0 0x4000>;
-		gunyah-label = <0x24>;			//for system.img
+		gunyah-label = <0x24>;			//for systemrw.img
+	};
+
+	fota_vm_vblk2_ring: fota_vm_vblk2_ring@B9E14000 {
+		no-map;
+		reg = <0x0 0xB9E14000 0x0 0x4000>;
+		gunyah-label = <0x25>;			//for system.img
 	};
 };
 
@@ -81,13 +93,13 @@
 		qcom,vmid = <52>;
 		qcom,firmware-name = "televm";
 		memory-region = <&tele_vm_mem>;
-		virtio-backends = <&tele_vm_virt_be0 &tele_vm_virt_be1 &tele_vm_virt_be2 &tele_vm_virt_be3>;
+		virtio-backends = <&tele_vm_virt_be0 &tele_vm_virt_be1 &tele_vm_virt_be2 &tele_vm_virt_be3 &tele_vm_virt_be4>;
 	};
 
 	tele_vm: qcom,tele_vm@B5A00000 {
-		reg = <0xB5A00000 0x218000>;
+		reg = <0xB5A00000 0x21C000>;
 		vm_name = "televm";
-		shared-buffers = <&tele_vm_vblk0_ring &tele_vm_vnet0_ring &tele_vm_swiotlb &tele_vm_vblk1_ring &tele_vm_vblk2_ring>;
+		shared-buffers = <&tele_vm_vblk0_ring &tele_vm_vnet0_ring &tele_vm_swiotlb &tele_vm_vblk1_ring &tele_vm_vblk2_ring &tele_vm_vblk3_ring>;
 	};
 
 	tele_vm_virt_be0:virtio_backend@12 {
@@ -114,19 +126,25 @@
 		qcom,label = <0x9>;
 	};
 
+	tele_vm_virt_be4:virtio_backend@15 {
+		compatible = "qcom,virtio_backend";
+		qcom,vm = <&tele_vm>;
+		qcom,label = <0x15>;
+	};
+
 	gh-secure-vm-loader@1 {
 		compatible = "qcom,gh-secure-vm-loader";
 		qcom,pas-id = <44>;
 		qcom,vmid = <53>;
 		qcom,firmware-name = "fotavm";
 		memory-region = <&fota_vm_mem>;
-		virtio-backends = <&fota_vm_virt_be0 &fota_vm_virt_be1 &fota_vm_virt_be2>;
+		virtio-backends = <&fota_vm_virt_be0 &fota_vm_virt_be1 &fota_vm_virt_be2 &fota_vm_virt_be3>;
 	};
 
 	fota_vm: qcom,fota_vm@B9C00000 {
-		reg = <0xB9C00000 0x214000>;
+		reg = <0xB9C00000 0x218000>;
 		vm_name = "fotavm";
-		shared-buffers = <&fota_vm_vblk0_ring &fota_vm_vnet0_ring &fota_vm_swiotlb &fota_vm_vblk1_ring>;
+		shared-buffers = <&fota_vm_vblk0_ring &fota_vm_vnet0_ring &fota_vm_swiotlb &fota_vm_vblk1_ring &fota_vm_vblk2_ring>;
 	};
 
 	fota_vm_virt_be0:virtio_backend@22 {
@@ -147,11 +165,16 @@
 		qcom,label = <0x24>;
 	};
 
+	fota_vm_virt_be3:virtio_backend@25 {
+		compatible = "qcom,virtio_backend";
+		qcom,vm = <&fota_vm>;
+		qcom,label = <0x25>;
+	};
+
 	tlmm-vm-mem-access {
 		compatible = "qcom,tlmm-vm-mem-access";
 		qcom,master;
 		peer-name = <5>; /* 5 => Televm */
 		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0>;
 	};
-
 };
