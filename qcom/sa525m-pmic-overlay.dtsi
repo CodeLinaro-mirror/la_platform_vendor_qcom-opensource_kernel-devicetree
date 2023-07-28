@@ -354,33 +354,6 @@
 				temperature = <155000>;
 			};
 		};
-
-		cooling-maps {
-			pmx75_cpu1 {
-				trip = <&pmx75_trip0>;
-				cooling-device = <&cpu1_hotplug 1 1>;
-			};
-
-			pmx75_cpu2 {
-				trip = <&pmx75_trip0>;
-				cooling-device = <&cpu2_hotplug 1 1>;
-			};
-
-			pmx75_cpu3 {
-				trip = <&pmx75_trip0>;
-				cooling-device = <&cpu3_hotplug 1 1>;
-			};
-
-			pmx75_lte {
-				trip = <&pmx75_trip0>;
-				cooling-device = <&modem_lte_dsc 255 255>;
-			};
-
-			pmx75_nr {
-				trip = <&pmx75_trip0>;
-				cooling-device = <&modem_nr_dsc 255 255>;
-			};
-		};
 	};
 };
 

@@ -93,12 +93,6 @@
 				type = "passive";
 			};
 
-			cpuss_0_emerg1: cpuss-0-emerg-cfg1 {
-				temperature = <112000>;
-				hysteresis = <12000>;
-				type = "passive";
-			};
-
 			reset-mon-cfg {
 				temperature = <125000>;
 				hysteresis = <5000>;
