@@ -32,7 +32,7 @@
 &soc {
 	wifi0: qcom,cnss-qcn9224@a0000000 {
 			compatible  = "qcom,cnss-qcn9224";
-			reg = <0xb0000000 0x10000>;
+			reg = <0xc0000000 0x10000>;
 			reg-names = "smmu_iova_ipa";
 			memory-region = <&qcn9224_0_mem>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
@@ -46,7 +46,7 @@
 
 	wifi1: qcom,cnss-qcn9224@b0000000 {
 			compatible  = "qcom,cnss-qcn9224";
-			reg = <0xc0000000 0x10000>;
+			reg = <0xc0020000 0x10000>;
 			reg-names = "smmu_iova_ipa";
 			memory-region = <&qcn9224_1_mem>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
@@ -60,7 +60,7 @@
 
 	wifi2: qcom,cnss-qcn9224@c0000000 {
 			compatible  = "qcom,cnss-qcn9224";
-			reg = <0xd0000000 0x10000>;
+			reg = <0xc0040000 0x10000>;
 			reg-names = "smmu_iova_ipa";
 			memory-region = <&qcn9224_2_mem>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
@@ -117,7 +117,7 @@
 		#size-cells = <1>;
 		cnss_pci_iommu_group0: cnss_pci_iommu_group0 {
 			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
+			qcom,iommu-dma-addr-pool = <0x80000000 0x10000000>;
 			qcom,iommu-dma = "fastmap";
 			qcom,iommu-pagetable = "coherent";
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
@@ -150,7 +150,7 @@
 		#size-cells = <1>;
 		cnss_pci_iommu_group1: cnss_pci_iommu_group1 {
 			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-dma-addr-pool = <0xb0000000 0x10000000>;
+			qcom,iommu-dma-addr-pool = <0x90000000 0x10000000>;
 			qcom,iommu-dma = "fastmap";
 			qcom,iommu-pagetable = "coherent";
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
@@ -183,7 +183,7 @@
 		#size-cells = <1>;
 		cnss_pci_iommu_group2: cnss_pci_iommu_group2 {
 			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-dma-addr-pool = <0xc0000000 0x10000000>;
+			qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
 			qcom,iommu-dma = "fastmap";
 			qcom,iommu-pagetable = "coherent";
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
