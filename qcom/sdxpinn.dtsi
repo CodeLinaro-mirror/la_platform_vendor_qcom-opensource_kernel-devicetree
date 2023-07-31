@@ -296,6 +296,41 @@
 		};
 	};
 
+	apps_rsc: rsc@17a00000 {
+		label = "apps_rsc";
+		compatible = "qcom,rpmh-rsc";
+		reg = <0x17a00000 0x10000>,
+		      <0x17a10000 0x10000>,
+		      <0x17a20000 0x10000>;
+		reg-names = "drv-0", "drv-1", "drv-2";
+		qcom,drv-count = <3>;
+		interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>,
+			     <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>,
+			     <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
+		power-domains = <&CLUSTER_PD>;
+
+		apps_rsc_drv2: drv@2 {
+			qcom,drv-id = <2>;
+			qcom,tcs-offset = <0xd00>;
+			channel@0 {
+				qcom,tcs-config = <ACTIVE_TCS    3>,
+						  <SLEEP_TCS     2>,
+						  <WAKE_TCS      2>,
+						  <CONTROL_TCS   0>,
+						  <FAST_PATH_TCS 1>;
+			};
+
+			apps_bcm_voter: bcm_voter {
+				compatible = "qcom,bcm-voter";
+			};
+
+			rpmhcc: clock-controller {
+				compatible = "qcom,sdxpinn-rpmh-clk";
+				#clock-cells = <1>;
+			};
+		};
+	};
+
 	intc: interrupt-controller@17200000 {
 		compatible = "arm,gic-v3";
 		#interrupt-cells = <3>;
@@ -373,41 +408,6 @@
 			qcom,glinkpkt-edge = "mpss";
 			qcom,glinkpkt-ch-name = "DATA22";
 			qcom,glinkpkt-dev-name = "smd22";
-		};
-	};
-
-	apps_rsc: rsc@17a00000 {
-		label = "apps_rsc";
-		compatible = "qcom,rpmh-rsc";
-		reg = <0x17a00000 0x10000>,
-		      <0x17a10000 0x10000>,
-		      <0x17a20000 0x10000>;
-		reg-names = "drv-0", "drv-1", "drv-2";
-		qcom,drv-count = <3>;
-		interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>,
-			     <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>,
-			     <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
-		power-domains = <&CLUSTER_PD>;
-
-		apps_rsc_drv2: drv@2 {
-			qcom,drv-id = <2>;
-			qcom,tcs-offset = <0xd00>;
-			channel@0 {
-				qcom,tcs-config = <ACTIVE_TCS    3>,
-						  <SLEEP_TCS     2>,
-						  <WAKE_TCS      2>,
-						  <CONTROL_TCS   0>,
-						  <FAST_PATH_TCS 1>;
-			};
-
-			apps_bcm_voter: bcm_voter {
-				compatible = "qcom,bcm-voter";
-			};
-
-			rpmhcc: clock-controller {
-				compatible = "qcom,sdxpinn-rpmh-clk";
-				#clock-cells = <1>;
-			};
 		};
 	};
 
