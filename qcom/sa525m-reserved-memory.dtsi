@@ -4,10 +4,6 @@
 &soc {
 };
 
-/delete-node/ &gunyah_trace_buffer_mem;
-/delete-node/ &smmu_debug_buf_mem;
-/delete-node/ &hyp_smmu_s2_pt_mem;
-
 &reserved_memory {
 	mpssadsp_mem: mpssadsp_region@8e000000 {
 		no-map;
