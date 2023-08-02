@@ -18,5 +18,5 @@
 };
 
 &usb {
-	extcon = <&pmx75_vbus_detect>;
+	extcon = <&pmx75_vbus_detect>, <&eud>;
 };

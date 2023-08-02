@@ -276,7 +276,7 @@ status = "ok";
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&usb_vbus_boost>;
 	pinctrl-1 = <&usb_vbus_boost>;
-	extcon = <&pmx75_vbus_detect>;
+	extcon = <&pmx75_vbus_detect>, <&eud>;
 };
 
 &sdhc_2 {
