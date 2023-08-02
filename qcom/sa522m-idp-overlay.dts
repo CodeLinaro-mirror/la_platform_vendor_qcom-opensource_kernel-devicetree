@@ -28,6 +28,7 @@
 };
 
 &pcie2 {
+	dma-coherent;
 	status = "ok";
 };
 
