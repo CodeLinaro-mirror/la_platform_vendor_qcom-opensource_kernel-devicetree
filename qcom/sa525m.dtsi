@@ -23,24 +23,24 @@
 
 &qupv3_se5_i2c {
 	status = "okay";
-	smi230_gyro@68 {
+	smi230_gyro@69 {
 		compatible = "SMI230GYRO";
-		reg = <0x68>;
+		reg = <0x69>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&sensor_int1_default>;
 		interrupt-parent = <&tlmm>;
-		interrupts = <31 IRQ_TYPE_EDGE_RISING>;
-		gpio_irq = <&tlmm 31 IRQ_TYPE_EDGE_RISING>;
+		interrupts = <109 IRQ_TYPE_EDGE_RISING>;
+		gpio_irq = <&tlmm 109 IRQ_TYPE_EDGE_RISING>;
 	};
 
-	smi230_acc@18 {
+	smi230_acc@19 {
 		compatible = "SMI230ACC";
-		reg = <0x18>;
+		reg = <0x19>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&sensor_int2_default>;
 		interrupt-parent = <&tlmm>;
-		interrupts = <32 IRQ_TYPE_EDGE_RISING>;
-		gpio_irq = <&tlmm 32 IRQ_TYPE_EDGE_RISING>;
+		interrupts = <108 IRQ_TYPE_EDGE_RISING>;
+		gpio_irq = <&tlmm 108 IRQ_TYPE_EDGE_RISING>;
 	};
 
 	asm330lhh@6b {
