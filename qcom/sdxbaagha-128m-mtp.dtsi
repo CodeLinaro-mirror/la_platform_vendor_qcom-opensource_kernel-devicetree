@@ -5,10 +5,4 @@
 	status = "ok";
 };
 
-&smb_int_default {
-	pins = "gpio5";
-};
 
-&smb23x_charger {
-	interrupts = <0x0 0x8C 0x0 IRQ_TYPE_LEVEL_LOW>;
-};
