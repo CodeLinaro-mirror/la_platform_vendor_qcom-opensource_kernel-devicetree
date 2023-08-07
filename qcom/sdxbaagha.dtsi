@@ -1600,6 +1600,7 @@
 		eth-c22-mdio-probe;
 		snps,crc_strip;
 		pcs-v3;
+		separate_wol_pin;
 		sw-dma-tx-desc-cnt = <128>;
 		sw-dma-rx-desc-cnt = <128>;
 
