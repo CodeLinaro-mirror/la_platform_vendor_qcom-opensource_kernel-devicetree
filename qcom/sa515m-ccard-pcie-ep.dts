@@ -45,6 +45,10 @@
 	status = "ok";
 };
 
+&mhi_dev_qrtr {
+	status = "ok";
+};
+
 &sdx_ext_ipc {
 	compatible = "qcom,sa515m-ccard";
 	qcom,status-in-gpio = <&tlmm 76 0x00>;
