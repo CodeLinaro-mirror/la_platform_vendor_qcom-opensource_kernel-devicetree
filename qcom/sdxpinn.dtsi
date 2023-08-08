@@ -1477,6 +1477,7 @@
 			<&gcc GCC_EMAC0_CC_SGMIIPHY_RX_CLK>,
 			<&gcc GCC_EMAC0_CC_SGMIIPHY_TX_CLK>,
 			<&gcc GCC_EMAC0_PHY_AUX_CLK>,
+			<&gcc GCC_EMAC0_PTP_CLK>,
 			<&gcc GCC_EMAC0_RGMII_CLK>,
 			<&gcc GCC_EMAC0_RPCS_RX_CLK>,
 			<&gcc GCC_EMAC0_RPCS_TX_CLK>,
@@ -1493,11 +1494,14 @@
 			<&emac0_sgmiiphy_mac_tclk>,
 			<&gcc GCC_EMAC_0_CLKREF_EN>;
 		clock-names = "eee", "stmmaceth", "sgmii_rx",
-		"sgmii_tx", "phyaux", "rgmii",
+		"sgmii_tx", "phyaux", "ptp_ref", "rgmii",
 		"pcs_rx", "pcs_tx", "pclk", "xgxs_rx",
 		"xgxs_tx", "sgmii_rclk_src", "sgmii_tclk_src",
 		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
 		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
+
+		snps,ptp-ref-clk-rate = <230400000>;
+		snps,ptp-req-clk-rate = <125000000>;
 
 		interrupts-extended = <&intc GIC_SPI 360 IRQ_TYPE_LEVEL_HIGH>,
 		<&tlmm 97 IRQ_TYPE_EDGE_FALLING>;
