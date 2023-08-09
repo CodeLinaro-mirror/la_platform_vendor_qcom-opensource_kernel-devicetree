@@ -8,7 +8,15 @@
 		qcom,iommu-dma = "bypass";
 	};
 
+	ipa_smmu_ap {
+		qcom,iommu-dma = "bypass";
+	};
+
 	ipa_smmu_uc {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_eth {
 		qcom,iommu-dma = "bypass";
 	};
 };
