@@ -219,6 +219,21 @@
 				};
 			};
 
+			virtio-mmio@3 {
+				vdevice-type = "virtio-mmio";
+				generate = "/virtio-mmio";
+				peer-default;
+				vqs-num = <0x2>;
+				push-compatible = "virtio,mmio";
+				dma-coherent;
+				dma_base = <0x0 0x214000>;
+				memory {
+					qcom,label = <0x9>;	//for vhost scmi
+					#address-cells = <0x2>;
+					base = <0x0 0xFF404000>;
+				};
+			};
+
 			eth-msgq {
 				vdevice-type = "message-queue-pair";
 				generate = "/hypervisor/geth-msgq-pair";
@@ -266,6 +281,17 @@
 		scm {
 			compatible = "qcom,scm";
 		};
+
+		 scmi {
+			compatible = "arm,scmi-virtio";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			scmi_clk: protocol@14 {
+				reg = <0x14>;
+				#clock-cells = <1>;
+			};
+		 };
 	};
 
 	soc: soc { };
@@ -283,10 +309,9 @@
 	};
 
 	gcc: clock-controller@80000 {
-		compatible = "qcom,dummycc";
-		clock-output-names = "gcc_clocks";
+		compatible = "qcom,sdxpinn-gcc-virt";
+		clocks = <&scmi_clk 0>;
 		#clock-cells = <1>;
-		#reset-cells = <1>;
 	};
 
 	vgic: interrupt-controller@17200000 {
