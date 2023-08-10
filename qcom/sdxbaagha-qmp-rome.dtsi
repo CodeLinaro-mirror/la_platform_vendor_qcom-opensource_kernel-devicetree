@@ -12,3 +12,9 @@
 		qcom,iommu-dma = "bypass";
 	};
 };
+
+&usb0 {
+	dwc3@a600000 {
+		qcom,iommu-dma = "bypass";
+	};
+};
