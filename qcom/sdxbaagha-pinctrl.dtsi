@@ -511,6 +511,7 @@
 					pins = "gpio56";
 					drive-strength = <2>;
 					bias-pull-up;
+					input-enable;
 				};
 			};
 		};
