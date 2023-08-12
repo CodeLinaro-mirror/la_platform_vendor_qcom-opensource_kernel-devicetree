@@ -1,5 +1,6 @@
 #include "sdxpinn.dtsi"
 #include "sa525m-pmic-overlay.dtsi"
+#include "sa525m-mhi.dtsi"
 
 / {
 	aliases {
