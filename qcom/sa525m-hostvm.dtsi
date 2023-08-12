@@ -31,3 +31,15 @@
 		status = "disabled";
 	};
 };
+
+/ {
+	scmi-virtio-backend {
+		compatible = "arm,scmi-virtio-backend";
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		scmi_clk: protocol@14 {
+			reg = <0x14>;
+		};
+	};
+};
