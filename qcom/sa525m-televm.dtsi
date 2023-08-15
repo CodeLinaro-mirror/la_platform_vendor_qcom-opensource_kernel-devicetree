@@ -97,6 +97,7 @@
 
 		iomemory-ranges = <0x0 0x928000 0x0 0x928000 0x0 0x4000 0x0
 				   0x0 0x998000 0x0 0x998000 0x0 0x4000 0x0
+				   0x0 0x09c0000 0x0 0x09c0000 0x0 0x2000 0x1
 				   0x0 0x3e00000 0x0 0x3e00000 0x0 0x200000 0x0
 				   0x0 0x23052000 0x0 0x23052000 0x0 0x1000 0x0
 				   0x0 0x2304C000 0x0 0x2304C000 0x0 0x1000 0x0
@@ -113,7 +114,7 @@
 				252 252 // 220 DIR CONN HMMS
 				344 344 // 312 IPA
 				350 350 // 318 IPA
-				383 383 // 351 QUPV3 GSI IRQ
+				375 375 // 343 QUPV3 SE IRQ
 				432 432 // 400 MVM
 				433 433 // 401 MVM
 				436 436 // 404 MVM
@@ -410,9 +411,14 @@
 			dmas = <&gpi_dma0 0 6 1 64 0>,
 				<&gpi_dma0 1 6 1 64 0>;
 			dma-names = "tx", "rx";
+			clock-names = "se-clk";
+			clocks = <&gcc GCC_QUPV3_WRAP0_S6_CLK>;
 			spi-max-frequency = <50000000>;
-			qcom,le-vm;
-			qcom,vm-no-pm;
+			interrupts = <GIC_SPI 343 IRQ_TYPE_LEVEL_HIGH>;
+			pinctrl-names = "default", "sleep";
+			pinctrl-0 = <&qupv3_se6_spi_mosi_active>, <&qupv3_se6_spi_miso_active>,
+				<&qupv3_se6_spi_clk_active>, <&qupv3_se6_spi_cs_active>;
+			pinctrl-1 = <&qupv3_se6_spi_sleep>;
 			status = "disabled";
 		};
 
@@ -522,10 +528,6 @@
 		compatible = "qcom,tlmm-vm-mem-access";
 		peer-name = <5>; /* 5 => Televm */
 		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0>;
-		pinctrl-names = "active", "sleep";
-		pinctrl-0 = <&qupv3_se6_spi_mosi_active>, <&qupv3_se6_spi_miso_active>,
-			<&qupv3_se6_spi_clk_active>, <&qupv3_se6_spi_cs_active>;
-		pinctrl-1 = <&qupv3_se6_spi_sleep>;
 	};
 
 	mtl_rx_setup: rx-queues-config {
