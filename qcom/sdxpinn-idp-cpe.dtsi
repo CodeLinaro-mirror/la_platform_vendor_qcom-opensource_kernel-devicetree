@@ -71,6 +71,7 @@
 
 		queue0 {
 			snps,dcb-algorithm;
+			snps,fifo_depth = <14336>;
 			snps,map-to-dma-channel = <0x1>;
 			qcom,ipa_offload;
 		};
@@ -78,6 +79,8 @@
 		queue1 {
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x1>;
+			snps,fifo_depth = <2048>;
+			snps,threshold_byte = <128>;
 			snps,route-ptp;
 		};
 	};
@@ -95,7 +98,7 @@
 		};
 	};
 
-	mtl_rxrtl_setup: rtlrx-queues-config {
+	mtl_rxeth1_setup: rtlrx-queues-config {
 		snps,rx-queues-to-use = <2>;
 		snps,rx-sched-sp;
 
@@ -110,11 +113,11 @@
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x1>;
 			snps,fifo_depth = <512>;
-			snps,threshold_byte = <64>;
+			snps,threshold_byte = <128>;
 		};
 	};
 
-	mtl_txrtl_setup: rtltx-queues-config {
+	mtl_txeth1_setup: rtltx-queues-config {
 		snps,tx-queues-to-use = <2>;
 		snps,tx-sched-sp;
 		queue0 {
@@ -198,8 +201,8 @@
 		snps,pbl = <32>;
 		rx-fifo-depth = <8192>;
 		tx-fifo-depth = <8192>;
-		snps,mtl-rx-config = <&mtl_rxrtl_setup>;
-		snps,mtl-tx-config = <&mtl_txrtl_setup>;
+		snps,mtl-rx-config = <&mtl_rxeth1_setup>;
+		snps,mtl-tx-config = <&mtl_txeth1_setup>;
 
 		snps,reset-active-low;
 		snps,reset-delays-us = <1000 40 150000>;
