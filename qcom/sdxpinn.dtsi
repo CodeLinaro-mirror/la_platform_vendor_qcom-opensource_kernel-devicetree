@@ -307,9 +307,10 @@
 		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
 	};
 
-	qcom,mhi_dev_qrtr {
+	 mhi_dev_qrtr: qcom,mhi_dev_qrtr {
 		compatible = "qcom,qrtr-mhi-dev";
 		qcom,net-id = <3>;
+		status = "disabled";
 	};
 
 	eth_dev_qrtr: qcom,eth_dev_qrtr {
