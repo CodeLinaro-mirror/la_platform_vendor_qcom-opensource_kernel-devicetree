@@ -89,6 +89,7 @@
 		kernel-entry-segment = "kernel";
 		kernel-entry-offset = <0x0 0x0>;
 		vendor = "QTI";
+		guest-ram-dump = "enable";
 		image-name = "qcom,televm";
 		qcom,pasid = <0x0 0x1c>;
 		qcom,qtee-config-info = "p=57,77,78,7C,8F,97,159,199,47E,7F1;";
