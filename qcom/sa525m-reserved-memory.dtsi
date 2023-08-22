@@ -36,7 +36,7 @@
 
 	trusted_apps_mem: trusted_apps_region@81780000 {
 		no-map;
-		reg = <0x0 0x81780000 0x0 0xc00000>;
+		reg = <0x0 0x81780000 0x0 0xa00000>;
 	};
 
 };
