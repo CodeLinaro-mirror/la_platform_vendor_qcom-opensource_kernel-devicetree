@@ -33,6 +33,9 @@ Optional property:
   - qcom,enable-m2: If property is present M2 autonomous is enabled.
   - qcom,mhi-has-smmu: If property is present use mapped address to route the
 		doorbell addresses to IPA.
+  - qcom,mhi-num-ipc-pages-dev-fac: If property is present reduce the MHI ipc
+		logging size based on the divisor factor. This property also
+		represents the divisor factor.
 
 MSM MHI DEV NET
 
