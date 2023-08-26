@@ -8,7 +8,7 @@
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
-		size = <0x0 0x6000000>;
+		size = <0x0 0x4000000>;
 	};
 
 	qcn9224_1_mem: qcn9224_1_mem {
@@ -16,7 +16,7 @@
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
-		size = <0x0 0x6000000>;
+		size = <0x0 0x4000000>;
 	};
 
 	qcn9224_2_mem: qcn9224_2_mem {
@@ -24,7 +24,7 @@
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
-		size = <0x0 0x6000000>;
+		size = <0x0 0x4000000>;
 	};
 
 	mlo_global_mem0: mlo_global_mem_0@0 {
