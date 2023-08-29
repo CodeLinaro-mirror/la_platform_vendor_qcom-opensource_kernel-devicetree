@@ -17,6 +17,39 @@
 	};
 };
 
+&ipa_hw {
+	qcom,use-ipa-in-mhi-mode;
+	qcom,mhi-event-ring-id-limits = <9 17>;
+
+	ipa_smmu_ap: ipa_smmu_ap {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_wlan: ipa_smmu_wlan {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_uc: ipa_smmu_uc {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_wlan1: ipa_smmu_wlan1 {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_wlan2: ipa_smmu_wlan2 {
+		qcom,iommu-dma = "bypass";
+	};
+};
+
+&ipa_eth_group1 {
+	qcom,iommu-dma = "bypass";
+};
+
+&ipa_eth_group2 {
+	qcom,iommu-dma = "bypass";
+};
+
 &qnand_1 {
 	status = "ok";
 };
