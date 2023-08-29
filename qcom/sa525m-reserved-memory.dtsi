@@ -49,5 +49,7 @@
 		no-map;
 		reg = <0x0 0x89700000 0x0 0x4880000>;
 	};
+
+	/delete-node/  hyp_elf_package_region@80800000;
 };
 
