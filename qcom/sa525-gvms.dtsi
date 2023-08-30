@@ -175,6 +175,6 @@
 		compatible = "qcom,tlmm-vm-mem-access";
 		qcom,master;
 		peer-name = <5>; /* 5 => Televm */
-		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0>;
+		tlmm-vm-gpio-lend-list = <&tlmm 102 0 &tlmm 112 0 &tlmm 113 0 &tlmm 114 0 &tlmm 115 0 &tlmm 69 0>;
 	};
 };
