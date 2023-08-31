@@ -1605,6 +1605,7 @@
 		separate_wol_pin;
 		sw-dma-tx-desc-cnt = <128>;
 		sw-dma-rx-desc-cnt = <128>;
+		gdsc-off-on-suspend;
 
 		interconnect-names = "axi_icc_path", "apb_icc_path";
 		interconnects = <&aggre_noc MASTER_EMAC &mc_virt SLAVE_EBI1>,
