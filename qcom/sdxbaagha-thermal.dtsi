@@ -14,7 +14,9 @@
 
 	qcom,cpufreq-cdev {
 		compatible = "qcom,cpufreq-cdev";
-		qcom,cpus = <&CPU0>;
+		cpu-cluster0 {
+			qcom,cpus = <&CPU0>;
+		};
 	};
 };
 
