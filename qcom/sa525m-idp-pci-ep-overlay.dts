@@ -11,6 +11,12 @@
 	qcom,board-id = <0x0010022 0x306>;
 };
 
+&usb {
+	dwc3@a600000 {
+		qcom,iommu-dma = "bypass";
+	};
+};
+
 &qnand_1 {
 	status = "ok";
 };
