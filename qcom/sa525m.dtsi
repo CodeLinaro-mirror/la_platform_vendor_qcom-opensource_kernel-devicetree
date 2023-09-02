@@ -44,6 +44,24 @@
 		gpio_irq = <&tlmm 108 IRQ_TYPE_EDGE_RISING>;
 	};
 
+	iam20680@69 {
+		compatible = "invensense,iam20680";
+		reg = <0x69>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sensor_int1_default>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <108 IRQ_TYPE_EDGE_RISING>;
+		axis_map_x = <1>;
+		axis_map_y = <0>;
+		axis_map_z = <2>;
+		negate_x = <1>;
+		negate_y = <0>;
+		negate_z = <0>;
+		inven,secondary_type = "none";
+		inven,aux_type = "none";
+		inven,read_only_slave_type = "none";
+	};
+
 	asm330lhh@6b {
 		compatible = "st,asm330lhh";
 		reg = <0x6b>;
