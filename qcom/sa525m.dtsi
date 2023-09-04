@@ -292,6 +292,8 @@
 		qcom,flow-ctrl-disabled;
 		emac-phy-off-suspend = <4>;
 
+		tx-fifo-depth = <20480>;
+
 		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
 		reset-names = "emac0_rgmii_clk_ares";
 

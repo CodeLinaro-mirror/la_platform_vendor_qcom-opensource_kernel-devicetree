@@ -20,6 +20,8 @@
 		snps,mtl-rx-config = <&mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 
+		tx-fifo-depth = <16384>;
+
 };
 
 &ipa_hw {
