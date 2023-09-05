@@ -295,4 +295,6 @@ status = "ok";
 	pinctrl-1 = <&sdc2_off>;
 
 	cd-gpios = <&tlmm 103 GPIO_ACTIVE_LOW>;
+
+	qcom,iommu-dma = "atomic";
 };
