@@ -3,3 +3,7 @@
 &ethqos_hw {
 	status = "disabled";
 };
+
+&smb23x_charger {
+	status = "disabled";
+};
