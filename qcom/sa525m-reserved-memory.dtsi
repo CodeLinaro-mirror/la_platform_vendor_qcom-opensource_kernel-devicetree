@@ -39,5 +39,15 @@
 		reg = <0x0 0x81780000 0x0 0xa00000>;
 	};
 
+	mpss_dsmharq2_mem: mpss_dsmharq2_region@88f00000 {
+		no-map;
+		reg = <0x0 0x88f00000 0x0 0x800000>;
+	};
+
+	/delete-node/  mpss_dsmharq_region@8b400000;
+	mpss_dsmharq_mem: mpss_dsmharq_region@89700000 {
+		no-map;
+		reg = <0x0 0x89700000 0x0 0x4880000>;
+	};
 };
 
