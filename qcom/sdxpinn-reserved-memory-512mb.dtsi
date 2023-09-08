@@ -1,0 +1,31 @@
+&gunyah_hyp_mem {
+	no-map;
+	reg = <0x0 0x80000000 0x0 0x600000>;
+};
+
+&hyp_elf_package_mem {
+	no-map;
+	reg = <0x0 0x80600000 0x0 0x200000>;
+};
+
+&access_control_db_mem {
+	no-map;
+	reg = <0x0 0x81380000 0x0 0x40000>;
+};
+
+&trusted_apps_mem {
+	no-map;
+	reg = <0x0 0x81780000 0x0 0x500000>;
+};
+
+&mpss_dsmharq_mem {
+	no-map;
+	reg = <0x0 0x8b400000 0x0 0x2b80000>;
+};
+
+/delete-node/ &mpss_dsmharq2_mem;
+
+&mpssadsp_mem {
+	no-map;
+	reg = <0x0 0x8e000000 0x0 0xe300000>;
+};
