@@ -354,6 +354,10 @@
 		qcom,low-latency;
 	};
 
+	qcom,glink {
+		compatible = "qcom,glink";
+	};
+
 	qcom,glinkpkt {
 		compatible = "qcom,glinkpkt";
 
