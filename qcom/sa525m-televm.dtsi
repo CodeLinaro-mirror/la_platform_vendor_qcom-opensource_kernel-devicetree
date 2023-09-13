@@ -372,11 +372,11 @@
 		compatible = "qcom,smcinvoke";
 	};
 
-	 qtee_shmbridge {
-		compatible = "qcom,tee-shared-memory-bridge";
-		qcom,custom-bridge-size = <64>;
-		qcom,support-hypervisor;
-	};
+	 //qtee_shmbridge {
+	//	compatible = "qcom,tee-shared-memory-bridge";
+	//	qcom,custom-bridge-size = <64>;
+	//	qcom,support-hypervisor;
+	//};
 	qup_iommu_group: qup_common_iommu_group {
 		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
 	};
