@@ -91,6 +91,10 @@
 	qcom,ipa-config-is-auto;
 	qcom,ipa-wdi2_over_gsi;
 	qcom,msm-bus,name = "ipa";
+	pas-ids = <0xf>;
+	firmware-names = "ipa_fws";
+	memory-regions = <&ipa_fw_mem>;
+	/delete-property/ qcom,use-xbl-boot;
 };
 
 &tlmm {
