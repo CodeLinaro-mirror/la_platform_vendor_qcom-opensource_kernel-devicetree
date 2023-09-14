@@ -11,7 +11,7 @@
 &soc {
 	ioss: qcom,ioss {
 		compatible = "qcom,ioss-v2";
-		qcom,max-ddr-bandwidth = <2500>;
+		qcom,line_rate_for_llcc = <5000>;
 	};
 
 	ioss_aqc_eth0_rx: aqc_rx@eth0 {
