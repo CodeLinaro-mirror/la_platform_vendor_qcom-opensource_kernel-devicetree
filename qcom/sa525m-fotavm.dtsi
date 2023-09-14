@@ -70,6 +70,7 @@
 		kernel-entry-segment = "kernel";
 		kernel-entry-offset = <0x0 0x0>;
 		vendor = "QTI";
+		guest-ram-dump = "enable";
 		image-name = "qcom,fotavm";
 		qcom,pasid = <0x0 0x2C>;
 
