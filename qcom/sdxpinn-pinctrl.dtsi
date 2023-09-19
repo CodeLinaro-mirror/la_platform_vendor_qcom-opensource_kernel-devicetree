@@ -1999,6 +1999,58 @@
 			};
 		};
 
+		emac0_ptp_aux_ts_i_0: emac0_ptp_aux_ts_i_0 {
+			mux {
+				pins = "gpio83";
+				function = "emac0_ptp";
+			};
+
+			config {
+				pins = "gpio83";
+				bias-pull-down;
+				input-enable;
+			};
+		};
+
+		emac0_ptp_aux_ts_i_1: emac0_ptp_aux_ts_i_1 {
+			mux {
+				pins = "gpio89";
+				function = "emac0_ptp";
+			};
+
+			config {
+				pins = "gpio89";
+				bias-pull-down;
+				input-enable;
+			};
+		};
+
+		emac0_ptp_aux_ts_i_2: emac0_ptp_aux_ts_i_2 {
+			mux {
+				pins = "gpio84";
+				function = "emac0_ptp";
+			};
+
+			config {
+				pins = "gpio84";
+				bias-pull-down;
+				input-enable;
+			};
+		};
+
+		emac0_ptp_aux_ts_i_3: emac0_ptp_aux_ts_i_3 {
+			mux {
+				pins = "gpio85";
+				function = "emac0_ptp";
+			};
+
+			config {
+				pins = "gpio85";
+				bias-pull-down;
+				input-enable;
+			};
+		};
+
 		emac1_mdc: emac1_mdc {
 			mux {
 				pins = "gpio106";
