@@ -248,7 +248,10 @@
 			snps,dcb-algorithm;
 		};
 	};
+};
 
+&modem_pas  {
+	compatible = "qcom,sa525m-modem-pas";
 };
 
 &ethqos_hw1 {
