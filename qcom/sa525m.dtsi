@@ -292,6 +292,7 @@
 
 		phy-mode = "rgmii-rxid";
 		mac-mode = "rgmii-rxid";
+		snps,phy-addr = <7>;
 		managed = "auto";
 		eth-c22-mdio-probe;
 
