@@ -614,6 +614,11 @@
 		interrupt-controller;
 	};
 
+	pcie_pdc: pdc@b290000 {
+		compatible = "qcom,sdxbaagha-pcie-pdc", "qcom,pcie-pdc";
+		reg = <0xb290000 0x10000>;
+	};
+
 	cluster-device {
 		compatible = "qcom,lpm-cluster-dev";
 		power-domains = <&CLUSTER_PD>;
