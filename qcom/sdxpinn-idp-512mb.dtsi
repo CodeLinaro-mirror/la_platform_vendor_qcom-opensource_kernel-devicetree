@@ -1,2 +1,3 @@
-/ {
+&modem_pas {
+	extended-memory-regions  = <&mpss_dsmharq_mem>;
 };
