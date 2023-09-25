@@ -49,8 +49,8 @@
 		qcom,ring-size = <128>;
 		qcom,buff-size = <2048>;
 
-		qcom,mod-count-min = <64>;
-		qcom,mod-count-max = <64>;
+		qcom,mod-count-min = <32>;
+		qcom,mod-count-max = <32>;
 		qcom,mod-usecs-min = <30>;
 		qcom,mod-usecs-max = <60>;
 	};
@@ -60,8 +60,8 @@
 		qcom,ring-size = <128>;
 		qcom,buff-size = <2048>;
 
-		qcom,mod-count-min = <64>;
-		qcom,mod-count-max = <64>;
+		qcom,mod-count-min = <32>;
+		qcom,mod-count-max = <32>;
 		qcom,mod-usecs-min = <30>;
 		qcom,mod-usecs-max = <60>;
 	};
