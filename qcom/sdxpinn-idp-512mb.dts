@@ -3,7 +3,7 @@
 #include "sdxpinn.dtsi"
 #include "sdxpinn-idp-mbb.dtsi"
 #include "sdxpinn-idp-512mb.dtsi"
-
+#include "sdxpinn-reserved-memory-512mb.dtsi"
 / {
 	model = "Qualcomm Technologies, Inc. SDXPINN IDP MIN 512MB";
 	compatible = "qcom,sdxpinn-idp",
