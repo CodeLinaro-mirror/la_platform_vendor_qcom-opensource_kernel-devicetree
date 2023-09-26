@@ -78,7 +78,7 @@
 			#address-cells = <0x2>;
 			#size-cells = <0x0>;
 			base-address = <0x0 0x88800000>;
-			size-min = <0x0 0x3C00000>; /* 60 MB */
+			size-min = <0x0 0x4600000>; /* 70 MB */
 		};
 
 		segments {
