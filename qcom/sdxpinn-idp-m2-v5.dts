@@ -1,0 +1,11 @@
+/dts-v1/;
+
+#include "sdxpinn.dtsi"
+#include "sdxpinn-idp-m2-v5.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXPINN IDP M2 V5";
+	compatible = "qcom,sdxpinn-idp",
+		"qcom,sdxpinn", "qcom,idp";
+	qcom,board-id = <0x4050022 0x304>;
+};
