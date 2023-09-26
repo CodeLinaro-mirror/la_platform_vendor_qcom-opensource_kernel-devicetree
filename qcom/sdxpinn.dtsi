@@ -1526,12 +1526,17 @@
 		vreg_a_sgmii_0p9-supply = <&L4B>;
 		gdsc_emac-supply = <&gcc_emac0_gdsc>;
 		pinctrl-names = "dev-emac0_mdc","dev-emac0_mdio","dev-emac0_pin_phy_intr",
-		"dev-emac0_phy_reset_state";
+		"dev-emac0_phy_reset_state", "dev-emac0_ptp_aux_ts_i_0", "dev-emac0_ptp_aux_ts_i_1",
+		"dev-emac0_ptp_aux_ts_i_2", "dev-emac0_ptp_aux_ts_i_3";
 
 		pinctrl-0 = <&emac0_mdc>;
 		pinctrl-1 = <&emac0_mdio>;
 		pinctrl-2 = <&emac0_pin_phy_intr>;
 		pinctrl-3 = <&emac0_phy_reset_state>;
+		pinctrl-4 = <&emac0_ptp_aux_ts_i_0>;
+		pinctrl-5 = <&emac0_ptp_aux_ts_i_1>;
+		pinctrl-6 = <&emac0_ptp_aux_ts_i_2>;
+		pinctrl-7 = <&emac0_ptp_aux_ts_i_3>;
 
 		snps,reset-gpio = <&tlmm 96 1>;
 		snps,crc_strip;
