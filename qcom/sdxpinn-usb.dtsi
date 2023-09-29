@@ -54,6 +54,13 @@
 				<&system_noc MASTER_USB3_0 &system_noc SLAVE_IPA_CFG>,
 				<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_USB3>;
 
+		/* Boot Config Information */
+		nvmem-cells = <&boot_config>;
+		nvmem-cell-names = "boot_conf";
+		qcom,fast-boot-mask = <0x1e>;
+		qcom,host-bypass-mask = <0x40>;
+		qcom,fast-boot-values = <0x5 0x7>;
+
 		dwc3@a600000 {
 			compatible = "snps,dwc3";
 			reg = <0x0a600000 0xd93c>;
