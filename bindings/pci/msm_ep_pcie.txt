@@ -90,6 +90,11 @@ Optional Properties:
 	that host-interface is PCIe.
   - qcom,ep-pcie-num-ipc-pages-dev-fac: If property is present reduce the ep pcie ipc logging size
 	based on the divisor factor. This property also represents the divisor factor.
+  - qcom,pcie-sm-sequence: PCIe State Manager sequence.
+  - qcom,pcie-sm-branch-sequence: PCIe state manager branch sequence.
+  - qcom,pcie-sm-branch-offset: Offset from PCIe state manager base to load the branch sequence.
+  - qcom,pcie-sm-start-offset: Offset from PCIe state manager base to start/enable
+	the state manager.
 
 Example:
 
