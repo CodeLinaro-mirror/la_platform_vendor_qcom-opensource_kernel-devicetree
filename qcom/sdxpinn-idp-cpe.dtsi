@@ -68,6 +68,7 @@
 	mtl_rx_setup: rx-queues-config {
 		snps,rx-queues-to-use = <2>;
 		snps,rx-sched-sp;
+		snps,mka_mcbcq_filtering;
 
 		queue0 {
 			snps,dcb-algorithm;
@@ -101,6 +102,7 @@
 	mtl_rxeth1_setup: rtlrx-queues-config {
 		snps,rx-queues-to-use = <2>;
 		snps,rx-sched-sp;
+		snps,mka_mcbcq_filtering;
 
 		queue0 {
 			snps,dcb-algorithm;
