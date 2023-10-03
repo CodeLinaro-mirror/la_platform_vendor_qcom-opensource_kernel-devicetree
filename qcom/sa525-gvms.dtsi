@@ -94,6 +94,7 @@
 		qcom,firmware-name = "televm";
 		memory-region = <&tele_vm_mem>;
 		virtio-backends = <&tele_vm_virt_be0 &tele_vm_virt_be1 &tele_vm_virt_be2 &tele_vm_virt_be3 &tele_vm_virt_be4>;
+		enable-gvm-dump;
 	};
 
 	tele_vm: qcom,tele_vm@B5A00000 {
@@ -139,6 +140,7 @@
 		qcom,firmware-name = "fotavm";
 		memory-region = <&fota_vm_mem>;
 		virtio-backends = <&fota_vm_virt_be0 &fota_vm_virt_be1 &fota_vm_virt_be2 &fota_vm_virt_be3>;
+		enable-gvm-dump;
 	};
 
 	fota_vm: qcom,fota_vm@B9C00000 {
