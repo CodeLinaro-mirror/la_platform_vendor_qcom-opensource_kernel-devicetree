@@ -66,6 +66,9 @@
 };
 
 &pcie0_rp {
+	#address-cells = <5>;
+	#size-cells = <0>;
+
 	aquantia,aqc@pcie0_rp {
 		reg = <0 0 0 0 0>;
 
@@ -77,6 +80,9 @@
 		qcom,ioss_channels =
 			<&ioss_aqc_eth0_rx>,
 			<&ioss_aqc_eth0_tx>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
 
 		pci-ids =
 			"1d6a:0001",
@@ -117,6 +123,9 @@
 
 		/* ipa shares this group with rtl */
 		qcom,iommu-group = <&ipa_eth_group1>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
 
 		pci-ids =
 			"10ec:8125",
