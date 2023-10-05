@@ -127,7 +127,7 @@
 			#address-cells = <0x2>;
 			#size-cells = <0x0>;
 			base-address = <0x0 0x88800000>;
-			size-min = <0x0 0x5A00000>; /* 90 MB */
+			size-min = <0x0 0x6E00000>; /* 110 MB */
 		};
 
 		segments {
