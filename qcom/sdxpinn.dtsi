@@ -1864,7 +1864,6 @@
 		qcom,pcie-disconnect-req-reg-b = <6>;
 		qcom,aoss-rst-clr;
 		qcom,aux-clk = <0x13>;
-		qcom,pcie-m2-autonomous;
 		qcom,phy-init = <0x1240 0x01 0x0
 				0x0030 0x18 0x0
 				0x0034 0x03 0x0
@@ -2044,7 +2043,6 @@
 		iommus = <&apps_smmu 0x800 0x0>;
 		qcom,iommu-dma = "bypass";
 		dummy-supply = <&pcie_ep>;
-		qcom,enable-m2;
 
 		status = "disabled";
 	};
