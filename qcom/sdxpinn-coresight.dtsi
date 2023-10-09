@@ -48,6 +48,7 @@
 		qcom,usb-bam-support;
 		qcom,hwctrl-set-support;
 		qcom,set-byte-cntr-support;
+		qcom,perflsheot-set-support;
 
 		qcom,blk-size = <1>;
 	};
@@ -2389,6 +2390,11 @@
 		byte-cntr-class-name = "coresight-tmc-etr-stream";
 
 		qcom,qdss-pcie-support;
+		qcom,qdss-ipa-support;
+		ipa-peer-evt-reg-pa = <0x24077818>;
+		pcie-desc-buf-size = <0x2000>;
+		pcie-data-buf-size = <0x4000>;
+
 		sw_pcie_buf_size = <0x2000000>;
 		interrupts = <GIC_SPI 334 IRQ_TYPE_EDGE_RISING>;
 		interrupt-names = "byte-cntr-irq";
