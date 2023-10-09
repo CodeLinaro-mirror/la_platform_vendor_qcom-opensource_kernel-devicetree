@@ -6,3 +6,8 @@
 	qcom,use-ipa-in-mhi-mode;
 };
 
+&usb {
+	dwc3@a600000 {
+		qcom,iommu-dma = "bypass";
+	};
+};
