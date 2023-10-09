@@ -1,3 +1,8 @@
 &modem_pas {
 	extended-memory-regions  = <&mpss_dsmharq_mem>;
 };
+
+&ipa_hw {
+	qcom,use-ipa-in-mhi-mode;
+};
+
