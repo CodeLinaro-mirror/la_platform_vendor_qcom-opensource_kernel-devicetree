@@ -11,7 +11,7 @@
 		dcc-ram-offset = <0>;
 	};
 
-	mem_dump {
+	mem_dump: mem_dump {
 		compatible = "qcom,mem-dump";
 		memory-region = <&system_cma>;
 

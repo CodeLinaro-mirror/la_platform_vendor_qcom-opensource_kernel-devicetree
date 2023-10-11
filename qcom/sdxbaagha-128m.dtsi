@@ -18,6 +18,7 @@
 /delete-node/ &audio_heap_mem;
 /delete-node/ &system_cma;
 /delete-node/ &trusted_apps_mem;
+/delete-node/ &mem_dump;
 &reserved_memory {
 	mpss_audio_mem: mpss_audio_region@82e00000 {
 		no-map;
@@ -41,4 +42,16 @@
 
 &ethqos_hw {
 	status = "disabled";
+};
+
+&soc {
+	mem_dump {
+		compatible = "qcom,mem-dump";
+		memory-region = <&system_cma>;
+
+		etr_reg {
+			qcom,dump-size = <0x1000>;
+			qcom,dump-id = <0x100>;
+		};
+	};
 };
