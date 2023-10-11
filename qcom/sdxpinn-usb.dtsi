@@ -76,6 +76,8 @@
 			snps,dis_u2_susphy_quirk;
 			snps,hird-threshold = /bits/ 8 <0x10>;
 			tx-fifo-resize;
+			/* set host mode interrupt moderation to 1 us */
+			imod-interval-ns = <1000>;
 			maximum-speed = "super-speed-plus";
 			usb-role-switch;
 			dr_mode = "otg";
