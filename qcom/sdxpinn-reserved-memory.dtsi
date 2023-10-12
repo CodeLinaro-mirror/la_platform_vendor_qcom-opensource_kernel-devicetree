@@ -105,7 +105,12 @@
 		reg = <0x0 0x87f75000 0x0 0x10000>;
 	};
 
-	qdss_mem: qdss_region@88800000 {
+	qdss_mem: qdss_region@88500000 {
+		no-map;
+		reg = <0x0 0x88500000 0x0 0x300000>;
+	};
+
+	qlink_logging: qlink_logging@88800000 {
 		no-map;
 		reg = <0x0 0x88800000 0x0 0x300000>;
 	};
