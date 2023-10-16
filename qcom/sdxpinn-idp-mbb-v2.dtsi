@@ -175,6 +175,8 @@
 		/* ipa shares this group with rtl */
 		qcom,iommu-group = <&ipa_eth_group1>;
 
+		pci_device;
+
 		pci-ids =
 			"10ec:8168",
 			"17cb:0308";
