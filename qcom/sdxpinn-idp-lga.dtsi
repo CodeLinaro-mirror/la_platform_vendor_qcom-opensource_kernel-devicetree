@@ -247,7 +247,7 @@
 };
 
 &modem_pas {
-	extended-memory-regions = <&mpss_dsmharq_mem>;
+	extended-memory-regions = <&mpss_dsmharq_mem>, <&qlink_logging>;
 	qcom,pmic_glink_rpmsg {
 		qcom,glink-channels = "PMIC_RTR_ADSP_APPS";
 	};
