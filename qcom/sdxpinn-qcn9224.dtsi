@@ -144,6 +144,7 @@
 	qcom,bdf-halt-dis;
 	qcom,wr-halt-size = <0x1e>;
 	dma-coherent;
+	status = "ok";
 };
 
 &pcie1_rp {
@@ -178,6 +179,7 @@
 	qcom,bdf-halt-dis;
 	qcom,wr-halt-size = <0x1e>;
 	dma-coherent;
+	status = "ok";
 };
 
 &pcie2_rp {
@@ -212,6 +214,7 @@
 	qcom,bdf-halt-dis;
 	qcom,wr-halt-size = <0x1e>;
 	dma-coherent;
+	status = "ok";
 };
 
 
