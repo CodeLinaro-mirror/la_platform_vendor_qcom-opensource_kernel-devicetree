@@ -110,6 +110,8 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 
+		pci_device;
+
 		pci-ids =
 			"1d6a:0001",
 			"1d6a:d107",
@@ -152,6 +154,8 @@
 
 		#address-cells = <1>;
 		#size-cells = <1>;
+
+		pci_device;
 
 		pci-ids =
 			"10ec:8125",
