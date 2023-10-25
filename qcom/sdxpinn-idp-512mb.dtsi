@@ -1,3 +1,9 @@
+&llcc_device {
+	/delete-property/ memory-region;
+
+	status = "disabled";
+};
+
 &modem_pas {
 	extended-memory-regions  = <&mpss_dsmharq_mem>;
 };

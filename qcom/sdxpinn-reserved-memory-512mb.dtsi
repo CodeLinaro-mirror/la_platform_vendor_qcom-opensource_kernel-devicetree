@@ -24,6 +24,7 @@
 };
 
 /delete-node/ &mpss_dsmharq2_mem;
+/delete-node/ &llcc_tcm_mem;
 
 &mpssadsp_mem {
 	no-map;
