@@ -121,6 +121,16 @@
 				qcom,qmi-dev-name = "cpuv_restriction_cold";
 				#cooling-cells = <2>;
 			};
+
+			modem_pa: modem_pa {
+				qcom,qmi-dev-name = "pa";
+				#cooling-cells = <2>;
+			};
+
+			modem_tj: modem_tj {
+				qcom,qmi-dev-name = "modem";
+				#cooling-cells = <2>;
+			};
 		};
 	};
 
