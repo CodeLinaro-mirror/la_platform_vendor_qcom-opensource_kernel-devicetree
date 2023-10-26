@@ -223,6 +223,7 @@ sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb \
 		sdxpinn-idp-m2.dtb \
 		sdxpinn-idp-m2-v2.dtb \
 		sdxpinn-idp-m2-v3.dtb \
+		sdxpinn-idp-m2-v5.dtb \
 		sdxpinn-idp-lga.dtb \
 		sdxpinn-idp-lga-v2.dtb \
 		sdxpinn-rcm-mbb.dtb \
