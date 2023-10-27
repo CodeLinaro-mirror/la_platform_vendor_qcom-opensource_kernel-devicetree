@@ -73,8 +73,6 @@
 		guest-ram-dump = "enable";
 		image-name = "qcom,fotavm";
 		qcom,pasid = <0x0 0x2C>;
-		qcom,secdomain-ids = <53>;
-		qcom,primary-vm-index = <0>;
 
 		memory {
 			#address-cells = <0x2>;
