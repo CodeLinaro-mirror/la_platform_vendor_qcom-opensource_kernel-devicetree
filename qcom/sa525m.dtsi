@@ -562,3 +562,7 @@
 		/delete-node/ cooling-maps;
 	};
 };
+
+&tsens {
+	tm-disable-on-suspend;
+};
