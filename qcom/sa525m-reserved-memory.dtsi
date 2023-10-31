@@ -51,5 +51,8 @@
 	};
 
 	/delete-node/  hyp_elf_package_region@80800000;
+
+	/delete-node/ llcc_tcm_region@15800000;
+
 };
 

@@ -566,3 +566,11 @@
 &tsens {
 	tm-disable-on-suspend;
 };
+
+
+&llcc_device {
+
+	/delete-property/ memory-region;
+
+	status = "disabled";
+};
