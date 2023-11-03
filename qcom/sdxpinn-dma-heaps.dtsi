@@ -22,7 +22,7 @@
 			memory-region = <&qseecom_ta_mem>;
 		};
 
-		qcom,audio {
+		qcom_audio: qcom,audio {
 			qcom,dma-heap-name = "qcom,audio";
 			qcom,dma-heap-type = <HEAP_TYPE_CARVEOUT>;
 			memory-region = <&audio_heap_mem>;

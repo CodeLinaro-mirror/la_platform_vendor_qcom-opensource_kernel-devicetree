@@ -25,6 +25,7 @@
 
 /delete-node/ &mpss_dsmharq2_mem;
 /delete-node/ &llcc_tcm_mem;
+/delete-node/ &audio_heap_mem;
 
 &mpssadsp_mem {
 	no-map;

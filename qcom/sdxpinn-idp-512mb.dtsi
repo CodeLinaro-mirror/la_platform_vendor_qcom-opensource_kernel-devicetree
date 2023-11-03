@@ -37,3 +37,8 @@
 &va_md_mem {
 	size = <0x0 0x800000>;
 };
+&qcom_audio {
+	/delete-property/ memory-region;
+
+	status = "disabled";
+};
