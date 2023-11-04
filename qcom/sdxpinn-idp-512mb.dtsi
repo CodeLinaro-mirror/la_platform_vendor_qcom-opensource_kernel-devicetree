@@ -17,3 +17,23 @@
 		qcom,iommu-dma = "bypass";
 	};
 };
+
+&ramoops_mem {
+	size = <0x0 0x0>;
+};
+
+&system_cma {
+	size = <0x0 0x800000>;
+};
+
+&user_contig_mem {
+	size = <0x0 0x0>;
+};
+
+&qseecom_mem {
+	size = <0x0 0x400000>;
+};
+
+&va_md_mem {
+	size = <0x0 0x800000>;
+};
