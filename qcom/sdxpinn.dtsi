@@ -1441,6 +1441,25 @@
 		qcom,dir-rx;
 		qcom,rx-filter-be;
 
+		qcom,ioss-traffic-type = "best-effort";
+		qcom,compatible-ipa-configs = "default", "ezmesh";
+
+		qcom,ring-size = <1024>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth0_rx1: iemac_rx1@eth0 {
+		qcom,dir-rx;
+		qcom,rx-filter-be;
+
+		qcom,ioss-traffic-type = "best-effort-tagged";
+		qcom,compatible-ipa-configs = "ezmesh";
+
 		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
 
@@ -1452,6 +1471,25 @@
 
 	ioss_eth0_tx: iemac_tx@eth0 {
 		qcom,dir-tx;
+
+		qcom,ioss-traffic-type = "best-effort";
+		qcom,compatible-ipa-configs = "default", "ezmesh";
+
+		qcom,ring-size = <1024>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <64>;
+		qcom,mod-count-max = <64>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth0_tx1: iemac_tx1@eth0 {
+		qcom,dir-tx;
+
+		qcom,ioss-traffic-type = "best-effort-tagged";
+		qcom,compatible-ipa-configs = "ezmesh";
+
 		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
 
@@ -1468,7 +1506,9 @@
 		qcom,ioss_instance = <0>;
 		qcom,ioss_channels =
 			<&ioss_eth0_rx>,
-			<&ioss_eth0_tx>;
+			<&ioss_eth0_tx>,
+			<&ioss_eth0_rx1>,
+			<&ioss_eth0_tx1>;
 		qcom,iommu-group = <&ipa_eth_group1>;
 		iommus = <&apps_smmu 0x41 0x0>,
 			 <&apps_smmu 0x42 0x0>,
