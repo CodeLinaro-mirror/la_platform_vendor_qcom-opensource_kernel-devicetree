@@ -5,6 +5,11 @@
 };
 
 &reserved_memory {
+	gunyah_hyp_mem: gunyah_hyp_region@80000000 {
+		no-map;
+		reg = <0x0 0x80000000 0x0 0x600000>;
+	};
+
 	mpssadsp_mem: mpssadsp_region@8e000000 {
 		no-map;
 		reg = <0x0 0x8e000000 0x0 0x10000000>;
