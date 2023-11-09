@@ -30,6 +30,7 @@
 	mlo_global_mem0: mlo_global_mem_0@0 {
 		compatible = "shared-dma-pool";
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
+		iova_base = <0xB0000000>;
 		reusable;
 		alignment = <0x0 0x400000>;
 		size = <0x0 0x1400000>;
@@ -110,6 +111,14 @@
 			regulator-enable-ramp-delay = <200000>;
 	};
 
+	cnss_pci_iommu_group0: cnss_pci_iommu_group {
+			qcom,iommu-msi-size = <0x1000>;
+			qcom,iommu-dma-addr-pool = <0x80000000 0x30000000>;
+			qcom,iommu-dma = "atomic";
+			qcom,iommu-pagetable = "coherent";
+			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
+					    "non-fatal";
+	};
 };
 
 &pcie0_rp {
@@ -123,14 +132,6 @@
 		qrtr_node_id = <0x30>;
 		#address-cells = <1>;
 		#size-cells = <1>;
-		cnss_pci_iommu_group0: cnss_pci_iommu_group0 {
-			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-dma-addr-pool = <0x80000000 0x10000000>;
-			qcom,iommu-dma = "atomic";
-			qcom,iommu-pagetable = "coherent";
-			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
-					    "non-fatal";
-		};
 	};
 };
 
@@ -153,19 +154,11 @@
 	#size-cells = <0>;
 	cnss_pci1: cnss_pci1 {
 		reg = <0 0 0 0 0>;
-		qcom,iommu-group = <&cnss_pci_iommu_group1>;
+		qcom,iommu-group = <&cnss_pci_iommu_group0>;
 		memory-region = <&qcn9224_1_mem>;
 		qrtr_node_id = <0x31>;
 		#address-cells = <1>;
 		#size-cells = <1>;
-		cnss_pci_iommu_group1: cnss_pci_iommu_group1 {
-			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-dma-addr-pool = <0x90000000 0x10000000>;
-			qcom,iommu-dma = "atomic";
-			qcom,iommu-pagetable = "coherent";
-			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
-					    "non-fatal";
-		};
 	};
 };
 
@@ -188,19 +181,11 @@
 	#size-cells = <0>;
 	cnss_pci2: cnss_pci2 {
 		reg = <0 0 0 0 0>;
-		qcom,iommu-group = <&cnss_pci_iommu_group2>;
+		qcom,iommu-group = <&cnss_pci_iommu_group0>;
 		memory-region = <&qcn9224_2_mem>;
 		qrtr_node_id = <0x32>;
 		#address-cells = <1>;
 		#size-cells = <1>;
-		cnss_pci_iommu_group2: cnss_pci_iommu_group2 {
-			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
-			qcom,iommu-dma = "atomic";
-			qcom,iommu-pagetable = "coherent";
-			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
-					    "non-fatal";
-		};
 	};
 };
 
