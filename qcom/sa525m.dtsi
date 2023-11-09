@@ -448,6 +448,11 @@
 			nr_cdev0 {
 				cooling-device = <&modem_nr_dsc 11 11>;
 			};
+
+			v2x_cdev {
+				trip = <&mdmss0_config1>;
+				cooling-device = <&modem_v2x 3 3>;
+			};
 		};
 	};
 
@@ -475,6 +480,11 @@
 				trip = <&mdmss1_config0>;
 				cooling-device = <&modem_nr_dsc 11 11>;
 			};
+
+			v2x_cdev {
+				trip = <&mdmss1_config1>;
+				cooling-device = <&modem_v2x 3 3>;
+			};
 		};
 	};
 
@@ -500,6 +510,11 @@
 
 			nr_cdev0 {
 				cooling-device = <&modem_nr_dsc 11 11>;
+			};
+
+			v2x_cdev {
+				trip = <&mdmss2_config1>;
+				cooling-device = <&modem_v2x 3 3>;
 			};
 		};
 	};
