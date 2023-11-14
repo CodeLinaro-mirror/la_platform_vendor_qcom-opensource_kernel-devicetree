@@ -1422,6 +1422,7 @@
 			qcom,tcsr-perst-enable-offset = <0x8>;
 			qcom,pcie-disconnect-req-reg-b = <5>;
 			qcom,perst-raw-rst-status-b = <0>;
+			qcom,pcie-configure-hard-reset;
 
 			qcom,phy-init = <0x9040 0x01 0x0
 				0x8030 0x0a 0x0
