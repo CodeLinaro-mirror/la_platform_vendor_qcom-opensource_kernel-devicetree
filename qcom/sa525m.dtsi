@@ -388,10 +388,6 @@
 	status = "disabled";
 };
 
-&userspace_cdev {
-	status = "disabled";
-};
-
 &thermal_zones {
 	cpuss-0 {
 		trips {
@@ -565,16 +561,6 @@
 				type = "passive";
 			};
 		};
-	};
-
-	ethphy-0 {
-		trips {
-			/delete-node/ eth-config1;
-			/delete-node/ eth-config2;
-			/delete-node/ eth-config3;
-		};
-
-		/delete-node/ cooling-maps;
 	};
 };
 
