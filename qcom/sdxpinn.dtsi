@@ -1470,6 +1470,7 @@
 			<&ioss_eth0_rx>,
 			<&ioss_eth0_tx>;
 		qcom,iommu-group = <&ipa_eth_group1>;
+		dma-coherent;
 		iommus = <&apps_smmu 0x41 0x0>,
 			 <&apps_smmu 0x42 0x0>,
 			 <&apps_smmu 0x43 0x0>,
@@ -2294,6 +2295,7 @@
 			iommus = <&apps_smmu 0x425 0x0>;
 			qcom,shared-cb;
 			qcom,iommu-group = <&ipa_eth_group1>;
+			dma-coherent;
 		};
 
 		ipa_smmu_eth1: ipa_smmu_eth1 {
@@ -2301,6 +2303,7 @@
 			iommus = <&apps_smmu 0x426 0x0>;
 			qcom,shared-cb;
 			qcom,iommu-group = <&ipa_eth_group2>;
+			dma-coherent;
 		};
 
 		/* smp2p information */
