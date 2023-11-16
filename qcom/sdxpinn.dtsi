@@ -1587,8 +1587,8 @@
 
 		snps,tso;
 		snps,pbl = <32>;
-		rx-fifo-depth = <16384>;
-		tx-fifo-depth = <16384>;
+		rx-fifo-depth = <19968>;
+		tx-fifo-depth = <19968>;
 		snps,reset-active-low;
 		snps,axi-config = <&stmmac_axi_setup>;
 
