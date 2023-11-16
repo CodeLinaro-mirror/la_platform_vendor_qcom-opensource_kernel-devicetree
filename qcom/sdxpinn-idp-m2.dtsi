@@ -22,6 +22,10 @@
 	usb-repeater = <&pmx75_eusb2_repeater>;
 };
 
+&ethqos_hw1 {
+	status = "disabled";
+};
+
 &usb {
 	extcon = <&pmx75_vbus_detect>, <&eud>;
 };
