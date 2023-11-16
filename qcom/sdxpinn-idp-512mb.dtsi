@@ -23,7 +23,7 @@
 };
 
 &system_cma {
-	size = <0x0 0x800000>;
+	size = <0x0 0xc00000>;
 };
 
 &user_contig_mem {
