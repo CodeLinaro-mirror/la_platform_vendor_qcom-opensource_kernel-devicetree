@@ -301,6 +301,8 @@
 				0x1200 0x00 0x0
 				0x1244 0x03 0x0>;
 
+		status = "disabled";
+
 		pcie0_rp: pcie0_rp {
 			reg = <0 0 0 0 0>;
 		};
@@ -561,6 +563,8 @@
 				0x0200 0x00 0x0
 				0x0244 0x03 0x0>;
 
+		status = "disabled";
+
 		pcie1_rp: pcie1_rp {
 			reg = <0 0 0 0 0>;
 
@@ -799,6 +803,7 @@
 				0x0200 0x00 0x0
 				0x0244 0x03 0x0>;
 
+		status = "disabled";
 
 		pcie2_rp: pcie2_rp {
 			reg = <0 0 0 0 0>;
