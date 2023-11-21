@@ -1,0 +1,22 @@
+#include <dt-bindings/thermal/thermal_qti.h>
+
+&thermal_zones {
+	pmx35_temp_alarm {
+		cooling-maps {
+			mdm_lte {
+				trip = <&pmx35_trip0>;
+				cooling-device = <&modem_lte_dsc 255 255>;
+			};
+
+			mdm_nr_1rx {
+				trip = <&pmx35_trip0>;
+				cooling-device = <&modem_nr_1rx_dsc 255 255>;
+			};
+
+			mdm_nr_2rx {
+				trip = <&pmx35_trip0>;
+				cooling-device = <&modem_nr_2rx_dsc 255 255>;
+			};
+		};
+	};
+};
