@@ -206,7 +206,7 @@
 };
 
 &chosen {
-	bootargs = "pcie_ports=compat cpufreq.default_governor=performance";
+	bootargs = "pcie_ports=compat cpufreq.default_governor=performance mem=256M";
 	linux,initrd-start = <0x90000000>;
 };
 
