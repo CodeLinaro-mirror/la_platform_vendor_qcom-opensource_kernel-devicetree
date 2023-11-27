@@ -2263,11 +2263,16 @@
 			qcom,ipa-q6-smem-size = <45056>;
 		};
 
+		ipa_wlan_group: ipa_wlan_group {
+			qcom,iommu-dma = "atomic";
+			dma-coherent;
+		};
+
 		ipa_smmu_wlan: ipa_smmu_wlan {
 			compatible = "qcom,ipa-smmu-wlan-cb";
 			iommus = <&apps_smmu 0x421 0x0>;
-			qcom,iommu-dma = "atomic";
-			dma-coherent;
+			qcom,shared-cb;
+			qcom,iommu-group = <&ipa_wlan_group>;
 		};
 
 		ipa_smmu_uc: ipa_smmu_uc {
@@ -2281,15 +2286,15 @@
 		ipa_smmu_wlan1: ipa_smmu_wlan1 {
 			compatible = "qcom,ipa-smmu-wlan1-cb";
 			iommus = <&apps_smmu 0x423 0x0>;
-			qcom,iommu-dma = "atomic";
-			dma-coherent;
+			qcom,shared-cb;
+			qcom,iommu-group = <&ipa_wlan_group>;
 		};
 
 		ipa_smmu_wlan2: ipa_smmu_wlan2 {
 			compatible = "qcom,ipa-smmu-wlan2-cb";
 			iommus = <&apps_smmu 0x424 0x0>;
-			qcom,iommu-dma = "atomic";
-			dma-coherent;
+			qcom,shared-cb;
+			qcom,iommu-group = <&ipa_wlan_group>;
 		};
 
 		ipa_smmu_eth: ipa_smmu_eth {
