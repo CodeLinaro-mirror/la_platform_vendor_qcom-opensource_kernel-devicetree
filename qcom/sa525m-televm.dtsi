@@ -585,7 +585,7 @@
 		iommus = <&apps_smmu 0x45 0x0>,
 			<&apps_smmu 0x4D 0x0>;
 		qcom,iommu-dma-addr-pool = <0x80000000 0x40000000>;
-
+		mac-address = [00 55 7B B5 7D f8];
 		snps,tso;
 		snps,pbl = <32>;
 		rx-fifo-depth = <4096>;
