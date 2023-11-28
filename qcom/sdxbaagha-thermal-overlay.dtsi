@@ -4,17 +4,17 @@
 	pmx35_temp_alarm {
 		cooling-maps {
 			mdm_lte {
-				trip = <&pmx35_trip0>;
+				trip = <&pmx35_trip1>;
 				cooling-device = <&modem_lte_dsc 255 255>;
 			};
 
 			mdm_nr_1rx {
-				trip = <&pmx35_trip0>;
+				trip = <&pmx35_trip1>;
 				cooling-device = <&modem_nr_1rx_dsc 255 255>;
 			};
 
 			mdm_nr_2rx {
-				trip = <&pmx35_trip0>;
+				trip = <&pmx35_trip1>;
 				cooling-device = <&modem_nr_2rx_dsc 255 255>;
 			};
 		};
