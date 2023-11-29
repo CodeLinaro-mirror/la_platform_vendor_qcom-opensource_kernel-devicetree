@@ -115,7 +115,7 @@
 			qcom,iommu-msi-size = <0x1000>;
 			qcom,iommu-dma-addr-pool = <0x80000000 0x30000000>;
 			qcom,iommu-dma = "atomic";
-			qcom,iommu-pagetable = "coherent";
+			dma-coherent;
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
 					    "non-fatal";
 	};
