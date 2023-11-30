@@ -318,7 +318,7 @@
 		snps,phy-addr = <7>;
 		managed = "auto";
 		eth-c22-mdio-probe;
-
+		mac-address = [00 55 7B B5 7D f7];
 		qcom,ioss_auto_resume_disabled;
 		qcom,flow-ctrl-disabled;
 		emac-phy-off-suspend = <4>;
