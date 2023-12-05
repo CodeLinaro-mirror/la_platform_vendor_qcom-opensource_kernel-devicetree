@@ -134,7 +134,7 @@
 
 		queue0 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <8960>;
+			snps,fifo_depth = <14336>;
 			snps,map-to-dma-channel = <0x1>;
 			qcom,ipa_offload;
 		};
@@ -142,7 +142,7 @@
 		queue1 {
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x1>;
-			snps,fifo_depth = <1792>;
+			snps,fifo_depth = <2048>;
 			snps,threshold_byte = <128>;
 			snps,route-ptp;
 		};
@@ -156,7 +156,7 @@
 
 		queue3 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <8960>;
+			snps,fifo_depth = <3328>;
 			snps,map-to-dma-channel = <0x1>;
 			qcom,ipa_offload;
 		};
@@ -167,13 +167,13 @@
 		snps,tx-sched-sp;
 		queue0 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <7424>;
+			snps,fifo_depth = <8192>;
 			qcom,ipa_offload;
 		};
 
 		queue1 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <4864>;
+			snps,fifo_depth = <8192>;
 		};
 
 		queue2 {
@@ -184,7 +184,7 @@
 
 		queue3 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <7424>;
+			snps,fifo_depth = <3328>;
 			qcom,ipa_offload;
 		};
 	};
