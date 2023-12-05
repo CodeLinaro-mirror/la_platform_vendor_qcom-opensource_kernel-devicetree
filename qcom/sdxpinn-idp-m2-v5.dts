@@ -1,6 +1,7 @@
 /dts-v1/;
 
 #include "sdxpinn.dtsi"
+#include "sdxpinn-idp-m2.dtsi"
 #include "sdxpinn-idp-m2-v5.dtsi"
 
 / {
