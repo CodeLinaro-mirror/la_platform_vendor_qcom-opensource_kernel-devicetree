@@ -1,0 +1,38 @@
+%YAML 1.2
+---
+
+$id: http://devicetree.org/schemas/hwmon/pmbus/qcom,fmgr-compatible.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+
+title: User space interface for PMBus
+
+maintainers:
+  - <quic_snagapur@quicinc.com>
+
+description: |
+  The fmgr-interface is to support generic PMBus interface driver that
+  communicates with the third-party chassis, bubble up the events and
+  send to user space framework.
+
+properties:
+  compatible:
+    enum:
+      - qcom,compatible
+
+  reg:
+    maxItems: 1
+
+required:
+  - compatible
+  - reg
+
+additionalProperties: false
+
+examples:
+  - |
+    i2c {
+        fmgr-interface@11 {
+            compatible = "qcom,fmgr-interface";
+            reg = <0x11>;
+        };
+    };
