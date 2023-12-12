@@ -141,6 +141,8 @@
 			<&ioss_eth1_rx>,
 			<&ioss_eth1_tx>;
 
+		qcom,ioss-wol-phy;
+
 		reg = <0x22FC0000 0x14000>,
 			<0x2303F000 0x1000>,
 			<0x22FD4000 0x5100>,
@@ -218,6 +220,8 @@
 	vreg_emac_phy-supply = <&aqr_vreg>;
 	snps,mtl-rx-config = <&mtl_rx_setup>;
 	snps,mtl-tx-config = <&mtl_tx_setup>;
+
+	qcom,ioss-wol-phy;
 
 	snps,reset-delays-us = <1000 100000 221000>;
 	phy-mode = "usxgmii";
