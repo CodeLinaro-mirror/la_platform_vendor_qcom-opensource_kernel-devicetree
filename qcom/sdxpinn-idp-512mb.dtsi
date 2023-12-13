@@ -5,7 +5,7 @@
 };
 
 &modem_pas {
-	extended-memory-regions  = <&mpss_dsmharq_mem>;
+	extended-memory-regions  = <&mpss_dsmharq_mem>, <&qlink_logging>;
 };
 
 &ipa_hw {
