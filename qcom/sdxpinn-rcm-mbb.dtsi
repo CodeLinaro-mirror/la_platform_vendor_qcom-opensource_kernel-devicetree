@@ -38,7 +38,7 @@
 
 	ioss: qcom,ioss {
 		compatible = "qcom,ioss-v2";
-		qcom,line_rate_for_llcc = <5000>;
+		qcom,line_rate_for_llcc = <10000>;
 	};
 
 	ioss_eth1_rx: iemac_rx@eth1 {
