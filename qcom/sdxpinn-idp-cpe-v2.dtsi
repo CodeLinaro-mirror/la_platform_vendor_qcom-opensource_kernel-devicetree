@@ -10,3 +10,7 @@
 &wifi2 {
 	status = "disabled";
 };
+
+&ipa_hw {
+	qcom,use-dual-wkk-config;
+};
