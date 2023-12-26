@@ -5,3 +5,7 @@
 	bootargs = "pcie_ports=compat cpufreq.default_governor=performance reboot=w";
 	linux,initrd-start = <0x90000000>;
 };
+
+&ethqos_hw {
+	status = "disabled";
+};
