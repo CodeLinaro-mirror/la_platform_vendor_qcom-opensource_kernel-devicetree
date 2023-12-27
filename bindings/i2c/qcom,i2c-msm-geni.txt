@@ -23,6 +23,7 @@ Optional property:
  - qcom,i2c-hub : Boolean flag to support I2C hub functionality.
  - qcom,rtl_se : Boolean flag to bypass Cancel for RTL based SE. Applicable
    for QUP version < 3.9.0 .
+ - qcom,pmbus-supported: Boolean flag to support PMBus functionality
 
 Child nodes should conform to i2c bus binding.
 
