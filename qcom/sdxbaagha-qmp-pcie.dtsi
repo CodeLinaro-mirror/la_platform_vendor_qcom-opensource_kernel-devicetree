@@ -32,3 +32,8 @@
 		snps,usb2-gadget-lpm-disable;
 	};
 };
+
+&ethqos_hw {
+	status = "disabled";
+};
+
