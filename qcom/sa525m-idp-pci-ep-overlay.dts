@@ -76,7 +76,6 @@
 
 &pcie_ep {
 	qcom,pcie-device-id = /bits/ 16 <0x030a>;
-	qcom,pcie-use-iatu-msi;
 	qcom,override-disable-sriov;
 	status = "ok";
 };
