@@ -1419,6 +1419,7 @@
 			qcom,sriov-mask = <0x1E0>;
 			qcom,tcsr-not-supported;
 			qcom,perst-raw-rst-status-b = <0>;
+			qcom,pcie-configure-hard-reset;
 
 			qcom,phy-init = <0x9040 0x01 0x0
 				0x8030 0x0a 0x0
