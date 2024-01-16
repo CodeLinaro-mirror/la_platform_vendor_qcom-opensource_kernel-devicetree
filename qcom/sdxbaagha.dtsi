@@ -944,6 +944,15 @@
 		compatible = "qcom,dload-mode";
 	};
 
+	mini_dump_mode {
+		compatible = "qcom,minidump";
+		status = "ok";
+	};
+
+	logbuf: qcom,logbuf-vendor-hooks {
+		compatible = "qcom,logbuf-vendor-hooks";
+	};
+
 	qfprom: qfprom@221c8000 {
 		compatible = "qcom,qfprom";
 		reg = <0x221c8000 0x1000>;
