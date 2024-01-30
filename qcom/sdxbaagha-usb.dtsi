@@ -76,7 +76,8 @@
 			snps,dis_u2_susphy_quirk;
 			snps,dis_u3_susphy_quirk;
 			imod-interval-ns = <1000000>;
-			//tx-fifo-resize;
+			snps,runtime-suspend-on-usb-suspend;
+			/* tx-fifo-resize not required since RAM_DEPTH is 0*/
 			maximum-speed = "high-speed";
 			dr_mode = "otg";
 			usb-role-switch;
