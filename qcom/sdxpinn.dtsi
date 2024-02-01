@@ -354,6 +354,10 @@
 		qcom,low-latency;
 	};
 
+	qrtr: qcom,qrtr {
+		compatible = "qcom,qrtr";
+	};
+
 	qcom,glink {
 		compatible = "qcom,glink";
 	};

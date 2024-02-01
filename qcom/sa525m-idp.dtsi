@@ -279,6 +279,10 @@ status = "ok";
 	extcon = <&pmx75_vbus_detect>, <&eud>;
 };
 
+&qrtr {
+	qcom,node-id = <1>;
+};
+
 &sdhc_2 {
 	status = "ok";
 

@@ -52,4 +52,8 @@
 	qcom,iommu-dma = "atomic";
 };
 
+&qrtr {
+	qcom,node-id = <2>;
+};
+
 #include "sa525m-ep.dtsi"
