@@ -2269,6 +2269,7 @@
 
 		ipa_wlan_group: ipa_wlan_group {
 			qcom,iommu-dma = "atomic";
+			dma-coherent;
 		};
 
 		ipa_smmu_wlan: ipa_smmu_wlan {
