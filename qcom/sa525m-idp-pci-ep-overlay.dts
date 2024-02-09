@@ -11,12 +11,6 @@
 	qcom,board-id = <0x0010022 0x306>;
 };
 
-&usb {
-	dwc3@a600000 {
-		qcom,iommu-dma = "bypass";
-	};
-};
-
 &ipa_hw {
 	qcom,use-ipa-in-mhi-mode;
 	qcom,mhi-event-ring-id-limits = <9 17>;
@@ -51,46 +45,6 @@
 };
 
 &qnand_1 {
-	status = "ok";
-};
-
-&pcie0 {
-	status = "disabled";
-};
-
-&pcie0_msi {
-	status = "disabled";
-};
-
-&pcie1 {
-	status = "disabled";
-};
-
-&pcie2 {
-	status = "ok";
-};
-
-&pcie2_msi {
-	status = "ok";
-};
-
-&pcie_ep {
-	qcom,pcie-device-id = /bits/ 16 <0x030a>;
-	qcom,override-disable-sriov;
-	status = "ok";
-};
-
-&mhi_device {
-	qcom,mhi-ifc-id = <0x030a17cb>;
-	status = "ok";
-};
-
-&mhi_net_device {
-	qcom,mhi-ethernet-interface-ch-list = <46>;
-	status = "ok";
-};
-
-&mhi_dev_qrtr {
 	status = "ok";
 };
 
@@ -129,3 +83,5 @@
 	pinctrl-0 = <&sdc1_emmc_on>;
 	pinctrl-1 = <&sdc1_emmc_off>;
 };
+
+#include "sa525m-ep.dtsi"
