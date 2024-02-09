@@ -132,6 +132,7 @@
 		qrtr_node_id = <0x30>;
 		#address-cells = <1>;
 		#size-cells = <1>;
+		dma-coherent;
 	};
 };
 
@@ -159,6 +160,7 @@
 		qrtr_node_id = <0x31>;
 		#address-cells = <1>;
 		#size-cells = <1>;
+		dma-coherent;
 	};
 };
 
@@ -186,6 +188,7 @@
 		qrtr_node_id = <0x32>;
 		#address-cells = <1>;
 		#size-cells = <1>;
+		dma-coherent;
 	};
 };
 
