@@ -126,6 +126,10 @@
 
 	/delete-node/ pm8550ve_die_temp;
 
+	pmk8550_xo_therm {
+		qcom,hw-settle-time = <1000>;
+	};
+
 	/* PMX75 Channel nodes */
 	pmx75_offset_ref {
 		reg = <PMX75_ADC5_GEN3_OFFSET_REF>;
