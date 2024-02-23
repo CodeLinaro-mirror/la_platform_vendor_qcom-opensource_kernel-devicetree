@@ -49,6 +49,7 @@
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x02>;
+			probe-order = <0x2>;
 			qcom,wlan-rc-num = <0x0>;
 			status = "ok";
 	};
@@ -63,6 +64,7 @@
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x04>;
+			probe-order = <0x1>;
 			qcom,wlan-rc-num = <0x1>;
 			status = "ok";
 	};
@@ -77,6 +79,7 @@
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x01>;
+			probe-order = <0x3>;
 			qcom,wlan-rc-num = <0x2>;
 			status = "ok";
 	};
