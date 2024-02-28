@@ -1161,7 +1161,7 @@
 		qcom,vreg-1p2-voltage-level = <1200000 1200000 15000>;
 		qcom,vreg-0p9-voltage-level = <912000 880000 48100>;
 		qcom,vreg-mx-voltage-level = <RPMH_REGULATOR_LEVEL_MAX
-					      RPMH_REGULATOR_LEVEL_NOM 0>;
+					      RPMH_REGULATOR_LEVEL_LOW_SVS 0>;
 
 		clocks = <&gcc GCC_PCIE_PIPE_CLK>,
 			<&gcc GCC_PCIE_CFG_AHB_CLK>,
