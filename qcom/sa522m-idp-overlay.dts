@@ -29,6 +29,7 @@
 
 &pcie2 {
 	dma-coherent;
+	qcom,no-l1ss-supported;
 	status = "ok";
 };
 
