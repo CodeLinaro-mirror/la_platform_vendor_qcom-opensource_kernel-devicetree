@@ -34,3 +34,5 @@
 &pcie2_msi {
 	status = "ok";
 };
+
+#include "sa525m-ep.dtsi"

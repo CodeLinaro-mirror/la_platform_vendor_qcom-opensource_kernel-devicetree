@@ -71,3 +71,5 @@
 	pinctrl-0 = <&sdc1_emmc_on>;
 	pinctrl-1 = <&sdc1_emmc_off>;
 };
+
+#include "sa525m-ep.dtsi"

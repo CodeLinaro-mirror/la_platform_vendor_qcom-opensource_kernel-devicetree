@@ -73,3 +73,5 @@
 	qcom,iommu-dma = "atomic";
 
 };
+
+#include "sa525m-ep.dtsi"

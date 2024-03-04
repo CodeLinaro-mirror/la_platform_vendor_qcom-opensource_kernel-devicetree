@@ -31,3 +31,5 @@
 &pcie2 {
 	status = "disabled";
 };
+
+#include "sa525m-ep.dtsi"
