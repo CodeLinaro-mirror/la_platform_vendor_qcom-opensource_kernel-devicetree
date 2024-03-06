@@ -14,3 +14,7 @@
 &ipa_hw {
 	qcom,use-dual-wkk-config;
 };
+
+&qcn9224_2_mem {
+	status = "disabled";
+};
