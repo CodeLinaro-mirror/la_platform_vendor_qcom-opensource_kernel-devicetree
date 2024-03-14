@@ -50,6 +50,7 @@ Optional Properties:
   - qcom,tcsr-perst-separation-enable-offset: Offset for TCSR perst seperation enable.
   - qcom,tcsr-reset-separation-offset: Offset for TCSR reset seperation.
   - qcom,tcsr-perst-enable-offset: Offset for TCSR perst enable.
+  - qcom,tcsr-hot-reset-offset: Offset for TCSR hot reset enable.
   - qcom,perst-raw-rst-status-b: Bit for perset raw reset status.
   - qcom,phy-init: The initialization sequence to bring up the PCIe PHY.
     Should be specified in groups (offset, value, delay, direction).

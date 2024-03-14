@@ -1864,6 +1864,7 @@
 		qcom,phy-status-reg2 = <0x1214>;
 		qcom,mhi-soc-reset-offset = <0xb001b8>;
 		qcom,tcsr-reset-separation-offset = <0x3f8>;
+		qcom,tcsr-hot-reset-offset = <0x3e8>;
 		qcom,pcie-disconnect-req-reg-b = <6>;
 		qcom,aoss-rst-clr;
 		qcom,aux-clk = <0x13>;
