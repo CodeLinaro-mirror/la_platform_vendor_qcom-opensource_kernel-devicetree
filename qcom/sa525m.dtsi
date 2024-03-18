@@ -186,6 +186,10 @@
 		status = "ok";
 	};
 
+	microdump_modem {
+		compatible = "qcom,microdump_modem";
+	};
+
 	qcom,ext_clk {
 		compatible = "qcom,clk-led-pwm";
 		clocks = <&gcc GCC_TLMM_125_CLK>,
