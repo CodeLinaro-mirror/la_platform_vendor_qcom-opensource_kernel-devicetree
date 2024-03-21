@@ -56,7 +56,7 @@
 		nvmem-cell-names = "boot_conf";
 		qcom,fast-boot-mask = <0x1e>;
 		qcom,host-bypass-mask = <0x40>;
-		qcom,fast-boot-values = <0x5 0x7>;
+		qcom,fast-boot-values = <0x3>;
 
 		dwc3@a600000 {
 			compatible = "snps,dwc3";
