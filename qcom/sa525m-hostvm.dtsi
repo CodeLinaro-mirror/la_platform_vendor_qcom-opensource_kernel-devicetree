@@ -52,3 +52,11 @@
 		};
 	};
 };
+
+&qupv3_se6_spi {
+	status = "disabled";
+};
+
+&tlmm {
+	/delete-node/ hsm-rst-hog;
+};

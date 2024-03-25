@@ -1,0 +1,6 @@
+&reserved_memory {
+	mpss_dsmharq_mem: mpss_dsmharq_region@88f00000 {
+		no-map;
+		reg = <0x0 0x88f00000 0x0 0x2600000>;
+	};
+};

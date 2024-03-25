@@ -5,18 +5,11 @@
 #include "sa525m-reserved-memory.dtsi"
 #include "sa525-gvms.dtsi"
 #include "sa525m-hostvm.dtsi"
+#include "sa525m-dsmharq-38m.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA522M HOST VM";
 	compatible = "qcom,sdxpinn";
 	qcom,msm-id= <559 0x10000>;
 	qcom,board-id = <0 0>;
-};
-
-&qupv3_se6_spi {
-	status = "disabled";
-};
-
-&tlmm {
-	/delete-node/ hsm-rst-hog;
 };

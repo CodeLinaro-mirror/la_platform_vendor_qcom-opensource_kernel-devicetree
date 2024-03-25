@@ -239,10 +239,18 @@ dtb-y += $($(MSM_ARCH)-dtb-y)
 
 ifeq ($(CONFIG_ARCH_SA525_HOSTVM), y)
 SA525_BASE_DTB += sa525m-hostvm.dtb \
-               sa522m-hostvm.dtb
+		sa525m-hostvm-v2.dtb \
+		sa525m-hostvm-v3.dtb \
+		sa522m-hostvm.dtb \
+		sa522m-hostvm-v2.dtb \
+		sa522m-hostvm-v3.dtb
 else
 SA525_BASE_DTB += sa525m.dtb \
-                sa522m.dtb
+		sa525m-v2.dtb \
+		sa525m-v3.dtb \
+		sa522m.dtb \
+		sa522m-v2.dtb \
+		sa522m-v3.dtb
 endif
 
 SA525_BOARDS += sa525m-rumi-overlay.dtbo \

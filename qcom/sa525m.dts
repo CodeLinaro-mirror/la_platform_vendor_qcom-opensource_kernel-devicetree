@@ -3,6 +3,7 @@
 #include "sa525m.dtsi"
 #include "sa525m-dma-heaps.dtsi"
 #include "sa525m-reserved-memory.dtsi"
+#include "sa525m-dsmharq-58m.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA525M";
