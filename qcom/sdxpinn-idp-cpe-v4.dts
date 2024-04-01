@@ -1,0 +1,12 @@
+/dts-v1/;
+
+#include "sdxpinn.dtsi"
+#include "sdxpinn-idp-cpe-v4.dtsi"
+#include "sdxpinn-reserved-memory-2G.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXPINN IDP CPE V4";
+	compatible = "qcom,sdxpinn-idp",
+			"qcom,sdxpinn", "qcom,idp";
+	qcom,board-id = <0x3040022 0x403>;
+};
