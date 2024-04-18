@@ -21,13 +21,19 @@ This is now completely optional as the partition information is avaialble from
 bootloader.
 
 Optional properties:
-- reg : boot_cfg. This is needed only on the targets where both NAND and eMMC
-  devices are supported. On eMMC based builds, NAND cannot be enabled by
-  default due to the absence of some of its required resources.
 - reg : The partition offset and size
 - label : The label / name for this partition.
 - read-only: This parameter, if present, indicates that this partition
   should only be mounted read-only.
+- nvmem-cells : Phandle of nvmem cell containing the address for boot_config.
+- nvmem-cell-names : nvmem cell name for boot_config.
+	This is needed only on the targets where both NAND and eMMC
+	devices are supported. On eMMC based builds, NAND cannot be enabled by
+	default due to the absence of some of its required resources.
+- qcom,boot_dev_bits : Number of FAST_BOOT bits in boot_config register that
+	indicates the boot interface type NAND/eMMC.
+- qcom,nand_boot : boot device detection value for NAND/EMMC. This is based on
+	FAST_BOOT bits in boot_config register.
 - Refer to "Documentation/devicetree/bindings/arm/msm/msm_bus.txt" for
 below optional properties:
 	- qcom,msm-bus,name
@@ -56,6 +62,11 @@ Examples:
 		qcom,msm-bus,num-paths = <1>;
 		qcom,msm-bus,vectors-KBps = <91 512 0 0>,
 		qcom,qpic-clk-rpmh;
+
+		nvmem-cells = <&boot_config>;
+		nvmem-cell-names = "boot_conf";
+		qcom,boot_dev_bits = <0x4>;
+		qcom,nand_boot = <0x0>;
 	};
 
        qcom,mtd-partitions {
