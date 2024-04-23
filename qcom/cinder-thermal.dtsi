@@ -36,7 +36,7 @@
 
     aop_pmic_sensor: aop-pmic-sensor@c3f03d8 {
         compatible = "qcom,aop-pmic-sensor";
-		reg = <0x0c3f03d8 0x28>;
+		reg = <0x0c3e0200 0x28>;
 		mboxes = <&qmp_aop 0>;
 		#thermal-sensor-cells = <1>;
 
@@ -68,6 +68,21 @@
 		cx-volt {
 			qcom,pmic-id = <3>;
 			qcom,type = <1>;
+		};
+
+		mss-curr {
+			qcom,pmic-id = <1>;
+			qcom,type = <2>;
+		};
+
+		mx-curr {
+			qcom,pmic-id = <2>;
+			qcom,type = <2>;
+		};
+
+		cx-curr {
+			qcom,pmic-id = <3>;
+			qcom,type = <2>;
 		};
     };
 };
