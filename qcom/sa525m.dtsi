@@ -20,6 +20,22 @@
 
 &qnand_1 {
 	status = "ok";
+	nvmem-cells = <&boot_config>;
+	nvmem-cell-names = "boot_conf";
+
+	/* Storage boot device fuse is present in QFPROM_RAW_OEM_CONFIG_ROW0_LSB
+	 * this fuse is blown by bootloader and populated in boot_config
+	 * register[1:4] FAST_BOOT bits.
+	 *
+	 * FAST_BOOT bits might vary from target to target. It could be [1:3] or [1:4] or [1:5].
+	 * So, mention the number of FAST_BOOT bits used for this target.
+	 */
+	qcom,boot_dev_bits = <0x4>;
+
+	/* Boot device detection value (FAST_BOOT bits) for NAND/eMMC,
+	 * which might varies from target to target.
+	 */
+	qcom,nand_boot = <0x0>;
 };
 
 &qupv3_0 {
