@@ -409,6 +409,7 @@
 		snps,phy-addr = <7>;
 		managed = "auto";
 		eth-c22-mdio-probe;
+		enable-pfc;
 
 		qcom,ioss_auto_resume_disabled;
 		qcom,flow-ctrl-disabled;
