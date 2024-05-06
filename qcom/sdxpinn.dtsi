@@ -1555,14 +1555,6 @@
 		snps,reset-active-low;
 		snps,axi-config = <&stmmac_axi_setup>;
 
-		serdes-config {
-			/* Valid values for usxgmii-mode:
-			 * 10000: 10G mode
-			 * 5000: 5G mode
-			 * 2500: 2.5G mode
-			 */
-			usxgmii-mode = <10000>;
-		};
 	};
 
 	qcom,chd {
