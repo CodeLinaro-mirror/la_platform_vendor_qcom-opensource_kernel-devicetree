@@ -1,2 +1,40 @@
 #include "sdxpinn-idp-mbb.dtsi"
 #include "sdxpinn-idp-512mb.dtsi"
+
+&pcie0 {
+	status = "disabled";
+};
+
+&pcie0_msi {
+	status = "disabled";
+};
+
+&pcie1 {
+	status = "disabled";
+};
+
+&pcie2 {
+	status = "disabled";
+};
+
+&pcie_ep {
+	qcom,override-disable-sriov;
+	nvmem-cells = <&boot_config>;
+	nvmem-cell-names = "boot_conf";
+	qcom,fast-boot-mask = <0x1e>;
+	qcom,host-bypass-mask = <0x40>;
+	qcom,fast-boot-values = <0x5 0x7>;
+	status = "ok";
+};
+
+&mhi_dev_qrtr {
+	status = "ok";
+};
+
+&mhi_device {
+	status = "ok";
+};
+
+&mhi_net_device {
+	status = "ok";
+};
