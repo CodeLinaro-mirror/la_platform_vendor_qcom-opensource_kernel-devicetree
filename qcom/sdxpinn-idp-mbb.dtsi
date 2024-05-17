@@ -46,6 +46,9 @@
 		qcom,dir-rx;
 		qcom,rx-filter-be;
 
+		qcom,ioss-traffic-type = "best-effort";
+		qcom,compatible-ipa-configs = "default", "tsn";
+
 		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
 
@@ -57,6 +60,25 @@
 
 	ioss_eth0_tx: iemac_tx@eth0 {
 		qcom,dir-tx;
+
+		qcom,ioss-traffic-type = "best-effort";
+		qcom,compatible-ipa-configs = "default", "tsn";
+
+		qcom,ring-size = <1024>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <16>;
+		qcom,mod-count-max = <16>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth0_tx1: iemac_tx1@eth0 {
+		qcom,dir-tx;
+
+		qcom,ioss-traffic-type = "low-latency";
+		qcom,compatible-ipa-configs = "tsn";
+
 		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
 
@@ -111,15 +133,29 @@
 	};
 
 	mtl_tx_setup: tx-queues-config {
-		snps,tx-queues-to-use = <2>;
+		snps,tx-queues-to-use = <4>;
 		snps,tx-sched-sp;
 		queue0 {
 			snps,dcb-algorithm;
+			snps,fifo_depth = <9984>;
 			qcom,ipa_offload;
 		};
 
 		queue1 {
 			snps,dcb-algorithm;
+			snps,fifo_depth = <6400>;
+		};
+
+		queue2 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <256>;
+			snps,skip-queue;
+		};
+
+		queue3 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <3328>;
+			qcom,ipa_offload;
 		};
 	};
 
@@ -253,6 +289,10 @@
 	managed = "auto";
 	eth-c45-mdio-probe;
 	mac-address = [00 55 7B B5 7D f8];
+	qcom,ioss_channels =
+		<&ioss_eth0_rx>,
+		<&ioss_eth0_tx>,
+		<&ioss_eth0_tx1>;
 };
 
 &qnand_1 {
