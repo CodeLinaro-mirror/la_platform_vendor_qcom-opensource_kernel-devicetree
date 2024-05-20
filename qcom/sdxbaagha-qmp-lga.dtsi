@@ -1,0 +1,7 @@
+#include "sdxbaagha-qmp.dtsi"
+
+&smb23x_charger {
+	status = "disabled";
+};
+
+

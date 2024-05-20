@@ -1,7 +1,7 @@
 /dts-v1/;
 
 #include "sdxbaagha.dtsi"
-#include "sdxbaagha-qmp.dtsi"
+#include "sdxbaagha-qmp-lga.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SDXBAAGHA LGA 256M";
