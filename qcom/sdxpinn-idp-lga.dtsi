@@ -140,12 +140,15 @@
 		interrupt-names = "macirq", "eth_lpi";
 
 		gdsc_emac-supply = <&gcc_emac1_gdsc>;
-		pinctrl-names = "dev-emac1_mdc","dev-emac1_mdio","dev-emac1_pin_phy_intr",
-		"dev-emac1_phy_reset_state";
-		pinctrl-0 = <&emac1_mdc>;
-		pinctrl-1 = <&emac1_mdio>;
-		pinctrl-2 = <&emac1_pin_phy_intr>;
-		pinctrl-3 = <&emac1_phy_reset_state>;
+		pinctrl-names = "default","init";
+		pinctrl-0 = <&emac1_mdc_active
+			     &emac1_mdio_active
+			     &emac1_pin_phy_intr_active
+			     &emac1_phy_reset_state_active>;
+		pinctrl-1 = <&emac1_mdc_inactive
+			     &emac1_mdio_inactive
+			     &emac1_pin_phy_intr_inactive
+			     &emac1_phy_reset_state_inactive>;
 
 		vreg_emac_phy-supply = <&phy1_vreg>;
 		qcom,phy-intr-redirect = <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
