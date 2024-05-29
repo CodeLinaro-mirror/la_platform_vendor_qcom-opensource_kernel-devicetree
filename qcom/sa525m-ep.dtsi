@@ -77,3 +77,7 @@
 	qcom,iommu-dma = "bypass";
 };
 
+&qrtr {
+	qcom,node-id = <2>;
+};
+
