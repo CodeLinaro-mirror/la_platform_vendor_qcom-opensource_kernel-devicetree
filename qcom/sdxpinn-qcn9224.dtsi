@@ -46,7 +46,7 @@
 			reg-names = "smmu_iova_ipa";
 			memory-region = <&mlo_global_mem0>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
-			qrtr_node_id = <0x30>;
+			node_id = <0x0>;
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x02>;
@@ -61,7 +61,7 @@
 			reg-names = "smmu_iova_ipa";
 			memory-region = <&mlo_global_mem0>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
-			qrtr_node_id = <0x31>;
+			node_id = <0x1>;
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x04>;
@@ -76,7 +76,7 @@
 			reg-names = "smmu_iova_ipa";
 			memory-region = <&mlo_global_mem0>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
-			qrtr_node_id = <0x32>;
+			node_id = <0x2>;
 			qca,auto-restart;
 			interrupt-bmap = <0x100503>;
 			board_id = <0x01>;
@@ -133,7 +133,6 @@
 		reg = <0 0 0 0 0>;
 		qcom,iommu-group = <&cnss_pci_iommu_group0>;
 		memory-region = <&qcn9224_0_mem>;
-		qrtr_node_id = <0x30>;
 		#address-cells = <1>;
 		#size-cells = <1>;
 		dma-coherent;
@@ -161,7 +160,6 @@
 		reg = <0 0 0 0 0>;
 		qcom,iommu-group = <&cnss_pci_iommu_group0>;
 		memory-region = <&qcn9224_1_mem>;
-		qrtr_node_id = <0x31>;
 		#address-cells = <1>;
 		#size-cells = <1>;
 		dma-coherent;
@@ -189,7 +187,6 @@
 		reg = <0 0 0 0 0>;
 		qcom,iommu-group = <&cnss_pci_iommu_group0>;
 		memory-region = <&qcn9224_2_mem>;
-		qrtr_node_id = <0x32>;
 		#address-cells = <1>;
 		#size-cells = <1>;
 		dma-coherent;
