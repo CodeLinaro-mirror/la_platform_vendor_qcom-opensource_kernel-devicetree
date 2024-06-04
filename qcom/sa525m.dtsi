@@ -138,6 +138,7 @@
 	firmware-names = "ipa_fws";
 	memory-regions = <&ipa_fw_mem>;
 	/delete-property/ qcom,use-xbl-boot;
+	/delete-property/ qcom,lan-coal-enable;
 };
 
 &tlmm {
