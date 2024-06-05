@@ -96,8 +96,6 @@ Optional Properties:
   - qcom,pcie-sm-branch-offset: Offset from PCIe state manager base to load the branch sequence.
   - qcom,pcie-sm-start-offset: Offset from PCIe state manager base to start/enable
 	the state manager.
-  - qcom,pcie-configure-hard-reset: If property is present, configures PS_HOLD to perform hard
-	reset.
 
 Example:
 
