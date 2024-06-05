@@ -5,9 +5,9 @@
 #include "sa525m-dsmharq-38m.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. SA522 IDP Overlay";
+	model = "Qualcomm Technologies, Inc. SA525 IDP V3 Overlay";
 	compatible = "qcom,sdxpinn-idp",
 		"qcom,sdxpinn", "qcom,idp";
-	qcom,msm-id=<559 0x10000>;
-	qcom,board-id = <0x0010022 0x300>;
+	qcom,msm-id=<558 0x10000>;
+	qcom,board-id = <0x0030022 0x300>;
 };

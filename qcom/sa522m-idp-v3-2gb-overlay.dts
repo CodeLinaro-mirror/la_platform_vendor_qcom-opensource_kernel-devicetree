@@ -6,11 +6,9 @@
 #include "sa525m-dsmharq-38m.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. SA522 IDP 2GB PCIe EP Overlay";
+	model = "Qualcomm Technologies, Inc. SA522 IDP V3 2GB Overlay";
 	compatible = "qcom,sdxpinn-idp",
 		"qcom,sdxpinn", "qcom,idp";
 	qcom,msm-id=<559 0x10000>;
-	qcom,board-id = <0x0010022 0x406>;
+	qcom,board-id = <0x0030022 0x400>;
 };
-
-#include "sa525m-ep.dtsi"

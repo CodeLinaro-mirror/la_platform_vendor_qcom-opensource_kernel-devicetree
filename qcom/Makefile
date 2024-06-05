@@ -239,18 +239,10 @@ dtb-y += $($(MSM_ARCH)-dtb-y)
 
 ifeq ($(CONFIG_ARCH_SA525_HOSTVM), y)
 SA525_BASE_DTB += sa525m-hostvm.dtb \
-		sa525m-hostvm-v2.dtb \
-		sa525m-hostvm-v3.dtb \
-		sa522m-hostvm.dtb \
-		sa522m-hostvm-v2.dtb \
-		sa522m-hostvm-v3.dtb
+		sa522m-hostvm.dtb
 else
 SA525_BASE_DTB += sa525m.dtb \
-		sa525m-v2.dtb \
-		sa525m-v3.dtb \
-		sa522m.dtb \
-		sa522m-v2.dtb \
-		sa522m-v3.dtb
+		sa522m.dtb
 endif
 
 SA525_BOARDS += sa525m-rumi-overlay.dtbo \
@@ -261,7 +253,23 @@ SA525_BOARDS += sa525m-rumi-overlay.dtbo \
 		sa525m-idp-pci-ep-overlay.dtbo \
 		sa522m-idp-pci-ep-overlay.dtbo \
 		sa525m-idp-2gb-pci-ep-overlay.dtbo \
-		sa522m-idp-2gb-pci-ep-overlay.dtbo
+		sa522m-idp-2gb-pci-ep-overlay.dtbo \
+		sa525m-idp-v2-overlay.dtbo \
+		sa522m-idp-v2-overlay.dtbo \
+		sa525m-idp-v2-2gb-overlay.dtbo \
+		sa522m-idp-v2-2gb-overlay.dtbo \
+		sa525m-idp-v2-pci-ep-overlay.dtbo \
+		sa522m-idp-v2-pci-ep-overlay.dtbo \
+		sa525m-idp-v2-2gb-pci-ep-overlay.dtbo \
+		sa522m-idp-v2-2gb-pci-ep-overlay.dtbo \
+		sa525m-idp-v3-overlay.dtbo \
+		sa522m-idp-v3-overlay.dtbo \
+		sa525m-idp-v3-2gb-overlay.dtbo \
+		sa522m-idp-v3-2gb-overlay.dtbo \
+		sa525m-idp-v3-pci-ep-overlay.dtbo \
+		sa522m-idp-v3-pci-ep-overlay.dtbo \
+		sa525m-idp-v3-2gb-pci-ep-overlay.dtbo \
+		sa522m-idp-v3-2gb-pci-ep-overlay.dtbo
 
 sa525-dtb-$(CONFIG_ARCH_SA525) += \
 		$(call add-overlays, $(SA525_BOARDS) ,$(SA525_BASE_DTB))
