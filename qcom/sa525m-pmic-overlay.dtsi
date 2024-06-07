@@ -190,6 +190,18 @@
 		qcom,pre-scaling = <1 1>;
 		qcom,adc-tm-type = <1>;
 	};
+
+	cv2x_prx_breakage_adc {
+		reg = <PMX75_ADC5_GEN3_AMUX_THM5>;
+		label = "cv2x_prx_breakage_adc";
+		qcom,pre-scaling = <1 1>;
+	};
+
+	cv2x_drx_breakage_adc {
+		reg = <PMX75_ADC5_GEN3_AMUX_THM6>;
+		label = "cv2x_drx_breakage_adc";
+		qcom,pre-scaling = <1 1>;
+	};
 };
 
 &thermal_zones {
