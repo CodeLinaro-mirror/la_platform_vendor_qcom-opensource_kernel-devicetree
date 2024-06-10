@@ -1,0 +1,38 @@
+Modem chipset attached to Application processor
+
+Modem chipset can be connected to an external apss processor. The control
+channel between the two chipsets consists of gpios that can relay the
+state of one subsytem to another. Modem can indicate different events
+(bootup/crash etc.) to AP and can get the same information from AP.
+
+Required Properties:
+- compatible:	"qcom,sdx-ext-ipc".
+- compatible:	"qcom,sa525m-idp".
+
+Optional named gpio properties:
+- qcom,status-out-gpio: gpio to indicate the boot status to remote processor.
+
+- qcom,status-in-gpio: gpio for remote processor to indicate the boot status.
+
+- qcom,default-policy-nop: Set default policy from PANIC to NOP.
+
+- qcom,wakeup-gpio-out: gpio to wakeup remote AP or modem.
+
+- qcom,wakeup-gpio-in: input gpio to receive wakeup signal from remote AP or
+		modem.
+
+- qcom,errfatal-out-gpio: gpio to indicate the boot status to remote processor.
+
+- qcom,errfatal-in-gpio: gpio for remote processor to indicate the boot status.
+
+Example:
+	sdx_ext_ipc: qcom,sdx_ext_ipc {
+		compatible = "qcom,sa525m-idp";
+		qcom,wakeup-in-gpio = <&tlmm 129 GPIO_ACTIVE_HIGH>;
+		qcom,wakeup-out-gpio = <&tlmm 127 GPIO_ACTIVE_HIGH>;
+		qcom,errfatal-out-gpio = <&tlmm 128 GPIO_ACTIVE_HIGH>;
+		qcom,errfatal-in-gpio = <&tlmm 130 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sdx_ext_ipc_gpio_default>;
+		qcom,default-policy-nop;
+	};

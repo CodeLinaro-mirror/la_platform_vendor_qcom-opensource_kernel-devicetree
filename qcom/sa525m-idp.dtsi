@@ -186,6 +186,21 @@
 			};
 		};
 	};
+
+	sdx {
+		sdx_ext_ipc_gpio_default: sdx_ext_ipc_gpio_default {
+			mux {
+				pins = "gpio127", "gpio128", "gpio129", "gpio130";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio127", "gpio128", "gpio129", "gpio130";
+				drive-strength = <16>;
+				bias-pull-down;
+			};
+		};
+	};
 };
 
 
@@ -198,6 +213,17 @@
 		regulator-max-microvolt = <1800000>;
 		enable-active-high;
 		regulator-enable-ramp-delay = <10000>;
+	};
+	sdx_ext_ipc: qcom,sdx_ext_ipc {
+		compatible = "qcom,sa525m-idp";
+		qcom,wakeup-in-gpio = <&tlmm 129 GPIO_ACTIVE_HIGH>;
+		qcom,wakeup-out-gpio = <&tlmm 127 GPIO_ACTIVE_HIGH>;
+		qcom,errfatal-out-gpio = <&tlmm 128 GPIO_ACTIVE_HIGH>;
+		qcom,errfatal-in-gpio = <&tlmm 130 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sdx_ext_ipc_gpio_default>;
+		qcom,default-policy-nop;
+		status = "ok";
 	};
 };
 
