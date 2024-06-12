@@ -2,13 +2,14 @@
 /plugin/;
 
 #include "sa525m-idp.dtsi"
+#include "sa525m-reserved-memory-2G.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. SA522 IDP PCIe EP Overlay";
+	model = "Qualcomm Technologies, Inc. SA522 IDP 2GB PCIe EP Overlay";
 	compatible = "qcom,sdxpinn-idp",
 		"qcom,sdxpinn", "qcom,idp";
 	qcom,msm-id=<559 0x10000>;
-	qcom,board-id = <0x0010022 0x306>;
+	qcom,board-id = <0x0010022 0x406>;
 };
 
 #include "sa525m-ep.dtsi"
