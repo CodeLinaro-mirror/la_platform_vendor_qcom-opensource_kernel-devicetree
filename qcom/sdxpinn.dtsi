@@ -1422,8 +1422,8 @@
 	};
 
 	stmmac_axi_setup: stmmac-axi-config {
-		snps,wr_osr_lmt = <8>;
-		snps,rd_osr_lmt = <8>;
+		snps,wr_osr_lmt = <15>;
+		snps,rd_osr_lmt = <15>;
 		snps,axi_kbbe;
 		/* If FB is disabled, the AXI master chooses
 		 * a burst length of any value less than the
