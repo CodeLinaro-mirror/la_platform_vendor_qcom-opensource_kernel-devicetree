@@ -3,6 +3,7 @@
 
 #include "sa525m-idp.dtsi"
 #include "sa525m-reserved-memory-2G.dtsi"
+#include "sa525m-dsmharq-38m.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA522 IDP 2GB Overlay";

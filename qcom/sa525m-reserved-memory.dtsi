@@ -47,6 +47,10 @@
 	/delete-node/  mpss_dsmharq2_region@88f00000;
 
 	/delete-node/  mpss_dsmharq_region@8b400000;
+	mpss_dsmharq_mem: mpss_dsmharq_region@88f00000 {
+		no-map;
+		reg = <0x0 0x88f00000 0x0 0x3A00000>;
+	};
 
 	/delete-node/  hyp_elf_package_region@80800000;
 };
