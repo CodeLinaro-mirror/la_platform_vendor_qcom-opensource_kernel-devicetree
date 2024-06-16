@@ -296,7 +296,7 @@
 		};
 	};
 
-	qos_mtl_rx_setup: rx-queues-config {
+	qos_mtl_rx_setup: qos-rx-queues-config {
 		qcom,config-name = "qos";
 		snps,rx-queues-to-use = <5>;
 		snps,rx-sched-sp;
@@ -332,7 +332,7 @@
 		};
 	};
 
-	qos_mtl_tx_setup: tx-queues-config {
+	qos_mtl_tx_setup: qos-tx-queues-config {
 		qcom,config-name = "qos";
 		snps,tx-queues-to-use = <5>;
 		snps,tx-sched-sp;
