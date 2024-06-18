@@ -1,0 +1,12 @@
+/dts-v1/;
+
+#include "sdxpinn.dtsi"
+#include "sdxpinn-idp-m2-v6.dtsi"
+#include "sdxpinn-reserved-memory-512mb.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SDXPINN IDP M2 V6 512MB PCIE-EP";
+	compatible = "qcom,sdxpinn-idp",
+		     "qcom,sdxpinn", "qcom,idp";
+	qcom,board-id = <0x4060022 0x204>;
+};

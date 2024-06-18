@@ -1,0 +1,2 @@
+#include "sdxpinn-idp-mbb.dtsi"
+#include "sdxpinn-idp-512mb.dtsi"
