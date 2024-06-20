@@ -1606,13 +1606,15 @@
 		snps,reset-gpio = <&tlmm 97 1>;
 		snps,reset-active-low;
 		snps,reset-delays-us = <0 11000 70000>;
-		pinctrl-names = "dev-emac-mdc",
-				"dev-emac-mdio",
-				"dev-emac_pin_wol_intr";
+		pinctrl-names = "default","init";
 
-		pinctrl-0 = <&emac_mdc>;
-		pinctrl-1 = <&emac_mdio>;
-		pinctrl-2 = <&emac_pin_wol_intr>;
+		pinctrl-0 = <&emac_mdc_active
+			     &emac_mdio_active
+			     &emac_pin_wol_intr_active>;
+
+		pinctrl-1 = <&emac_mdc_inactive
+			     &emac_mdio_inactive
+			     &emac_pin_wol_intr_inactive>;
 
 		snps,ps-speed = <1000>;
 		managed = "auto";

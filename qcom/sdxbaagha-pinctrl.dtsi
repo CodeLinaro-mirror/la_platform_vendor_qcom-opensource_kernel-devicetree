@@ -621,7 +621,7 @@
 		};
 
 		emac {
-			emac_mdc: emac_mdc {
+			emac_mdc_active: emac_mdc_active {
 				mux {
 					pins = "gpio98";
 					function = "emac_mdc";
@@ -634,10 +634,23 @@
 				};
 			};
 
-			emac_mdio: emac_mdio {
+			emac_mdc_inactive: emac_mdc_inactive {
 				mux {
-						pins = "gpio99";
-						function = "emac_mdio";
+					pins = "gpio98";
+					function = "emac_mdc";
+				};
+
+				config {
+					pins = "gpio98";
+					bias-pull-down;
+					drive-strength = <2>;
+				};
+			};
+
+			emac_mdio_active: emac_mdio_active {
+				mux {
+					pins = "gpio99";
+					function = "emac_mdio";
 				};
 
 				config {
@@ -647,7 +660,20 @@
 				};
 			};
 
-			emac_pin_wol_intr: emac_pin_wol_intr {
+			emac_mdio_inactive: emac_mdio_inactive {
+				mux {
+					pins = "gpio99";
+					function = "emac_mdio";
+				};
+
+				config {
+					pins = "gpio99";
+					bias-pull-down;
+					drive-strength = <2>;
+				};
+			};
+
+			emac_pin_wol_intr_active: emac_pin_wol_intr_active {
 				mux {
 					pins = "gpio109";
 				};
@@ -656,6 +682,18 @@
 					pins = "gpio109";
 					drive-strength = <8>; /* 8 mA */
 					bias-pull-up; /* NO PULL*/
+				};
+			};
+
+			emac_pin_wol_intr_inactive: emac_pin_wol_intr_inactive {
+				mux {
+					pins = "gpio109";
+				};
+
+				config {
+					pins = "gpio109";
+					drive-strength = <2>; /* 8 mA */
+					bias-pull-down; /* NO PULL*/
 				};
 			};
 		};
