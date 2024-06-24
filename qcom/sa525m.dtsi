@@ -342,11 +342,11 @@
 		snps,mtl-tx-config = <&mtl_tx_setup>;
 		cv2x-queue = <4>;
 
-		phy-mode = "rgmii-rxid";
-		mac-mode = "rgmii-rxid";
-		snps,phy-addr = <7>;
+		phy-mode = "sgmii";
+		mac-mode = "sgmii";
+		snps,phy-addr = <0>;
 		managed = "auto";
-		eth-c22-mdio-probe;
+		eth-c45-mdio-probe;
 		mac-address = [00 55 7B B5 7D f7];
 		qcom,ioss_auto_resume_disabled;
 		qcom,flow-ctrl-disabled;
