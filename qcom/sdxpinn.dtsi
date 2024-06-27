@@ -266,6 +266,22 @@
 	ranges = <0 0 0 0xffffffff>;
 	compatible = "simple-bus";
 
+	smem_mailbox {
+		compatible = "qcom,smem_mailbox";
+
+		qcom,smem-states = <&smp2p_smem_mailbox_1_out 0>;
+		qcom,smem-state-names = "smem-mailbox-smp2p-out";
+
+		interrupts-extended = <&smp2p_smem_mailbox_1_in 0 0>,
+					<&smp2p_smem_mailbox_1_in 1 0>,
+					<&smp2p_smem_mailbox_1_in 2 0>,
+					<&smp2p_smem_mailbox_1_in 3 0>;
+		interrupt-names = "smem-mailbox-smp2p-1-in",
+					"smem-mailbox-smp2p-2-in",
+					"smem-mailbox-smp2p-3-in",
+					"smem-mailbox-smp2p-4-in";
+	};
+
 	psci {
 		compatible = "arm,psci-1.0";
 		method = "smc";
@@ -714,6 +730,17 @@
 		 /* ipa - inbound entry from mss */
 		smp2p_ipa_1_in: qcom,smp2p-ipa-1-in {
 			qcom,entry-name = "ipa";
+			interrupt-controller;
+			#interrupt-cells = <2>;
+		};
+
+		smp2p_smem_mailbox_1_out: qcom,smp2p-smem-mailbox-1-out {
+			qcom,entry-name = "smem-mailbox";
+			#qcom,smem-state-cells = <1>;
+		};
+
+		smp2p_smem_mailbox_1_in: qcom,smp2p-smem-mailbox-1-in {
+			qcom,entry-name = "smem-mailbox";
 			interrupt-controller;
 			#interrupt-cells = <2>;
 		};
