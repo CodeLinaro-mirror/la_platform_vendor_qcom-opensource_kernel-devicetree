@@ -334,7 +334,7 @@
 
 	qos_mtl_tx_setup: qos-tx-queues-config {
 		qcom,config-name = "qos";
-		snps,tx-queues-to-use = <5>;
+		snps,tx-queues-to-use = <6>;
 		snps,tx-sched-sp;
 
 		queue0 {
@@ -355,6 +355,9 @@
 		};
 
 		queue4 {
+			snps,avb-algorithm;
+		};
+		queue5 {
 			snps,avb-algorithm;
 		};
 	};
@@ -417,6 +420,7 @@
 
 		tx-fifo-depth = <20480>;
 		rx-fifo-depth = <20480>;
+		qos-tx-fifo-depth = <49152>;
 
 		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
 		reset-names = "emac0_rgmii_clk_ares";
