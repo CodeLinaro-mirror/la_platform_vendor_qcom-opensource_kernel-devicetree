@@ -81,3 +81,7 @@
 	qcom,node-id = <2>;
 };
 
+&sdx_ext_ipc {
+	/delete-property/qcom,default-policy-nop;
+	qcom,default-policy-panic;
+};
