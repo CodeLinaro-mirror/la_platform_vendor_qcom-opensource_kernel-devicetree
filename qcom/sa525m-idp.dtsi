@@ -278,6 +278,7 @@ status = "ok";
 		qcom,clk-freq-mhz = <40000000>;
 		qcom,max-can-channels = <1>;
 		qcom,bits-per-word = <8>;
+		qcom,timestamp-conf = <1>;
 		qcom,support-can-fd;
 	};
 };
