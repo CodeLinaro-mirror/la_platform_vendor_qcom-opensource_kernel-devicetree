@@ -14,10 +14,7 @@
 		reg = <0x0 0x80000000 0x0 0x800000>;
 	};
 
-	hyp_elf_package_mem: hyp_elf_package_region@80800000 {
-		no-map;
-		reg = <0x0 0x80800000 0x0 0x200000>;
-	};
+	/* HYP ELF Package region at 0x80800000 reusable by HLOS */
 
 	access_control_db_mem: access_control_db_region@81380000 {
 		no-map;
@@ -34,10 +31,7 @@
 		reg = <0x0 0x81780000 0x0 0xa00000>;
 	};
 
-	xbl_ramdump_mem: xbl_ramdump_region@87a00000 {
-		no-map;
-		reg = <0x0 0x87a00000 0x0 0x1c0000>;
-	};
+	/* XBL RAMdump reusable by HLOS */
 
 	cpucp_fw_mem: cpucp_fw_region@87c00000 {
 		no-map;
