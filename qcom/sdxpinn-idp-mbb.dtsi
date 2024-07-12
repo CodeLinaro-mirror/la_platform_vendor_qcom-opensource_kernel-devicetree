@@ -47,7 +47,7 @@
 		qcom,rx-filter-be;
 
 		qcom,ioss-traffic-type = "best-effort";
-		qcom,compatible-ipa-configs = "default", "tsn";
+		qcom,compatible-ipa-configs = "default", "tsn", "qos";
 
 		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
@@ -62,7 +62,7 @@
 		qcom,dir-tx;
 
 		qcom,ioss-traffic-type = "best-effort";
-		qcom,compatible-ipa-configs = "default", "tsn";
+		qcom,compatible-ipa-configs = "default", "tsn", "qos";
 
 		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
@@ -104,6 +104,30 @@
 	ioss_eth1_tx: iemac_tx@eth1 {
 		qcom,dir-tx;
 		qcom,ring-size = <128>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <32>;
+		qcom,mod-count-max = <32>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth0_qos_rx: iemac_rx@eth0 {
+		qcom,dir-rx;
+		qcom,rx-filter-be;
+
+		qcom,ring-size = <1024>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <32>;
+		qcom,mod-count-max = <32>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth0_qos_tx: iemac_tx@eth0 {
+		qcom,dir-tx;
+		qcom,ring-size = <1024>;
 		qcom,buff-size = <2048>;
 
 		qcom,mod-count-min = <32>;
@@ -156,6 +180,68 @@
 			snps,dcb-algorithm;
 			snps,fifo_depth = <3328>;
 			qcom,ipa_offload;
+		};
+	};
+
+	qos_mtl_rx_setup: qos-rx-queues-config {
+		qcom,config-name = "qos";
+		snps,rx-queues-to-use = <5>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <14336>;
+			snps,map-to-dma-channel = <0x1>;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,fifo_depth = <2048>;
+			snps,threshold_byte = <128>;
+			snps,route-ptp;
+		};
+
+		queue2 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <1024>;
+		};
+
+		queue3 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <1024>;
+		};
+
+		queue4 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <1024>;
+		};
+	};
+
+	qos_mtl_tx_setup: qos-tx-queues-config {
+		qcom,config-name = "qos";
+		snps,tx-queues-to-use = <5>;
+		snps,tx-sched-sp;
+		queue0 {
+			snps,dcb-algorithm;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+
+		queue2 {
+			snps,dcb-algorithm;
+		};
+
+		queue3 {
+			snps,dcb-algorithm;
+		};
+
+		queue4 {
+			snps,dcb-algorithm;
 		};
 	};
 
@@ -279,11 +365,11 @@
 
 &ethqos_hw1 {
 	vreg_emac_phy-supply = <&aqr_vreg>;
-	snps,mtl-rx-config = <&mtl_rx_setup>;
-	snps,mtl-tx-config = <&mtl_tx_setup>;
+	snps,mtl-rx-config = <&mtl_rx_setup &qos_mtl_rx_setup>;
+	snps,mtl-tx-config = <&mtl_tx_setup &qos_mtl_tx_setup>;
 
 	qcom,ioss-wol-phy;
-
+	enable-pfc;
 	snps,reset-delays-us = <1000 100000 221000>;
 	phy-mode = "usxgmii";
 	managed = "auto";
@@ -293,6 +379,9 @@
 		<&ioss_eth0_rx>,
 		<&ioss_eth0_tx>,
 		<&ioss_eth0_tx1>;
+	qcom,ioss_qos_channels =
+		<&ioss_eth0_qos_rx>,
+		<&ioss_eth0_qos_tx>;
 };
 
 &qnand_1 {
