@@ -2183,12 +2183,12 @@
 
 	ipa_eth_group1: ipa_eth_group1 {
 		qcom,iommu-dma-addr-pool = <0x80000000 0x07E00000>;
-		qcom,iommu-dma = "atomic";
+		qcom,iommu-dma = "fastmap";
 	};
 
 	ipa_eth_group2: ipa_eth_group2 {
 		qcom,iommu-dma-addr-pool = <0x87f10000 0x07f00000>;
-		qcom,iommu-dma = "atomic";
+		qcom,iommu-dma = "fastmap";
 	};
 
 	ipa_hw: qcom,ipa@03e00000 {
