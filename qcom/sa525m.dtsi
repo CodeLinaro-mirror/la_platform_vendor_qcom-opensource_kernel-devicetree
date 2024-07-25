@@ -197,7 +197,7 @@
 		status = "ok";
 	};
 
-	ioss_eth0_qos_rx: iemac_rx@eth0 {
+	ioss_eth0_qos_rx: qos_iemac_rx@eth0 {
 		qcom,dir-rx;
 		qcom,rx-filter-be;
 
@@ -210,7 +210,7 @@
 		qcom,mod-usecs-max = <60>;
         };
 
-	ioss_eth0_qos_tx: iemac_tx@eth0 {
+	ioss_eth0_qos_tx: qos_iemac_tx@eth0 {
 		qcom,dir-tx;
 		qcom,ring-size = <512>;
 		qcom,buff-size = <2048>;
