@@ -411,6 +411,7 @@
 
 	qcom,ioss-wol-phy;
 	enable-pfc;
+	qos-use-skprio;
 	snps,reset-delays-us = <1000 100000 221000>;
 	phy-mode = "usxgmii";
 	managed = "auto";
