@@ -1,1 +1,30 @@
 #include "sdxbaagha-mtp.dtsi"
+
+&soc {
+};
+
+&ipa_eth_group1 {
+	qcom,iommu-dma = "bypass";
+};
+
+&ipa_hw {
+	qcom,use-wrapper-pm-support;
+
+	ipa_smmu_wlan {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_ap {
+		qcom,iommu-dma = "bypass";
+	};
+
+	ipa_smmu_uc {
+		qcom,iommu-dma = "bypass";
+	};
+};
+
+&usb0 {
+	dwc3@a600000 {
+		qcom,iommu-dma = "bypass";
+	};
+};
