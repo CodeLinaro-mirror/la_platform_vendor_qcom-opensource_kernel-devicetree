@@ -12,7 +12,7 @@
 };
 
 &pcie2 {
-	status = "ok";
+	status = "disabled";
 };
 
 &pcie2_msi {
