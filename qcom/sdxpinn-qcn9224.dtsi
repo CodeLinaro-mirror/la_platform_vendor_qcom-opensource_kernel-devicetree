@@ -30,7 +30,7 @@
 	mlo_global_mem0: mlo_global_mem_0@0 {
 		compatible = "shared-dma-pool";
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
-		iova_base = <0xB0000000>;
+		iova_base = <0xBEB00000>;
 		dma-coherent;
 		reusable;
 		alignment = <0x0 0x400000>;
@@ -117,7 +117,7 @@
 
 	cnss_pci_iommu_group0: cnss_pci_iommu_group {
 			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-dma-addr-pool = <0x80000000 0x30000000>;
+			qcom,iommu-dma-addr-pool = <0x80000000 0x38400000>;
 			qcom,iommu-dma = "atomic";
 			dma-coherent;
 			qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
