@@ -2247,6 +2247,7 @@
 		qcom,lan-rx-napi;
 		qcom,tx-napi;
 		qcom,tx-poll;
+		qcom,lan-coal-enable;
 
 		/* Boot Config Information */
 		nvmem-cells = <&boot_config>;
