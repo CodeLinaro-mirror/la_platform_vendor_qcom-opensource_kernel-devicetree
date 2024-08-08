@@ -252,7 +252,7 @@
 
 	qos_mtl_tx_setup: qos-tx-queues-config {
 		qcom,config-name = "qos";
-		snps,tx-queues-to-use = <5>;
+		snps,tx-queues-to-use = <6>;
 		snps,tx-sched-sp;
 		queue0 {
 			snps,dcb-algorithm;
@@ -272,6 +272,10 @@
 		};
 
 		queue4 {
+			snps,dcb-algorithm;
+		};
+
+		queue5 {
 			snps,dcb-algorithm;
 		};
 	};
