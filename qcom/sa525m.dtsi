@@ -36,7 +36,7 @@
 	/* Boot device detection value (FAST_BOOT bits) for NAND/eMMC,
 	 * which might varies from target to target.
 	 */
-	qcom,nand_boot = <0x0>;
+	qcom,nand_boot = <0x0 0x4 0x5>;
 };
 
 &qupv3_0 {
