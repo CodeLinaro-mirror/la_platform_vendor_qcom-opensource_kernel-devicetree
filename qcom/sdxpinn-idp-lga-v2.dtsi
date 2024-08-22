@@ -1,4 +1,17 @@
 #include "sdxpinn-idp-lga.dtsi"
+#include "sdxpinn-qcn9224.dtsi"
 
 &soc {
+};
+
+&pcie0 {
+	status = "ok";
+};
+
+&pcie1 {
+	status = "ok";
+};
+
+&pcie2 {
+	status = "ok";
 };
