@@ -234,7 +234,8 @@ sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-rumi.dtb \
 sdxpinn-rdkb-dtb-$(CONFIG_ARCH_SDXPINN) += $(sdxpinn-dtb-$(CONFIG_ARCH_SDXPINN))
 sdxpinn-cpe-wkk-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-idp-cpe.dtb \
 		sdxpinn-idp-cpe-v2.dtb \
-		sdxpinn-idp-cpe-v4.dtb
+		sdxpinn-idp-cpe-v4.dtb \
+		sdxpinn-idp-lga-v2.dtb
 sdxpinn-512-dtb-$(CONFIG_ARCH_SDXPINN) += sdxpinn-idp-512mb.dtb \
 		sdxpinn-idp-m2-v6.dtb
 
