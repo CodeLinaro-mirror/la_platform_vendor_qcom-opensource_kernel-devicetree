@@ -383,6 +383,7 @@
 	managed = "auto";
 	eth-c45-mdio-probe;
 	mac-address = [00 55 7B B5 7D f8];
+	qcom,aux_ts_num_pins = <4>;
 	qcom,ioss_channels =
 		<&ioss_eth0_rx>,
 		<&ioss_eth0_tx>,
