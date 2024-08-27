@@ -76,6 +76,7 @@
 			snps,dis-u2-entry-quirk;
 			snps,dis_u2_susphy_quirk;
 			snps,dis_u3_susphy_quirk;
+			snps,dis_enblslpm_quirk;
 			imod-interval-ns = <1000000>;
 			snps,runtime-suspend-on-usb-suspend;
 			/* tx-fifo-resize not required since RAM_DEPTH is 0*/
