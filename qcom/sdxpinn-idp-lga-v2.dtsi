@@ -2,6 +2,162 @@
 #include "sdxpinn-qcn9224.dtsi"
 
 &soc {
+	phy1_vreg: phy1_vreg {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "phy1_vreg";
+		gpio = <&tlmm 88 GPIO_ACTIVE_HIGH>;
+		regulator-min-microvolt = <1050000>;
+		regulator-max-microvolt = <1050000>;
+		enable-active-high;
+		regulator-enable-ramp-delay = <80000>;
+	};
+
+	ioss_eth1_rx: iemac_rx@eth1 {
+		qcom,dir-rx;
+		qcom,rx-filter-be;
+
+		qcom,ring-size = <1024>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <16>;
+		qcom,mod-count-max = <16>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth1_tx: iemac_tx@eth1 {
+		qcom,dir-tx;
+		qcom,ring-size = <1024>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <16>;
+		qcom,mod-count-max = <16>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	mtl_rxeth1_setup: rtlrx-queues-config {
+		snps,rx-queues-to-use = <2>;
+		snps,rx-sched-sp;
+		snps,mka_mcbcq_filtering;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <7680>;
+			snps,map-to-dma-channel = <0x1>;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,fifo_depth = <512>;
+			snps,threshold_byte = <128>;
+		};
+	};
+
+	mtl_txeth1_setup: rtltx-queues-config {
+		snps,tx-queues-to-use = <2>;
+		snps,tx-sched-sp;
+		queue0 {
+			snps,dcb-algorithm;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+	};
+
+	ethqos_hw2: qcom,emac1@22FC0000 {
+		compatible = "qcom,stmmac-ethqos", "snps,dwxgmac","qcom,ioss-v2-device";
+		qcom,arm-smmu;
+		qcom,ioss = <&ioss>;
+		qcom,ioss_instance = <1>;
+		qcom,iommu-group = <&ipa_eth_group2>;
+		dma-coherent;
+		iommus = <&apps_smmu 0x60 0xf>;
+
+		qcom,ioss_channels =
+			<&ioss_eth1_rx>,
+			<&ioss_eth1_tx>;
+
+		qcom,ioss-wol-phy;
+
+		reg = <0x22FC0000 0x14000>,
+			<0x2303F000 0x1000>,
+			<0x22FD4000 0x5100>,
+			<0x00FFB000 0xE10>;
+		reg-names = "stmmaceth", "rgmii","xpcs","serdes";
+		clocks = <&gcc GCC_EEE_EMAC1_CLK>,
+			<&gcc GCC_EMAC1_AXI_CLK>,
+			<&gcc GCC_EMAC1_CC_SGMIIPHY_RX_CLK>,
+			<&gcc GCC_EMAC1_CC_SGMIIPHY_TX_CLK>,
+			<&gcc GCC_EMAC1_PHY_AUX_CLK>,
+			<&gcc GCC_EMAC1_RPCS_RX_CLK>,
+			<&gcc GCC_EMAC1_RPCS_TX_CLK>,
+			<&gcc GCC_EMAC1_SLV_AHB_CLK>,
+			<&gcc GCC_EMAC1_XGXS_RX_CLK>,
+			<&gcc GCC_EMAC1_XGXS_TX_CLK>,
+			<&gcc GCC_EMAC1_CC_SGMIIPHY_RX_CLK_SRC>,
+			<&gcc GCC_EMAC1_CC_SGMIIPHY_TX_CLK_SRC>,
+			<&gcc GCC_EMAC1_SGMIIPHY_MAC_RCLK_SRC>,
+			<&gcc GCC_EMAC1_SGMIIPHY_MAC_TCLK_SRC>,
+			<&emac1_sgmiiphy_rclk>,
+			<&emac1_sgmiiphy_tclk>,
+			<&emac1_sgmiiphy_mac_rclk>,
+			<&emac1_sgmiiphy_mac_tclk>,
+			<&gcc GCC_EMAC_1_CLKREF_EN>;
+		clock-names = "eee", "stmmaceth", "sgmii_rx",
+		"sgmii_tx", "phyaux",
+		"pcs_rx", "pcs_tx", "pclk", "xgxs_rx",
+		"xgxs_tx", "sgmii_rclk_src", "sgmii_tclk_src",
+		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
+		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
+
+		interrupts-extended = <&intc GIC_SPI 445 IRQ_TYPE_LEVEL_HIGH>, <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
+
+		interrupt-names = "macirq", "phy-intr";
+
+		vreg_a_sgmii_1p2-supply = <&L1B>;
+		vreg_a_sgmii_0p9-supply = <&L4B>;
+		gdsc_emac-supply = <&gcc_emac1_gdsc>;
+		pinctrl-names = "default","init";
+
+		pinctrl-0 = <&emac1_mdc_active
+			     &emac1_mdio_active
+			     &emac1_pin_phy_intr_active
+			     &emac1_phy_reset_state_active>;
+		pinctrl-1 = <&emac1_mdc_inactive
+			     &emac1_mdio_inactive
+			     &emac1_pin_phy_intr_inactive
+			     &emac1_phy_reset_state_inactive>;
+
+		vreg_emac_phy-supply = <&phy1_vreg>;
+		qcom,phy-intr-redirect = <&tlmm 109 IRQ_TYPE_EDGE_FALLING>;
+		snps,reset-gpio = <&tlmm 108 1>;
+		snps,crc_strip;
+
+		interconnect-names = "axi_icc_path", "apb_icc_path";
+		interconnects = <&system_noc MASTER_EMAC_1 &mc_virt SLAVE_EBI1>,
+				<&gem_noc MASTER_APPSS_PROC &system_noc SLAVE_ETH1_CFG>;
+
+		snps,tso;
+		snps,pbl = <32>;
+		rx-fifo-depth = <8192>;
+		tx-fifo-depth = <16384>;
+		snps,mtl-rx-config = <&mtl_rxeth1_setup>;
+		snps,mtl-tx-config = <&mtl_txeth1_setup>;
+
+		snps,reset-active-low;
+		snps,reset-delays-us = <1000 40 150000>;
+		phy-mode = "usxgmii";
+		managed = "auto";
+		eth-c45-mdio-probe;
+		snps,axi-config = <&stmmac_axi_setup>;
+		mac-address = [00 55 7B B5 7D f7];
+
+	};
 };
 
 &pcie0 {
