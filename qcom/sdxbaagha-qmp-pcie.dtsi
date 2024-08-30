@@ -31,3 +31,12 @@
 	status = "disabled";
 };
 
+&pmx35_vadc {
+	/delete-property/ pinctrl-0;
+	/delete-property/ pinctrl-names;
+	/delete-node/ pmx35_batt_id;
+};
+
+&pmx35_gpios {
+	/delete-node/ batt_id;
+};
