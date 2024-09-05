@@ -2,6 +2,7 @@
 
 #include "sdxpinn-pmic-overlay.dtsi"
 #include "sdxpinn-qcn9224.dtsi"
+#include "sdxpinn-qpic-display.dtsi"
 
 &soc {
 	phy0_vreg: phy0_vreg {
