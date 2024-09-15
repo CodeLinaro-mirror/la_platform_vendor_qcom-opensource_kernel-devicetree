@@ -313,22 +313,22 @@
 		queue1 {
 			snps,dcb-algorithm;
 			snps,map-to-dma-channel = <0x1>;
-			snps,fifo_depth = <2048>;
+			snps,fifo_depth = <3072>;
 		};
 
 		queue2 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <2048>;
+			snps,fifo_depth = <3072>;
 		};
 
 		queue3 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <4096>;
+			snps,fifo_depth = <3072>;
 		};
 
 		queue4 {
 			snps,dcb-algorithm;
-			snps,fifo_depth = <4096>;
+			snps,fifo_depth = <3072>;
 		};
 	};
 
