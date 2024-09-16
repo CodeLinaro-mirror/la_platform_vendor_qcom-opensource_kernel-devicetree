@@ -137,7 +137,7 @@
 };
 
 &tlmm {
-	qcom,gpios-reserved = <>;
+	qcom,gpios-reserved = <118 119>;
 };
 
 &soc {
