@@ -21,6 +21,14 @@
 	status = "disabled";
 };
 
+&ethqos_hw1 {
+	status = "disabled";
+};
+
+&ethqos_hw2 {
+	status = "disabled";
+};
+
 &pcie_ep {
 	qcom,override-disable-sriov;
 	nvmem-cells = <&boot_config>;
