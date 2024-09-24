@@ -2,6 +2,7 @@
 
 #include "sdxpinn.dtsi"
 #include "sdxpinn-idp-lga-v2.dtsi"
+#include "sdxpinn-reserved-memory-2G.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SDXPINN IDP LGA V2";
