@@ -452,7 +452,7 @@
 	cap-mmc-hw-reset;
 
 	/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
-	qcom,dll-hsr-list = <0x000F442C 0x0 0x01
+	qcom,dll-hsr-list = <0x000F44EC 0x0 0x01
 				0x090106C0 0x80040868>;
 
 	/* Add dt entry for gcc hw reset */
