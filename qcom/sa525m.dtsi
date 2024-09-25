@@ -315,6 +315,11 @@
 	qcom,mod-usecs-max = <60>;
 };
 
+&ipa_eth_group1 {
+	qcom,iommu-dma-addr-pool = <0x80000000 0x07E00000>;
+	qcom,iommu-dma = "atomic";
+};
+
 &ethqos_hw1 {
 		clocks =<&gcc GCC_EEE_EMAC0_CLK>,
 			<&gcc GCC_EMAC0_AXI_CLK>,
