@@ -1548,8 +1548,8 @@
 		snps,ptp-req-clk-rate = <125000000>;
 
 		interrupts-extended = <&intc GIC_SPI 360 IRQ_TYPE_LEVEL_HIGH>,
-		<&tlmm 97 IRQ_TYPE_EDGE_FALLING>;
-		interrupt-names = "macirq", "phy-intr";
+		<&tlmm 97 IRQ_TYPE_EDGE_FALLING>, <&intc GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-names = "macirq", "phy-intr", "pcs_intr";
 
 		vreg_a_sgmii_1p2-supply = <&L1B>;
 		vreg_a_sgmii_0p9-supply = <&L4B>;
