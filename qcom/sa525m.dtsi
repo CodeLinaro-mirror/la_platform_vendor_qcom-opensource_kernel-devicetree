@@ -320,6 +320,11 @@
 	qcom,iommu-dma = "atomic";
 };
 
+&ipa_eth_group2 {
+	qcom,iommu-dma-addr-pool = <0x87f10000 0x07f00000>;
+	qcom,iommu-dma = "atomic";
+};
+
 &ethqos_hw1 {
 		clocks =<&gcc GCC_EEE_EMAC0_CLK>,
 			<&gcc GCC_EMAC0_AXI_CLK>,
