@@ -50,3 +50,5 @@
 &mhi_net_device {
 	status = "ok";
 };
+
+/delete-node/ &mdss_qpic;
