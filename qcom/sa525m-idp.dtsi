@@ -320,6 +320,10 @@ status = "ok";
 &sdhc_2 {
 	status = "ok";
 
+	/* Add dt entry for gcc hw reset */
+	resets = <&gcc GCC_SDCC2_BCR>;
+	reset-names = "core_reset";
+
 	vdd-supply = <&vreg_sdc2_sd_vdd>;
 	qcom,vdd-voltage-level = <2950000 2950000>;
 	qcom,vdd-current-level = <0 800000>;
@@ -386,6 +390,10 @@ status = "ok";
 	/* DLL HSR settings. Refer go/hsr - <Target> DLL settings */
 	qcom,dll-hsr-list = <0x000F442C 0x0 0x01
 				0x090106C0 0x80040868>;
+
+	/* Add dt entry for gcc hw reset */
+	resets = <&gcc GCC_EMMC_BCR>;
+	reset-names = "core_reset";
 
 	vdd-supply = <&vreg_sdc1_emmc_sd_vdd>;
 	qcom,vdd-voltage-level = <2950000 2950000>;
