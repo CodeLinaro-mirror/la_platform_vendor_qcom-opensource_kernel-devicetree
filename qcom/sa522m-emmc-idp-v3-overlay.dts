@@ -2,13 +2,16 @@
 /plugin/;
 
 #include "sa525m-idp.dtsi"
-#include "sa525m-reserved-memory-2G.dtsi"
 #include "sa525m-dsmharq-38m.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. SA522 IDP 2GB Overlay";
+	model = "Qualcomm Technologies, Inc. SA522 EMMC IDP V3 Overlay";
 	compatible = "qcom,sdxpinn-idp",
 		"qcom,sdxpinn", "qcom,idp";
 	qcom,msm-id=<559 0x10000>;
-	qcom,board-id = <0x0010022 0x400>;
+	qcom,board-id = <0x0030022 0>;
+};
+
+&qnand_1 {
+	status = "disabled";
 };
