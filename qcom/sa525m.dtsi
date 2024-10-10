@@ -223,6 +223,30 @@
 		status = "ok";
 	};
 
+	ioss_eth0_qos_rx: qos_iemac_rx@eth0 {
+		qcom,dir-rx;
+		qcom,rx-filter-be;
+
+		qcom,ring-size = <512>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <32>;
+		qcom,mod-count-max = <32>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
+	ioss_eth0_qos_tx: qos_iemac_tx@eth0 {
+		qcom,dir-tx;
+		qcom,ring-size = <512>;
+		qcom,buff-size = <2048>;
+
+		qcom,mod-count-min = <32>;
+		qcom,mod-count-max = <32>;
+		qcom,mod-usecs-min = <30>;
+		qcom,mod-usecs-max = <60>;
+	};
+
 	mtl_rx_setup: rx-queues-config {
 		snps,rx-queues-to-use = <5>;
 		snps,rx-sched-sp;
@@ -298,6 +322,73 @@
 			snps,dcb-algorithm;
 		};
 	};
+
+	qos_mtl_rx_setup: qos-rx-queues-config {
+		qcom,config-name = "qos";
+		snps,rx-queues-to-use = <5>;
+		snps,rx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			snps,route-up;
+			snps,threshold_byte = <64>;
+			qcom,ipa_offload;
+			snps,fifo_depth = <8192>;
+			snps,map-to-dma-channel = <0x1>;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+			snps,map-to-dma-channel = <0x1>;
+			snps,fifo_depth = <3072>;
+		};
+
+		queue2 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <3072>;
+		};
+
+		queue3 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <3072>;
+		};
+
+		queue4 {
+			snps,dcb-algorithm;
+			snps,fifo_depth = <3072>;
+		};
+	};
+
+	qos_mtl_tx_setup: qos-tx-queues-config {
+		qcom,config-name = "qos";
+		snps,tx-queues-to-use = <6>;
+		snps,tx-sched-sp;
+
+		queue0 {
+			snps,dcb-algorithm;
+			qcom,ipa_offload;
+		};
+
+		queue1 {
+			snps,dcb-algorithm;
+		};
+
+		queue2 {
+			snps,avb-algorithm;
+		};
+
+		queue3 {
+			snps,avb-algorithm;
+		};
+
+		queue4 {
+			snps,avb-algorithm;
+		};
+
+		queue5 {
+			snps,avb-algorithm;
+		};
+	};
 };
 
 &modem_pas  {
@@ -355,11 +446,15 @@
 		"sgmii_mac_rclk_src", "sgmii_mac_tclk_src", "sgmii_rclk",
 		"sgmii_tclk", "sgmii_mac_rclk", "sgmii_mac_tclk","sgmi_ref";
 
+		qcom,ioss_qos_channels =
+			<&ioss_eth0_qos_rx>,
+			<&ioss_eth0_qos_tx>;
+
 		snps,ptp-ref-clk-rate = <125000000>;
 		snps,ptp-req-clk-rate = <57600000>;
 		avb-vlan-id = <2>;
-		snps,mtl-rx-config = <&mtl_rx_setup>;
-		snps,mtl-tx-config = <&mtl_tx_setup>;
+		snps,mtl-rx-config = <&mtl_rx_setup &qos_mtl_rx_setup>;
+		snps,mtl-tx-config = <&mtl_tx_setup &qos_mtl_tx_setup>;
 		cv2x-queue = <4>;
 
 		phy-mode = "sgmii";
@@ -368,11 +463,14 @@
 		managed = "auto";
 		eth-c45-mdio-probe;
 		mac-address = [00 55 7B B5 7D f7];
+		enable-pfc;
+
 		qcom,ioss_auto_resume_disabled;
 		qcom,flow-ctrl-disabled;
 		emac-phy-off-suspend = <4>;
 
-		tx-fifo-depth = <20480>;
+		tx-fifo-depth = <49152>;
+		rx-fifo-depth = <20480>;
 
 		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
 		reset-names = "emac0_rgmii_clk_ares";
