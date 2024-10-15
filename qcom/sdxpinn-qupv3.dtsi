@@ -54,6 +54,9 @@
 		qcom,iommu-dma = "fastmap";
 		dma-coherent;
 		ranges;
+		qcom,geni-to-core-vote = <1 76800 200000 400000 800000 800000>;
+		qcom,cpu-to-geni-vote = <1 76800 1716000 2000000 4000000 5332000>;
+		qcom,geni-to-ddr-vote = <76800 128000 192000 256000  320000 384000 400000>;
 		status = "ok";
 
 		/* PORed Debug UART Instance */
