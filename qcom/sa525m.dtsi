@@ -456,6 +456,7 @@
 		snps,mtl-rx-config = <&mtl_rx_setup &qos_mtl_rx_setup>;
 		snps,mtl-tx-config = <&mtl_tx_setup &qos_mtl_tx_setup>;
 		cv2x-queue = <4>;
+		mac-efuse-addr = <0x221C8318>;
 
 		phy-mode = "sgmii";
 		mac-mode = "sgmii";
