@@ -1,3 +1,0 @@
-&mpss_dsmharq_mem {
-	reg = <0x0 0x88f00000 0x0 0x2600000>;
-};

@@ -2,7 +2,7 @@
 /plugin/;
 
 #include "sa525m-idp.dtsi"
-#include "sa525m-dsmharq-38m.dtsi"
+#include "sa525m-dsmharq-41m.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA522 NAND IDP PCIe EP Overlay";

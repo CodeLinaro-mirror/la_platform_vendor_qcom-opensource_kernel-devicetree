@@ -2,7 +2,7 @@
 /plugin/;
 
 #include "sa525m-idp.dtsi"
-#include "sa525m-dsmharq-58m.dtsi"
+#include "sa525m-dsmharq-70m.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA525 NAND IDP Overlay";
