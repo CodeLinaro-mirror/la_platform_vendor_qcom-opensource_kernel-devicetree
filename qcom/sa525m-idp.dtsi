@@ -17,6 +17,20 @@
 			};
 		};
 
+		emac0_pin_rgmii_txc_sleep: emac0_pin_rgmii_txc_sleep {
+			mux {
+				pins = "gpio82";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio82";
+				drive-strength = <2>;
+				bias-disable; /* NO PULL*/
+				output-low;
+			};
+		};
+
 		emac0_pin_rgmii_txd0: emac0_pin_rgmii_txd0 {
 			mux {
 				pins = "gpio83";
@@ -202,29 +216,32 @@
 };
 
 &ethqos_hw1 {
-		pinctrl-names = "dev-emac0_pin_rgmii_txc",
+		pinctrl-names = "dev-emac0_pin_rgmii_txc_sleep",
 			"dev-emac0_pin_rgmii_txd0", "dev-emac0_pin_rgmii_txd1",
 			"dev-emac0_pin_rgmii_txd2", "dev-emac0_pin_rgmii_txd3",
-			"dev-emac0_pin_rgmii_tx_ctl","dev-emac0_pin_rgmii_rxc",
-			"dev-emac0_pin_rgmii_rxd0", "dev-emac0_pin_rgmii_rxd1",
-			"dev-emac0_pin_rgmii_rxd2", "dev-emac0_pin_rgmii_rxd3",
-			"dev-emac0_pin_rgmii_rx_ctl", "dev-emac0_mdc",
-			"dev-emac0_mdio";
+			"dev-emac0_pin_rgmii_tx_ctl", "dev-emac0_pin_rgmii_txc",
+			"dev-emac0_pin_rgmii_rxc", "dev-emac0_pin_rgmii_rxd0",
+			"dev-emac0_pin_rgmii_rxd1", "dev-emac0_pin_rgmii_rxd2",
+			"dev-emac0_pin_rgmii_rxd3", "dev-emac0_pin_rgmii_rx_ctl",
+			"dev-emac0_mdc", "dev-emac0_mdio";
 
-		pinctrl-0 = <&emac0_pin_rgmii_txc>;
+		pinctrl-0 = <&emac0_pin_rgmii_txc_sleep>;
 		pinctrl-1 = <&emac0_pin_rgmii_txd0>;
 		pinctrl-2 = <&emac0_pin_rgmii_txd1>;
 		pinctrl-3 = <&emac0_pin_rgmii_txd2>;
 		pinctrl-4 = <&emac0_pin_rgmii_txd3>;
 		pinctrl-5 = <&emac0_pin_rgmii_tx_ctl>;
-		pinctrl-6 = <&emac0_pin_rgmii_rxc>;
-		pinctrl-7 = <&emac0_pin_rgmii_rxd0>;
-		pinctrl-8 = <&emac0_pin_rgmii_rxd1>;
-		pinctrl-9 = <&emac0_pin_rgmii_rxd2>;
-		pinctrl-10 = <&emac0_pin_rgmii_rxd3>;
-		pinctrl-11 = <&emac0_pin_rgmii_rx_ctl>;
-		pinctrl-12 = <&emac0_mdc>;
-		pinctrl-13 = <&emac0_mdio>;
+		pinctrl-6 = <&emac0_pin_rgmii_txc>;
+		pinctrl-7 = <&emac0_pin_rgmii_rxc>;
+		pinctrl-8 = <&emac0_pin_rgmii_rxd0>;
+		pinctrl-9 = <&emac0_pin_rgmii_rxd1>;
+		pinctrl-10 = <&emac0_pin_rgmii_rxd2>;
+		pinctrl-11 = <&emac0_pin_rgmii_rxd3>;
+		pinctrl-12 = <&emac0_pin_rgmii_rx_ctl>;
+		pinctrl-13 = <&emac0_mdc>;
+		pinctrl-14 = <&emac0_mdio>;
+
+
 		mac_err_rec;
 
 		vreg_emac_phy-supply = <&vreg_emac_phy>;
