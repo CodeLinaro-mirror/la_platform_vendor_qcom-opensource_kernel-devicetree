@@ -1,1 +1,8 @@
 #include "sdxbaagha-qmp.dtsi"
+
+&soc {
+};
+
+&ipa_hw {
+	qcom,ipa-eth-pdu-enable;
+};
