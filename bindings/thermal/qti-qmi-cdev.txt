@@ -114,7 +114,8 @@ Subsystem properties:
 			"mmw_ific_sub1_dsc" -> DSC based MMW IFIC sub1 cooling device,
 			"modem_nr_1rx_dsc" -> DSC based modem nr rx cooling device,
 			"modem_nr_2rx_dsc" -> DSC based modem nr rx cooling device,
-			"modem_v2x" -> modem CV2X mitigation device.
+			"modem_v2x" -> modem CV2X mitigation device,
+			"dsds_switch_dsc" -> DSC based modem dsds switch cooling device.
 
 	-#cooling-cells:
 		Usage: required
