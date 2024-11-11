@@ -1,2 +1,22 @@
+&pcie0 {
+	status = "ok";
+};
+
+&pcie_ep {
+	status = "disabled";
+};
+
+&mhi_dev_qrtr {
+	status = "disabled";
+};
+
+&mhi_device {
+	status = "disabled";
+};
+
+&mhi_net_device {
+	status = "disabled";
+};
+
 &soc {
 };
