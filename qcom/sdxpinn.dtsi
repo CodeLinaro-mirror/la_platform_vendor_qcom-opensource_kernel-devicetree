@@ -2062,7 +2062,6 @@
 		qcom,mhi-has-smmu;
 		iommus = <&apps_smmu 0x800 0x0>;
 		qcom,iommu-dma = "bypass";
-		dummy-supply = <&pcie_ep>;
 
 		status = "disabled";
 	};
