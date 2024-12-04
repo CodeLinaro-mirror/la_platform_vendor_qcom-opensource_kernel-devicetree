@@ -5,8 +5,12 @@
 		reg = <0x1c98000 0x24000>;
 		reg-names = "qpic_base";
 
-		interrupts = <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>;
-		interrupt-names = "qpic_irq";
+		interrupts-extended = <&intc GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
+				<&intc GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>;
+
+		interrupt-names = "qpic_irq",
+				"bam_irq";
+
 
 		interconnect-names = "qpic-display-data-bus";
 		interconnects = <&system_noc MASTER_QPIC &mc_virt SLAVE_EBI1>;
