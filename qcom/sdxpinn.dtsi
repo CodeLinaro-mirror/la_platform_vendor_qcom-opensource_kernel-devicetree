@@ -411,12 +411,6 @@
 			qcom,glinkpkt-dev-name = "smd7";
 		};
 
-		qcom,glinkpkt-data4 {
-			qcom,glinkpkt-edge = "mpss";
-			qcom,glinkpkt-ch-name = "DATA4";
-			qcom,glinkpkt-dev-name = "smd8";
-		};
-
 		qcom,glinkpkt-data11 {
 			qcom,glinkpkt-edge = "mpss";
 			qcom,glinkpkt-ch-name = "DATA11";
