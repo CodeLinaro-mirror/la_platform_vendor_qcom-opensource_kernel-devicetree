@@ -545,10 +545,22 @@
 };
 
 &thermal_zones {
+	aoss-0 {
+		trips {
+			reset-mon-cfg {
+				hysteresis = <3000>;
+			};
+		};
+	};
+
 	cpuss-0 {
 		trips {
 			cpuss-0-emerg-cfg {
 				temperature = <118000>;
+			};
+
+			reset-mon-cfg {
+				hysteresis = <3000>;
 			};
 		};
 	};
@@ -558,6 +570,10 @@
 			cpuss-1-emerg-cfg {
 				temperature = <118000>;
 			};
+
+			reset-mon-cfg {
+				hysteresis = <3000>;
+			};
 		};
 	};
 
@@ -566,6 +582,10 @@
 			cpuss-2-emerg-cfg {
 				temperature = <118000>;
 			};
+
+			reset-mon-cfg {
+				hysteresis = <3000>;
+			};
 		};
 	};
 
@@ -573,6 +593,42 @@
 		trips {
 			cpuss-3-emerg-cfg {
 				temperature = <118000>;
+			};
+
+			reset-mon-cfg {
+				hysteresis = <3000>;
+			};
+		};
+	};
+
+	ethphy-0 {
+		trips {
+			reset-mon-cfg {
+				hysteresis = <3000>;
+			};
+		};
+	};
+
+	mvmss-0 {
+		trips {
+			reset-mon-cfg {
+				hysteresis = <3000>;
+			};
+		};
+	};
+
+	mdmq6-0 {
+		trips {
+			reset-mon-cfg {
+				hysteresis = <3000>;
+			};
+		};
+	};
+
+	ctile {
+		trips {
+			reset-mon-cfg {
+				hysteresis = <3000>;
 			};
 		};
 	};
@@ -585,6 +641,11 @@
 
 			mdmss0-config1 {
 				temperature = <120000>;
+				hysteresis = <2000>;
+			};
+
+			reset-mon-cfg {
+				hysteresis = <3000>;
 			};
 		};
 
@@ -616,6 +677,11 @@
 
 			mdmss1-config1 {
 				temperature = <120000>;
+				hysteresis = <2000>;
+			};
+
+			reset-mon-cfg {
+				hysteresis = <3000>;
 			};
 		};
 
@@ -648,6 +714,11 @@
 
 			mdmss2-config1 {
 				temperature = <120000>;
+				hysteresis = <2000>;
+			};
+
+			reset-mon-cfg {
+				hysteresis = <3000>;
 			};
 		};
 
