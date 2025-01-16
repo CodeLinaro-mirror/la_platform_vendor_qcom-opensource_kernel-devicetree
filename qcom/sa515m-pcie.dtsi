@@ -186,6 +186,8 @@
 		qcom,target-link-speed = <0x3>;
 
 		qcom,no-l0s-supported;
+		qcom,no-l1ss-supported;
+		qcom,no-l1-supported;
 
 		qcom,l1-2-th-scale = <2>; /* 1us */
 		qcom,l1-2-th-value = <70>;
