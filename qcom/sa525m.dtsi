@@ -11,6 +11,14 @@
 
 };
 
+&va_minidump {
+	/delete-property/ memory-region;
+
+	status = "disabled";
+};
+
+/delete-node/ &va_md_mem;
+
 &qseecom_user_contig_heap {
 	status = "disabled";
 };
