@@ -318,6 +318,7 @@
 
 		queue2 {
 			snps,dcb-algorithm;
+			snps,route-ptp;
 			snps,fifo_depth = <3072>;
 		};
 
