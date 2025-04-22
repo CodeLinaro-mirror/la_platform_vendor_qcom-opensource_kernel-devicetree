@@ -484,8 +484,6 @@
 		resets = <&gcc GCC_EMAC0_RGMII_CLK_ARES>;
 		reset-names = "emac0_rgmii_clk_ares";
 
-		wait_for_rx_clk_rdy = <0>;
-
 		fixed-link {
 			status = "disabled";
 			speed = <2500>;
