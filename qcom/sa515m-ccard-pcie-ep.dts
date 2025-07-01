@@ -34,6 +34,12 @@
 	};
 };
 
+&ethqos_hw {
+	ethqos_emb_smmu: ethqos_emb_smmu {
+		qcom,smmu-s1-bypass;
+	};
+};
+
 &mhi_device {
 	reg = <0x1c03000 0x1000>,
 		<0x1e15000 0x4>,

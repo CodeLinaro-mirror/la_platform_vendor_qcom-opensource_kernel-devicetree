@@ -18,6 +18,12 @@
 	status = "ok";
 };
 
+&ethqos_hw {
+	ethqos_emb_smmu: ethqos_emb_smmu {
+		qcom,smmu-s1-bypass;
+	};
+};
+
 &ipa_hw {
 	qcom,use-ipa-in-mhi-mode;
 	qcom,mhi-event-ring-id-limits = <7 13>; /* start and end */
