@@ -7,3 +7,9 @@
 	compatible = "qcom,sa515m";
 	qcom,board-id = <30 1> , <30 0x101>;
 };
+
+&ethqos_hw {
+	ethqos_emb_smmu: ethqos_emb_smmu {
+		qcom,smmu-s1-bypass;
+	};
+};
