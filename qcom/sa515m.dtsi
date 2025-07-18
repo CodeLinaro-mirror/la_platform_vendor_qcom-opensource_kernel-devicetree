@@ -1034,7 +1034,7 @@
 		qcom,proxy-reg-names = "vdd_cx", "vdd_mss";
 
 		qcom,firmware-name = "modem";
-		memory-region = <&mpss_adsp_mem>;
+		memory-region = <&mpss_adsp_mem>, <&mpss_debug_mem>;
 		qcom,pas-id = <4>;
 		qcom,smem-id = <421>;
 		qcom,sysmon-id = <0>;
