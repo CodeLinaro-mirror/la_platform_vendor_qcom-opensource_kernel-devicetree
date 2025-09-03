@@ -1488,4 +1488,14 @@
 		};
 	};
 };
+
+&soc {
+        qcom,msm-imem@1468F000 {
+                dload_type@18 {
+                        compatible = "qcom,msm-imem-dload-type";
+                        reg = <0x18 0x4>;
+                };
+        };
+};
+
 #include "sdxprairie-coresight.dtsi"
