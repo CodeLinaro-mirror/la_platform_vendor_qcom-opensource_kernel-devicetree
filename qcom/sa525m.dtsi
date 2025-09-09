@@ -368,6 +368,14 @@
 	compatible = "qcom,sa525m-modem-pas";
 };
 
+&ioss_eth0_tx {
+	qcom,ring-size = <1023>;
+};
+
+&ioss_eth0_rx {
+	qcom,ring-size = <1023>;
+};
+
 &ethqos_hw1 {
 		clocks =<&gcc GCC_EEE_EMAC0_CLK>,
 			<&gcc GCC_EMAC0_AXI_CLK>,
