@@ -41,15 +41,15 @@
 			label = "mpss_adsp_mem";
 		};
 
-		tz_apps_mem: tz_apps_region@0x90000000 {
+		tz_apps_mem: tz_apps_region@0x90010000 {
 			no-map;
-			reg = <0x90000000 0x500000>;
+			reg = <0x90010000 0x500000>;
 			label = "tz_apps_mem";
 		};
 
 		tz_mem: tz_region@8ff00000 {
 			no-map;
-			reg = <0x8ff00000 0x100000>;
+			reg = <0x8ff00000 0x110000>;
 			label = "tz_mem";
 		};
 
@@ -816,9 +816,9 @@
 			<&apps_smmu 0x0076 0x0011>;
 	};
 
-	qcom_seecom: qseecom@90000000 {
+	qcom_seecom: qseecom@90010000 {
 		compatible = "qcom,qseecom";
-		reg = <0x90000000 0x500000>;
+		reg = <0x90010000 0x500000>;
 		reg-names = "secapp-region";
 		memory-region = <&qseecom_mem>;
 		qcom,hlos-num-ce-hw-instances = <1>;
@@ -836,10 +836,10 @@
 		qcom,qsee-reentrancy-support = <2>;
 	};
 
-	qcom_smcinvoke: smcinvoke@90000000 {
+	qcom_smcinvoke: smcinvoke@90010000 {
 		compatible = "qcom,smcinvoke";
 		qcom,support-legacy_smc;
-		reg = <0x90000000 0x500000>;
+		reg = <0x90010000 0x500000>;
 		reg-names = "secapp-region";
 	};
 
