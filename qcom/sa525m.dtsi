@@ -480,7 +480,7 @@
 			<&ioss_eth0_qos_rx>,
 			<&ioss_eth0_qos_tx>;
 
-		snps,ptp-ref-clk-rate = <125000000>;
+		snps,ptp-ref-clk-rate = <230400000>;
 		snps,ptp-req-clk-rate = <57600000>;
 		avb-vlan-id = <2>;
 		snps,mtl-rx-config = <&mtl_rx_setup &qos_mtl_rx_setup>;
