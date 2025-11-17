@@ -23,7 +23,9 @@
 
 	memory { device_type = "memory"; reg = <0 0>; };
 
-	chosen: chosen { };
+	chosen: chosen {
+		bootargs = "vmalloc=324M";
+	};
 
 	aliases {
 		pci-domain0 = &pcie0; /* PCIe0 domain */
