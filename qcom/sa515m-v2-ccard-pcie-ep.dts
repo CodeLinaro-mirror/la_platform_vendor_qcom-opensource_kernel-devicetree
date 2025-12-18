@@ -10,6 +10,10 @@
 	qcom,board-id = <25 1>, <25 0x101>;
 };
 
+&chosen {
+	bootargs = "cma=4M";
+};
+
 &pcie0 {
 	status = "disabled";
 };
