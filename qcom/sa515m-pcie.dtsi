@@ -280,7 +280,7 @@
 		interrupts = <0>;
 		#interrupt-cells = <1>;
 		interrupt-map-mask = <0xffffffff>;
-		interrupt-map = <0 &intc 0 140 0>;
+		interrupt-map = <0 &intc 0 140 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-names = "int_global";
 
 		pinctrl-names = "default";
@@ -450,7 +450,7 @@
 			qcom,mhi-ep-msi = <0>;
 			qcom,mhi-version = <0x1000000>;
 			qcom,use-ipa-software-channel;
-			interrupts = <0 145 0>;
+			interrupts = <0 145 IRQ_TYPE_LEVEL_HIGH>;
 			interrupt-names = "mhi-device-inta";
 			qcom,mhi-ifc-id = <0x030617cb>;
 			qcom,mhi-interrupt;
