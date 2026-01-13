@@ -348,6 +348,7 @@ status = "ok";
 &pcie0 {
 	iommus = <&apps_smmu 0x800 0x0>;
 	qcom,iommu-dma = "bypass";
+	qcom,target-link-speed = <3>; /* Set max link speed to Gen3 */
 	status = "ok";
 };
 
