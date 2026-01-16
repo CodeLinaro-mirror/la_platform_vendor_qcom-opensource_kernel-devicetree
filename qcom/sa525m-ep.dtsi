@@ -25,6 +25,7 @@
 &pcie_ep {
 	qcom,pcie-device-id = /bits/ 16 <0x030a>;
 	qcom,override-disable-sriov;
+	qcom,pcie-link-speed = <3>; /* Set max link speed to Gen3 */
 	status = "ok";
 };
 
