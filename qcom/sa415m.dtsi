@@ -769,6 +769,7 @@
 				<0x14686000 0x14686000 0x3000>;
 			qcom,ipa-q6-smem-size = <16384>;
 			qcom,iommu-dma = "fastmap";
+			qcom,iova-wlan-end = <0x80000000>;
 		};
 
 		ipa_smmu_wlan: ipa_smmu_wlan {
