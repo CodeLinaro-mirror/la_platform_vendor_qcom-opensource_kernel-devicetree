@@ -1269,8 +1269,9 @@
 		qcom,arm-smmu;
 		reg = <0x20000 0x10000>,
 			<0x36000 0x100>,
-			<0xf100000 0x300000>;
-		reg-names = "stmmaceth", "rgmii","tlmm-central-base";
+			<0xf100000 0x300000>,
+			<0x147010 0x4>;
+		reg-names = "stmmaceth", "rgmii","tlmm-central-base","gcc_rgmii";
 		clocks = <&gcc GCC_ETH_AXI_CLK>,
 			<&gcc GCC_ETH_SLAVE_AHB_CLK>,
 			<&gcc GCC_ETH_PTP_CLK>,
