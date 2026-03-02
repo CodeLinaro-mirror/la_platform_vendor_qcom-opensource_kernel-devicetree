@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 /* Remove regulator nodes specific to sdmshrike */
 &apps_rsc_drv2 {
 	/* Logical rails */
