@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "sm6150.dtsi"
 #include "sa6155-pmic.dtsi"
 #include "display/sa6155-display.dtsi"

@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &soc {
 	msm_npu: qcom,msm_npu@9800000 {
 		compatible = "qcom,msm-npu";

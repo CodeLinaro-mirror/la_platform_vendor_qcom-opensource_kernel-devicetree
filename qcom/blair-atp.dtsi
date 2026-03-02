@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &rpm_bus {
 	/* Delete all PM6125 and PMR735a rpm-regulators */
 	/delete-node/ rpm-regulator-smpa6;

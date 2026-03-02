@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &regulator {
 	L17A: pm8195_1_l17: regulator-pm8195-1-l17 {
 		regulator-name = "ldoa17";

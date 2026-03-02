@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &soc {
 	snd_8255_ar: sound-adp-star {
 		compatible = "qcom,gvm-auto-spf-asoc-snd-adp-star";
