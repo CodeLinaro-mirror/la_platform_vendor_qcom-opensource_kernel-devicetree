@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 qcom,qbg-battery-profile-alium-860-89032-0000-3600mAh {
 	qcom,battery-type = "ALIUM_860_89032_0000_3600MAH";
 	qcom,batt-id-kohm = <107>;
