@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &q6core {
 	lpi_tlmm: lpi_pinctrl@33c0000 {
 		compatible = "qcom,lpi-pinctrl";

@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &tlmm {
 	qupv3_se0_i2c_pins: qupv3_se0_i2c_pins {
 		qupv3_se0_i2c_active: qupv3_se0_i2c_active {

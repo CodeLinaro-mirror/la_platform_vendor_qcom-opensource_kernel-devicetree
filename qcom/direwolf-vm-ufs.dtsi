@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &regulator {
 	L8G0: pm8540_g0_l8: regulator-pm8540_g0-l8 {
 		regulator-name = "ldog8";
