@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &reserved_memory {
 	/* Size of TeleVM is 90MB */
 	tele_vm_mem: tele_vm_region@B0000000 {
