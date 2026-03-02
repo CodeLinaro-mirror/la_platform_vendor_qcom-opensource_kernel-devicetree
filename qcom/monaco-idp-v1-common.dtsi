@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "monaco-thermal-overlay.dtsi"
 #include "monaco-haptics-fifo-data.dtsi"
 

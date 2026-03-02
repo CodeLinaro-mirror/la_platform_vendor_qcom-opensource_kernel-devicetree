@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &chosen {
 	bootargs = "disable_dma32=on swiotlb=noforce kpti=off cpufreq.default_governor=performance pcie_ports=compat msm_rtb.filter=0x237 ftrace_dump_on_oops reboot=w";
 };
