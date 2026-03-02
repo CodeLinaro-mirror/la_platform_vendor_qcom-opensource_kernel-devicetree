@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include <dt-bindings/clock/qcom,rpmcc.h>
 #include <dt-bindings/input/linux-event-codes.h>
 #include <dt-bindings/input/qcom,qpnp-power-on.h>

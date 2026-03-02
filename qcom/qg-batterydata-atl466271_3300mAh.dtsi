@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 qcom,ATL466271_3300mAh {
 	/* ATL466271_3300mAh_averaged_MasterSlave_Jun12th2019 */
 	qcom,max-voltage-uv = <4400000>;

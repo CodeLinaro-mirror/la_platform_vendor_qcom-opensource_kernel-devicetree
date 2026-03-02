@@ -1,2 +1,7 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "sa8155-adp-common.dtsi"
 #include "display/sa8155-adp-star-display.dtsi"
