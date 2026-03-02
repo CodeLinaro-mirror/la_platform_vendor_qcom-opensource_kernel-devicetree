@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &chosen {
 	bootargs = "nokaslr kpti=0 log_buf_len=256K swiotlb=0 loop.max_part=7 fw_devlink.strict=1";
 };

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0
+
 
 # add-overlay defines the target with following naming convention:
 # <base>-<board>-dtbs = base.dtb board.dtbo

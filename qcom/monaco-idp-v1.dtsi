@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "monaco-idp-v1-common.dtsi"
 #include <dt-bindings/iio/qcom,spmi-adc5-gen3-pm5100.h>
 #include <dt-bindings/iio/qti_power_supply_iio.h>
