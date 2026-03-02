@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &sdhc_1 {
 	vdd-supply = <&L20A>;
 	qcom,vdd-voltage-level = <2856000 2856000>;
