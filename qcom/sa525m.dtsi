@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "sdxpinn.dtsi"
 #include "sa525m-pmic-overlay.dtsi"
 #include "sa525m-mhi.dtsi"
