@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &lpi_tlmm {
 	quat_mi2s_sck {
 		quat_mi2s_sck_sleep: quat_mi2s_sck_sleep {

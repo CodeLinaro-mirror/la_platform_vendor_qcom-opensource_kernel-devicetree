@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "pm6150.dtsi"
 #include "pm6150l.dtsi"
 #include <dt-bindings/clock/qcom,rpmh.h>

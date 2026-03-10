@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &mdss_dsi_phy0 {
 	vdda-0p9-supply = <&S1E_LEVEL>;
 };

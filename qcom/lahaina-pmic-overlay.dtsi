@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
 #include <dt-bindings/iio/qcom,spmi-adc7-smb139x.h>
 

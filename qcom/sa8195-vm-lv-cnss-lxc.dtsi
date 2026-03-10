@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &cnss_pins {
 	cnss_wlan_en_active2: cnss_wlan_en_active2 {
 		mux {
