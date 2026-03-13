@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &soc {
 	mdm0: qcom,remoteproc-esoc0 {
 		cell-index = <0>;
