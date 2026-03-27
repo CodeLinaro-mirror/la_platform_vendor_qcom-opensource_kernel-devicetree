@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "scuba-qrd.dtsi"
 #include "camera/scuba-camera-sensor-idp-v3.dtsi"
 #include "display/scuba-sde-display-qrd-v3.dtsi"

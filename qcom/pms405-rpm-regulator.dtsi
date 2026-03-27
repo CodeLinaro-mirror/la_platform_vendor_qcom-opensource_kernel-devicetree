@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &rpm_bus {
 	/* VDD_MX/CX supply */
 	rpm-regulator-smpa1 {

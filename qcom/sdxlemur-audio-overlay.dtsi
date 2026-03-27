@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "sdxlemur-wcd.dtsi"
 #include "sdx-wsa881x.dtsi"
 #include <dt-bindings/clock/qcom,audio-ext-clk.h>

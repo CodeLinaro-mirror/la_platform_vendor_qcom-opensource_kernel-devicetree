@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 qcom,qbg-battery-profile-qrd-zwd-520mAh {
 	qcom,battery-type = "QRD_ZWD_520MAH";
 	qcom,batt-id-kohm = <33>;
