@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &pm5100_adc {
 	pm5100_pa_therm_0 {
 		reg = <PM5100_ADC5_GEN3_AMUX5_THM_100K_PU>;
