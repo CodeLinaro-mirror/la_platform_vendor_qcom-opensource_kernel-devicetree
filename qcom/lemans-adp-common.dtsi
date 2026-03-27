@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "lemans-pmic-overlay.dtsi"
 #include "lemans-thermal-overlay.dtsi"
 #include "lemans-cnss.dtsi"

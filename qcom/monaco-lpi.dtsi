@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &spf_core_platform {
 	lpass_audio_hw_vote: vote_lpass_audio_hw {
 		compatible = "qcom,audio-ref-clk";

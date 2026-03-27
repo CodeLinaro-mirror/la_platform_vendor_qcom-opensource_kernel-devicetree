@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &qmi_tmd {
 	modem {
 		qcom,instance-id = <QMI_MODEM_INST_ID>;
