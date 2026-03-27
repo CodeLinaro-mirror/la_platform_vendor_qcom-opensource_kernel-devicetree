@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &tlmm {
 	conn_power_pa_active2: conn_power_pa2_active2 {
 		mux {
