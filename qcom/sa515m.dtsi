@@ -1308,6 +1308,10 @@
 		pinctrl-1 = <&emac_pin_pps_1>;
 		snps,reset-gpios = <&tlmm 91 GPIO_ACTIVE_HIGH>;
 
+                interconnect-names = "axi_icc_path", "apb_icc_path";
+		interconnects = <&system_noc MASTER_EMAC &mc_virt SLAVE_EBI1>,
+				<&mem_noc MASTER_APPSS_PROC &system_noc SLAVE_EMAC_CFG>;
+
 		snps,reset-delays-us = <0 10000 100000>;
 		phy-mode = "rgmii";
 
