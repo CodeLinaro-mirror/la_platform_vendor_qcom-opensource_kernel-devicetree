@@ -186,3 +186,7 @@
 		};
 	};
 };
+
+&vbus_detect {
+	status = "okay";
+};
