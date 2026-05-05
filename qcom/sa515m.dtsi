@@ -1133,6 +1133,11 @@
 		qcom,wan-aggr-time-limit = <200>;
 		qcom,lan-aggr-time-limit = <200>;
 		qcom,rndis-aggr-time-limit = <200>;
+		qcom,ipa-uc-holb-monitor;
+		qcom,ipa-holb-monitor-poll-period = <5>;
+		qcom,ipa-holb-monitor-max-cnt-embd = <10>;
+		qcom,ipa-holb-monitor-max-cnt-eth = <10>;
+		qcom,ipa-holb-monitor-max-cnt-wlan = <10>;
 		qcom,max_num_smmu_cb = <3>;
 		qcom,interconnect,num-cases = <5>;
 		qcom,interconnect,num-paths = <5>;
