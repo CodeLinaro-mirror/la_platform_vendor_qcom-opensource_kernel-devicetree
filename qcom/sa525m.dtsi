@@ -497,7 +497,6 @@
 		mac-mode = "sgmii";
 		snps,phy-addr = <0>;
 		managed = "auto";
-		eth-c45-mdio-probe;
 		mac-address = [00 55 7B B5 7D f7];
 		enable-pfc;
 
