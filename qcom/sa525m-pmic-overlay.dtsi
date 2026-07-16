@@ -102,6 +102,9 @@
 		startup-delay-us = <4000>;
 		enable-active-high;
 		gpio = <&pmx75_gpios 14 GPIO_ACTIVE_HIGH>;
+		/* Keep PWR_CTRL1 matched with always-on VDD_CORE_VH to avoid VDD_PA leak */
+		regulator-boot-on;
+		regulator-always-on;
 	};
 
 };
