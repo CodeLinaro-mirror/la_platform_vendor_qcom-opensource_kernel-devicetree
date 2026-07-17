@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include <dt-bindings/clock/qcom,gcc-sc8180x.h>
 #include <dt-bindings/phy/qcom,sm8150-qmp-usb3.h>
 &soc {

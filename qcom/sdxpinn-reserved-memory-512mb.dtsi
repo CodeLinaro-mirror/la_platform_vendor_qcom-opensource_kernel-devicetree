@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &gunyah_hyp_mem {
 	no-map;
 	reg = <0x0 0x80000000 0x0 0x600000>;

@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 /* Waipio configurations for PM8010I and PM8010J connected via SPMI */
 
 #include <dt-bindings/interrupt-controller/irq.h>
