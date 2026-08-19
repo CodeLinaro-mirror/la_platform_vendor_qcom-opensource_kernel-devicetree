@@ -61,21 +61,14 @@
 		qcom,iommu-dma = "bypass";
 	};
 
-	ipa_smmu_wlan: ipa_smmu_wlan {
-		qcom,iommu-dma = "bypass";
-	};
-
 	ipa_smmu_uc: ipa_smmu_uc {
 		qcom,iommu-dma = "bypass";
 	};
 
-	ipa_smmu_wlan1: ipa_smmu_wlan1 {
-		qcom,iommu-dma = "bypass";
-	};
+};
 
-	ipa_smmu_wlan2: ipa_smmu_wlan2 {
-		qcom,iommu-dma = "bypass";
-	};
+&ipa_wlan_group {
+	qcom,iommu-dma = "bypass";
 };
 
 &ipa_eth_group1 {
