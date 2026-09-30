@@ -87,3 +87,11 @@
 	/delete-property/qcom,default-policy-nop;
 	qcom,default-policy-panic;
 };
+
+&cnss_pci_iommu_group {
+	qcom,iommu-dma = "bypass";
+};
+
+&cnss_wlan_mem {
+	size = <0x0 0x2000000>;
+};
