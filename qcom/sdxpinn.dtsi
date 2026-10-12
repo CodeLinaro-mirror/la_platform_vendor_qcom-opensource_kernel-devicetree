@@ -2172,6 +2172,11 @@
 		status = "disabled";
 	};
 
+	ipa_wlan_group: ipa_wlan_group {
+		qcom,iommu-dma = "atomic";
+		dma-coherent;
+	};
+
 	ipa_eth_group1: ipa_eth_group1 {
 		qcom,iommu-dma-addr-pool = <0x80000000 0x07E00000>;
 		qcom,iommu-dma = "fastmap";
@@ -2282,11 +2287,6 @@
 			qcom,iommu-dma = "fastmap";
 			dma-coherent;
 			qcom,ipa-q6-smem-size = <45056>;
-		};
-
-		ipa_wlan_group: ipa_wlan_group {
-			qcom,iommu-dma = "atomic";
-			dma-coherent;
 		};
 
 		ipa_smmu_wlan: ipa_smmu_wlan {

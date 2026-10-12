@@ -5,6 +5,7 @@
 
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/clock/qcom,gcc-sdxpinn.h>
+#include "sa525m-cnss-wlan.dtsi"
 
 &tlmm {
 	emac {
